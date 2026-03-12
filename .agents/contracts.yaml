@@ -1,0 +1,25 @@
+contracts:
+  - name: AgentSnapshot
+    owner: backend
+    consumers:
+      - frontend
+    path: "apps/api/src/schemas/agent.py"
+
+  - name: WorldSnapshot
+    owner: backend
+    consumers:
+      - frontend
+      - worker
+    path: "apps/api/src/schemas/world.py"
+
+  - name: TradeLog
+    owner: backend
+    consumers:
+      - frontend
+    path: "apps/api/src/schemas/trade.py"
+
+  - name: ApiResponse
+    owner: backend
+    consumers:
+      - frontend
+    path: "apps/api/src/schemas/common.py"

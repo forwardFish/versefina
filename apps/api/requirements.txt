@@ -1,0 +1,10 @@
+fastapi>=0.111
+uvicorn>=0.30
+sqlalchemy>=2.0
+alembic>=1.13
+pydantic>=2.8
+redis>=5.0
+celery>=5.4
+langgraph>=0.2
+pytest>=8.3
+ruff>=0.11

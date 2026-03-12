@@ -1,0 +1,32 @@
+code_rules:
+  require_small_changesets: true
+  max_files_per_change: 15
+  require_tests_for_backend: true
+  require_tests_for_frontend: false
+  forbid_unreviewed_schema_drop: true
+
+protected_paths:
+  - "infra/prod/**"
+  - "secrets/**"
+  - ".env"
+  - ".env.local"
+  - "docker-compose.prod.yml"
+  - ".github/workflows/prod-*"
+
+readonly_paths:
+  - "docs/archive/**"
+  - "vendor/**"
+  - "apps/web/src/shared/ui/**"
+
+forbidden_actions:
+  - direct_push_main
+  - skip_required_checks
+  - bypass_review
+  - delete_migrations
+  - modify_secrets
+
+approval_triggers:
+  schema_changes: true
+  auth_logic_changes: true
+  billing_changes: true
+  infra_changes: true

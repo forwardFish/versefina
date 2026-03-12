@@ -1,0 +1,25 @@
+install:
+  - "pnpm --dir apps/web install"
+  - "pip install -r apps/api/requirements.txt"
+  - "pip install -r apps/worker/requirements.txt"
+
+lint:
+  - "pnpm --dir apps/web lint"
+  - "python -m ruff check apps/api/src"
+  - "python -m ruff check apps/worker/src"
+
+typecheck:
+  - "pnpm --dir apps/web type-check"
+
+test:
+  - "pnpm --dir apps/web test:unit --run"
+  - "python -m pytest apps/api/tests -v"
+  - "python -m pytest apps/worker/tests -v"
+
+build:
+  - "pnpm --dir apps/web build"
+
+start:
+  api: "python -m apps.api.src.main"
+  worker: "python -m apps.worker.src.main"
+  web: "pnpm --dir apps/web dev"

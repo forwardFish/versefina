@@ -1,0 +1,4 @@
+celery>=5.4
+redis>=5.0
+pytest>=8.3
+ruff>=0.11

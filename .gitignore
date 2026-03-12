@@ -1,0 +1,16 @@
+.env
+.env.local
+.runtime/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+*.pyc
+
+apps/web/node_modules/
+apps/web/.next/
+apps/web/.pnpm-store/
+*.tsbuildinfo
+
+dist/
+build/

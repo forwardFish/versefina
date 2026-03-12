@@ -1,0 +1,12 @@
+{
+  "project": "versefina",
+  "description": "Agent-native finance backtesting platform",
+  "default_branch": "main",
+  "working_branch_prefix": "agent/",
+  "stack_paths": {
+    "frontend": "apps/web",
+    "backend": "apps/api",
+    "worker": "apps/worker"
+  },
+  "status": "bootstrap-ready"
+}

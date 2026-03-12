@@ -1,0 +1,37 @@
+name: versefina
+description: Agent-native finance backtesting platform
+type: fullstack_platform
+
+stack:
+  frontend:
+    framework: nextjs
+    language: typescript
+    package_manager: pnpm
+    path: apps/web
+    build_dir: apps/web/.next
+  backend:
+    framework: fastapi
+    language: python
+    package_manager: pip
+    path: apps/api
+    runtime: python:3.11
+  worker:
+    framework: celery
+    language: python
+    path: apps/worker
+
+git:
+  default_branch: main
+  working_branch_prefix: "agent/"
+  protected_branches:
+    - main
+    - develop
+
+environments:
+  local: true
+  test: true
+  preview: false
+  prod: false
+
+owners:
+  human_reviewer: "default"
