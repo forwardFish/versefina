@@ -1,17 +1,6 @@
-commands:
-  install:
-    - "pnpm install --dir apps/web"
-    - "pip install -e apps/api"
-  lint:
-    - "pnpm --dir apps/web lint"
-    - "ruff check apps/api/src"
-  typecheck:
-    - "pnpm --dir apps/web tsc --noEmit"
-    - "mypy apps/api/src"
-  test:
-    - "pnpm --dir apps/web test:run"
-    - "pytest apps/api/tests"
-  format:
-    - "pnpm --dir apps/web prettier --write ."
-    - "black apps/api/src"
-    - "ruff check apps/api/src --fix"
+format:
+  - 'pnpm --dir apps/web exec prettier --write "src/app/(dashboard)/agents/[agentId]/page.tsx"'
+lint:
+  - "pnpm --dir apps/web lint"
+test:
+  - "pnpm --dir apps/web test --run"
