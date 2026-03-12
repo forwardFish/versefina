@@ -1,5 +1,5 @@
 format:
-  - 'pnpm --dir apps/web dlx prettier --write "src/app/(dashboard)/agents/[agentId]/page.tsx"'
+  - 'python scripts/format_frontend_file.py "apps/web/src/app/(dashboard)/agents/[agentId]/page.tsx" "src/app/(dashboard)/agents/[agentId]/page.tsx"'
 lint:
   - "pnpm --dir apps/web lint"
 test:
