@@ -1,5 +1,5 @@
 format:
-  - 'pnpm --dir apps/web exec prettier --write "src/app/(dashboard)/agents/[agentId]/page.tsx"'
+  - 'pnpm --dir apps/web dlx prettier --write "src/app/(dashboard)/agents/[agentId]/page.tsx"'
 lint:
   - "pnpm --dir apps/web lint"
 test:
