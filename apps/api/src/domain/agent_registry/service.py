@@ -21,9 +21,13 @@ class AgentRegistryService:
         return AgentSnapshot(
             agent_id=agent_id,
             status="active",
-            equity=105000.00,
-            cash=50000.00,
+            equity=105000.0,
+            cash=50000.0,
             drawdown=0.05,
-            tags=["趋势", "短线"],
-            positions=[Position(symbol="600519.SH", qty=100, avg_cost=1680.0)],
+            tags=["trend", "swing"],
+            positions=[
+                Position(symbol="600519.SH", qty=100, avg_cost=1680.0),
+                Position(symbol="000001.SZ", qty=300, avg_cost=12.45),
+                Position(symbol="AAPL", qty=25, avg_cost=182.3),
+            ],
         )
