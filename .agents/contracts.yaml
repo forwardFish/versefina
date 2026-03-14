@@ -1,3 +1,25 @@
+contract_policy:
+  change_units:
+    execution_unit: story
+    planning_units:
+      - backlog
+      - sprint
+      - epic
+  boundaries:
+    allowed_roots:
+      - docs/contracts
+      - apps/api
+      - apps/web
+      - scripts
+    protected_paths:
+      - .agents
+  required_gates:
+    - code_style_review
+    - tester
+    - reviewer
+    - code_acceptance
+    - acceptance_gate
+
 contracts:
   - name: AgentSnapshot
     owner: backend

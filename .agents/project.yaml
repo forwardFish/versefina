@@ -2,6 +2,14 @@ name: versefina
 description: Agent-native finance backtesting platform
 type: fullstack_platform
 
+paths:
+  style_guide: ".agents/style_guide.md"
+  review_policy: ".agents/review_policy.yaml"
+  commands: ".agents/commands.yaml"
+  contracts_root: "docs/contracts"
+  backend_root: "apps/api"
+  frontend_root: "apps/web"
+
 stack:
   frontend:
     framework: nextjs
@@ -32,6 +40,21 @@ environments:
   test: true
   preview: false
   prod: false
+
+code_style:
+  python: "black + ruff"
+  frontend: "prettier + eslint"
+  indent:
+    python: 4
+    frontend: 2
+  line_length: 120
+
+acceptance_rules:
+  - "必须 100% 满足验收标准"
+  - "必须通过代码风格审查"
+  - "必须通过测试与 Story 专项校验"
+  - "必须通过 Reviewer、Code Acceptance 和 Acceptance Gate"
+  - "不得修改任务卡范围之外的文件"
 
 owners:
   human_reviewer: "default"
