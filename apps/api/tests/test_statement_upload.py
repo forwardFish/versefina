@@ -34,11 +34,16 @@ class StatementUploadApiTestCase(unittest.TestCase):
         self.statement_meta_root = Path(self.tempdir.name) / "statement_meta"
         self.statement_parse_report_root = Path(self.tempdir.name) / "statement_parse_reports"
         self.trade_record_root = Path(self.tempdir.name) / "trade_records"
+        self.agent_profile_root = Path(self.tempdir.name) / "agent_profiles"
+        self.agent_registry_root = Path(self.tempdir.name) / "agents"
         self.original_env = {
             "OBJECT_STORE_ROOT": os.environ.get("OBJECT_STORE_ROOT"),
             "STATEMENT_META_ROOT": os.environ.get("STATEMENT_META_ROOT"),
             "STATEMENT_PARSE_REPORT_ROOT": os.environ.get("STATEMENT_PARSE_REPORT_ROOT"),
             "TRADE_RECORD_ROOT": os.environ.get("TRADE_RECORD_ROOT"),
+            "AGENT_PROFILE_ROOT": os.environ.get("AGENT_PROFILE_ROOT"),
+            "AGENT_REGISTRY_ROOT": os.environ.get("AGENT_REGISTRY_ROOT"),
+            "PUBLIC_BASE_URL": os.environ.get("PUBLIC_BASE_URL"),
             "OBJECT_STORE_BUCKET": os.environ.get("OBJECT_STORE_BUCKET"),
             "STATEMENT_MAX_UPLOAD_BYTES": os.environ.get("STATEMENT_MAX_UPLOAD_BYTES"),
         }
@@ -46,6 +51,9 @@ class StatementUploadApiTestCase(unittest.TestCase):
         os.environ["STATEMENT_META_ROOT"] = str(self.statement_meta_root)
         os.environ["STATEMENT_PARSE_REPORT_ROOT"] = str(self.statement_parse_report_root)
         os.environ["TRADE_RECORD_ROOT"] = str(self.trade_record_root)
+        os.environ["AGENT_PROFILE_ROOT"] = str(self.agent_profile_root)
+        os.environ["AGENT_REGISTRY_ROOT"] = str(self.agent_registry_root)
+        os.environ["PUBLIC_BASE_URL"] = "http://127.0.0.1:8000"
         os.environ["OBJECT_STORE_BUCKET"] = "test-artifacts"
         os.environ["STATEMENT_MAX_UPLOAD_BYTES"] = str(10 * 1024 * 1024)
         self.client = TestClient(create_app())
@@ -261,6 +269,106 @@ class StatementUploadApiTestCase(unittest.TestCase):
         detail_payload = detail_response.json()
         self.assertEqual(detail_payload["upload_status"], "failed")
         self.assertEqual(detail_payload["error_code"], "STATEMENT_MAPPING_RULE_NOT_FOUND")
+
+    def test_profile_generation_persists_profile_json(self) -> None:
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_profile", "market": "CN_A", "statement_id": "stmt_profile_001"},
+            files={
+                "file": (
+                    "profile.csv",
+                    "trade_date,symbol,side,quantity,price,fee,tax\n"
+                    "2026-03-14,600519.SH,buy,100,1700.5,5,0\n"
+                    "2026-03-15,300750.SZ,sell,200,198.1,6.5,1\n",
+                    "text/csv",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+        self.assertEqual(self.client.post("/api/v1/statements/stmt_profile_001/parse").status_code, 200)
+
+        profile_response = self.client.post("/api/v1/statements/stmt_profile_001/profile")
+        self.assertEqual(profile_response.status_code, 200)
+        payload = profile_response.json()
+        self.assertEqual(payload["statement_id"], "stmt_profile_001")
+        self.assertEqual(payload["trade_record_count"], 2)
+        self.assertIn("styleTags", payload["profile"])
+        self.assertIn("riskControls", payload["profile"])
+        self.assertTrue((self.agent_profile_root / "stmt_profile_001.json").exists())
+
+        query_response = self.client.get("/api/v1/statements/stmt_profile_001/profile")
+        self.assertEqual(query_response.status_code, 200)
+        self.assertEqual(query_response.json()["statement_id"], "stmt_profile_001")
+
+    def test_agent_creation_closes_statement_to_agent_loop(self) -> None:
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_agent", "market": "CN_A", "statement_id": "stmt_agent_001"},
+            files={
+                "file": (
+                    "agent.csv",
+                    "trade_date,symbol,side,quantity,price,fee,tax\n"
+                    "2026-03-14,600519.SH,buy,100,1700.5,5,0\n"
+                    "2026-03-15,600519.SH,sell,100,1710.5,5,1\n",
+                    "text/csv",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+        self.assertEqual(self.client.post("/api/v1/statements/stmt_agent_001/parse").status_code, 200)
+        self.assertEqual(self.client.post("/api/v1/statements/stmt_agent_001/profile").status_code, 200)
+
+        create_response = self.client.post(
+            "/api/v1/agents",
+            json={
+                "owner_id": "user_agent",
+                "statement_id": "stmt_agent_001",
+                "init_cash": 500000,
+            },
+        )
+        self.assertEqual(create_response.status_code, 200)
+        payload = create_response.json()
+        self.assertTrue(payload["agent_id"].startswith("agt_"))
+        self.assertEqual(payload["statement_id"], "stmt_agent_001")
+        self.assertEqual(payload["status"], "active")
+        self.assertTrue((self.agent_registry_root / f"{payload['agent_id']}.json").exists())
+
+        snapshot_response = self.client.get(f"/api/v1/agents/{payload['agent_id']}/snapshot")
+        self.assertEqual(snapshot_response.status_code, 200)
+        snapshot = snapshot_response.json()
+        self.assertEqual(snapshot["agent_id"], payload["agent_id"])
+        self.assertEqual(snapshot["owner_id"], "user_agent")
+        self.assertEqual(snapshot["cash"], 500000.0)
+
+        detail_response = self.client.get(f"/api/v1/agents/{payload['agent_id']}")
+        self.assertEqual(detail_response.status_code, 200)
+        self.assertEqual(detail_response.json()["statement_id"], "stmt_agent_001")
+
+    def test_agent_creation_requires_generated_profile(self) -> None:
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_missing_profile", "market": "CN_A", "statement_id": "stmt_missing_profile"},
+            files={
+                "file": (
+                    "agent.csv",
+                    "trade_date,symbol,side,quantity,price,fee,tax\n2026-03-14,600519.SH,buy,100,1700.5,5,0\n",
+                    "text/csv",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+        self.assertEqual(self.client.post("/api/v1/statements/stmt_missing_profile/parse").status_code, 200)
+
+        create_response = self.client.post(
+            "/api/v1/agents",
+            json={
+                "owner_id": "user_missing_profile",
+                "statement_id": "stmt_missing_profile",
+                "init_cash": 200000,
+            },
+        )
+        self.assertEqual(create_response.status_code, 404)
+        self.assertEqual(create_response.json()["error_code"], "PROFILE_NOT_FOUND")
 
     def test_upload_rolls_back_when_object_store_write_fails(self) -> None:
         class FailingObjectStore(LocalObjectStore):

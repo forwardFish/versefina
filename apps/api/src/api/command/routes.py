@@ -7,6 +7,7 @@ from modules.statements.parser_service import StatementParseError
 from modules.statements.service import StatementUploadValidationError
 from modules.statements.status_machine import InvalidStatementTransitionError
 from schemas.command import (
+    AgentCreateRequest,
     AgentRegisterRequest,
     HeartbeatRequest,
     StatementStatusUpdateRequest,
@@ -54,6 +55,69 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
     @router.post("/api/v1/agents/register")
     def register_agent(payload: AgentRegisterRequest):
         return container.agent_registry.register(payload)
+
+    @router.post("/api/v1/statements/{statement_id}/profile")
+    def build_statement_profile(statement_id: str):
+        metadata = container.statement_ingestion.get_statement(statement_id)
+        if metadata is None:
+            return JSONResponse(
+                status_code=404,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": "STATEMENT_NOT_FOUND",
+                    "error_message": "Statement metadata not found.",
+                },
+            )
+        if metadata.upload_status != "parsed":
+            return JSONResponse(
+                status_code=409,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": "STATEMENT_NOT_PARSED",
+                    "error_message": "Statement must be parsed before profile generation.",
+                },
+            )
+        try:
+            result = container.dna_engine.build_profile(statement_id, market=metadata.market)
+        except FileNotFoundError:
+            return JSONResponse(
+                status_code=404,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": "TRADE_RECORDS_NOT_FOUND",
+                    "error_message": "Trade records not found for profile generation.",
+                },
+            )
+        return asdict(result)
+
+    @router.post("/api/v1/agents")
+    def create_agent(payload: AgentCreateRequest):
+        metadata = container.statement_ingestion.get_statement(payload.statement_id)
+        if metadata is None:
+            return JSONResponse(
+                status_code=404,
+                content={
+                    "statement_id": payload.statement_id,
+                    "error_code": "STATEMENT_NOT_FOUND",
+                    "error_message": "Statement metadata not found.",
+                },
+            )
+        profile = container.dna_engine.get_profile(payload.statement_id)
+        if profile is None:
+            return JSONResponse(
+                status_code=404,
+                content={
+                    "statement_id": payload.statement_id,
+                    "error_code": "PROFILE_NOT_FOUND",
+                    "error_message": "Profile must be generated before agent creation.",
+                },
+            )
+        result = container.agent_registry.create_agent(
+            payload,
+            profile=profile,
+            profile_path=str(container.dna_engine.profile_root / f"{payload.statement_id}.json"),
+        )
+        return asdict(result)
 
     @router.post("/api/v1/statements/{statement_id}/parse")
     def parse_statement(statement_id: str):

@@ -50,8 +50,15 @@ def build_container() -> ServiceContainer:
         trade_record_root=Path(settings.trade_record_root),
     )
     return ServiceContainer(
-        agent_registry=AgentRegistryService(default_world_id=settings.default_world_id),
-        dna_engine=DNAEngineService(),
+        agent_registry=AgentRegistryService(
+            default_world_id=settings.default_world_id,
+            registry_root=Path(settings.agent_registry_root),
+            public_base_url=settings.public_base_url,
+        ),
+        dna_engine=DNAEngineService(
+            trade_record_root=Path(settings.trade_record_root),
+            profile_root=Path(settings.agent_profile_root),
+        ),
         statement_ingestion=statement_ingestion,
         statement_parser=statement_parser,
         market_world=MarketWorldService(default_world_id=settings.default_world_id),
