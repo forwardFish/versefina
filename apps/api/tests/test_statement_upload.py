@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import io
 import json
 import os
 import sys
@@ -7,6 +8,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import pandas as pd
 from fastapi.testclient import TestClient
 
 SRC_DIR = Path(__file__).resolve().parents[1] / "src"
@@ -30,14 +32,20 @@ class StatementUploadApiTestCase(unittest.TestCase):
         self.tempdir = tempfile.TemporaryDirectory()
         self.object_store_root = Path(self.tempdir.name) / "object_store"
         self.statement_meta_root = Path(self.tempdir.name) / "statement_meta"
+        self.statement_parse_report_root = Path(self.tempdir.name) / "statement_parse_reports"
+        self.trade_record_root = Path(self.tempdir.name) / "trade_records"
         self.original_env = {
             "OBJECT_STORE_ROOT": os.environ.get("OBJECT_STORE_ROOT"),
             "STATEMENT_META_ROOT": os.environ.get("STATEMENT_META_ROOT"),
+            "STATEMENT_PARSE_REPORT_ROOT": os.environ.get("STATEMENT_PARSE_REPORT_ROOT"),
+            "TRADE_RECORD_ROOT": os.environ.get("TRADE_RECORD_ROOT"),
             "OBJECT_STORE_BUCKET": os.environ.get("OBJECT_STORE_BUCKET"),
             "STATEMENT_MAX_UPLOAD_BYTES": os.environ.get("STATEMENT_MAX_UPLOAD_BYTES"),
         }
         os.environ["OBJECT_STORE_ROOT"] = str(self.object_store_root)
         os.environ["STATEMENT_META_ROOT"] = str(self.statement_meta_root)
+        os.environ["STATEMENT_PARSE_REPORT_ROOT"] = str(self.statement_parse_report_root)
+        os.environ["TRADE_RECORD_ROOT"] = str(self.trade_record_root)
         os.environ["OBJECT_STORE_BUCKET"] = "test-artifacts"
         os.environ["STATEMENT_MAX_UPLOAD_BYTES"] = str(10 * 1024 * 1024)
         self.client = TestClient(create_app())
@@ -137,6 +145,122 @@ class StatementUploadApiTestCase(unittest.TestCase):
         )
         self.assertEqual(invalid_response.status_code, 400)
         self.assertEqual(invalid_response.json()["error_code"], "STATEMENT_INVALID_TRANSITION")
+
+    def test_parse_csv_statement_generates_trade_records_and_report(self) -> None:
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_123", "market": "CN_A", "statement_id": "stmt_parse_csv"},
+            files={
+                "file": (
+                    "broker_cn.csv",
+                    "成交日期,证券代码,买卖方向,成交数量,成交价格,手续费,印花税\n2026-03-14,600519.SH,买入,100,1700.5,5,0\n",
+                    "text/csv",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+
+        parse_response = self.client.post("/api/v1/statements/stmt_parse_csv/parse")
+        self.assertEqual(parse_response.status_code, 200)
+        payload = parse_response.json()
+        self.assertEqual(payload["final_status"], "parsed")
+        self.assertEqual(payload["parsed_records"], 1)
+        self.assertEqual(payload["failed_records"], 0)
+
+        records_path = self.trade_record_root / "stmt_parse_csv.json"
+        report_path = self.statement_parse_report_root / "stmt_parse_csv.json"
+        self.assertTrue(records_path.exists())
+        self.assertTrue(report_path.exists())
+        records = json.loads(records_path.read_text(encoding="utf-8"))
+        self.assertEqual(records[0]["side"], "buy")
+        self.assertEqual(records[0]["symbol"], "600519.SH")
+        self.assertEqual(records[0]["qty"], 100)
+
+        report_response = self.client.get("/api/v1/statements/stmt_parse_csv/parse-report")
+        self.assertEqual(report_response.status_code, 200)
+        self.assertEqual(report_response.json()["parsed_records"], 1)
+
+    def test_parse_english_columns_supported(self) -> None:
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_123", "market": "CN_A", "statement_id": "stmt_parse_en"},
+            files={
+                "file": (
+                    "broker_en.csv",
+                    "trade_date,symbol,side,quantity,price,fee,tax\n2026-03-14,300750.SZ,sell,200,198.1,6.5,1\n",
+                    "text/csv",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+        parse_response = self.client.post("/api/v1/statements/stmt_parse_en/parse")
+        self.assertEqual(parse_response.status_code, 200)
+        payload = parse_response.json()
+        self.assertEqual(payload["final_status"], "parsed")
+        records = json.loads((self.trade_record_root / "stmt_parse_en.json").read_text(encoding="utf-8"))
+        self.assertEqual(records[0]["side"], "sell")
+        self.assertEqual(records[0]["price"], 198.1)
+
+    def test_parse_xlsx_statement_generates_trade_records(self) -> None:
+        buffer = io.BytesIO()
+        frame = pd.DataFrame(
+            [
+                {
+                    "trade_date": "2026-03-14",
+                    "symbol": "300750.SZ",
+                    "side": "buy",
+                    "quantity": 100,
+                    "price": 201.8,
+                    "fee": 6.0,
+                    "tax": 0.0,
+                }
+            ]
+        )
+        frame.to_excel(buffer, index=False)
+        buffer.seek(0)
+
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_123", "market": "CN_A", "statement_id": "stmt_parse_xlsx"},
+            files={
+                "file": (
+                    "broker.xlsx",
+                    buffer.getvalue(),
+                    "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+
+        parse_response = self.client.post("/api/v1/statements/stmt_parse_xlsx/parse")
+        self.assertEqual(parse_response.status_code, 200)
+        payload = parse_response.json()
+        self.assertEqual(payload["final_status"], "parsed")
+        self.assertEqual(payload["parsed_records"], 1)
+
+    def test_parse_missing_mapping_rule_transitions_to_failed(self) -> None:
+        upload_response = self.client.post(
+            "/api/v1/statements/upload",
+            data={"owner_id": "user_123", "market": "CN_A", "statement_id": "stmt_parse_fail"},
+            files={
+                "file": (
+                    "unknown.csv",
+                    "foo,bar,baz\n1,2,3\n",
+                    "text/csv",
+                )
+            },
+        )
+        self.assertEqual(upload_response.status_code, 200)
+        parse_response = self.client.post("/api/v1/statements/stmt_parse_fail/parse")
+        self.assertEqual(parse_response.status_code, 400)
+        payload = parse_response.json()
+        self.assertEqual(payload["error_code"], "STATEMENT_MAPPING_RULE_NOT_FOUND")
+
+        detail_response = self.client.get("/api/v1/statements/stmt_parse_fail")
+        self.assertEqual(detail_response.status_code, 200)
+        detail_payload = detail_response.json()
+        self.assertEqual(detail_payload["upload_status"], "failed")
+        self.assertEqual(detail_payload["error_code"], "STATEMENT_MAPPING_RULE_NOT_FOUND")
 
     def test_upload_rolls_back_when_object_store_write_fails(self) -> None:
         class FailingObjectStore(LocalObjectStore):

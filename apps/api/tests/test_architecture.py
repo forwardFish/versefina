@@ -24,8 +24,10 @@ class ArchitectureScaffoldTestCase(unittest.TestCase):
         expected = {
             "/health",
             "/api/v1/statements/upload",
+            "/api/v1/statements/{statement_id}/parse",
             "/api/v1/statements/{statement_id}/status",
             "/api/v1/statements/{statement_id}",
+            "/api/v1/statements/{statement_id}/parse-report",
             "/api/v1/agents/register",
             "/api/v1/actions/submit",
             "/api/v1/rankings",

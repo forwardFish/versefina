@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict
 
 from infra.http import APIRouter, File, Form, JSONResponse, UploadFile
+from modules.statements.parser_service import StatementParseError
 from modules.statements.service import StatementUploadValidationError
 from modules.statements.status_machine import InvalidStatementTransitionError
 from schemas.command import (
@@ -53,6 +54,57 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
     @router.post("/api/v1/agents/register")
     def register_agent(payload: AgentRegisterRequest):
         return container.agent_registry.register(payload)
+
+    @router.post("/api/v1/statements/{statement_id}/parse")
+    def parse_statement(statement_id: str):
+        metadata = container.statement_ingestion.get_statement(statement_id)
+        if metadata is None:
+            return JSONResponse(
+                status_code=404,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": "STATEMENT_NOT_FOUND",
+                    "error_message": "Statement metadata not found.",
+                },
+            )
+        try:
+            if metadata.upload_status == "uploaded":
+                container.statement_ingestion.transition_status(statement_id=statement_id, next_status="parsing")
+                metadata = container.statement_ingestion.get_statement(statement_id) or metadata
+            result = container.statement_parser.parse_statement(metadata)
+            final_status = "parsed" if result.failed_records == 0 else "failed"
+            container.statement_ingestion.transition_status(
+                statement_id=statement_id,
+                next_status=final_status,
+                error_code=result.error_code,
+                error_message=result.error_message,
+            )
+            refreshed = container.statement_ingestion.get_statement(statement_id)
+            return {
+                **asdict(result),
+                "final_status": refreshed.upload_status if refreshed else final_status,
+            }
+        except (StatementParseError, InvalidStatementTransitionError) as exc:
+            error_code = getattr(exc, "code", "STATEMENT_PARSE_FAILED")
+            error_message = getattr(exc, "message", str(exc))
+            status_code = getattr(exc, "status_code", 400)
+            try:
+                container.statement_ingestion.transition_status(
+                    statement_id=statement_id,
+                    next_status="failed",
+                    error_code=error_code,
+                    error_message=error_message,
+                )
+            except Exception:
+                pass
+            return JSONResponse(
+                status_code=status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": error_code,
+                    "error_message": error_message,
+                },
+            )
 
     @router.post("/api/v1/statements/{statement_id}/status")
     def update_statement_status(statement_id: str, payload: StatementStatusUpdateRequest):

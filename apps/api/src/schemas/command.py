@@ -34,6 +34,18 @@ class StatementStatusUpdateRequest:
 
 
 @dataclass(frozen=True, slots=True)
+class StatementParseResponse:
+    statement_id: str
+    upload_status: str
+    parsed_records: int
+    failed_records: int
+    parse_report_path: str
+    trade_record_path: str
+    error_code: str | None = None
+    error_message: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
 class StatementMetadata:
     statement_id: str
     owner_id: str

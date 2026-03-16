@@ -45,7 +45,9 @@ The API now supports a real multipart upload path for statements:
 
 - `POST /api/v1/statements/upload`
 - `POST /api/v1/statements/{statement_id}/status`
+- `POST /api/v1/statements/{statement_id}/parse`
 - `GET /api/v1/statements/{statement_id}`
+- `GET /api/v1/statements/{statement_id}/parse-report`
 
 Form fields:
 

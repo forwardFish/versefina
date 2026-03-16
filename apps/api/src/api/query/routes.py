@@ -1,7 +1,11 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 from infra.http import APIRouter
 from services.container import ServiceContainer
+from settings.base import get_settings
 
 
 def build_query_router(container: ServiceContainer) -> APIRouter:
@@ -25,6 +29,13 @@ def build_query_router(container: ServiceContainer) -> APIRouter:
         if metadata is None:
             return {"statement_id": statement_id, "status": "not_found"}
         return metadata
+
+    @router.get("/api/v1/statements/{statement_id}/parse-report")
+    def statement_parse_report(statement_id: str):
+        report_path = Path(get_settings().statement_parse_report_root) / f"{statement_id}.json"
+        if not report_path.exists():
+            return {"statement_id": statement_id, "status": "not_found"}
+        return json.loads(report_path.read_text(encoding="utf-8"))
 
     @router.get("/api/v1/rankings")
     def rankings():
