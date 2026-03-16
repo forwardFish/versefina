@@ -1,7 +1,17 @@
 from __future__ import annotations
 
-from infra.http import APIRouter
-from schemas.command import AgentRegisterRequest, HeartbeatRequest, StatementUploadRequest, SubmitActionRequest
+from dataclasses import asdict
+
+from infra.http import APIRouter, File, Form, JSONResponse, UploadFile
+from modules.statements.service import StatementUploadValidationError
+from modules.statements.status_machine import InvalidStatementTransitionError
+from schemas.command import (
+    AgentRegisterRequest,
+    HeartbeatRequest,
+    StatementStatusUpdateRequest,
+    StatementUploadRequest,
+    SubmitActionRequest,
+)
 from services.container import ServiceContainer
 
 
@@ -9,12 +19,69 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
     router = APIRouter(tags=["command"])
 
     @router.post("/api/v1/statements/upload")
-    def upload_statement(payload: StatementUploadRequest):
-        return container.dna_engine.ingest_statement(payload)
+    async def upload_statement(
+        owner_id: str = Form(...),
+        market: str = Form("CN_A"),
+        statement_id: str | None = Form(None),
+        file: UploadFile = File(...),
+    ):
+        file_bytes = await file.read()
+        payload = StatementUploadRequest(
+            statement_id=statement_id,
+            owner_id=owner_id,
+            file_name=file.filename or "statement.bin",
+            content_type=file.content_type or "application/octet-stream",
+            byte_size=len(file_bytes),
+            market=market,
+        )
+        try:
+            result = container.statement_ingestion.ingest_statement(payload, file_bytes)
+        except StatementUploadValidationError as exc:
+            rejected = container.statement_ingestion.reject_upload(
+                owner_id=owner_id,
+                file_name=payload.file_name,
+                content_type=payload.content_type,
+                byte_size=payload.byte_size,
+                market=market,
+                statement_id=statement_id,
+                code=exc.code,
+                message=exc.message,
+            )
+            return JSONResponse(status_code=exc.status_code, content=asdict(rejected))
+        return asdict(result)
 
     @router.post("/api/v1/agents/register")
     def register_agent(payload: AgentRegisterRequest):
         return container.agent_registry.register(payload)
+
+    @router.post("/api/v1/statements/{statement_id}/status")
+    def update_statement_status(statement_id: str, payload: StatementStatusUpdateRequest):
+        try:
+            updated = container.statement_ingestion.transition_status(
+                statement_id=statement_id,
+                next_status=payload.next_status,
+                error_code=payload.error_code,
+                error_message=payload.error_message,
+            )
+        except FileNotFoundError:
+            return JSONResponse(
+                status_code=404,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": "STATEMENT_NOT_FOUND",
+                    "error_message": "Statement metadata not found.",
+                },
+            )
+        except InvalidStatementTransitionError as exc:
+            return JSONResponse(
+                status_code=400,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": "STATEMENT_INVALID_TRANSITION",
+                    "error_message": str(exc),
+                },
+            )
+        return asdict(updated)
 
     @router.post("/api/v1/agents/{agent_id}/heartbeat")
     def heartbeat(agent_id: str, payload: HeartbeatRequest):

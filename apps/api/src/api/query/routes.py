@@ -19,6 +19,13 @@ def build_query_router(container: ServiceContainer) -> APIRouter:
     def agent_equity(agent_id: str):
         return container.simulation_ledger.equity(agent_id)
 
+    @router.get("/api/v1/statements/{statement_id}")
+    def statement_detail(statement_id: str):
+        metadata = container.statement_ingestion.get_statement(statement_id)
+        if metadata is None:
+            return {"statement_id": statement_id, "status": "not_found"}
+        return metadata
+
     @router.get("/api/v1/rankings")
     def rankings():
         return container.rankings.list_rankings()

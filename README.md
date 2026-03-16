@@ -38,3 +38,26 @@ pnpm --dir apps/web dev
 - `GET /health`
 - `GET /api/v1/agents/mock_agent_001/snapshot`
 - `GET /api/v1/universe/panorama`
+
+## Real statement upload loop
+
+The API now supports a real multipart upload path for statements:
+
+- `POST /api/v1/statements/upload`
+- `POST /api/v1/statements/{statement_id}/status`
+- `GET /api/v1/statements/{statement_id}`
+
+Form fields:
+
+- `owner_id`
+- `market` (optional, default `CN_A`)
+- `statement_id` (optional; generated if omitted)
+- `file` (`.csv`, `.xls`, `.xlsx`, max 10MB)
+
+By default, uploaded files are written to:
+
+- `.runtime/object_store/<bucket>/statements/<owner_id>/<statement_id>/<filename>`
+
+Statement metadata is persisted to:
+
+- `.runtime/statement_meta/<statement_id>.json`

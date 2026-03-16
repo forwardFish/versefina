@@ -5,9 +5,51 @@ from dataclasses import dataclass, field
 
 @dataclass(frozen=True, slots=True)
 class StatementUploadRequest:
+    owner_id: str
+    file_name: str
+    content_type: str
+    byte_size: int
+    market: str = "CN_A"
+    statement_id: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class StatementUploadResponse:
+    statement_id: str
+    upload_status: str
+    object_key: str | None
+    bucket: str
+    file_name: str
+    byte_size: int
+    market: str
+    error_code: str | None = None
+    error_message: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class StatementStatusUpdateRequest:
+    next_status: str
+    error_code: str | None = None
+    error_message: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class StatementMetadata:
     statement_id: str
     owner_id: str
-    market: str = "CN_A"
+    market: str
+    file_name: str
+    content_type: str
+    detected_file_type: str
+    parser_key: str
+    byte_size: int
+    bucket: str
+    object_key: str
+    upload_status: str
+    created_at: str
+    updated_at: str
+    error_code: str | None = None
+    error_message: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
