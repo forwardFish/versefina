@@ -25,6 +25,19 @@ BROKER_RULES: tuple[MappingRule, ...] = (
         },
     ),
     MappingRule(
+        broker="broker_export_cn_text_xls",
+        required_columns=("成交日期", "证券代码", "操作", "成交数量", "成交均价"),
+        aliases={
+            "traded_at": "成交日期",
+            "symbol": "证券代码",
+            "side": "操作",
+            "qty": "成交数量",
+            "price": "成交均价",
+            "fee": "手续费",
+            "tax": "印花税",
+        },
+    ),
+    MappingRule(
         broker="generic_en_broker",
         required_columns=("trade_date", "symbol", "side", "quantity", "price"),
         aliases={

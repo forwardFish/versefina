@@ -63,12 +63,33 @@ class StatementParseService:
 
     def _load_dataframe(self, source: Path, detected_file_type: str) -> pd.DataFrame:
         if detected_file_type == "csv":
-            return pd.read_csv(source)
-        if detected_file_type in {"xls", "xlsx"}:
-            return pd.read_excel(source)
+            return self._load_text_dataframe(source)
+        if detected_file_type == "xls":
+            try:
+                return pd.read_excel(source, engine="xlrd")
+            except Exception:
+                return self._load_text_dataframe(source)
+        if detected_file_type == "xlsx":
+            try:
+                return pd.read_excel(source, engine="openpyxl")
+            except Exception:
+                return self._load_text_dataframe(source)
         raise StatementParseError(
             code="STATEMENT_PARSE_FORMAT_UNSUPPORTED",
             message=f"Unsupported parsed file type: {detected_file_type}",
+        )
+
+    def _load_text_dataframe(self, source: Path) -> pd.DataFrame:
+        encodings = ["utf-8-sig", "gb18030", "gbk"]
+        last_error: Exception | None = None
+        for encoding in encodings:
+            try:
+                return pd.read_csv(source, sep=None, engine="python", encoding=encoding)
+            except Exception as exc:
+                last_error = exc
+        raise StatementParseError(
+            code="STATEMENT_PARSE_TEXT_FAILED",
+            message=f"Unable to parse statement as delimited text: {last_error}",
         )
 
     def _normalize_and_persist(self, metadata: StatementMetadata, frame: pd.DataFrame, mapping_rule) -> StatementParseResponse:
@@ -136,12 +157,19 @@ class StatementParseService:
         text = str(value).strip()
         if not text:
             raise StatementParseError(code="STATEMENT_SYMBOL_MISSING", message="Trade symbol is required.")
+        if text.isdigit() and len(text) <= 6:
+            digits = text.zfill(6)
+            if digits.startswith(("5", "6", "9")):
+                return f"{digits}.SH"
+            return f"{digits}.SZ"
         return text
 
     def _normalize_datetime(self, value: object) -> str:
         text = str(value).strip()
         if not text:
             raise StatementParseError(code="STATEMENT_TRADE_DATE_MISSING", message="Trade date is required.")
+        if text.isdigit() and len(text) == 8:
+            return f"{text[:4]}-{text[4:6]}-{text[6:]}"
         return text
 
     def _normalize_int(self, value: object, *, field_name: str) -> int:

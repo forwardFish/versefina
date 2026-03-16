@@ -30,11 +30,19 @@ class AgentRegistryService:
             self._write_agent(agent_id, existing)
         return AcceptedResponse(status="accepted", task_id=f"heartbeat::{agent_id}::{payload.heartbeat_at}")
 
-    def create_agent(self, payload: AgentCreateRequest, *, profile: dict, profile_path: str) -> AgentCreateResponse:
+    def create_agent(
+        self,
+        payload: AgentCreateRequest,
+        *,
+        profile: dict,
+        profile_path: str,
+        public_base_url: str | None = None,
+    ) -> AgentCreateResponse:
         agent_id = payload.agent_id or f"agt_{payload.statement_id.replace('-', '_')}"
         created_at = datetime.now().isoformat()
         world_id = payload.world_id or self.default_world_id
-        public_url = f"{self.public_base_url.rstrip('/')}/api/v1/agents/{agent_id}"
+        base_url = (public_base_url or self.public_base_url).rstrip("/")
+        public_url = f"{base_url}/api/v1/agents/{agent_id}"
         tags = list(profile.get("styleTags") or [])
         risk_controls = dict(profile.get("riskControls") or {})
         record = {

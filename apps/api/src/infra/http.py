@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import Any, Callable
 
 try:  # pragma: no cover - exercised when FastAPI is installed
-    from fastapi import APIRouter, FastAPI, File, Form, HTTPException, UploadFile
+    from fastapi import APIRouter, FastAPI, File, Form, HTTPException, Request, UploadFile
     from fastapi.responses import JSONResponse
 except ImportError:  # pragma: no cover - default in scaffold validation
     @dataclass(frozen=True, slots=True)
@@ -57,6 +57,10 @@ except ImportError:  # pragma: no cover - default in scaffold validation
             super().__init__(detail)
             self.status_code = status_code
             self.detail = detail
+
+    class Request:  # pragma: no cover - stub only
+        def __init__(self, base_url: str = "http://127.0.0.1:8000/") -> None:
+            self.base_url = base_url
 
     class JSONResponse(dict):
         def __init__(self, *, status_code: int, content: Any) -> None:

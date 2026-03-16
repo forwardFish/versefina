@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import asdict
 
-from infra.http import APIRouter, File, Form, JSONResponse, UploadFile
+from infra.http import APIRouter, File, Form, JSONResponse, Request, UploadFile
 from modules.statements.parser_service import StatementParseError
 from modules.statements.service import StatementUploadValidationError
 from modules.statements.status_machine import InvalidStatementTransitionError
@@ -91,7 +91,7 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
         return asdict(result)
 
     @router.post("/api/v1/agents")
-    def create_agent(payload: AgentCreateRequest):
+    def create_agent(payload: AgentCreateRequest, request: Request):
         metadata = container.statement_ingestion.get_statement(payload.statement_id)
         if metadata is None:
             return JSONResponse(
@@ -116,6 +116,7 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
             payload,
             profile=profile,
             profile_path=str(container.dna_engine.profile_root / f"{payload.statement_id}.json"),
+            public_base_url=str(request.base_url).rstrip("/"),
         )
         return asdict(result)
 
