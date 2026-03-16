@@ -22,6 +22,7 @@ class Settings:
     trade_record_root: str = str(REPO_ROOT / ".runtime" / "trade_records")
     agent_profile_root: str = str(REPO_ROOT / ".runtime" / "agent_profiles")
     agent_registry_root: str = str(REPO_ROOT / ".runtime" / "agents")
+    market_world_root: str = str(REPO_ROOT / ".runtime" / "market_world")
     statement_max_upload_bytes: int = 10 * 1024 * 1024
 
 
@@ -42,5 +43,6 @@ def get_settings() -> Settings:
         trade_record_root=os.getenv("TRADE_RECORD_ROOT", str(REPO_ROOT / ".runtime" / "trade_records")),
         agent_profile_root=os.getenv("AGENT_PROFILE_ROOT", str(REPO_ROOT / ".runtime" / "agent_profiles")),
         agent_registry_root=os.getenv("AGENT_REGISTRY_ROOT", str(REPO_ROOT / ".runtime" / "agents")),
+        market_world_root=os.getenv("MARKET_WORLD_ROOT", str(REPO_ROOT / ".runtime" / "market_world")),
         statement_max_upload_bytes=int(os.getenv("STATEMENT_MAX_UPLOAD_BYTES", str(10 * 1024 * 1024))),
     )

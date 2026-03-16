@@ -56,11 +56,11 @@ def build_query_router(container: ServiceContainer) -> APIRouter:
         return container.rankings.list_rankings()
 
     @router.get("/api/v1/universe/panorama")
-    def panorama():
-        return container.panorama.present(container.market_world.panorama())
+    def panorama(as_of_date: str | None = None):
+        return container.panorama.present(container.market_world.panorama(as_of_date=as_of_date))
 
     @router.get("/api/v1/worlds/{world_id}/snapshot")
-    def world_snapshot(world_id: str):
-        return container.market_world.snapshot(world_id)
+    def world_snapshot(world_id: str, as_of_date: str | None = None):
+        return container.market_world.snapshot(world_id, as_of_date=as_of_date)
 
     return router

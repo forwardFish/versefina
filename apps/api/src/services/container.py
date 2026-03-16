@@ -61,7 +61,11 @@ def build_container() -> ServiceContainer:
         ),
         statement_ingestion=statement_ingestion,
         statement_parser=statement_parser,
-        market_world=MarketWorldService(default_world_id=settings.default_world_id),
+        market_world=MarketWorldService(
+            default_world_id=settings.default_world_id,
+            runtime_root=Path(settings.market_world_root),
+            agent_registry_root=Path(settings.agent_registry_root),
+        ),
         simulation_ledger=SimulationLedgerService(),
         platform_control=PlatformControlService(),
         agent_snapshots=AgentSnapshotProjection(),

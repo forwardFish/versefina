@@ -36,6 +36,7 @@ class StatementUploadApiTestCase(unittest.TestCase):
         self.trade_record_root = Path(self.tempdir.name) / "trade_records"
         self.agent_profile_root = Path(self.tempdir.name) / "agent_profiles"
         self.agent_registry_root = Path(self.tempdir.name) / "agents"
+        self.market_world_root = Path(self.tempdir.name) / "market_world"
         self.original_env = {
             "OBJECT_STORE_ROOT": os.environ.get("OBJECT_STORE_ROOT"),
             "STATEMENT_META_ROOT": os.environ.get("STATEMENT_META_ROOT"),
@@ -43,6 +44,7 @@ class StatementUploadApiTestCase(unittest.TestCase):
             "TRADE_RECORD_ROOT": os.environ.get("TRADE_RECORD_ROOT"),
             "AGENT_PROFILE_ROOT": os.environ.get("AGENT_PROFILE_ROOT"),
             "AGENT_REGISTRY_ROOT": os.environ.get("AGENT_REGISTRY_ROOT"),
+            "MARKET_WORLD_ROOT": os.environ.get("MARKET_WORLD_ROOT"),
             "PUBLIC_BASE_URL": os.environ.get("PUBLIC_BASE_URL"),
             "OBJECT_STORE_BUCKET": os.environ.get("OBJECT_STORE_BUCKET"),
             "STATEMENT_MAX_UPLOAD_BYTES": os.environ.get("STATEMENT_MAX_UPLOAD_BYTES"),
@@ -53,6 +55,7 @@ class StatementUploadApiTestCase(unittest.TestCase):
         os.environ["TRADE_RECORD_ROOT"] = str(self.trade_record_root)
         os.environ["AGENT_PROFILE_ROOT"] = str(self.agent_profile_root)
         os.environ["AGENT_REGISTRY_ROOT"] = str(self.agent_registry_root)
+        os.environ["MARKET_WORLD_ROOT"] = str(self.market_world_root)
         os.environ["PUBLIC_BASE_URL"] = "http://127.0.0.1:8000"
         os.environ["OBJECT_STORE_BUCKET"] = "test-artifacts"
         os.environ["STATEMENT_MAX_UPLOAD_BYTES"] = str(10 * 1024 * 1024)

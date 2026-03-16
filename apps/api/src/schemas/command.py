@@ -115,3 +115,25 @@ class SubmitActionRequest:
     agent_id: str
     world_id: str
     actions: list[dict[str, str]] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
+class TradeCalendarSyncRequest:
+    start_date: str
+    end_date: str
+    market: str = "CN_A"
+
+
+@dataclass(frozen=True, slots=True)
+class TradeCalendarSyncResponse:
+    world_id: str
+    market: str
+    start_date: str
+    end_date: str
+    total_days: int
+    trading_days: list[str]
+    closed_days: list[str]
+    trading_day: str | None
+    next_trading_day: str | None
+    source: str
+    cache_path: str
