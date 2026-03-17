@@ -1,0 +1,49 @@
+task_id: "S7-001"
+task_name: "资金状态迁移规则引擎"
+sprint: "Sprint 7 三剧本推演与后验验证闭环"
+epic: "Epic 7.1 Scenario & Signal Tracking"
+story_id: "S7-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 Belief Graph 聚合指标和当前市场状态映射成 ATTENTION 到 ABANDON 的资金状态迁移路径。"
+business_value: "让系统输出的不只是文字判断，而是可追踪的‘资金会如何反应’路径，为三剧本提供中间层。"
+
+entry_criteria:
+  - "S6-005 已完成，Belief Graph 聚合指标稳定可用。"
+
+acceptance_criteria:
+  - "支持 ATTENTION、WATCH_POSITION、CONVICTION_ADD、TREND_FOLLOW、RISK_REDUCE、HEDGE、ABANDON 七类状态。"
+  - "至少落地需求文档 1.2 中给出的五类规则示例，并支持后续扩展。"
+  - "输出结果包含状态迁移路径、触发依据和关键转折点。"
+  - "矛盾信号或指标缺失场景有降级路径，而不是硬推一个确定状态。"
+
+constraints:
+  - "规则引擎优先使用显式规则，不引入黑盒价格预测。"
+  - "状态迁移必须可被 Scenario Engine 直接引用。"
+
+out_of_scope:
+  - "不生成完整三剧本文本。"
+  - "不回填 T+1/T+3 结果。"
+
+dependencies:
+  - "S6-005"
+
+related_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/schemas/event.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/schemas/event.py"
+
+test_cases:
+  normal:
+    - "正常路径：给定 graph metrics 和 market state，可得到一条可解释的资金状态路径。"
+  exception:
+    - "异常路径：关键指标缺失时走降级规则并记录缺口。"

@@ -1,0 +1,51 @@
+task_id: "S7-003"
+task_name: "确认信号跟踪与观察点服务"
+sprint: "Sprint 7 三剧本推演与后验验证闭环"
+epic: "Epic 7.1 Scenario & Signal Tracking"
+story_id: "S7-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把结构化 monitor_signals 转成可跟踪的观察点列表，并尽量映射到现有 world / snapshot 数据。"
+business_value: "让‘明天该看什么’真正可追踪、可回查，而不是剧本中的静态句子。"
+
+entry_criteria:
+  - "S5-004、S7-002 已完成。"
+
+acceptance_criteria:
+  - "关键观察点可绑定到 signal_type、observation_window、status 和 latest_observation。"
+  - "能优先消费现有 world snapshot、行情状态或人工补录观察值。"
+  - "未能自动观测的信号会显式标记 manual_check_required。"
+  - "观察点状态可被 Outcome Tracker 复用。"
+
+constraints:
+  - "优先复用现有 market_world 查询能力，不新建第二套行情服务。"
+  - "自动跟踪不了的信号必须保留人工介入入口。"
+
+out_of_scope:
+  - "不在本 Story 中更新 agent_scores。"
+  - "不做复盘页 UI。"
+
+dependencies:
+  - "S5-004"
+  - "S7-002"
+
+related_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/schemas/world.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "正常路径：生成的观察点可被查询，并附带最新信号状态。"
+  exception:
+    - "异常路径：信号无法自动映射时转为 manual_check_required 而不是静默丢失。"

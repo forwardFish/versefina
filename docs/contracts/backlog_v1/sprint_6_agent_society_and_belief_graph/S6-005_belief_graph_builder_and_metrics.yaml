@@ -1,0 +1,53 @@
+task_id: "S6-005"
+task_name: "Belief Graph Builder 与聚合指标"
+sprint: "Sprint 6 Agent 社会与 Belief Graph"
+epic: "Epic 6.2 Belief Graph Aggregation"
+story_id: "S6-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 8 类 Agent beliefs 转成 Belief Graph 的节点、边和聚合指标。"
+business_value: "把‘谁支持、谁反对、哪里拥挤、哪里脆弱’从展示性概念变成 Scenario Engine 可消费的计算结果。"
+
+entry_criteria:
+  - "S6-001 到 S6-004 已完成，8 类 Agent beliefs 可稳定产出。"
+
+acceptance_criteria:
+  - "支持 Event、Agent、Sector、Symbol、Commodity、RiskFactor、SentimentState 等节点类型。"
+  - "支持 SUPPORTS、OPPOSES、QUESTIONS、CONFIRMS、PROPAGATES_TO、SUPPRESSES、FOLLOWS、LEADS 等边类型。"
+  - "至少产出 consensus_strength、dissent_width、authority_weighted_consensus、propagation_speed、crowding_score、falsification_fragility 等聚合指标。"
+  - "图谱和指标结果可被 Scenario Engine 直接消费，而不是只做只读展示。"
+
+constraints:
+  - "MVP 继续使用 Postgres/JSON 或 file-backed 结构，不引入专门图数据库。"
+  - "聚合指标必须可追溯到具体 beliefs 和 edges。"
+
+out_of_scope:
+  - "不在本 Story 中生成三剧本。"
+  - "不做前端图谱可视化。"
+
+dependencies:
+  - "S6-001"
+  - "S6-002"
+  - "S6-003"
+  - "S6-004"
+
+related_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "正常路径：8 类 beliefs 可构建完整 graph，并产出核心聚合指标。"
+  exception:
+    - "异常路径：部分 Agent 缺席时仍可生成降级 graph，并显式说明缺失节点。"

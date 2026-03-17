@@ -1,0 +1,50 @@
+task_id: "S5-004"
+task_name: "监控信号与失效条件标准化"
+sprint: "Sprint 5 事件反身性基线与样本台账"
+epic: "Epic 5.2 Structuring & Casebook"
+story_id: "S5-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 monitor_signals 和 invalidation_conditions 从模糊描述收敛成可执行、可跟踪、可复盘的数据结构。"
+business_value: "避免三剧本退化成研报空话，让后续 Outcome Tracker 能真正判断信号是否兑现、逻辑是否失效。"
+
+entry_criteria:
+  - "S5-003 已完成，event_structured 已有基础字段。"
+
+acceptance_criteria:
+  - "monitor_signals 至少包含 signal_name、signal_type、expected_direction、observation_window、source_hint。"
+  - "invalidation_conditions 至少包含 invalidation_name、severity、trigger_window、suggested_action。"
+  - "低证据场景可以显式标记 unknown / insufficient_evidence，而不是填充空泛文本。"
+  - "输出格式可被 Scenario Engine 和 Outcome Tracker 直接消费。"
+
+constraints:
+  - "不允许只存自由文本摘要，必须保留结构化字段。"
+  - "信号字段设计应优先兼容现有 world snapshot 和 query 能力。"
+
+out_of_scope:
+  - "不在本 Story 中生成三剧本。"
+  - "不实现评分逻辑。"
+
+dependencies:
+  - "S5-003"
+
+related_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/modules/events/structuring_service.py"
+  - "apps/api/src/schemas/world.py"
+
+primary_files:
+  - "apps/api/src/schemas/event.py"
+
+secondary_files:
+  - "apps/api/src/modules/events/structuring_service.py"
+  - "apps/api/src/domain/market_world/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：结构化事件可输出机器可读的观察信号和失效条件。"
+  exception:
+    - "异常路径：证据不足时保留 unknown 状态并说明缺口，而不是伪造确认信号。"

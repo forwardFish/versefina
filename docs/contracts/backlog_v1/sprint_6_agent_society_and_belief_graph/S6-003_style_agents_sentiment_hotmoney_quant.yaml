@@ -1,0 +1,50 @@
+task_id: "S6-003"
+task_name: "情绪、游资、量化三类风格 Agent"
+sprint: "Sprint 6 Agent 社会与 Belief Graph"
+epic: "Epic 6.1 Belief Agent Contracts"
+story_id: "S6-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现情绪扩散、游资风格、量化/统计套利三类偏传播和拥挤判断的 Belief Agent。"
+business_value: "补齐事件是否会被题材化、是否适合短线博弈、是否已被 price-in 的市场风格层信号。"
+
+entry_criteria:
+  - "S6-001 已完成，共享 belief 契约和 orchestration 已稳定。"
+
+acceptance_criteria:
+  - "情绪 Agent 能输出传播速度、热点形成概率和短期催化能力。"
+  - "游资 Agent 能输出板块合力、龙头/跟风/补涨判断。"
+  - "量化 Agent 能输出过热、偏离历史样本和统计拥挤判断。"
+  - "三类 Agent 输出可被 Belief Graph 聚合为 propagation_speed 和 crowding 相关指标。"
+
+constraints:
+  - "优先消费 world snapshot、事件样本台账和历史摘要，不要求引入完整量化因子平台。"
+  - "不能只返回主观情绪描述，必须映射到结构化字段。"
+
+out_of_scope:
+  - "不实现风控和复盘 Agent。"
+  - "不直接生成三剧本。"
+
+dependencies:
+  - "S6-001"
+
+related_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/workflows/review/graph.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/workflows/review/graph.py"
+
+test_cases:
+  normal:
+    - "正常路径：政策催化事件可输出情绪、游资、量化三类风格 beliefs。"
+  exception:
+    - "异常路径：缺少市场确认数据时返回受限判断，并保留缺口说明。"

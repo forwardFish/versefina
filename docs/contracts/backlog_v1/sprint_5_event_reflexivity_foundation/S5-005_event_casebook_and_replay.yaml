@@ -1,0 +1,53 @@
+task_id: "S5-005"
+task_name: "MVP 事件样本台账与回放基座"
+sprint: "Sprint 5 事件反身性基线与样本台账"
+epic: "Epic 5.2 Structuring & Casebook"
+story_id: "S5-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立首批政策催化事件样本台账、事件回放入口和人工校验留痕结构。"
+business_value: "把后续验证所需的样本准备和回放能力前置，避免到验收阶段才发现没有稳定样本集。"
+
+entry_criteria:
+  - "S5-001 到 S5-004 已完成，raw / structured / signal 契约稳定。"
+
+acceptance_criteria:
+  - "支持维护一个可扩展的事件样本 registry，至少包含原始文本、事件类型、人工备注和 T+1/T+3 预留位。"
+  - "首批至少准备一组人工核验的政策催化黄金样本，作为后续回归集起点。"
+  - "回放流程可对样本集重复执行 ingestion + structuring，并输出执行摘要。"
+  - "样本和回放结果有留痕，不覆盖人工修订备注。"
+
+constraints:
+  - "不使用 LLM 批量伪造样本。"
+  - "优先复用现有 review / runtime artifact 组织方式。"
+
+out_of_scope:
+  - "不完成最终 50 条样本和 30 条后验样本的验收收口。"
+  - "不在本 Story 中实现前端回放控制台。"
+
+dependencies:
+  - "S5-001"
+  - "S5-002"
+  - "S5-003"
+  - "S5-004"
+
+related_files:
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/settings/base.py"
+  - "apps/api/src/modules/events/repository.py"
+  - "docs/需求文档/需求分析_1.2.md"
+
+primary_files:
+  - "apps/api/src/workflows/review/graph.py"
+
+secondary_files:
+  - "apps/api/src/modules/events/repository.py"
+  - "apps/api/src/settings/base.py"
+
+test_cases:
+  normal:
+    - "正常路径：对样本 registry 执行一次回放后生成结构化摘要和运行留痕。"
+  exception:
+    - "异常路径：样本缺失正文或人工备注冲突时拒绝覆盖并提示处理方式。"

@@ -1,0 +1,52 @@
+task_id: "S7-004"
+task_name: "T+1/T+3 Outcome Tracker"
+sprint: "Sprint 7 三剧本推演与后验验证闭环"
+epic: "Epic 7.2 Outcome & Scoring Loop"
+story_id: "S7-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "记录事件在 T+1 / T+3 的实际表现，包括板块表现、个股表现、情绪扩散情况和失败原因。"
+business_value: "把事件推演从一次性分析变成可回填、可复盘、可累计评分的长期资产。"
+
+entry_criteria:
+  - "S7-002 和 S7-003 已完成。"
+  - "Sprint 2 world snapshot 基线已稳定。"
+
+acceptance_criteria:
+  - "支持记录 t1_sector_perf、t1_symbol_perf、t3_sector_perf、t3_symbol_perf。"
+  - "支持记录 dominant_scenario、failure_reason 和 analyst_note。"
+  - "后验回填流程可重复执行，不因重复运行产生冲突记录。"
+  - "缺少行情或观察点数据时有可解释的 pending / partial 状态。"
+
+constraints:
+  - "优先复用现有 world / ledger / review 流程，不新建独立回填系统。"
+  - "后验结果必须保留执行时间和来源信息。"
+
+out_of_scope:
+  - "不在本 Story 中做用户侧复盘页。"
+  - "不完成批量验收比较。"
+
+dependencies:
+  - "S7-002"
+  - "S7-003"
+
+related_files:
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/schemas/event.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/domain/market_world/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：事件在 T+1 / T+3 被成功回填 outcome 结果。"
+  exception:
+    - "异常路径：缺少行情或交易日跨越异常时返回 pending / partial 并说明原因。"

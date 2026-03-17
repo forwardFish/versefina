@@ -1,0 +1,53 @@
+task_id: "S8-004"
+task_name: "批量验证基线与 MVP 验收包"
+sprint: "Sprint 8 事件产品化与 MVP 验收"
+epic: "Epic 8.2 Review & Acceptance"
+story_id: "S8-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "基于事件样本台账完成批量验证、基线比较和 MVP 验收证据包输出。"
+business_value: "让 1.2 的核心命题真正可被验证，而不是只停留在单例 demo。"
+
+entry_criteria:
+  - "S5-005、S7-004、S7-005、S8-003 已完成。"
+
+acceptance_criteria:
+  - "可对样本集批量输出提前量、稳定性、校准度、失效识别速度四类指标。"
+  - "至少支持与人工资讯总结、单 Agent 判断、纯行情因子三类基线做结构化对照，样本不足时输出 gap report。"
+  - "验收包包含样本覆盖度、已完成后验数量、指标结果和未达标缺口。"
+  - "批量流程可重复运行，并保留每次执行摘要。"
+
+constraints:
+  - "不为了过验收而手工挑选个别成功样本替代全量样本集。"
+  - "优先复用 Sprint 5 的样本台账和现有 review 流程。"
+
+out_of_scope:
+  - "不承诺在本 Story 内自动补齐全部真实样本。"
+  - "不做对外公开榜单。"
+
+dependencies:
+  - "S5-005"
+  - "S7-004"
+  - "S7-005"
+  - "S8-003"
+
+related_files:
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/projection/rankings/service.py"
+  - "apps/api/src/settings/base.py"
+  - "docs/需求文档/需求分析_1.2.md"
+
+primary_files:
+  - "apps/api/src/workflows/review/graph.py"
+
+secondary_files:
+  - "apps/api/src/projection/rankings/service.py"
+  - "apps/api/src/settings/base.py"
+
+test_cases:
+  normal:
+    - "正常路径：批量跑完整个样本集后生成验收指标和执行摘要。"
+  exception:
+    - "异常路径：样本不足或后验覆盖不够时生成 gap report，而不是输出误导性通过结果。"
