@@ -1,0 +1,49 @@
+task_id: "S4-005"
+task_name: "结构化行为解释与 reason codes"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.2 Readonly Output & Ops"
+story_id: "S4-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "让每次动作和关键验证结论都带 explanation 与 reason codes。"
+business_value: "提升 Mirror Agent 的可解释性，降低“像在乱交易”的不信任感。"
+
+entry_criteria:
+  - "S4-002 已完成。"
+
+acceptance_criteria:
+  - "交易动作、HOLD 和验证结论都能输出结构化 explanation。"
+  - "reason codes 可复用到运行日志、验证报告和主页摘要。"
+  - "解释字段不依赖自由文本才能被程序消费。"
+  - "异常或拒单场景也有明确 reason codes。"
+
+constraints:
+  - "解释结构优先做枚举码加简短说明。"
+  - "不可把完整解释仅留在前端拼接层。"
+
+out_of_scope:
+  - "不做长篇自然语言日报。"
+  - "不在本 Story 中做研究归档。"
+
+dependencies:
+  - "S4-002"
+
+related_files:
+  - "apps/api/src/schemas/trade.py"
+  - "apps/api/src/workflows/daily_simulation/graph.py"
+  - "apps/web/src/entities/trade-log/model.ts"
+
+primary_files:
+  - "apps/api/src/schemas/trade.py"
+  - "apps/api/src/workflows/daily_simulation/graph.py"
+
+secondary_files:
+  - "apps/web/src/entities/trade-log/model.ts"
+
+test_cases:
+  normal:
+    - "正常路径：动作和验证输出都带 reason codes。"
+  exception:
+    - "异常路径：拒单或 HOLD 也能生成解释。"

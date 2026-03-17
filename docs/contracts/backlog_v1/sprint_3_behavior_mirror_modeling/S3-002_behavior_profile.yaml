@@ -1,0 +1,49 @@
+task_id: "S3-002"
+task_name: "TradingBehaviorProfile 生成"
+sprint: "Sprint 3 行为镜像建模与策略壳"
+epic: "Epic 3.1 Feature & Profile"
+story_id: "S3-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把行为特征对象收敛成可落库、可展示、可匹配模板的 TradingBehaviorProfile。"
+business_value: "将原有宽泛的 Agent Profile 升级成明确服务于行为镜像链路的结构化画像。"
+
+entry_criteria:
+  - "S3-001 已完成，行为特征对象稳定可用。"
+
+acceptance_criteria:
+  - "画像结构至少覆盖风格标签、交易节奏、仓位纪律、风险偏好、偏好标的和约束摘要。"
+  - "画像结果可直接作为模板匹配输入。"
+  - "画像输出具备版本号或结构标识，便于后续演进。"
+  - "画像摘要能够被 Agent 主页复用。"
+
+constraints:
+  - "优先在现有 schema 上增量扩展。"
+  - "画像必须保持可解释，不引入难以审计的黑箱字段。"
+
+out_of_scope:
+  - "不在本 Story 中决定模板类型。"
+  - "不在本 Story 中直接生成交易动作。"
+
+dependencies:
+  - "S3-001"
+
+related_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/domain/agent_registry/service.py"
+
+primary_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/domain/dna_engine/service.py"
+
+secondary_files:
+  - "apps/api/src/domain/agent_registry/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：从特征对象生成完整 TradingBehaviorProfile。"
+  exception:
+    - "异常路径：特征不足时输出降级画像并带原因。"

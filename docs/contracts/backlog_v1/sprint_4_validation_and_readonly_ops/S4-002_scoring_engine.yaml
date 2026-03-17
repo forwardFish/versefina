@@ -1,0 +1,49 @@
+task_id: "S4-002"
+task_name: "多维评分引擎"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.1 Validation & Grading"
+story_id: "S4-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "基于验证结果计算 Fidelity、Stability、Risk Discipline、Noise Trading 和 Hold Discipline 分数。"
+business_value: "让 Mirror Agent 是否合格、是否能公开有统一量化标准。"
+
+entry_criteria:
+  - "S4-001 已完成。"
+
+acceptance_criteria:
+  - "五类分数都能独立计算并输出解释字段。"
+  - "噪声交易、过度交易、低置信强行出手等情况会被显式识别。"
+  - "评分结果可被后续等级流转和验证报告直接消费。"
+  - "评分阈值可配置，不硬编码在页面层。"
+
+constraints:
+  - "先使用规则评分，不引入黑箱评估。"
+  - "必须保留 reason code 或 explanation 字段。"
+
+out_of_scope:
+  - "不在本 Story 中控制分享状态。"
+  - "不做完整榜单排序。"
+
+dependencies:
+  - "S4-001"
+
+related_files:
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/projection/agent_snapshots/service.py"
+  - "apps/api/src/schemas/agent.py"
+
+primary_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/projection/agent_snapshots/service.py"
+
+secondary_files:
+  - "apps/api/src/domain/simulation_ledger/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：能生成五类分数和理由。"
+  exception:
+    - "异常路径：验证数据缺失时返回不可评级状态。"

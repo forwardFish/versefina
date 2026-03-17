@@ -1,0 +1,50 @@
+task_id: "S3-006"
+task_name: "行为镜像 Agent 装配"
+sprint: "Sprint 3 行为镜像建模与策略壳"
+epic: "Epic 3.2 Template & Policy"
+story_id: "S3-006"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 BehaviorProfile、模板匹配结果和 BehaviorMirrorPolicy 装配成可持续运行的行为镜像 Agent。"
+business_value: "把当前“基础 Agent 创建”升级为具备行为边界、解释上下文和后续验证能力的 Mirror Agent。"
+
+entry_criteria:
+  - "S3-005 已完成。"
+  - "Sprint 2 的世界与日循环基线已可用。"
+
+acceptance_criteria:
+  - "创建结果包含 mirror 等级初始状态、policy 引用、画像摘要和运行时元数据。"
+  - "Mirror Agent 可进入统一世界日循环。"
+  - "Agent 对象可供后续验证引擎与只读主页复用。"
+  - "创建失败时不留下半成品记录。"
+
+constraints:
+  - "优先扩展现有 Agent Registry，不平行造第二套 Agent 模型。"
+  - "默认生成 Private Mirror，不直接公开。"
+
+out_of_scope:
+  - "不在本 Story 中计算验证等级。"
+  - "不在本 Story 中实现分享页。"
+
+dependencies:
+  - "S3-005"
+
+related_files:
+  - "apps/api/src/domain/agent_registry/service.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/api/command/routes.py"
+
+primary_files:
+  - "apps/api/src/domain/agent_registry/service.py"
+  - "apps/api/src/schemas/agent.py"
+
+secondary_files:
+  - "apps/api/src/api/command/routes.py"
+
+test_cases:
+  normal:
+    - "正常路径：成功创建可运行的 Mirror Agent。"
+  exception:
+    - "异常路径：Policy 或画像缺失时创建失败且不写入脏数据。"

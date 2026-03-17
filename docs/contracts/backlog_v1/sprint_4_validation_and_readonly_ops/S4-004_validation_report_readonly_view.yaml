@@ -1,0 +1,49 @@
+task_id: "S4-004"
+task_name: "验证报告查询与只读展示"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.2 Readonly Output & Ops"
+story_id: "S4-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "提供验证报告 API 和只读展示模块，让用户能查看分数、结论和关键解释。"
+business_value: "让“验证后再公开”不仅是系统规则，也能被用户理解和复盘。"
+
+entry_criteria:
+  - "S4-003 已完成。"
+
+acceptance_criteria:
+  - "报告至少包含五类分数、等级结论、关键证据和时间范围。"
+  - "只读页面可展示验证摘要，不提供交易干预入口。"
+  - "未通过验证的 Agent 也能查看私有报告。"
+  - "报告结构可被公开页和后台复用。"
+
+constraints:
+  - "优先复用现有 query/read model 和 Agent 页面。"
+  - "不引入可写操作入口。"
+
+out_of_scope:
+  - "不在本 Story 中做榜单展示。"
+  - "不做复杂图表编排。"
+
+dependencies:
+  - "S4-003"
+
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/projection/agent_snapshots/service.py"
+  - "apps/web/src/features/agent-observation/AgentObservation.tsx"
+
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/web/src/features/agent-observation/AgentObservation.tsx"
+
+secondary_files:
+  - "apps/api/src/projection/agent_snapshots/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：可查询并展示验证报告。"
+  exception:
+    - "异常路径：报告缺失时返回清晰提示。"
