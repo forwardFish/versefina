@@ -1,0 +1,48 @@
+task_id: "S3-003"
+task_name: "行为策略模板库 v1"
+sprint: "Sprint 3 行为镜像建模与策略壳"
+epic: "Epic 3.2 Template & Policy"
+story_id: "S3-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立第一版受限策略模板库，覆盖需求文档 1.1 中建议的五类行为模板。"
+business_value: "把“画像像谁”和“策略如何运行”明确拆开，避免 LLM 直接自由生成交易行为。"
+
+entry_criteria:
+  - "S3-002 已完成，TradingBehaviorProfile 可稳定输出。"
+
+acceptance_criteria:
+  - "模板库至少包含趋势短线型、高频轮动型、波段趋势型、题材追随型、低频观察型。"
+  - "每个模板都定义可调参数、Universe 边界、仓位约束和 HOLD 条件。"
+  - "模板结构可被 Template Matcher 和 Policy Synthesizer 直接消费。"
+
+constraints:
+  - "模板必须是受限策略壳，不允许开放式交易指令生成。"
+  - "先做规则模板，不引入复杂机器学习分类器。"
+
+out_of_scope:
+  - "不做模板自动进化。"
+  - "不在本 Story 中匹配具体用户画像。"
+
+dependencies:
+  - "S3-002"
+
+related_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/domain/market_world/service.py"
+
+primary_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+  - "apps/api/src/schemas/agent.py"
+
+secondary_files:
+  - "apps/api/src/domain/market_world/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：可读取模板清单并获取模板参数定义。"
+  exception:
+    - "异常路径：未知模板类型不会进入后续装配。"

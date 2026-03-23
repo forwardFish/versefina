@@ -1,0 +1,49 @@
+task_id: "S6-002"
+task_name: "政策、产业链、机构三类逻辑 Agent"
+sprint: "Sprint 6 Agent 社会与 Belief Graph"
+epic: "Epic 6.1 Belief Agent Contracts"
+story_id: "S6-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现政策解读、产业链、公募/机构三类偏逻辑和基本面判断的 Belief Agent。"
+business_value: "先跑通最能决定政策催化事件方向性的三类 Agent，建立首发赛道的核心逻辑层。"
+
+entry_criteria:
+  - "S6-001 已完成，共享 belief 契约和 orchestration 已稳定。"
+
+acceptance_criteria:
+  - "政策 Agent 能输出方向、力度、覆盖范围和落地节奏判断。"
+  - "产业链 Agent 能输出上下游扩散路径、受益顺序和受损链路。"
+  - "机构 Agent 能输出基本面支撑与中线配置认可度。"
+  - "三类 Agent 输出均包含 evidence、trigger_conditions 和 invalidation_conditions。"
+
+constraints:
+  - "首发只针对政策催化事件深做，不要求同时覆盖三类事件。"
+  - "优先依赖 Sprint 5 的结构化字段，不绕开 event_structured 直接长文推断。"
+
+out_of_scope:
+  - "不实现情绪、游资、量化 Agent。"
+  - "不做图谱聚合。"
+
+dependencies:
+  - "S6-001"
+
+related_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/domain/market_world/service.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/domain/market_world/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：政策催化事件生成三类逻辑 Agent 的结构化 stance。"
+  exception:
+    - "异常路径：当政策对象或产业链映射不明确时输出 uncertainty 和证据缺口。"

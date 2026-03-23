@@ -1,0 +1,206 @@
+{
+  "generated_at": "2026-03-22T12:22:16",
+  "story_id": "S2-004",
+  "story_file": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger\\S2-004_ledger_position_management.yaml",
+  "story_kind": "api",
+  "required_modes": [
+    "plan-eng-review",
+    "review",
+    "qa"
+  ],
+  "advisory_modes": [],
+  "related_files": [
+    "apps/api/src/domain/ledger/service.py",
+    "apps/api/src/schemas/ledger.py",
+    "apps/api/src/api/v1/agents.py"
+  ],
+  "acceptance_criteria_count": 6,
+  "has_browser_urls": true,
+  "formal_execution_requested": false,
+  "admitted": true,
+  "errors": [],
+  "warnings": [],
+  "task_payload": {
+    "project": "versefina",
+    "task_id": "S2-004",
+    "task_name": "账本与持仓管理",
+    "sprint": "Sprint 2 世界、撮合、账本、日循环",
+    "epic": "Epic 2.2 Matching & Execution",
+    "story_id": "S2-004",
+    "auto_run": false,
+    "execution_policy": "continuous_full_sprint",
+    "interaction_policy": "direct_run_task",
+    "pause_policy": "story_boundary_or_shared_blocker_only",
+    "blocker_class": null,
+    "blast_radius": "L3",
+    "business_value": "为 Agent 提供准确的资金和持仓状态，支持后续的绩效分析和风控检查。",
+    "execution_mode": "Safe",
+    "mode": "Safe",
+    "agent_policy": "auto",
+    "requires_auth": false,
+    "goal": "实现 Agent 账本（Ledger）和持仓（Position）管理，记录每笔交易后的资金和持仓变化。",
+    "entry_criteria": [
+      "S2-003 撮合引擎已完成。"
+    ],
+    "acceptance_criteria": [
+      "Ledger 包含：cash、total_value、positions、pnl、created_at、updated_at。",
+      "每笔成交后自动更新 cash 和 positions。",
+      "Position 包含：symbol、qty、avg_cost、market_value、unrealized_pnl。",
+      "支持查询账本快照 GET /api/v1/agents/{agent_id}/ledger。",
+      "支持查询持仓列表 GET /api/v1/agents/{agent_id}/positions。",
+      "账本变更记录完整的审计日志。"
+    ],
+    "constraints": [
+      "账本更新必须是原子操作，防止并发导致数据不一致。",
+      "持仓数量不能为负（不支持做空）。"
+    ],
+    "explicitly_not_doing": [
+      "不实现融资融券账本。",
+      "不实现多币种账本。"
+    ],
+    "not_do": [
+      "不实现融资融券账本。",
+      "不实现多币种账本。"
+    ],
+    "out_of_scope": [
+      "不实现融资融券账本。",
+      "不实现多币种账本。"
+    ],
+    "dependencies": [
+      "S2-003 撮合引擎。"
+    ],
+    "related_files": [
+      "apps/api/src/domain/ledger/service.py",
+      "apps/api/src/schemas/ledger.py",
+      "apps/api/src/api/v1/agents.py"
+    ],
+    "primary_files": [
+      "apps/api/src/domain/ledger/service.py"
+    ],
+    "secondary_files": [
+      "apps/api/src/schemas/ledger.py"
+    ],
+    "test_cases": {
+      "normal": [
+        "正常路径：买入后 cash 减少，positions 增加对应持仓。",
+        "正常路径：卖出后 cash 增加，positions 减少对应持仓。",
+        "正常路径：查询账本快照，返回当前 cash 和 total_value。"
+      ],
+      "exception": [
+        "异常路径：卖出数量超过持仓，订单拒绝。",
+        "异常路径：并发更新账本，保证原子性。"
+      ]
+    },
+    "test_failure_info": null,
+    "story_inputs": [
+      "S2-003 撮合引擎已完成。",
+      "In-scope files: apps/api/src/domain/ledger/service.py",
+      "Dependency outputs available from: S2-003 撮合引擎。"
+    ],
+    "story_process": [
+      "Inspect the declared scope and understand the current implementation before editing.",
+      "Implement only the change required for this story goal and keep the blast radius within the card.",
+      "Run story-specific validation and record reusable evidence for acceptance."
+    ],
+    "story_outputs": [
+      "Updated story artifacts in: apps/api/src/domain/ledger/service.py",
+      "Validation evidence and delivery artifacts archived for this story."
+    ],
+    "verification_basis": [
+      "Ledger 包含：cash、total_value、positions、pnl、created_at、updated_at。",
+      "每笔成交后自动更新 cash 和 positions。",
+      "Position 包含：symbol、qty、avg_cost、market_value、unrealized_pnl。",
+      "支持查询账本快照 GET /api/v1/agents/{agent_id}/ledger。",
+      "支持查询持仓列表 GET /api/v1/agents/{agent_id}/positions。",
+      "账本变更记录完整的审计日志。"
+    ],
+    "formal_entry": false,
+    "project_repo_root": "D:\\lyh\\agent\\agent-frame\\versefina",
+    "tasks_root": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks",
+    "backlog_id": "sprint_2_world_matching_ledger",
+    "sprint_id": "S2-004_ledger_position_management.yaml",
+    "story_file": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger\\S2-004_ledger_position_management.yaml",
+    "backlog_root": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger",
+    "run_policy": "single_pass_to_completion",
+    "acceptance_policy": "must_pass_all_required_runs",
+    "retry_policy": "auto_repair_until_green",
+    "acceptance_attempt": 0,
+    "repair_iteration": 0,
+    "final_green_required": true,
+    "authoritative_attempt": "",
+    "agent_activation_plan": {
+      "story_kind": "api",
+      "risk_level": "high",
+      "workflow_enforcement_policy": "gstack_strict",
+      "is_bugfix": false,
+      "is_planning_request": false,
+      "is_release_closeout": false,
+      "has_browser_surface": false,
+      "requires_auth": false,
+      "needs_design_review": false,
+      "needs_qa_design_review": false,
+      "needs_design_consultation": false,
+      "needs_ceo_review_advice": false,
+      "qa_strategy": "runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "next_recommended_actions": [],
+      "effective_qa_mode": "qa",
+      "auto_upgrade_to_qa": false
+    },
+    "story_kind": "api",
+    "risk_level": "high",
+    "workflow_enforcement_policy": "gstack_strict",
+    "has_browser_surface": false,
+    "needs_design_review": false,
+    "needs_qa_design_review": false,
+    "needs_design_consultation": false,
+    "needs_ceo_review_advice": false,
+    "qa_strategy": "runtime",
+    "required_modes": [
+      "plan-eng-review",
+      "review",
+      "qa"
+    ],
+    "advisory_modes": [],
+    "next_recommended_actions": [],
+    "effective_qa_mode": "qa",
+    "auto_upgrade_to_qa": false,
+    "upstream_agent_parity": {
+      "repo": "https://github.com/garrytan/gstack",
+      "commit": "8ddfab233d3999edb172bed54aaf06fc5ff92646",
+      "license": "MIT",
+      "tracked_modes": {
+        "plan-eng-review": {
+          "entry_mode": "requirement_analysis",
+          "stop_after": "architecture_review",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/plan-eng-review/SKILL.md"
+        },
+        "review": {
+          "entry_mode": "reviewer",
+          "stop_after": "reviewer",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/review/SKILL.md"
+        },
+        "qa": {
+          "entry_mode": "tester",
+          "stop_after": "browser_qa",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/qa/SKILL.md"
+        }
+      },
+      "intentional_deviations": [
+        "Telemetry and upgrade endpoints remain disabled by default in local agentsystem runs.",
+        "Claude-host-specific preambles are mirrored into local standards and adapters rather than executed verbatim."
+      ]
+    },
+    "fixer_allowed": true,
+    "browser_qa_report_only": false,
+    "runtime_qa_report_only": false
+  }
+}

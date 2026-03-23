@@ -1,0 +1,50 @@
+task_id: "S2-001"
+task_name: "统一市场世界初始化"
+sprint: "Sprint 2 世界、撮合、账本、日循环"
+epic: "Epic 2.1 World Foundation"
+story_id: "S2-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现统一市场世界（World）的初始化和基础数据结构，为所有 Agent 提供统一的运行环境。"
+business_value: "建立所有 Agent 共享的市场世界底座，确保公平、可比较的运行环境。"
+
+entry_criteria:
+  - "S1-010 Agent 创建 API 已完成。"
+
+acceptance_criteria:
+  - "World 实体包含：world_id、market_type（CN_A）、trading_calendar、current_date、status。"
+  - "支持 A 股交易日历（排除节假日）。"
+  - "World 状态包含：active、paused、closed。"
+  - "提供 World 查询接口 GET /api/v1/worlds/{world_id}。"
+  - "默认世界 cn-a 自动初始化。"
+
+constraints:
+  - "第一阶段只支持 A 股日线世界。"
+  - "不支持实时行情，只支持日线收盘价。"
+
+out_of_scope:
+  - "不实现多市场（港股、美股）支持。"
+  - "不实现分钟级或 tick 级世界。"
+
+dependencies:
+  - "S1-010 Agent 创建 API。"
+
+related_files:
+  - "apps/api/src/domain/world/service.py"
+  - "apps/api/src/schemas/world.py"
+  - "apps/api/src/api/v1/worlds.py"
+
+primary_files:
+  - "apps/api/src/domain/world/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/world.py"
+
+test_cases:
+  normal:
+    - "正常路径：初始化 cn-a 世界，返回 world_id 和 status=active。"
+    - "正常路径：查询世界当前日期，返回最近交易日。"
+  exception:
+    - "异常路径：查询不存在的 world_id，返回 404。"

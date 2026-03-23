@@ -1,0 +1,38 @@
+task_id: "E3-003"
+task_name: "三剧本 Scenario Engine"
+sprint: "Sprint 3 Belief Graph 与三剧本基线"
+epic: "Epic 3.2 Scenario Baseline"
+story_id: "E3-003"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "基于 EventStructure 和 BeliefGraphSnapshot 生成 base / bull / bear 三剧本。"
+business_value: "把共识 / 分歧转成可执行的次日剧本。"
+
+entry_criteria:
+  - "E3-002 已完成。"
+
+acceptance_criteria:
+  - "三剧本都包含主线、先动对象、跟随对象、观察点、失效条件。"
+  - "dominant_scenario 有明确判定输入。"
+  - "剧本必须消费 graph metrics。"
+
+constraints:
+  - "不允许只输出空泛研报式段落。"
+
+out_of_scope:
+  - "不做轻量模拟。"
+
+dependencies:
+  - "E3-002"
+
+related_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/src/schemas/scenario.py"
+
+test_cases:
+  normal:
+    - "单条事件能生成完整三剧本。"
+  exception:
+    - "证据不足时允许生成受限 bull / bear 剧本。"

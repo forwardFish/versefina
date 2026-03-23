@@ -1,0 +1,51 @@
+task_id: "S1-001"
+task_name: "交割单上传接口"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.1 Statement Upload & Parse"
+story_id: "S1-001"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现交割单上传接口，支持文件上传、元数据记录和对象存储。"
+business_value: "让用户能够上传交割单文件，作为整个 Agent 生成流程的起点。"
+
+entry_criteria:
+  - "FastAPI 项目基础结构已就绪。"
+  - "对象存储（本地或云端）已配置。"
+
+acceptance_criteria:
+  - "POST /api/v1/statements/upload 接口可用。"
+  - "接口返回 statement_id、object_key、upload_status。"
+  - "文件成功保存到对象存储。"
+  - "Statement 元数据记录到数据库。"
+
+constraints:
+  - "文件大小限制在 10MB 以内。"
+  - "支持的文件类型：PDF、Excel、CSV。"
+
+out_of_scope:
+  - "不在本 Story 中实现文件解析逻辑。"
+  - "不实现文件内容校验。"
+
+dependencies:
+  - "对象存储配置完成。"
+
+related_files:
+  - "apps/api/src/api/v1/statements.py"
+  - "apps/api/src/schemas/statement.py"
+  - "apps/api/src/services/storage_service.py"
+
+primary_files:
+  - "apps/api/src/api/v1/statements.py"
+
+secondary_files:
+  - "apps/api/src/schemas/statement.py"
+  - "apps/api/src/services/storage_service.py"
+
+test_cases:
+  normal:
+    - "正常路径：上传有效的 PDF 文件，返回 200 和 statement_id。"
+  exception:
+    - "异常路径：上传超过大小限制的文件，返回 413 错误。"
+    - "异常路径：上传不支持的文件类型，返回 400 错误。"

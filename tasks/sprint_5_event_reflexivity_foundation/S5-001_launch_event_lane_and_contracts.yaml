@@ -1,0 +1,51 @@
+task_id: "S5-001"
+task_name: "首发事件赛道与数据契约"
+sprint: "Sprint 5 事件反身性基线与样本台账"
+epic: "Epic 5.1 Event Intake & Contracts"
+story_id: "S5-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 MVP 首发事件范围收敛为政策催化，并定义 event_raw、event_structured、scenario_card、event_outcome 和 agent_score 的统一数据契约。"
+business_value: "先统一事件类型、字段边界和 T+1/T+3 判定口径，避免后续 Belief Graph 与验证结果口径漂移。"
+
+entry_criteria:
+  - "Sprint 2 的 world / ledger 基线已可用，能够提供后续 T+1/T+3 对照所需的交易日和标的表现来源。"
+
+acceptance_criteria:
+  - "MVP 只接受 policy_catalyst 首发事件类型，涨价链和利空扩散在接口层有明确延后或拒绝策略。"
+  - "事件生命周期、主键和只读查询标识统一，至少覆盖 raw、structured、belief_ready、scenario_ready、reviewed 五类状态。"
+  - "需求文档 1.2 第十五章定义的核心对象有对应 schema 或 dataclass 承载。"
+  - "T+1 / T+3 outcome 字段、dominant_scenario 判定输入和 agent_scores 累计口径在契约层固定。"
+
+constraints:
+  - "优先复用现有 schemas / settings / container 组织方式，不单独引入新持久化框架。"
+  - "MVP 不引入图数据库，Belief Graph 仍以 JSON / file-backed 形式落地。"
+
+out_of_scope:
+  - "不实现 8 类 Agent 的具体推演逻辑。"
+  - "不实现前端事件页面。"
+
+dependencies:
+  - "Sprint 2 世界、撮合、账本、日循环基线。"
+
+related_files:
+  - "apps/api/src/schemas/command.py"
+  - "apps/api/src/schemas/query.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/settings/base.py"
+  - "apps/api/src/schemas/event.py"
+
+primary_files:
+  - "apps/api/src/schemas/event.py"
+
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/settings/base.py"
+
+test_cases:
+  normal:
+    - "正常路径：提交 policy_catalyst 事件后，schema 校验通过并生成稳定 event_id。"
+  exception:
+    - "异常路径：提交未纳入首发范围的 event_type 时返回明确 reject / defer 原因。"

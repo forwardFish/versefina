@@ -1,0 +1,53 @@
+task_id: "S8-002"
+task_name: "事件输入页与事件推演卡页"
+sprint: "Sprint 8 事件产品化与 MVP 验收"
+epic: "Epic 8.1 Read Model & Report Card"
+story_id: "S8-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "在现有 Versefina Web 中提供事件输入页和事件推演卡页，承载手动事件提交与只读结果查看。"
+business_value: "把事件推演能力从 API 层提升到用户可直接操作和验证的产品界面。"
+
+entry_criteria:
+  - "S8-001 已完成，report card 查询接口可用。"
+
+acceptance_criteria:
+  - "提供粘贴新闻/公告、选择事件类型、提交分析的事件输入页。"
+  - "提供展示事件摘要、8 Agent 立场、共识/分歧摘要、三剧本、观察点和失效条件的推演卡页。"
+  - "界面遵循现有 Next.js dashboard 结构，不破坏已有 Onboarding / Universe / Admin 流程。"
+  - "加载中、失败和 partial data 状态有明确展示。"
+
+constraints:
+  - "优先复用现有 web app 的 layout、api client 和 query 模式。"
+  - "首发只暴露 policy_catalyst 选项，不提前开放其他事件类型。"
+
+out_of_scope:
+  - "不做复杂分享控制。"
+  - "不在本 Story 中做复盘页。"
+
+dependencies:
+  - "S8-001"
+
+related_files:
+  - "apps/web/src/app/(dashboard)/layout.tsx"
+  - "apps/web/src/shared/constants/nav.ts"
+  - "apps/web/src/services/api/client.ts"
+  - "apps/web/src/shared/types/api.ts"
+  - "apps/web/src/features/event-reflexivity/EventInputPage.tsx"
+  - "apps/web/src/features/event-reflexivity/EventReportCard.tsx"
+
+primary_files:
+  - "apps/web/src/features/event-reflexivity/EventInputPage.tsx"
+
+secondary_files:
+  - "apps/web/src/features/event-reflexivity/EventReportCard.tsx"
+  - "apps/web/src/shared/constants/nav.ts"
+  - "apps/web/src/services/api/client.ts"
+
+test_cases:
+  normal:
+    - "正常路径：提交事件后跳转或刷新出对应的推演卡页面。"
+  exception:
+    - "异常路径：提交失败或 report card 不完整时页面显示可解释占位状态。"

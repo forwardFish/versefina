@@ -1,0 +1,55 @@
+task_id: "S2-003"
+task_name: "撮合引擎与订单执行"
+sprint: "Sprint 2 世界、撮合、账本、日循环"
+epic: "Epic 2.2 Matching & Execution"
+story_id: "S2-003"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现简化的撮合引擎，支持 Agent 订单的模拟执行和成交确认。"
+business_value: "让 Agent 的交易决策能够在模拟环境中执行，生成真实的持仓和资金变化。"
+
+entry_criteria:
+  - "S2-002 行情数据接入已完成。"
+
+acceptance_criteria:
+  - "支持市价单撮合（按收盘价成交）。"
+  - "支持限价单撮合（价格满足时成交）。"
+  - "检查涨跌停限制，超限订单拒绝。"
+  - "检查资金充足性，资金不足订单拒绝。"
+  - "生成成交记录（Trade）包含：symbol、side、qty、price、fee、traded_at。"
+  - "订单状态：pending、filled、rejected、cancelled。"
+
+constraints:
+  - "第一阶段只支持全额成交，不支持部分成交。"
+  - "手续费按固定比例（0.03%）计算。"
+  - "印花税按卖出金额 0.1% 计算。"
+
+out_of_scope:
+  - "不实现高频交易撮合。"
+  - "不实现订单簿深度模拟。"
+  - "不支持融资融券。"
+
+dependencies:
+  - "S2-002 行情数据接入。"
+
+related_files:
+  - "apps/api/src/domain/matching/engine.py"
+  - "apps/api/src/schemas/order.py"
+  - "apps/api/src/schemas/trade.py"
+
+primary_files:
+  - "apps/api/src/domain/matching/engine.py"
+
+secondary_files:
+  - "apps/api/src/schemas/order.py"
+  - "apps/api/src/schemas/trade.py"
+
+test_cases:
+  normal:
+    - "正常路径：市价买单，按收盘价成交，扣除手续费。"
+    - "正常路径：限价卖单，价格满足时成交，扣除印花税和手续费。"
+  exception:
+    - "异常路径：买单价格超过涨停价，订单拒绝。"
+    - "异常路径：资金不足，订单拒绝。"

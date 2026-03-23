@@ -1,0 +1,38 @@
+task_id: "E4-005"
+task_name: "仿真结果反写 Graph 与 Card"
+sprint: "Sprint 4 轻量模拟运行层"
+epic: "Epic 4.2 Timeline & Feedback"
+story_id: "E4-005"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "将轻量模拟结果反写到 BeliefGraphSnapshot 和 ScenarioCard。"
+business_value: "让事件卡从静态剧本升级为包含动态演化证据的结果对象。"
+
+entry_criteria:
+  - "E4-004 已完成。"
+
+acceptance_criteria:
+  - "graph 可记录 simulation_adjustments。"
+  - "card 可展示关键演化结论。"
+  - "反写过程保持前后版本可追踪。"
+
+constraints:
+  - "必须保留原始 pre-simulation 版本。"
+
+out_of_scope:
+  - "不做后验评分。"
+
+dependencies:
+  - "E4-004"
+
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/projection/event_cards/service.py"
+
+test_cases:
+  normal:
+    - "模拟完成后 card 能展示动态修正信息。"
+  exception:
+    - "反写失败时保留旧版 card 不损坏。"

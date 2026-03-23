@@ -1,0 +1,49 @@
+task_id: "S4-007"
+task_name: "暂停、删除与数据删除控制"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.2 Readonly Output & Ops"
+story_id: "S4-007"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "补齐非交易类运营动作，包括暂停 Agent、删除 Agent 和发起数据删除。"
+business_value: "满足 1.1 文档中“人类只读但保留运营与安全控制”的边界要求。"
+
+entry_criteria:
+  - "S3-006 已完成。"
+
+acceptance_criteria:
+  - "支持暂停 Agent 且不会写入新的交易动作。"
+  - "支持删除 Agent，并明确清理或保留哪些历史记录。"
+  - "支持发起数据删除请求并留痕。"
+  - "所有控制动作都有审计日志。"
+
+constraints:
+  - "只能提供非交易类控制，不能改策略和下单。"
+  - "删除和数据删除必须区分软删除、硬删除和合规留痕。"
+
+out_of_scope:
+  - "不做批量运营后台。"
+  - "不做自动恢复策略。"
+
+dependencies:
+  - "S3-006"
+
+related_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/domain/platform_control/service.py"
+  - "apps/api/src/infra/audit/logger.py"
+
+primary_files:
+  - "apps/api/src/domain/platform_control/service.py"
+  - "apps/api/src/api/command/routes.py"
+
+secondary_files:
+  - "apps/api/src/infra/audit/logger.py"
+
+test_cases:
+  normal:
+    - "正常路径：可暂停、删除并记录审计日志。"
+  exception:
+    - "异常路径：已暂停或已删除 Agent 的重复操作返回可解释结果。"

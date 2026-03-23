@@ -1,0 +1,53 @@
+task_id: "S8-001"
+task_name: "Event Report Card projection 与查询 API"
+sprint: "Sprint 8 事件产品化与 MVP 验收"
+epic: "Epic 8.1 Read Model & Report Card"
+story_id: "S8-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把事件摘要、8 类 Agent 立场、Belief Graph 摘要、三剧本、观察点和失效条件组装成可查询的 Event Report Card。"
+business_value: "为前端页面和外部只读消费提供稳定 read model，而不是让页面直接拼底层 artifacts。"
+
+entry_criteria:
+  - "Sprint 5 到 Sprint 7 已完成，事件推演闭环可产出完整 artifacts。"
+
+acceptance_criteria:
+  - "查询接口至少能返回 event summary、8 agents、graph summary、three cases、watchpoints、invalidation、key dissenters。"
+  - "projection 结果稳定，可基于 event_id 重复查询。"
+  - "缺少某类 artifact 时返回 partial 状态和缺失项，而不是接口直接失败。"
+  - "返回结构可被 web 端直接渲染。"
+
+constraints:
+  - "优先复用现有 projection / query router 组织方式。"
+  - "不让前端直接拼接 domain 内部对象。"
+
+out_of_scope:
+  - "不做图谱可视化编辑器。"
+  - "不实现公开分享运营逻辑。"
+
+dependencies:
+  - "Sprint 5 全部 Story"
+  - "Sprint 6 全部 Story"
+  - "Sprint 7 全部 Story"
+
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/schemas/query.py"
+  - "apps/api/src/schemas/event.py"
+
+primary_files:
+  - "apps/api/src/projection/event_cards/service.py"
+
+secondary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+
+test_cases:
+  normal:
+    - "正常路径：查询单条 event_id 时返回完整或部分可解释的 report card。"
+  exception:
+    - "异常路径：部分 artifact 缺失时返回 partial 状态和缺口说明。"

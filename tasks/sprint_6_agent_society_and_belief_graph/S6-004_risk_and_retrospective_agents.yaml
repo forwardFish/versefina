@@ -1,0 +1,51 @@
+task_id: "S6-004"
+task_name: "风控与复盘 Agent"
+sprint: "Sprint 6 Agent 社会与 Belief Graph"
+epic: "Epic 6.1 Belief Agent Contracts"
+story_id: "S6-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现专门寻找失败路径的风控 Agent 和负责历史相似事件回灌的复盘 Agent。"
+business_value: "把‘为什么可能不成立’和‘历史上通常怎么走’提前引入推演主链，而不是到复盘阶段再补。"
+
+entry_criteria:
+  - "S6-001 已完成。"
+  - "S5-005 的样本台账与回放基座已可用。"
+
+acceptance_criteria:
+  - "风控 Agent 能输出最大风险、脆弱点、确认不足项和撤退条件。"
+  - "复盘 Agent 能输出历史相似事件、常见成功模式和失败模式摘要。"
+  - "两类 Agent 输出具备结构化字段，可直接进入 Belief Graph 和 Scenario Engine。"
+  - "相似事件缺失场景有 fallback，而不是伪造历史对照。"
+
+constraints:
+  - "复盘 Agent 优先使用样本台账和显式规则，不直接胡乱生成历史案例。"
+  - "风控 Agent 必须能显式反对主流共识。"
+
+out_of_scope:
+  - "不做最终评分累计。"
+  - "不做复盘页 UI。"
+
+dependencies:
+  - "S6-001"
+  - "S5-005"
+
+related_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/schemas/event.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/schemas/event.py"
+
+test_cases:
+  normal:
+    - "正常路径：风控和复盘 Agent 能对同一事件输出结构化反例与历史模式。"
+  exception:
+    - "异常路径：缺少相似事件时明确标记历史证据不足。"

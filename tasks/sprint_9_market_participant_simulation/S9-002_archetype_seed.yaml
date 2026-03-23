@@ -1,0 +1,50 @@
+task_id: "S9-002"
+task_name: "Archetype Seed 风格母体抽象"
+sprint: "Sprint 9 市场参与者仿真层（Aaru 增强）"
+epic: "Epic 9.1 Style Embedding"
+story_id: "S9-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "从行为镜像 Agent 中抽象出风格母体（Archetype Seed），作为反身性引擎中市场参与者模板的来源。"
+business_value: "让反身性引擎能够基于真实交易者的风格母体生成 Synthetic Market Participants，而不是凭空假设参与者分布。"
+
+entry_criteria:
+  - "S9-001 MarketStyleEmbedding 已完成。"
+
+acceptance_criteria:
+  - "Archetype Seed 包含：archetype_id、source_agent_id、style_embedding、behavioral_tags、risk_budget_profile、reaction_rules。"
+  - "behavioral_tags 包含：is_event_driven、is_momentum_follower、is_mean_reversion、is_high_crowding_tolerant。"
+  - "Archetype Seed 不直接参与公开运行，仅作为模板。"
+  - "提供 Archetype 创建接口 POST /api/v1/archetypes。"
+  - "提供 Archetype 查询接口 GET /api/v1/archetypes。"
+
+constraints:
+  - "一个 Agent 可以生成一个 Archetype Seed。"
+  - "Archetype Seed 创建后不可修改，只能创建新版本。"
+
+out_of_scope:
+  - "不实现 Archetype 的自动聚类。"
+  - "不实现 Archetype 的可视化展示。"
+
+dependencies:
+  - "S9-001 MarketStyleEmbedding。"
+
+related_files:
+  - "apps/api/src/domain/archetype/service.py"
+  - "apps/api/src/schemas/archetype.py"
+  - "apps/api/src/api/v1/archetypes.py"
+
+primary_files:
+  - "apps/api/src/domain/archetype/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/archetype.py"
+
+test_cases:
+  normal:
+    - "正常路径：从 Agent 创建 Archetype Seed，包含完整的 style_embedding 和 behavioral_tags。"
+    - "正常路径：查询 Archetype 列表，返回所有已创建的母体。"
+  exception:
+    - "异常路径：Agent 的 style_embedding 不完整，创建失败并给出提示。"

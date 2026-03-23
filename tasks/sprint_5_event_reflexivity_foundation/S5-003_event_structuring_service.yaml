@@ -1,0 +1,52 @@
+task_id: "S5-003"
+task_name: "结构化事件抽取服务"
+sprint: "Sprint 5 事件反身性基线与样本台账"
+epic: "Epic 5.2 Structuring & Casebook"
+story_id: "S5-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 raw event 转成 event_structured，覆盖实体、行业、标的、因果链和初步受影响范围。"
+business_value: "把后续 8 Agent 的输入从自然语言文本升级为稳定的结构化事件卡，减少推演漂移。"
+
+entry_criteria:
+  - "S5-001 和 S5-002 已完成，raw event 已可持久化。"
+
+acceptance_criteria:
+  - "输出至少覆盖 event_type、event_time、entities、sectors、commodities、affected_symbols、causal_chain。"
+  - "同一输入在规则优先实现下输出稳定，不因为重复运行产生大幅字段抖动。"
+  - "实体缺失或符号无法解析场景有 explainable degrade，不阻塞后续流程。"
+  - "结构化结果可被查询接口直接消费。"
+
+constraints:
+  - "优先采用规则、模板和受限抽取，不做开放式长文总结。"
+  - "结构化结果必须可直接进入 Belief Engine，而不是仅供人阅读。"
+
+out_of_scope:
+  - "不生成 8 类 Agent stance。"
+  - "不在本 Story 中决定 dominant_scenario。"
+
+dependencies:
+  - "S5-001"
+  - "S5-002"
+
+related_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/modules/events/structuring_service.py"
+
+primary_files:
+  - "apps/api/src/modules/events/structuring_service.py"
+
+secondary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/schemas/event.py"
+
+test_cases:
+  normal:
+    - "正常路径：政策催化事件被结构化为可消费的 event_structured 对象。"
+  exception:
+    - "异常路径：正文过短、实体不明确或标的缺失时输出降级结果和原因。"

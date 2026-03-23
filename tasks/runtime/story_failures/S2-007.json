@@ -1,0 +1,26 @@
+{
+  "project": "versefina",
+  "backlog_id": "sprint_2_world_matching_ledger",
+  "sprint_id": "S2-007_performance_snapshot.yaml",
+  "task_id": "task-327cce48",
+  "task_name": "绩效计算与快照",
+  "failure_type": "run_prod_task_exception",
+  "last_node": "Tester",
+  "fix_attempts": 0,
+  "review_findings_summary": {
+    "blocking": [],
+    "important": [],
+    "nice_to_haves": []
+  },
+  "changed_files": [],
+  "recommended_recovery_action": "Resume from the failed story after fixing the workflow blocker.",
+  "blocker_class": "shared_dependency_blocker",
+  "error_message": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+  "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-327cce48.json",
+  "artifact_dir": null,
+  "workspace_mode": "snapshot",
+  "snapshot_reason": "dirty_worktree",
+  "authoritative_attempt": "S2-007",
+  "story_id": "S2-007",
+  "captured_at": "2026-03-22T18:04:06"
+}

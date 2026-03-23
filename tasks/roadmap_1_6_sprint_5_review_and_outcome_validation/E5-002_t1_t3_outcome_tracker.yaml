@@ -1,0 +1,38 @@
+task_id: "E5-002"
+task_name: "T+1 / T+3 Outcome Tracker"
+sprint: "Sprint 5 复盘报告与后验验证"
+epic: "Epic 5.1 Review & Outcomes"
+story_id: "E5-002"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立 T+1 / T+3 后验回填对象和回填流程。"
+business_value: "形成真正可验证的事件推演闭环。"
+
+entry_criteria:
+  - "E5-001 已完成。"
+
+acceptance_criteria:
+  - "可回填 sector_performance、leader_performance、expansion_status、sentiment_status。"
+  - "可写入 dominant_scenario_actual 和 score_label。"
+  - "Review Report 可关联 outcome。"
+
+constraints:
+  - "不能只回填价格结果。"
+
+out_of_scope:
+  - "不做 distribution calibration。"
+
+dependencies:
+  - "E5-001"
+
+related_files:
+  - "docs/需求文档/Outcome_Tracker_判分规则.md"
+  - "apps/api/src/domain/outcome_review/service.py"
+
+test_cases:
+  normal:
+    - "事件可写入 T+1 与 T+3 结果。"
+  exception:
+    - "缺少 event_id 时 outcome 写入失败。"

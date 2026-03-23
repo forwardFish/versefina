@@ -1,0 +1,50 @@
+task_id: "S1-007"
+task_name: "解析校验与错误报告"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.2 Parse & Standardize"
+story_id: "S1-007"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现解析过程的校验机制和详细的错误报告生成。"
+business_value: "提供清晰的解析结果报告，帮助用户理解解析成功率和失败原因。"
+
+entry_criteria:
+  - "S1-006 TradeRecord 标准化已完成。"
+
+acceptance_criteria:
+  - "生成解析报告，包含：总记录数、成功数、失败数、失败原因。"
+  - "解析报告保存为 JSON 文件。"
+  - "提供解析报告查询接口 GET /api/v1/statements/{statement_id}/parse-report。"
+  - "失败记录包含行号和具体错误信息。"
+  - "解析成功率低于 80% 时给出警告。"
+
+constraints:
+  - "解析报告不包含敏感信息（如完整的交易金额）。"
+  - "错误信息对用户友好且可操作。"
+
+out_of_scope:
+  - "不实现自动修复解析错误的功能。"
+  - "不实现解析结果的人工审核流程。"
+
+dependencies:
+  - "S1-006 TradeRecord 标准化。"
+
+related_files:
+  - "apps/api/src/parsers/parse_validator.py"
+  - "apps/api/src/schemas/parse_report.py"
+  - "apps/api/src/api/v1/statements.py"
+
+primary_files:
+  - "apps/api/src/parsers/parse_validator.py"
+
+secondary_files:
+  - "apps/api/src/schemas/parse_report.py"
+
+test_cases:
+  normal:
+    - "正常路径：解析成功，报告显示 parsed_records > 0，failed_records = 0。"
+    - "正常路径：部分解析失败，报告显示失败记录和原因。"
+  exception:
+    - "异常路径：解析完全失败，报告显示 parsed_records = 0 和错误原因。"

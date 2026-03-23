@@ -1,0 +1,49 @@
+task_id: "S1-009"
+task_name: "风格标签与风控约束生成"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.3 Profile & Agent Creation"
+story_id: "S1-009"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "基于 Profile 生成风格标签和风控约束参数。"
+business_value: "为 Agent 提供可解释的风格标签和合理的风控约束，确保 Agent 行为可控。"
+
+entry_criteria:
+  - "S1-008 Profile 提取已完成。"
+
+acceptance_criteria:
+  - "生成风格标签（如：稳健型、激进型、短线型、长线型）。"
+  - "生成风控约束（如：单笔最大仓位、最大回撤限制、止损比例）。"
+  - "风格标签和风控约束记录到 Profile 中。"
+  - "风控参数在合理范围内（如单笔仓位 5%-30%）。"
+
+constraints:
+  - "风格标签不超过 5 个。"
+  - "风控约束基于历史数据统计，不过度激进。"
+
+out_of_scope:
+  - "不实现风格标签的自定义功能。"
+  - "不实现风控约束的动态调整。"
+
+dependencies:
+  - "S1-008 Profile 提取。"
+
+related_files:
+  - "apps/api/src/domain/profile_engine/service.py"
+  - "apps/api/src/schemas/profile.py"
+
+primary_files:
+  - "apps/api/src/domain/profile_engine/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/profile.py"
+
+test_cases:
+  normal:
+    - "正常路径：高频交易者生成'短线型'标签。"
+    - "正常路径：低频交易者生成'长线型'标签。"
+    - "正常路径：风控参数在合理范围内。"
+  exception:
+    - "异常路径：Profile 数据不足，返回默认风格标签和保守风控。"

@@ -1,0 +1,26 @@
+{
+  "project": "versefina",
+  "backlog_id": "sprint_3_behavior_mirror_modeling",
+  "sprint_id": "S3-001_feature_extractor.yaml",
+  "task_id": "task-45664690-2",
+  "task_name": "交易行为特征提取",
+  "failure_type": "run_prod_task_exception",
+  "last_node": "Tester",
+  "fix_attempts": 0,
+  "review_findings_summary": {
+    "blocking": [],
+    "important": [],
+    "nice_to_haves": []
+  },
+  "changed_files": [],
+  "recommended_recovery_action": "Resume from the failed story after fixing the workflow blocker.",
+  "blocker_class": "shared_dependency_blocker",
+  "error_message": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+  "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-45664690-2.json",
+  "artifact_dir": null,
+  "workspace_mode": "snapshot",
+  "snapshot_reason": "dirty_worktree",
+  "authoritative_attempt": "S3-001",
+  "story_id": "S3-001",
+  "captured_at": "2026-03-22T09:30:26"
+}

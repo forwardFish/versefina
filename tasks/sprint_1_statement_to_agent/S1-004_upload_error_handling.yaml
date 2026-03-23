@@ -1,0 +1,51 @@
+task_id: "S1-004"
+task_name: "上传失败处理"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.1 Statement Upload & Parse"
+story_id: "S1-004"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现上传失败的错误处理和错误信息记录机制。"
+business_value: "提供清晰的错误信息，帮助用户理解上传失败的原因并采取相应措施。"
+
+entry_criteria:
+  - "S1-001 上传接口已完成。"
+  - "S1-002 状态机已完成。"
+
+acceptance_criteria:
+  - "上传失败时，Statement 状态设置为 failed。"
+  - "错误信息记录到 error_code 和 error_message 字段。"
+  - "支持的错误类型：文件过大、文件类型不支持、存储失败。"
+  - "错误信息对用户友好且可操作。"
+
+constraints:
+  - "错误信息不暴露系统内部实现细节。"
+  - "错误代码使用统一的错误码体系。"
+
+out_of_scope:
+  - "不实现错误重试机制。"
+  - "不实现错误通知功能。"
+
+dependencies:
+  - "S1-001 上传接口。"
+  - "S1-002 状态机。"
+
+related_files:
+  - "apps/api/src/api/v1/statements.py"
+  - "apps/api/src/schemas/statement.py"
+  - "apps/api/src/services/error_handler.py"
+
+primary_files:
+  - "apps/api/src/services/error_handler.py"
+
+secondary_files:
+  - "apps/api/src/api/v1/statements.py"
+
+test_cases:
+  normal:
+    - "正常路径：上传失败后，状态为 failed，error_message 不为空。"
+  exception:
+    - "异常路径：文件过大，返回 413 和明确的错误信息。"
+    - "异常路径：存储失败，返回 500 和错误信息。"

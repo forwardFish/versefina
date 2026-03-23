@@ -1,0 +1,38 @@
+task_id: "E4-003"
+task_name: "动作日志与状态快照"
+sprint: "Sprint 4 轻量模拟运行层"
+epic: "Epic 4.1 Simulation Runtime"
+story_id: "E4-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把轻量模拟过程写成 actions.jsonl 和 state snapshots。"
+business_value: "为 report、why 查询和复盘提供过程证据。"
+
+entry_criteria:
+  - "E4-002 已完成。"
+
+acceptance_criteria:
+  - "每轮至少产出一条动作日志或状态快照。"
+  - "日志包含 participant_id、action_type、reason_codes、state_before、state_after。"
+  - "日志文件和 SimulationRun 关联。"
+
+constraints:
+  - "日志必须可回放。"
+
+out_of_scope:
+  - "不做长期记忆回写。"
+
+dependencies:
+  - "E4-002"
+
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "workspace/event_simulations/"
+
+test_cases:
+  normal:
+    - "每轮都有对应日志或快照。"
+  exception:
+    - "日志写入失败时 run 标记为 partial_failed。"

@@ -1,0 +1,38 @@
+task_id: "E3-001"
+task_name: "BeliefGraphSnapshot 构建器"
+sprint: "Sprint 3 Belief Graph 与三剧本基线"
+epic: "Epic 3.1 Graph Aggregation"
+story_id: "E3-001"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把 ParticipantBelief 聚合成 BeliefGraphSnapshot。"
+business_value: "建立事件推演的中间状态，而不是停留在参与者文本输出。"
+
+entry_criteria:
+  - "E2-003 已完成。"
+
+acceptance_criteria:
+  - "可从 roster beliefs 生成 graph snapshot。"
+  - "snapshot 至少记录 key_supporters 和 key_opponents。"
+  - "graph 数据可被 Scenario Engine 消费。"
+
+constraints:
+  - "第一版使用 JSON / file-backed 即可。"
+
+out_of_scope:
+  - "不引入图数据库。"
+
+dependencies:
+  - "E2-003"
+
+related_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/schemas/belief_graph.py"
+
+test_cases:
+  normal:
+    - "一组 beliefs 可聚合出完整 snapshot。"
+  exception:
+    - "beliefs 为空时返回明确错误或空 graph。"

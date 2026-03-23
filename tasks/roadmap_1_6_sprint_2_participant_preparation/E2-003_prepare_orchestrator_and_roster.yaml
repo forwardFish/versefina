@@ -1,0 +1,41 @@
+task_id: "E2-003"
+task_name: "Prepare Orchestrator 与 Participant Roster"
+sprint: "Sprint 2 金融参与者准备层"
+epic: "Epic 2.1 Participant Protocol"
+story_id: "E2-003"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把结构化事件转成一次可运行的 Participant Roster，并统一 prepare 入口。"
+business_value: "建立事件预演的准备阶段，借鉴 MiroFish 的 prepare 流程。"
+
+entry_criteria:
+  - "E2-001 已完成。"
+  - "E2-002 已完成。"
+
+acceptance_criteria:
+  - "定义 POST /api/v1/events/{event_id}/prepare 的行为语义。"
+  - "输出 ParticipantRoster，包含激活参与者、权重和原因。"
+  - "证据不足事件允许 prepare 失败或降级。"
+
+constraints:
+  - "prepare 阶段不进入 simulation runner。"
+
+out_of_scope:
+  - "不做 graph 聚合。"
+
+dependencies:
+  - "E2-001"
+  - "E2-002"
+
+related_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/schemas/participant.py"
+
+test_cases:
+  normal:
+    - "结构化事件可生成完整 roster。"
+  exception:
+    - "事件不在白名单或结构化不足时 prepare 返回失败原因。"

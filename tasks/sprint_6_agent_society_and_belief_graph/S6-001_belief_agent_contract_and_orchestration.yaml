@@ -1,0 +1,50 @@
+task_id: "S6-001"
+task_name: "Belief Agent 契约与编排入口"
+sprint: "Sprint 6 Agent 社会与 Belief Graph"
+epic: "Epic 6.1 Belief Agent Contracts"
+story_id: "S6-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立 8 类 Belief Agent 的共享输入输出契约、执行顺序和降级规则。"
+business_value: "先把所有 Agent 输出格式固定下来，后续新增 Agent 或替换实现时不破坏 Belief Graph 与 Scenario Engine。"
+
+entry_criteria:
+  - "Sprint 5 已完成，event_structured、monitor_signals 和 invalidation_conditions 已可用。"
+
+acceptance_criteria:
+  - "8 类 Agent 共用 stance、confidence、time_horizon、expected_impact、evidence、dissent_points、trigger_conditions、invalidation_conditions 输出框架。"
+  - "同一事件运行时具备统一 orchestration 入口，可串行或受控并行生成 beliefs。"
+  - "低证据或事件不适配场景允许明确输出 neutral / watch / insufficient_evidence。"
+  - "输出结果可直接供 Belief Graph Builder 消费。"
+
+constraints:
+  - "必须限制自由发挥，不能返回无法解析的大段自由文本。"
+  - "优先复用现有 workflow / service 组织方式，不单独创建新的运行框架。"
+
+out_of_scope:
+  - "不实现图谱聚合。"
+  - "不生成最终剧本卡。"
+
+dependencies:
+  - "Sprint 5 全部 Story"
+
+related_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/workflows/review/graph.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/schemas/event.py"
+
+test_cases:
+  normal:
+    - "正常路径：单条结构化事件可触发 8 类 Agent 的 schema-valid beliefs 输出。"
+  exception:
+    - "异常路径：证据不足时返回受控降级结果，不抛出不可解释空值。"

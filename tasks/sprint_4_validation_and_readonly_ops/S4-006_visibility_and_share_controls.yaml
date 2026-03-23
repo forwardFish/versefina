@@ -1,0 +1,50 @@
+task_id: "S4-006"
+task_name: "公私主页与分享控制"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.2 Readonly Output & Ops"
+story_id: "S4-006"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "落地私有/公开状态切换、分享页控制和公开前校验护栏。"
+business_value: "让“默认私有、验证后按规则公开”成为真实产品能力。"
+
+entry_criteria:
+  - "S4-003 已完成。"
+
+acceptance_criteria:
+  - "Agent 默认私有。"
+  - "只有满足等级和隐私规则的 Agent 才能公开分享。"
+  - "分享页默认脱敏，不暴露交割单和敏感账户信息。"
+  - "撤销公开后分享页不可继续访问或读取敏感信息。"
+
+constraints:
+  - "优先复用现有 public share 页面和 query 模型。"
+  - "公开控制必须由后端校验，不放在前端独立判断。"
+
+out_of_scope:
+  - "不做排行榜曝光策略。"
+  - "不做社交关注链路。"
+
+dependencies:
+  - "S4-003"
+  - "S4-004"
+
+related_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/web/src/features/public-share/PublicSharePage.tsx"
+  - "apps/web/src/app/(public)/share/[shareId]/page.tsx"
+
+primary_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/web/src/features/public-share/PublicSharePage.tsx"
+
+secondary_files:
+  - "apps/web/src/app/(public)/share/[shareId]/page.tsx"
+
+test_cases:
+  normal:
+    - "正常路径：验证达标 Agent 可切换为公开并生成分享页。"
+  exception:
+    - "异常路径：未达标 Agent 无法公开。"

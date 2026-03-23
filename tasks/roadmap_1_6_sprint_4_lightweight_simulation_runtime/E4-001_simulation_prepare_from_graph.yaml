@@ -1,0 +1,38 @@
+task_id: "E4-001"
+task_name: "Simulation Prepare"
+sprint: "Sprint 4 轻量模拟运行层"
+epic: "Epic 4.1 Simulation Runtime"
+story_id: "E4-001"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "从 BeliefGraphSnapshot 和 ScenarioCard 生成参与者初始状态。"
+business_value: "把三剧本转成可运行的模拟输入。"
+
+entry_criteria:
+  - "E3-005 已完成。"
+
+acceptance_criteria:
+  - "生成 SimulationRun 初始记录。"
+  - "生成每个参与者的初始状态和轮次参数。"
+  - "prepare 输出可供 runner 直接消费。"
+
+constraints:
+  - "不直接执行模拟轮次。"
+
+out_of_scope:
+  - "不写最终动作日志。"
+
+dependencies:
+  - "E3-005"
+
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/schemas/simulation.py"
+
+test_cases:
+  normal:
+    - "graph 和 scenario 可生成 simulation_prepare 结果。"
+  exception:
+    - "缺少 dominant_scenario 时不能进入 prepare。"

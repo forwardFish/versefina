@@ -1,0 +1,200 @@
+{
+  "generated_at": "2026-03-22T18:04:02",
+  "story_id": "S2-007",
+  "story_file": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger\\S2-007_performance_snapshot.yaml",
+  "story_kind": "api",
+  "required_modes": [
+    "plan-eng-review",
+    "review",
+    "qa"
+  ],
+  "advisory_modes": [],
+  "related_files": [
+    "apps/api/src/domain/performance/calculator.py",
+    "apps/api/src/schemas/performance.py",
+    "apps/api/src/api/v1/agents.py"
+  ],
+  "acceptance_criteria_count": 4,
+  "has_browser_urls": true,
+  "formal_execution_requested": false,
+  "admitted": true,
+  "errors": [],
+  "warnings": [],
+  "task_payload": {
+    "project": "versefina",
+    "task_id": "S2-007",
+    "task_name": "绩效计算与快照",
+    "sprint": "Sprint 2 世界、撮合、账本、日循环",
+    "epic": "Epic 2.3 Daily Loop",
+    "story_id": "S2-007",
+    "auto_run": false,
+    "execution_policy": "continuous_full_sprint",
+    "interaction_policy": "direct_run_task",
+    "pause_policy": "story_boundary_or_shared_blocker_only",
+    "blocker_class": null,
+    "blast_radius": "L2",
+    "business_value": "为 Agent 分级和只读观察台提供数据基础，让用户能看到 Agent 的历史表现。",
+    "execution_mode": "Safe",
+    "mode": "Safe",
+    "agent_policy": "auto",
+    "requires_auth": false,
+    "goal": "每日循环结束后计算 Agent 绩效指标并保存快照，支持历史回溯。",
+    "entry_criteria": [
+      "S2-006 日循环调度器已完成。"
+    ],
+    "acceptance_criteria": [
+      "每日计算：total_value、cash、pnl、pnl_pct、max_drawdown、sharpe_ratio（滚动）。",
+      "每日保存账本快照到数据库。",
+      "提供绩效查询接口 GET /api/v1/agents/{agent_id}/performance。",
+      "支持按日期范围查询历史绩效。"
+    ],
+    "constraints": [
+      "快照数据只追加，不修改历史记录。",
+      "Sharpe ratio 需要至少 20 个交易日数据才计算。"
+    ],
+    "explicitly_not_doing": [
+      "不实现实时绩效推送。",
+      "不实现绩效排行榜（Sprint 4 实现）。"
+    ],
+    "not_do": [
+      "不实现实时绩效推送。",
+      "不实现绩效排行榜（Sprint 4 实现）。"
+    ],
+    "out_of_scope": [
+      "不实现实时绩效推送。",
+      "不实现绩效排行榜（Sprint 4 实现）。"
+    ],
+    "dependencies": [
+      "S2-006 日循环调度器。"
+    ],
+    "related_files": [
+      "apps/api/src/domain/performance/calculator.py",
+      "apps/api/src/schemas/performance.py",
+      "apps/api/src/api/v1/agents.py"
+    ],
+    "primary_files": [
+      "apps/api/src/domain/performance/calculator.py"
+    ],
+    "secondary_files": [
+      "apps/api/src/schemas/performance.py"
+    ],
+    "test_cases": {
+      "normal": [
+        "正常路径：日循环后生成绩效快照，pnl 计算正确。",
+        "正常路径：查询历史绩效，返回按日期排序的数据。"
+      ],
+      "exception": [
+        "异常路径：数据不足 20 天，sharpe_ratio 返回 null。"
+      ]
+    },
+    "test_failure_info": null,
+    "story_inputs": [
+      "S2-006 日循环调度器已完成。",
+      "In-scope files: apps/api/src/domain/performance/calculator.py",
+      "Dependency outputs available from: S2-006 日循环调度器。"
+    ],
+    "story_process": [
+      "Inspect the declared scope and understand the current implementation before editing.",
+      "Implement only the change required for this story goal and keep the blast radius within the card.",
+      "Run story-specific validation and record reusable evidence for acceptance."
+    ],
+    "story_outputs": [
+      "Updated story artifacts in: apps/api/src/domain/performance/calculator.py",
+      "Validation evidence and delivery artifacts archived for this story."
+    ],
+    "verification_basis": [
+      "每日计算：total_value、cash、pnl、pnl_pct、max_drawdown、sharpe_ratio（滚动）。",
+      "每日保存账本快照到数据库。",
+      "提供绩效查询接口 GET /api/v1/agents/{agent_id}/performance。",
+      "支持按日期范围查询历史绩效。"
+    ],
+    "formal_entry": false,
+    "project_repo_root": "D:\\lyh\\agent\\agent-frame\\versefina",
+    "tasks_root": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks",
+    "backlog_id": "sprint_2_world_matching_ledger",
+    "sprint_id": "S2-007_performance_snapshot.yaml",
+    "story_file": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger\\S2-007_performance_snapshot.yaml",
+    "backlog_root": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger",
+    "run_policy": "single_pass_to_completion",
+    "acceptance_policy": "must_pass_all_required_runs",
+    "retry_policy": "auto_repair_until_green",
+    "acceptance_attempt": 0,
+    "repair_iteration": 0,
+    "final_green_required": true,
+    "authoritative_attempt": "",
+    "agent_activation_plan": {
+      "story_kind": "api",
+      "risk_level": "high",
+      "workflow_enforcement_policy": "gstack_strict",
+      "is_bugfix": false,
+      "is_planning_request": false,
+      "is_release_closeout": false,
+      "has_browser_surface": false,
+      "requires_auth": false,
+      "needs_design_review": false,
+      "needs_qa_design_review": false,
+      "needs_design_consultation": false,
+      "needs_ceo_review_advice": false,
+      "qa_strategy": "runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "next_recommended_actions": [],
+      "effective_qa_mode": "qa",
+      "auto_upgrade_to_qa": false
+    },
+    "story_kind": "api",
+    "risk_level": "high",
+    "workflow_enforcement_policy": "gstack_strict",
+    "has_browser_surface": false,
+    "needs_design_review": false,
+    "needs_qa_design_review": false,
+    "needs_design_consultation": false,
+    "needs_ceo_review_advice": false,
+    "qa_strategy": "runtime",
+    "required_modes": [
+      "plan-eng-review",
+      "review",
+      "qa"
+    ],
+    "advisory_modes": [],
+    "next_recommended_actions": [],
+    "effective_qa_mode": "qa",
+    "auto_upgrade_to_qa": false,
+    "upstream_agent_parity": {
+      "repo": "https://github.com/garrytan/gstack",
+      "commit": "8ddfab233d3999edb172bed54aaf06fc5ff92646",
+      "license": "MIT",
+      "tracked_modes": {
+        "plan-eng-review": {
+          "entry_mode": "requirement_analysis",
+          "stop_after": "architecture_review",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/plan-eng-review/SKILL.md"
+        },
+        "review": {
+          "entry_mode": "reviewer",
+          "stop_after": "reviewer",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/review/SKILL.md"
+        },
+        "qa": {
+          "entry_mode": "tester",
+          "stop_after": "browser_qa",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/qa/SKILL.md"
+        }
+      },
+      "intentional_deviations": [
+        "Telemetry and upgrade endpoints remain disabled by default in local agentsystem runs.",
+        "Claude-host-specific preambles are mirrored into local standards and adapters rather than executed verbatim."
+      ]
+    },
+    "fixer_allowed": true,
+    "browser_qa_report_only": false,
+    "runtime_qa_report_only": false
+  }
+}

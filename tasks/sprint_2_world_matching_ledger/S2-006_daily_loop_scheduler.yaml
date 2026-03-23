@@ -1,0 +1,50 @@
+task_id: "S2-006"
+task_name: "日循环调度器"
+sprint: "Sprint 2 世界、撮合、账本、日循环"
+epic: "Epic 2.3 Daily Loop"
+story_id: "S2-006"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现日循环调度器，每个交易日自动触发所有 Agent 的决策、撮合、账本更新流程。"
+business_value: "实现世界的自动运行，让所有 Agent 在统一的时间线上持续交易和演化。"
+
+entry_criteria:
+  - "S2-005 Agent 决策接口已完成。"
+
+acceptance_criteria:
+  - "日循环包含：更新世界日期 → 所有 Agent 决策 → 订单撮合 → 账本更新 → 绩效计算。"
+  - "支持手动触发日循环 POST /api/v1/worlds/{world_id}/tick。"
+  - "支持自动调度（每日定时触发）。"
+  - "日循环执行状态可查询。"
+  - "日循环失败时有明确的错误日志和回滚机制。"
+
+constraints:
+  - "日循环必须按顺序执行，不能并发。"
+  - "单次日循环超时时间 5 分钟。"
+
+out_of_scope:
+  - "不实现分钟级或实时调度。"
+  - "不实现跨市场同步。"
+
+dependencies:
+  - "S2-005 Agent 决策接口。"
+
+related_files:
+  - "apps/api/src/domain/world/daily_loop.py"
+  - "apps/api/src/api/v1/worlds.py"
+
+primary_files:
+  - "apps/api/src/domain/world/daily_loop.py"
+
+secondary_files:
+  - "apps/api/src/api/v1/worlds.py"
+
+test_cases:
+  normal:
+    - "正常路径：手动触发日循环，所有 Agent 完成决策和交易。"
+    - "正常路径：世界日期前进一天，账本更新正确。"
+  exception:
+    - "异常路径：某个 Agent 决策失败，不影响其他 Agent。"
+    - "异常路径：日循环超时，返回明确错误。"

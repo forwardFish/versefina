@@ -1,0 +1,48 @@
+task_id: "S1-002"
+task_name: "Statement 状态机"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.1 Statement Upload & Parse"
+story_id: "S1-002"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现 Statement 状态机，管理交割单从上传到解析完成的状态流转。"
+business_value: "确保交割单处理流程的状态一致性，防止重复处理和状态混乱。"
+
+entry_criteria:
+  - "S1-001 上传接口已完成。"
+
+acceptance_criteria:
+  - "Statement 状态包含：uploaded, parsing, parsed, failed。"
+  - "状态流转遵循状态机规则，不允许非法状态转换。"
+  - "状态变更记录到数据库。"
+  - "提供状态查询接口 GET /api/v1/statements/{statement_id}。"
+
+constraints:
+  - "状态转换必须是原子操作。"
+  - "不允许从 parsed 状态回退到 uploaded。"
+
+out_of_scope:
+  - "不实现状态变更通知机制。"
+
+dependencies:
+  - "S1-001 上传接口。"
+
+related_files:
+  - "apps/api/src/schemas/statement.py"
+  - "apps/api/src/services/statement_service.py"
+  - "apps/api/src/api/v1/statements.py"
+
+primary_files:
+  - "apps/api/src/schemas/statement.py"
+
+secondary_files:
+  - "apps/api/src/services/statement_service.py"
+
+test_cases:
+  normal:
+    - "正常路径：状态从 uploaded 转换到 parsing，再到 parsed。"
+  exception:
+    - "异常路径：尝试从 parsed 转换到 uploaded，返回错误。"
+    - "异常路径：尝试非法状态转换，返回 400 错误。"

@@ -1,0 +1,37 @@
+task_id: "E7-002"
+task_name: "Risk、Noise、Hold、Grading 验证分级"
+sprint: "Sprint 7 镜像 Agent 与分布校准闭环"
+epic: "Epic 7.1 Mirror & Validation"
+story_id: "E7-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "恢复并升级镜像 Agent 的验证分级闭环。"
+business_value: "让第二阶段增强线仍具备保真、可验证、可分级。"
+
+entry_criteria:
+  - "E7-001 已完成。"
+
+acceptance_criteria:
+  - "至少支持 risk、noise、hold、grading 四类结果。"
+  - "验证结果可与旧镜像路线兼容。"
+
+constraints:
+  - "不修改事件沙盘 P0 验证口径。"
+
+out_of_scope:
+  - "不做分布校准反馈。"
+
+dependencies:
+  - "E7-001"
+
+related_files:
+  - "apps/api/src/domain/mirror_agent/validation.py"
+  - "apps/api/src/schemas/agent.py"
+
+test_cases:
+  normal:
+    - "镜像 Agent 可得到验证分级。"
+  exception:
+    - "样本过少时分级标记 provisional。"

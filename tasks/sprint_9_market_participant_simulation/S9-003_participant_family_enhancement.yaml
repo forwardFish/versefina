@@ -1,0 +1,50 @@
+task_id: "S9-003"
+task_name: "8 类 Agent 增强为参与者家族"
+sprint: "Sprint 9 市场参与者仿真层（Aaru 增强）"
+epic: "Epic 9.2 Participant Family"
+story_id: "S9-003"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "将现有 8 类固定 Agent 增强为参与者家族，每类 Agent 内部允许有风格变体。"
+business_value: "让反身性引擎的 8 个 Agent 不再只是功能分析器，而是代表不同风格的市场参与者群体。"
+
+entry_criteria:
+  - "S6-002 8 类 Agent 结构化输出已完成。"
+  - "S9-002 Archetype Seed 已完成。"
+
+acceptance_criteria:
+  - "每类 Agent 增加字段：participant_family（如 retail_fast_money、institution_fundamental）、style_variant（如 fast_breakout、slow_confirmation）、risk_budget_profile、reaction_rules、invalidation_sensitivity。"
+  - "MVP 阶段每类保留 1 个主变体 + 可扩展字段。"
+  - "Agent schema 向后兼容，不破坏现有 v1.2 功能。"
+  - "提供 Agent 家族查询接口 GET /api/v1/belief-agents/families。"
+
+constraints:
+  - "不改变现有 8 类 Agent 的核心功能。"
+  - "风格变体字段可为空，默认使用主变体。"
+
+out_of_scope:
+  - "不实现风格变体的自动生成。"
+  - "不实现跨家族的 Agent 对比。"
+
+dependencies:
+  - "S6-002 8 类 Agent 结构化输出。"
+  - "S9-002 Archetype Seed。"
+
+related_files:
+  - "apps/api/src/domain/belief_engine/agent_schema.py"
+  - "apps/api/src/schemas/belief_agent.py"
+
+primary_files:
+  - "apps/api/src/domain/belief_engine/agent_schema.py"
+
+secondary_files:
+  - "apps/api/src/schemas/belief_agent.py"
+
+test_cases:
+  normal:
+    - "正常路径：游资 Agent 包含 participant_family=retail_fast_money 和 style_variant=fast_breakout。"
+    - "正常路径：机构 Agent 包含 participant_family=institution_fundamental 和 style_variant=slow_confirmation。"
+  exception:
+    - "异常路径：风格变体字段为空，使用默认主变体。"

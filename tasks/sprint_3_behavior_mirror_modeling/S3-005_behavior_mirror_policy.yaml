@@ -1,0 +1,49 @@
+task_id: "S3-005"
+task_name: "BehaviorMirrorPolicy 生成"
+sprint: "Sprint 3 行为镜像建模与策略壳"
+epic: "Epic 3.2 Template & Policy"
+story_id: "S3-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "根据匹配模板和画像参数生成受限的 BehaviorMirrorPolicy。"
+business_value: "把用户画像真正转换为运行时可执行、带风控边界和 HOLD 机制的策略壳。"
+
+entry_criteria:
+  - "S3-004 已完成。"
+
+acceptance_criteria:
+  - "Policy 至少包含 universe、仓位上限、持仓上限、换手约束、止盈止损、HOLD 规则。"
+  - "Policy 结构可被 Daily Runtime 直接消费。"
+  - "低置信和异常市场状态下会主动收缩风险或 HOLD。"
+  - "Policy 带版本号与生成说明，便于审计。"
+
+constraints:
+  - "不允许输出开放式自然语言交易指令。"
+  - "必须兼容现有 world / ledger / daily simulation 基线。"
+
+out_of_scope:
+  - "不在本 Story 中做留出集验证。"
+  - "不在本 Story 中做公开分级。"
+
+dependencies:
+  - "S3-004"
+
+related_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/domain/market_world/service.py"
+  - "apps/api/src/workflows/daily_simulation/graph.py"
+
+primary_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/workflows/daily_simulation/graph.py"
+
+secondary_files:
+  - "apps/api/src/domain/market_world/service.py"
+
+test_cases:
+  normal:
+    - "正常路径：可从模板匹配结果生成完整 Policy。"
+  exception:
+    - "异常路径：参数越界或模板缺失时返回可解释错误。"

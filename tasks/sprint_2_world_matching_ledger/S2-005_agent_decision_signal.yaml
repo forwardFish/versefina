@@ -1,0 +1,50 @@
+task_id: "S2-005"
+task_name: "Agent 决策接口与信号生成"
+sprint: "Sprint 2 世界、撮合、账本、日循环"
+epic: "Epic 2.3 Daily Loop"
+story_id: "S2-005"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现 Agent 每日决策接口，基于当前持仓、账本和行情生成交易信号。"
+business_value: "让 Agent 能够基于自身画像和市场数据自主生成交易决策，驱动日循环运行。"
+
+entry_criteria:
+  - "S2-004 账本与持仓管理已完成。"
+
+acceptance_criteria:
+  - "Agent 决策接口 POST /api/v1/agents/{agent_id}/decide 可用。"
+  - "决策基于：当前持仓、可用资金、当日行情、风控约束。"
+  - "输出交易信号列表：symbol、side、qty、order_type、price。"
+  - "风控约束检查：单笔仓位不超过限制、总仓位不超过限制。"
+  - "决策结果记录到审计日志。"
+
+constraints:
+  - "决策逻辑基于规则引擎，不依赖实时 LLM 调用。"
+  - "每日决策在收盘后执行，不支持盘中决策。"
+
+out_of_scope:
+  - "不实现复杂的量化策略。"
+  - "不实现 LLM 自由决策。"
+
+dependencies:
+  - "S2-004 账本与持仓管理。"
+
+related_files:
+  - "apps/api/src/domain/agent_runtime/decision_engine.py"
+  - "apps/api/src/schemas/signal.py"
+
+primary_files:
+  - "apps/api/src/domain/agent_runtime/decision_engine.py"
+
+secondary_files:
+  - "apps/api/src/schemas/signal.py"
+
+test_cases:
+  normal:
+    - "正常路径：Agent 基于画像生成买入信号，符合风控约束。"
+    - "正常路径：持仓已满，Agent 生成持仓或卖出信号。"
+  exception:
+    - "异常路径：行情数据缺失，决策降级为持仓不动。"
+    - "异常路径：风控约束触发，信号被过滤。"

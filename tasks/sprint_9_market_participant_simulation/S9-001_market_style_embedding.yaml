@@ -1,0 +1,52 @@
+task_id: "S9-001"
+task_name: "MarketStyleEmbedding 风格向量化"
+sprint: "Sprint 9 市场参与者仿真层（Aaru 增强）"
+epic: "Epic 9.1 Style Embedding"
+story_id: "S9-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "在现有 Profile 基础上新增 MarketStyleEmbedding，将交易行为向量化为可用于参与者仿真的风格坐标。"
+business_value: "为反身性引擎提供结构化的参与者风格输入，让 Belief Engine 能够按风格加权而不是平均加权。"
+
+entry_criteria:
+  - "S1-008 Profile 提取已完成。"
+  - "S3-001 行为特征提取已完成。"
+
+acceptance_criteria:
+  - "MarketStyleEmbedding 包含字段：holding_period_distribution、add_reduce_pattern、event_dependency_score、momentum_preference_score、mean_reversion_score、concentration_score、drawdown_tolerance、follow_through_requirement、reaction_latency_profile。"
+  - "每个字段有明确的取值范围和含义说明。"
+  - "Embedding 可从现有 Profile 和 TradeRecord 自动计算。"
+  - "Embedding 保存到 Agent 的 Profile 中。"
+  - "提供查询接口 GET /api/v1/agents/{agent_id}/style-embedding。"
+
+constraints:
+  - "不改变现有 Profile 结构，只新增 market_style_embedding 字段。"
+  - "计算逻辑使用规则引擎，不依赖 LLM。"
+  - "样本不足时各维度返回 null 并给出提示。"
+
+out_of_scope:
+  - "不实现 Embedding 的可视化。"
+  - "不实现跨 Agent 的风格相似度计算（Sprint 9-003 实现）。"
+
+dependencies:
+  - "S1-008 Profile 提取。"
+  - "S3-001 行为特征提取。"
+
+related_files:
+  - "apps/api/src/domain/dna_engine/style_embedding.py"
+  - "apps/api/src/schemas/agent.py"
+
+primary_files:
+  - "apps/api/src/domain/dna_engine/style_embedding.py"
+
+secondary_files:
+  - "apps/api/src/schemas/agent.py"
+
+test_cases:
+  normal:
+    - "正常路径：高频短线交易者，holding_period_distribution 偏短，reaction_latency_profile 偏快。"
+    - "正常路径：低频价值投资者，concentration_score 高，drawdown_tolerance 高。"
+  exception:
+    - "异常路径：TradeRecord 不足 10 条，各维度返回 null 并给出提示。"

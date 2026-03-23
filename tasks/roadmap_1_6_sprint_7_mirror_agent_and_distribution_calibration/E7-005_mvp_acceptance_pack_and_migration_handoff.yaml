@@ -1,0 +1,38 @@
+task_id: "E7-005"
+task_name: "MVP 验收包与迁移交接"
+sprint: "Sprint 7 镜像 Agent 与分布校准闭环"
+epic: "Epic 7.2 Feedback & Handoff"
+story_id: "E7-005"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "形成 1.6 新主路线的 MVP 验收包和迁移交接说明。"
+business_value: "让团队可以从旧规划平稳迁移到新主路线。"
+
+entry_criteria:
+  - "Sprint 1-7 规划资产已完成。"
+
+acceptance_criteria:
+  - "验收包明确区分 P0 和 P1。"
+  - "迁移说明明确旧 Sprint 1-9 与新路线关系。"
+  - "后续统一开发时可直接按新 story 执行。"
+
+constraints:
+  - "只整理资产，不触发代码开发。"
+
+out_of_scope:
+  - "不做发布上线。"
+
+dependencies:
+  - "E7-004"
+
+related_files:
+  - "docs/需求文档/需求分析_1.6_最终版_事件参与者优先.md"
+  - "tasks/sprint_overview_1_6_event_participant_first.md"
+
+test_cases:
+  normal:
+    - "团队可仅凭文档和 story 理解新路线。"
+  exception:
+    - "如果存在旧新主线冲突描述，则验收包不通过。"

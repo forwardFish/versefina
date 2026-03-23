@@ -1,0 +1,53 @@
+task_id: "S5-002"
+task_name: "Event Ingestion Service"
+sprint: "Sprint 5 事件反身性基线与样本台账"
+epic: "Epic 5.1 Event Intake & Contracts"
+story_id: "S5-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "支持用户手动粘贴新闻、公告和快讯文本，生成可追踪的 raw event artifact。"
+business_value: "把事件输入从文档描述变成真实 API 能力，为后续结构化、推演和复盘打第一层数据底座。"
+
+entry_criteria:
+  - "S5-001 已完成，event_raw 契约和状态机已固定。"
+
+acceptance_criteria:
+  - "提供新增命令接口，支持 title、content、event_time、source 和 event_type_hint 输入。"
+  - "原始事件正文、元信息和 artifact 路径可被稳定持久化，并生成可回查的 event_id。"
+  - "重复提交场景具备最小幂等或去重能力，至少支持基于内容摘要的重复识别。"
+  - "空文本、缺失标题或非法时间场景返回可解释错误。"
+
+constraints:
+  - "优先复用 statement ingestion 的服务/仓储模式，不单独发明第二套上传框架。"
+  - "MVP 只做人工粘贴输入，不在本 Story 中接自动爬虫或外部资讯流。"
+
+out_of_scope:
+  - "不做自动新闻抓取。"
+  - "不在本 Story 中做结构化抽取。"
+
+dependencies:
+  - "S5-001"
+
+related_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/src/settings/base.py"
+  - "apps/api/src/schemas/command.py"
+  - "apps/api/src/modules/events/service.py"
+  - "apps/api/src/modules/events/repository.py"
+
+primary_files:
+  - "apps/api/src/modules/events/service.py"
+
+secondary_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/modules/events/repository.py"
+  - "apps/api/src/settings/base.py"
+
+test_cases:
+  normal:
+    - "正常路径：提交一条政策新闻文本后生成 raw event artifact 和元数据。"
+  exception:
+    - "异常路径：缺少正文、source 非法或时间字段不可解析时拒绝接收。"

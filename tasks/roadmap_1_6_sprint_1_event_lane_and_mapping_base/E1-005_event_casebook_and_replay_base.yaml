@@ -1,0 +1,40 @@
+task_id: "E1-005"
+task_name: "事件样本台账与回放基座"
+sprint: "Sprint 1 事件通道与题材映射基座"
+epic: "Epic 1.2 Mapping & Casebook"
+story_id: "E1-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立事件样本台账和回放基座，沉淀可复跑的真实事件样本。"
+business_value: "为结构化稳定性、三剧本验证和后验回填提供统一样本集。"
+
+entry_criteria:
+  - "E1-002 已完成。"
+  - "E1-004 已完成。"
+
+acceptance_criteria:
+  - "样本台账至少记录原文、结构化结果、映射结果和状态。"
+  - "支持按 event_id 回放样本。"
+  - "样本台账和后验验证可以关联。"
+
+constraints:
+  - "优先用 file-backed 或文档形式，不引入复杂存储。"
+
+out_of_scope:
+  - "不做批量自动采集。"
+
+dependencies:
+  - "E1-002"
+  - "E1-004"
+
+related_files:
+  - "apps/api/src/domain/event_casebook/service.py"
+  - "workspace/event_casebook/"
+
+test_cases:
+  normal:
+    - "任一 event_id 可找到结构化快照和映射资产。"
+  exception:
+    - "样本缺失时返回 not_found 而不是静默失败。"

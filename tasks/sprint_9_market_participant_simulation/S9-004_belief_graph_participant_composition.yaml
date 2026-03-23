@@ -1,0 +1,51 @@
+task_id: "S9-004"
+task_name: "Belief Graph 增强参与者构成字段"
+sprint: "Sprint 9 市场参与者仿真层（Aaru 增强）"
+epic: "Epic 9.2 Participant Family"
+story_id: "S9-004"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "在 Belief Graph 中新增参与者构成字段，记录共识和分歧的参与者风格分布。"
+business_value: "让 Belief Graph 不仅记录观点，还记录是谁持有这些观点，为后续的分布校准提供基础。"
+
+entry_criteria:
+  - "S6-003 Belief Graph 聚合已完成。"
+  - "S9-003 参与者家族增强已完成。"
+
+acceptance_criteria:
+  - "Belief Graph 新增字段：consensus_composition（共识参与者构成）、dissent_composition（分歧参与者构成）、conviction_skew（信念偏度）、style_rotation_probability（风格轮动概率）、reversal_risk（反转风险）。"
+  - "consensus_composition 记录：哪些参与者家族在共识侧、各占比例。"
+  - "dissent_composition 记录：哪些参与者家族在分歧侧、各占比例。"
+  - "字段向后兼容，不破坏现有 Belief Graph 功能。"
+  - "提供增强后的 Belief Graph 查询接口。"
+
+constraints:
+  - "参与者构成计算基于 8 类 Agent 的输出，不引入新的数据源。"
+  - "MVP 阶段只记录参与者家族，不细分到风格变体。"
+
+out_of_scope:
+  - "不实现参与者构成的可视化。"
+  - "不实现参与者构成的历史对比。"
+
+dependencies:
+  - "S6-003 Belief Graph 聚合。"
+  - "S9-003 参与者家族增强。"
+
+related_files:
+  - "apps/api/src/domain/belief_engine/belief_graph.py"
+  - "apps/api/src/schemas/belief_graph.py"
+
+primary_files:
+  - "apps/api/src/domain/belief_engine/belief_graph.py"
+
+secondary_files:
+  - "apps/api/src/schemas/belief_graph.py"
+
+test_cases:
+  normal:
+    - "正常路径：共识侧包含游资和机构，consensus_composition 记录各自比例。"
+    - "正常路径：分歧侧只有散户，dissent_composition 记录散户 100%。"
+  exception:
+    - "异常路径：参与者信息缺失，构成字段返回 null。"

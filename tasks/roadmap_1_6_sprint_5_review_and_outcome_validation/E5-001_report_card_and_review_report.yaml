@@ -1,0 +1,38 @@
+task_id: "E5-001"
+task_name: "Report Card 与 Review Report"
+sprint: "Sprint 5 复盘报告与后验验证"
+epic: "Epic 5.1 Review & Outcomes"
+story_id: "E5-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "生成对外可展示的 Report Card 和对内可复盘的 Review Report。"
+business_value: "让事件沙盘结果具备可读产品化输出。"
+
+entry_criteria:
+  - "E4-005 已完成。"
+
+acceptance_criteria:
+  - "Report Card 包含事件摘要、graph 摘要、三剧本、模拟摘要。"
+  - "Review Report 包含时序链、关键原因和失效点。"
+  - "报告结构可供 why 查询复用。"
+
+constraints:
+  - "报告必须引用过程数据，不能空泛总结。"
+
+out_of_scope:
+  - "不做交互式前端。"
+
+dependencies:
+  - "E4-005"
+
+related_files:
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/schemas/report.py"
+
+test_cases:
+  normal:
+    - "事件可生成 card 和 review report。"
+  exception:
+    - "缺少 simulation 数据时 review report 降级但不崩溃。"

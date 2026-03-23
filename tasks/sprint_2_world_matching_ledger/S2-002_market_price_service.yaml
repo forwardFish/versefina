@@ -1,0 +1,52 @@
+task_id: "S2-002"
+task_name: "行情数据接入与日线价格服务"
+sprint: "Sprint 2 世界、撮合、账本、日循环"
+epic: "Epic 2.1 World Foundation"
+story_id: "S2-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "接入 A 股日线行情数据，为撮合引擎提供每日收盘价、涨跌停价格等基础数据。"
+business_value: "为世界运行提供真实的市场价格数据，确保 Agent 交易在真实价格环境中执行。"
+
+entry_criteria:
+  - "S2-001 世界初始化已完成。"
+
+acceptance_criteria:
+  - "支持按 symbol + date 查询收盘价。"
+  - "支持查询涨跌停价格（±10%）。"
+  - "行情数据缓存到本地，避免重复请求。"
+  - "提供行情查询接口 GET /api/v1/market/prices。"
+  - "数据缺失时有明确的降级处理。"
+
+constraints:
+  - "优先使用免费数据源（如 akshare）。"
+  - "不依赖付费实时行情服务。"
+  - "只支持日线数据，不支持分钟线。"
+
+out_of_scope:
+  - "不实现行情数据的实时推送。"
+  - "不支持港股、美股行情。"
+
+dependencies:
+  - "S2-001 世界初始化。"
+
+related_files:
+  - "apps/api/src/domain/market/price_service.py"
+  - "apps/api/src/schemas/market.py"
+  - "apps/api/src/api/v1/market.py"
+
+primary_files:
+  - "apps/api/src/domain/market/price_service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/market.py"
+
+test_cases:
+  normal:
+    - "正常路径：查询 600000.SH 某交易日收盘价，返回正确价格。"
+    - "正常路径：查询涨跌停价格，返回 ±10% 限制价格。"
+  exception:
+    - "异常路径：查询非交易日价格，返回最近交易日数据或错误。"
+    - "异常路径：数据源不可用，返回缓存数据或明确错误。"

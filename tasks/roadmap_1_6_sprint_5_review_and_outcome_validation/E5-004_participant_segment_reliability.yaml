@@ -1,0 +1,38 @@
+task_id: "E5-004"
+task_name: "Participant Segment Reliability"
+sprint: "Sprint 5 复盘报告与后验验证"
+epic: "Epic 5.2 Reliability & Why"
+story_id: "E5-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "统计哪类参与者在当前事件类型中更可靠。"
+business_value: "为后续参与者权重修正和分布级校准打底。"
+
+entry_criteria:
+  - "E5-003 已完成。"
+
+acceptance_criteria:
+  - "可按 participant_family 聚合命中和失效统计。"
+  - "可区分方向正确、提前发现、失效识别三类能力。"
+  - "结果可被后续 Sprint 7 复用。"
+
+constraints:
+  - "第一版只按首发事件类型统计。"
+
+out_of_scope:
+  - "不做市场环境维度分桶。"
+
+dependencies:
+  - "E5-003"
+
+related_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/schemas/reliability.py"
+
+test_cases:
+  normal:
+    - "多条事件可汇总参与者可靠性。"
+  exception:
+    - "样本不足时标记 low_sample_size。"

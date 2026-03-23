@@ -1,0 +1,37 @@
+task_id: "E1-004"
+task_name: "题材映射与标的池字典 v0.1"
+sprint: "Sprint 1 事件通道与题材映射基座"
+epic: "Epic 1.2 Mapping & Casebook"
+story_id: "E1-004"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立首发事件类型所需的商品 -> 产业链 -> 行业 -> 标的池 -> 风格标签映射资产。"
+business_value: "为 first_movers、secondary_movers 和场景扩散链提供基础资产。"
+
+entry_criteria:
+  - "E1-001 已完成。"
+
+acceptance_criteria:
+  - "形成可人工维护的字典文档。"
+  - "每个商品至少有一条完整映射链。"
+  - "风格标签至少包含龙头、高弹性、机构票、情绪票。"
+
+constraints:
+  - "不追求覆盖全市场。"
+
+out_of_scope:
+  - "不自动生成映射。"
+
+dependencies:
+  - "E1-001"
+
+related_files:
+  - "docs/需求文档/题材映射与标的池字典_v0.1.md"
+
+test_cases:
+  normal:
+    - "某商品能映射到行业和标的池。"
+  exception:
+    - "不存在映射时必须允许空结果并标记待补充。"

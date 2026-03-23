@@ -1,0 +1,38 @@
+task_id: "E6-003"
+task_name: "MarketStyleEmbedding"
+sprint: "Sprint 6 交割单到风格资产"
+epic: "Epic 6.1 Statement-to-Style"
+story_id: "E6-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把交易行为特征向量化为可用于参与者校准的 MarketStyleEmbedding。"
+business_value: "将交割单路线和事件参与者路线真正连接起来。"
+
+entry_criteria:
+  - "E6-002 已完成。"
+
+acceptance_criteria:
+  - "输出包含 holding_period_distribution、momentum_preference_score、mean_reversion_score、concentration_score、reaction_latency_profile。"
+  - "同一输入重复生成结果稳定。"
+  - "embedding 可被 Archetype Seed 复用。"
+
+constraints:
+  - "第一版可以是结构化向量对象，不要求复杂机器学习。"
+
+out_of_scope:
+  - "不做分布校准。"
+
+dependencies:
+  - "E6-002"
+
+related_files:
+  - "apps/api/src/domain/style_embedding/service.py"
+  - "apps/api/src/schemas/style.py"
+
+test_cases:
+  normal:
+    - "行为特征对象可生成 style embedding。"
+  exception:
+    - "缺少关键特征时 embedding 标记 partial。"

@@ -1,0 +1,38 @@
+task_id: "E5-003"
+task_name: "Dominant Scenario 与判分标签"
+sprint: "Sprint 5 复盘报告与后验验证"
+epic: "Epic 5.1 Review & Outcomes"
+story_id: "E5-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "定义 dominant_scenario 的判定规则和 hit / partial_hit / invalidated 等判分标签。"
+business_value: "让后验验证可比较、可统计、可校准。"
+
+entry_criteria:
+  - "E5-002 已完成。"
+
+acceptance_criteria:
+  - "dominant_scenario 判定遵循统一口径。"
+  - "至少支持 hit、partial_hit、invalidated、delayed_realization、wrong_direction。"
+  - "判分结果能关联失败原因。"
+
+constraints:
+  - "不得只用涨跌幅决定判分。"
+
+out_of_scope:
+  - "不更新参与者权重。"
+
+dependencies:
+  - "E5-002"
+
+related_files:
+  - "docs/需求文档/Outcome_Tracker_判分规则.md"
+  - "apps/api/src/domain/outcome_review/service.py"
+
+test_cases:
+  normal:
+    - "同一事件可得到明确 dominant_scenario 和 score_label。"
+  exception:
+    - "结果混杂时允许 mixed / unclear。"

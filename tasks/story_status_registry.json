@@ -1,0 +1,488 @@
+{
+  "stories": [
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_3_behavior_mirror_modeling",
+      "sprint_id": "S3-001_feature_extractor.yaml",
+      "story_id": "S3-001",
+      "task_id": "task-45664690-2",
+      "status": "failed",
+      "branch": "agent/l1-task-45664690-2",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T09:30:26",
+      "verified_at": "2026-03-22T09:30:26",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-45664690-2.json",
+      "resume_token": "S3-001",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-45664690-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S3-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S3-001.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S3-001",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-001_world_initialization.yaml",
+      "story_id": "S2-001",
+      "task_id": "task-b316a9b4-3",
+      "status": "failed",
+      "branch": "agent/l1-task-b316a9b4-3",
+      "commit": null,
+      "started_at": "2026-03-22T23:25:58",
+      "finished_at": "2026-03-22T23:38:57",
+      "verified_at": "2026-03-22T23:38:57",
+      "last_node": "Fixer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b316a9b4-3.json",
+      "resume_token": "S2-001",
+      "source": "agentsystem_runtime",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "blocker_class": "story_local_blocker",
+      "validation_summary": "Install: SKIP (not configured)\nLint: FAIL\nTypecheck: SKIP (not configured)\nTest: FAIL\nStoryValidation: PASS",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b316a9b4-3.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-001.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-001",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-002_market_price_service.yaml",
+      "story_id": "S2-002",
+      "task_id": "task-14b88352",
+      "status": "failed",
+      "branch": "agent/l1-task-14b88352",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T11:59:47",
+      "verified_at": "2026-03-22T11:59:47",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-14b88352.json",
+      "resume_token": "S2-002",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-14b88352.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-002.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-002",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-003_matching_engine.yaml",
+      "story_id": "S2-003",
+      "task_id": "task-ccdd1498",
+      "status": "failed",
+      "branch": "agent/l1-task-ccdd1498",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T12:07:22",
+      "verified_at": "2026-03-22T12:07:22",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-ccdd1498.json",
+      "resume_token": "S2-003",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-ccdd1498.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-003.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-003.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-003",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-004_ledger_position_management.yaml",
+      "story_id": "S2-004",
+      "task_id": "task-78bd93d4",
+      "status": "failed",
+      "branch": "agent/l1-task-78bd93d4",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T12:22:20",
+      "verified_at": "2026-03-22T12:22:20",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-78bd93d4.json",
+      "resume_token": "S2-004",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-78bd93d4.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-004.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-004.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-004",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-005_agent_decision_signal.yaml",
+      "story_id": "S2-005",
+      "task_id": "task-85f56845-2",
+      "status": "failed",
+      "branch": "agent/l1-task-85f56845-2",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T17:38:26",
+      "verified_at": "2026-03-22T17:38:26",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-85f56845-2.json",
+      "resume_token": "S2-005",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-85f56845-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-005.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-005.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-005",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-006_daily_loop_scheduler.yaml",
+      "story_id": "S2-006",
+      "task_id": "task-33449376",
+      "status": "failed",
+      "branch": "agent/l1-task-33449376",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T17:41:22",
+      "verified_at": "2026-03-22T17:41:22",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-33449376.json",
+      "resume_token": "S2-006",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-33449376.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-006.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-006.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-006",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "sprint_2_world_matching_ledger",
+      "sprint_id": "S2-007_performance_snapshot.yaml",
+      "story_id": "S2-007",
+      "task_id": "task-327cce48",
+      "status": "failed",
+      "branch": "agent/l1-task-327cce48",
+      "commit": null,
+      "started_at": null,
+      "finished_at": "2026-03-22T18:04:06",
+      "verified_at": "2026-03-22T18:04:06",
+      "last_node": "Tester",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-327cce48.json",
+      "resume_token": "S2-007",
+      "source": "agentsystem_runtime",
+      "summary": "'gbk' codec can't encode character '\\ufffd' in position 89: illegal multibyte sequence",
+      "blocker_class": "shared_dependency_blocker",
+      "validation_summary": "",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-327cce48.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\S2-007.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\S2-007.md"
+      ],
+      "formal_entry": false,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "formal_acceptance_reviewer": null,
+      "authoritative_attempt": "S2-007",
+      "attempt_status": "evidence_only",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "repository": "versefina"
+    }
+  ]
+}

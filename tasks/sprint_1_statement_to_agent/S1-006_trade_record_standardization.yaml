@@ -1,0 +1,51 @@
+task_id: "S1-006"
+task_name: "TradeRecord 标准化"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.2 Parse & Standardize"
+story_id: "S1-006"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现交易记录标准化，将解析后的原始数据转换为统一的 TradeRecord 格式。"
+business_value: "提供统一的交易记录数据结构，支持后续的行为分析和 Agent 建模。"
+
+entry_criteria:
+  - "S1-005 字段映射规则已完成。"
+
+acceptance_criteria:
+  - "TradeRecord 包含标准字段：symbol（补全 .SH/.SZ）、side（buy/sell）、qty、price、fee、tax、traded_at。"
+  - "股票代码自动补全交易所后缀（.SH/.SZ）。"
+  - "交易方向统一为 buy/sell。"
+  - "时间格式统一为 ISO 8601。"
+  - "数值字段类型正确（qty 为整数，price/fee/tax 为浮点数）。"
+
+constraints:
+  - "标准化过程不丢失原始数据。"
+  - "保留原始字段用于审计和调试。"
+
+out_of_scope:
+  - "不实现数据清洗和异常值处理。"
+  - "不实现交易记录去重。"
+
+dependencies:
+  - "S1-005 字段映射规则。"
+
+related_files:
+  - "apps/api/src/parsers/trade_standardizer.py"
+  - "apps/api/src/schemas/trade.py"
+
+primary_files:
+  - "apps/api/src/parsers/trade_standardizer.py"
+
+secondary_files:
+  - "apps/api/src/schemas/trade.py"
+
+test_cases:
+  normal:
+    - "正常路径：股票代码 600000 补全为 600000.SH。"
+    - "正常路径：交易方向'买入'转换为 buy。"
+    - "正常路径：时间格式统一为 ISO 8601。"
+  exception:
+    - "异常路径：无效的股票代码，返回标准化失败错误。"
+    - "异常路径：必填字段为空，返回明确的错误信息。"

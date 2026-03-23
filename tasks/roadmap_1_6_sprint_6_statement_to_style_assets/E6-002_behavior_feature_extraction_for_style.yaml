@@ -1,0 +1,38 @@
+task_id: "E6-002"
+task_name: "行为特征提取用于风格资产"
+sprint: "Sprint 6 交割单到风格资产"
+epic: "Epic 6.1 Statement-to-Style"
+story_id: "E6-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "从交割单提取持仓周期、加减仓、追涨偏好和回撤容忍等行为特征。"
+business_value: "为 MarketStyleEmbedding 提供原始行为输入。"
+
+entry_criteria:
+  - "E6-001 已完成。"
+
+acceptance_criteria:
+  - "行为特征可从既有 TradeRecord 中稳定提取。"
+  - "至少支持 holding_period、add_reduce_pattern、momentum_preference、drawdown_tolerance。"
+  - "输出结构可被 style embedding 消费。"
+
+constraints:
+  - "优先复用现有 statement / profile 基础。"
+
+out_of_scope:
+  - "不直接生成镜像 Agent。"
+
+dependencies:
+  - "E6-001"
+
+related_files:
+  - "apps/api/src/modules/statements/parser_service.py"
+  - "apps/api/src/domain/style_embedding/service.py"
+
+test_cases:
+  normal:
+    - "交割单可生成行为特征对象。"
+  exception:
+    - "样本不足时特征输出包含 low_confidence。"

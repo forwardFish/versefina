@@ -1,0 +1,37 @@
+task_id: "E6-004"
+task_name: "Archetype Seed 风格母体抽象"
+sprint: "Sprint 6 交割单到风格资产"
+epic: "Epic 6.2 Archetype Calibration"
+story_id: "E6-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "从 MarketStyleEmbedding 抽象出 Archetype Seed。"
+business_value: "为市场参与者仿真层提供风格母体来源。"
+
+entry_criteria:
+  - "E6-003 已完成。"
+
+acceptance_criteria:
+  - "可把 style embedding 映射到 archetype_name、participant_family、reaction_rules 等字段。"
+  - "输出可兼容 MarketParticipantProfile。"
+
+constraints:
+  - "第一版只需要主母体，不做复杂层次聚类。"
+
+out_of_scope:
+  - "不做行为镜像 Agent 运行。"
+
+dependencies:
+  - "E6-003"
+
+related_files:
+  - "apps/api/src/domain/style_embedding/service.py"
+  - "apps/api/src/schemas/style.py"
+
+test_cases:
+  normal:
+    - "style embedding 可生成 archetype seed。"
+  exception:
+    - "风格特征过弱时 seed 标记 generic。"

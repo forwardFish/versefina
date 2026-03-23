@@ -1,0 +1,38 @@
+task_id: "E2-001"
+task_name: "8 类参与者统一输出协议"
+sprint: "Sprint 2 金融参与者准备层"
+epic: "Epic 2.1 Participant Protocol"
+story_id: "E2-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立 8 类参与者统一输入输出协议。"
+business_value: "保证 Belief Graph、Scenario Engine 和 Simulation 读取的是一致结构。"
+
+entry_criteria:
+  - "E1-002 已完成。"
+
+acceptance_criteria:
+  - "协议包含 participant_id、participant_family、style_variant、stance、confidence、time_horizon、expected_impact、evidence、trigger_conditions、invalidation_conditions、first_movers、secondary_movers、dissent_points。"
+  - "降级场景允许 neutral、watch、insufficient_evidence。"
+  - "协议文档可被后续 stories 直接复用。"
+
+constraints:
+  - "不允许输出不可解析的大段自由文本。"
+
+out_of_scope:
+  - "不实现 Belief Graph 计算。"
+
+dependencies:
+  - "E1-002"
+
+related_files:
+  - "docs/需求文档/8类参与者统一输出协议.md"
+  - "apps/api/src/schemas/participant.py"
+
+test_cases:
+  normal:
+    - "单个参与者输出能通过协议校验。"
+  exception:
+    - "缺少 stance 或 evidence 时返回 schema 错误。"

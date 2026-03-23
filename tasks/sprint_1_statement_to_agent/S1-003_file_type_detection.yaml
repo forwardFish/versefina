@@ -1,0 +1,48 @@
+task_id: "S1-003"
+task_name: "文件类型识别"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.1 Statement Upload & Parse"
+story_id: "S1-003"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现文件类型自动识别，根据文件内容和扩展名判断文件类型。"
+business_value: "自动识别文件类型，为后续选择正确的解析器提供依据。"
+
+entry_criteria:
+  - "S1-001 上传接口已完成。"
+
+acceptance_criteria:
+  - "支持识别 PDF、Excel（.xlsx/.xls）、CSV 文件类型。"
+  - "识别结果记录到 Statement 的 detected_file_type 字段。"
+  - "根据文件类型自动设置 parser_key。"
+  - "识别失败时返回明确的错误信息。"
+
+constraints:
+  - "优先使用文件内容（magic number）识别，扩展名作为辅助。"
+  - "不依赖第三方付费服务。"
+
+out_of_scope:
+  - "不支持图片格式的交割单。"
+  - "不实现 OCR 功能。"
+
+dependencies:
+  - "S1-001 上传接口。"
+
+related_files:
+  - "apps/api/src/services/file_detector.py"
+  - "apps/api/src/schemas/statement.py"
+
+primary_files:
+  - "apps/api/src/services/file_detector.py"
+
+secondary_files:
+  - "apps/api/src/schemas/statement.py"
+
+test_cases:
+  normal:
+    - "正常路径：上传 PDF 文件，detected_file_type 为 pdf。"
+    - "正常路径：上传 Excel 文件，detected_file_type 为 excel。"
+  exception:
+    - "异常路径：上传不支持的文件类型，返回错误。"

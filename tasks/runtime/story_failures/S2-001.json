@@ -1,0 +1,37 @@
+{
+  "project": "versefina",
+  "backlog_id": "sprint_2_world_matching_ledger",
+  "sprint_id": "S2-001_world_initialization.yaml",
+  "task_id": "task-b316a9b4-3",
+  "task_name": "统一市场世界初始化",
+  "failure_type": "loop_detected",
+  "last_node": "Fixer",
+  "fix_attempts": 4,
+  "review_findings_summary": {
+    "blocking": [
+      "Validation still reports failing checks."
+    ],
+    "important": [],
+    "nice_to_haves": [
+      "Documentation may be stale after the current code changes.",
+      "A previously reported issue has already been resolved in this workflow.",
+      "A previously reported issue has already been resolved in this workflow.",
+      "A previously reported issue has already been resolved in this workflow.",
+      "A previously reported issue has already been resolved in this workflow.",
+      "A previously reported issue has already been resolved in this workflow."
+    ]
+  },
+  "changed_files": [
+    "apps/api/src/domain/world/service.py"
+  ],
+  "recommended_recovery_action": "Resume from the failed story after fixing the workflow blocker.",
+  "blocker_class": "story_local_blocker",
+  "error_message": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+  "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b316a9b4-3.json",
+  "artifact_dir": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\artifacts\\task-b316a9b4-3",
+  "workspace_mode": "snapshot",
+  "snapshot_reason": "dirty_worktree",
+  "authoritative_attempt": "S2-001",
+  "story_id": "S2-001",
+  "captured_at": "2026-03-22T23:38:57"
+}

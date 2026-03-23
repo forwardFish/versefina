@@ -1,0 +1,37 @@
+task_id: "E2-005"
+task_name: "Authority Weight 与 Risk Budget 注册表"
+sprint: "Sprint 2 金融参与者准备层"
+epic: "Epic 2.2 Evidence & Registry"
+story_id: "E2-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立参与者 authority weight 和 risk budget 的初始注册表。"
+business_value: "为 Belief Graph 聚合和轻量模拟提供统一权重基础。"
+
+entry_criteria:
+  - "E2-002 已完成。"
+
+acceptance_criteria:
+  - "每类参与者都有默认 authority weight。"
+  - "每类参与者都有默认 risk_budget_profile。"
+  - "注册表支持后续校准层调整。"
+
+constraints:
+  - "第一版只做静态默认值，不做动态学习。"
+
+out_of_scope:
+  - "不做 distribution calibration。"
+
+dependencies:
+  - "E2-002"
+
+related_files:
+  - "apps/api/src/domain/participant_preparation/registry.py"
+
+test_cases:
+  normal:
+    - "prepare 输出中能读到默认权重和预算。"
+  exception:
+    - "未注册的 family 不能进入 roster。"

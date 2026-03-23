@@ -1,0 +1,49 @@
+task_id: "S2-007"
+task_name: "绩效计算与快照"
+sprint: "Sprint 2 世界、撮合、账本、日循环"
+epic: "Epic 2.3 Daily Loop"
+story_id: "S2-007"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "每日循环结束后计算 Agent 绩效指标并保存快照，支持历史回溯。"
+business_value: "为 Agent 分级和只读观察台提供数据基础，让用户能看到 Agent 的历史表现。"
+
+entry_criteria:
+  - "S2-006 日循环调度器已完成。"
+
+acceptance_criteria:
+  - "每日计算：total_value、cash、pnl、pnl_pct、max_drawdown、sharpe_ratio（滚动）。"
+  - "每日保存账本快照到数据库。"
+  - "提供绩效查询接口 GET /api/v1/agents/{agent_id}/performance。"
+  - "支持按日期范围查询历史绩效。"
+
+constraints:
+  - "快照数据只追加，不修改历史记录。"
+  - "Sharpe ratio 需要至少 20 个交易日数据才计算。"
+
+out_of_scope:
+  - "不实现实时绩效推送。"
+  - "不实现绩效排行榜（Sprint 4 实现）。"
+
+dependencies:
+  - "S2-006 日循环调度器。"
+
+related_files:
+  - "apps/api/src/domain/performance/calculator.py"
+  - "apps/api/src/schemas/performance.py"
+  - "apps/api/src/api/v1/agents.py"
+
+primary_files:
+  - "apps/api/src/domain/performance/calculator.py"
+
+secondary_files:
+  - "apps/api/src/schemas/performance.py"
+
+test_cases:
+  normal:
+    - "正常路径：日循环后生成绩效快照，pnl 计算正确。"
+    - "正常路径：查询历史绩效，返回按日期排序的数据。"
+  exception:
+    - "异常路径：数据不足 20 天，sharpe_ratio 返回 null。"

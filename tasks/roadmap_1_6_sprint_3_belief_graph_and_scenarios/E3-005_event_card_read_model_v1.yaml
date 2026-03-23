@@ -1,0 +1,39 @@
+task_id: "E3-005"
+task_name: "事件推演卡 Read Model v1"
+sprint: "Sprint 3 Belief Graph 与三剧本基线"
+epic: "Epic 3.2 Scenario Baseline"
+story_id: "E3-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把事件摘要、graph 指标和三剧本聚合成事件推演卡 read model。"
+business_value: "形成最小可展示产品对象。"
+
+entry_criteria:
+  - "E3-003 已完成。"
+  - "E3-004 已完成。"
+
+acceptance_criteria:
+  - "事件卡包含事件摘要、参与者摘要、graph 摘要、三剧本、观察点和失效条件。"
+  - "事件卡结构稳定，可供后续 report 和 query 复用。"
+
+constraints:
+  - "read model 不直接依赖前端页面实现。"
+
+out_of_scope:
+  - "不实现复盘报告。"
+
+dependencies:
+  - "E3-003"
+  - "E3-004"
+
+related_files:
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "单条事件可以查询到完整 card。"
+  exception:
+    - "未完成 scenario 的事件不能返回 ready card。"

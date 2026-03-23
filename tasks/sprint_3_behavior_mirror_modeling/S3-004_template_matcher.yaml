@@ -1,0 +1,50 @@
+task_id: "S3-004"
+task_name: "Template Matcher"
+sprint: "Sprint 3 行为镜像建模与策略壳"
+epic: "Epic 3.2 Template & Policy"
+story_id: "S3-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "根据 TradingBehaviorProfile 为用户画像匹配主模板与候选模板，并给出置信度与解释。"
+business_value: "让模板选择可解释、可审计，并为后续策略壳生成提供稳定入口。"
+
+entry_criteria:
+  - "S3-002 和 S3-003 已完成。"
+
+acceptance_criteria:
+  - "输出包含主模板、候选模板列表、匹配分数和理由。"
+  - "低置信场景支持回退到更保守模板。"
+  - "结果可直接用于 BehaviorMirrorPolicy 生成。"
+  - "同一画像输入的匹配结果稳定。"
+
+constraints:
+  - "优先使用显式规则和阈值，不做不可解释的隐式分类。"
+  - "必须保留 HOLD 与保守降级能力。"
+
+out_of_scope:
+  - "不直接生成买卖动作。"
+  - "不在本 Story 中计算验证得分。"
+
+dependencies:
+  - "S3-002"
+  - "S3-003"
+
+related_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/workflows/statement_ingestion/graph.py"
+
+primary_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/workflows/statement_ingestion/graph.py"
+
+test_cases:
+  normal:
+    - "正常路径：画像可匹配到主模板和候选模板。"
+  exception:
+    - "异常路径：低置信画像会回退到保守模板。"

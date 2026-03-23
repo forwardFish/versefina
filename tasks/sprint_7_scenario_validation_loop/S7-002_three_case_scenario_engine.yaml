@@ -1,0 +1,51 @@
+task_id: "S7-002"
+task_name: "三剧本 Scenario Engine"
+sprint: "Sprint 7 三剧本推演与后验验证闭环"
+epic: "Epic 7.1 Scenario & Signal Tracking"
+story_id: "S7-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "基于 event_structured、Belief Graph 和资金状态迁移结果生成基准、乐观、风险三剧本。"
+business_value: "把事件推演结果收敛成用户可执行的三套路径，而不是散乱的 Agent 观点。"
+
+entry_criteria:
+  - "S7-001 已完成。"
+  - "S6-005 已完成。"
+
+acceptance_criteria:
+  - "基准剧本输出 narrative、likely_path、first_movers、secondary_movers、required_confirmation、expected_duration、risk_notes。"
+  - "乐观剧本输出 trigger_signals、strengthening_factors、expansion_path、sector_rotation_path、potential_leaders。"
+  - "风险剧本输出 failure_signals、fragile_points、likely_breakdown_path、likely_first_casualties、exit_hints。"
+  - "三剧本必须真实消费 graph metrics 和 state transitions，而不是纯模板填空。"
+
+constraints:
+  - "必须保留关键观察点、触发条件和失效条件。"
+  - "不允许把剧本写成不可验证的抽象研报。"
+
+out_of_scope:
+  - "不在本 Story 中做后验判分。"
+  - "不完成前端展示。"
+
+dependencies:
+  - "S7-001"
+  - "S6-005"
+
+related_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/api/query/routes.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "正常路径：单条事件生成完整 base / bull / risk 三剧本。"
+  exception:
+    - "异常路径：当乐观或风险证据不足时输出受限剧本并说明约束。"

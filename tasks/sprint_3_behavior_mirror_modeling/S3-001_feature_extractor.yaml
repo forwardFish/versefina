@@ -1,0 +1,49 @@
+task_id: "S3-001"
+task_name: "交易行为特征提取"
+sprint: "Sprint 3 行为镜像建模与策略壳"
+epic: "Epic 3.1 Feature & Profile"
+story_id: "S3-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "基于标准化 TradeRecord 提取行为镜像建模所需的基础统计、节奏、风险、盈亏结构和标的偏好特征。"
+business_value: "让后续画像与策略壳生成建立在可解释、可重复的结构化特征之上，而不是仅依赖现有粗粒度风格标签。"
+
+entry_criteria:
+  - "Sprint 1 的上传、解析、TradeRecord 标准化和基础 Profile 生成链路已可用。"
+
+acceptance_criteria:
+  - "输出覆盖需求文档 1.1 中定义的基础统计、持仓节奏、风险、盈亏结构、标的偏好和操作习惯特征。"
+  - "同一份 TradeRecord 输入在规则版实现下输出稳定。"
+  - "输出结果可被后续 TradingBehaviorProfile 直接消费。"
+  - "空数据、脏数据和样本过少场景有可解释降级结果。"
+
+constraints:
+  - "优先复用现有 DNA/Profile 提取服务，不先引入新的复杂建模框架。"
+  - "只新增行为特征层，不在本 Story 中生成模板或策略壳。"
+
+out_of_scope:
+  - "不实现 LLM 自由推断。"
+  - "不在本 Story 中创建或更新 Agent 实体。"
+
+dependencies:
+  - "Sprint 1 交割单解析与标准化能力。"
+
+related_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/schemas/trade.py"
+
+primary_files:
+  - "apps/api/src/domain/dna_engine/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/schemas/trade.py"
+
+test_cases:
+  normal:
+    - "正常路径：输入标准化 TradeRecord 后生成完整特征对象。"
+  exception:
+    - "异常路径：空 TradeRecord 或关键字段缺失时返回可解释结果。"

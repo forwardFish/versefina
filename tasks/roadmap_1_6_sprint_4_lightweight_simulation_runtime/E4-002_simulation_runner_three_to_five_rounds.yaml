@@ -1,0 +1,38 @@
+task_id: "E4-002"
+task_name: "Simulation Runner 3 到 5 轮"
+sprint: "Sprint 4 轻量模拟运行层"
+epic: "Epic 4.1 Simulation Runtime"
+story_id: "E4-002"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "执行 3 到 5 轮轻量模拟，驱动参与者状态变化。"
+business_value: "让系统从“静态剧本”升级为“动态演化链”。"
+
+entry_criteria:
+  - "E4-001 已完成。"
+
+acceptance_criteria:
+  - "单个事件能运行 3 到 5 轮模拟。"
+  - "每轮会更新参与者状态。"
+  - "每轮都能输出解释性 reason codes。"
+
+constraints:
+  - "第一版只做轻量模拟，不做大规模社会模拟。"
+
+out_of_scope:
+  - "不回填 T+1 / T+3。"
+
+dependencies:
+  - "E4-001"
+
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/workflows/event_simulation/graph.py"
+
+test_cases:
+  normal:
+    - "事件能完成多轮模拟并输出轮次状态。"
+  exception:
+    - "中途 evidence 崩塌时允许提前终止并标注失效。"

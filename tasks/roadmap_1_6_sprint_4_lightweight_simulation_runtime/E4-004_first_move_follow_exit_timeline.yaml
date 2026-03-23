@@ -1,0 +1,38 @@
+task_id: "E4-004"
+task_name: "首动、跟随、撤退时序链"
+sprint: "Sprint 4 轻量模拟运行层"
+epic: "Epic 4.2 Timeline & Feedback"
+story_id: "E4-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "从动作日志中提炼谁先动、谁跟随、谁撤退的时序链。"
+business_value: "把轻量模拟结果变成用户可理解的参与者演化解释。"
+
+entry_criteria:
+  - "E4-003 已完成。"
+
+acceptance_criteria:
+  - "生成 first_move、follow_on、exit_chain 三类结果。"
+  - "时序链可被事件卡和报告复用。"
+  - "至少能解释关键转折轮次。"
+
+constraints:
+  - "必须基于动作日志，而不是事后脑补。"
+
+out_of_scope:
+  - "不做 why 追问。"
+
+dependencies:
+  - "E4-003"
+
+related_files:
+  - "apps/api/src/domain/event_simulation/timeline.py"
+  - "apps/api/src/schemas/simulation.py"
+
+test_cases:
+  normal:
+    - "事件可输出完整时序链摘要。"
+  exception:
+    - "动作不足时允许标记 timeline_incomplete。"

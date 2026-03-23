@@ -1,0 +1,38 @@
+task_id: "E1-002"
+task_name: "EventRecord 与 EventStructure 契约"
+sprint: "Sprint 1 事件通道与题材映射基座"
+epic: "Epic 1.1 Event Lane & Contracts"
+story_id: "E1-002"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "定义 EventRecord / EventStructure 的 schema、状态机和最小字段集合。"
+business_value: "为参与者准备层、Belief Graph 和后验验证提供稳定对象。"
+
+entry_criteria:
+  - "E1-001 已完成。"
+
+acceptance_criteria:
+  - "EventRecord 至少包含 event_id、title、body、source、event_time、status。"
+  - "EventStructure 至少包含 event_type、entities、commodities、chain_links、sectors、affected_symbols、causal_chain、monitor_signals、invalidation_conditions。"
+  - "状态机至少覆盖 raw、structured、prepared、simulated、reviewed。"
+
+constraints:
+  - "输出必须稳定结构化，不允许只保留自由文本。"
+
+out_of_scope:
+  - "不实现参与者输出协议。"
+
+dependencies:
+  - "E1-001"
+
+related_files:
+  - "docs/需求文档/Event_Structuring_字段字典.md"
+  - "apps/api/src/schemas/event.py"
+
+test_cases:
+  normal:
+    - "结构化事件对象能通过 schema 校验。"
+  exception:
+    - "缺少 event_type 或 causal_chain 时返回结构化校验错误。"

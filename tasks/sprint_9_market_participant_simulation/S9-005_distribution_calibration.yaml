@@ -1,0 +1,52 @@
+task_id: "S9-005"
+task_name: "Distribution Calibration 分布校准"
+sprint: "Sprint 9 市场参与者仿真层（Aaru 增强）"
+epic: "Epic 9.3 Distribution Calibration"
+story_id: "S9-005"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现按事件类型和参与者群体的分布校准，记录长期命中率和失败率，反哺 Agent 权重。"
+business_value: "让系统能够回答'在特定市场环境下谁更可信'，形成数据壁垒。"
+
+entry_criteria:
+  - "S7-004 Outcome Tracker 已完成。"
+  - "S9-004 Belief Graph 参与者构成已完成。"
+
+acceptance_criteria:
+  - "belief_pattern_scores 表包含：pattern_id、event_type、consensus_bucket、dissent_bucket、crowding_bucket、hit_rate、failure_rate。"
+  - "每次 Outcome 验证后自动更新对应 pattern 的 hit_rate 和 failure_rate。"
+  - "提供校准查询接口 GET /api/v1/calibration/patterns。"
+  - "支持按 event_type 和 consensus_bucket 过滤查询。"
+  - "校准结果反哺到 Belief Engine 的 Agent 权重（可选，MVP 可为只读）。"
+
+constraints:
+  - "MVP 阶段校准结果只读展示，不自动调整 Agent 权重。"
+  - "至少需要 10 个历史样本才计算 hit_rate。"
+
+out_of_scope:
+  - "不实现自动权重调整（Sprint 10 实现）。"
+  - "不实现跨事件类型的迁移学习。"
+
+dependencies:
+  - "S7-004 Outcome Tracker。"
+  - "S9-004 Belief Graph 参与者构成。"
+
+related_files:
+  - "apps/api/src/domain/calibration/service.py"
+  - "apps/api/src/schemas/calibration.py"
+  - "apps/api/src/api/v1/calibration.py"
+
+primary_files:
+  - "apps/api/src/domain/calibration/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/calibration.py"
+
+test_cases:
+  normal:
+    - "正常路径：政策催化事件 + 游资主导共识，hit_rate 随样本积累更新。"
+    - "正常路径：查询特定 event_type 的校准结果，返回 hit_rate 和 failure_rate。"
+  exception:
+    - "异常路径：样本不足 10 个，hit_rate 返回 null 并给出提示。"

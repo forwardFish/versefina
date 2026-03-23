@@ -1,0 +1,49 @@
+task_id: "S4-003"
+task_name: "Agent 分级与状态流转"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.1 Validation & Grading"
+story_id: "S4-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "根据评分结果落地 Private Mirror、Qualified Mirror、Verified Agent 的等级与状态流转。"
+business_value: "把验证结果转成真实产品状态，决定 Agent 能否展示、能展示到什么程度。"
+
+entry_criteria:
+  - "S4-002 已完成。"
+
+acceptance_criteria:
+  - "至少支持 Private Mirror、Qualified Mirror、Verified Agent 三档。"
+  - "等级升级和降级规则明确。"
+  - "未通过验证的 Agent 默认不公开。"
+  - "等级变化会产生日志和审计痕迹。"
+
+constraints:
+  - "等级判定必须基于评分结果，不允许页面侧直接改等级。"
+  - "默认策略保持保守，先满足公开安全性。"
+
+out_of_scope:
+  - "不在本 Story 中实现分享页 UI。"
+  - "不扩展到排行榜推荐逻辑。"
+
+dependencies:
+  - "S4-002"
+
+related_files:
+  - "apps/api/src/domain/agent_registry/service.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/infra/audit/logger.py"
+
+primary_files:
+  - "apps/api/src/domain/agent_registry/service.py"
+  - "apps/api/src/schemas/agent.py"
+
+secondary_files:
+  - "apps/api/src/infra/audit/logger.py"
+
+test_cases:
+  normal:
+    - "正常路径：评分达标后 Agent 晋级。"
+  exception:
+    - "异常路径：评分不足时 Agent 保持私有或回退。"

@@ -1,0 +1,38 @@
+task_id: "E6-005"
+task_name: "参与者激活校准规则"
+sprint: "Sprint 6 交割单到风格资产"
+epic: "Epic 6.2 Archetype Calibration"
+story_id: "E6-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立事件类型与参与者风格激活关系的初始校准规则。"
+business_value: "让交割单资产真正反哺事件 prepare 层。"
+
+entry_criteria:
+  - "E6-004 已完成。"
+
+acceptance_criteria:
+  - "可表示哪类事件更容易激活哪类参与者。"
+  - "规则可被 Sprint 2 的 prepare orchestrator 后续接入。"
+  - "首发事件类型具备最小映射。"
+
+constraints:
+  - "第一版以规则表为主，不做自动学习。"
+
+out_of_scope:
+  - "不更新生产权重。"
+
+dependencies:
+  - "E6-004"
+
+related_files:
+  - "apps/api/src/domain/style_embedding/calibration.py"
+  - "apps/api/src/schemas/style.py"
+
+test_cases:
+  normal:
+    - "涨价链事件能映射到偏快钱或链条资金激活规则。"
+  exception:
+    - "无匹配规则时返回 default_activation。"

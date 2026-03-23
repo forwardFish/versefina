@@ -1,0 +1,49 @@
+task_id: "S1-008"
+task_name: "Profile 提取"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.3 Profile & Agent Creation"
+story_id: "S1-008"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "从标准化的 TradeRecord 中提取交易行为画像（Profile）。"
+business_value: "生成用户的交易行为画像，为后续 Agent 创建提供基础数据。"
+
+entry_criteria:
+  - "S1-006 TradeRecord 标准化已完成。"
+
+acceptance_criteria:
+  - "Profile 包含：交易频率、持仓周期、风险偏好、偏好标的、操作习惯。"
+  - "提供 Profile 生成接口 POST /api/v1/statements/{statement_id}/profile。"
+  - "Profile 保存为 JSON 文件。"
+  - "Profile 数据结构清晰，易于后续消费。"
+
+constraints:
+  - "Profile 提取使用规则引擎，不依赖大模型。"
+  - "样本过少时（<10 条记录）给出降级结果。"
+
+out_of_scope:
+  - "不实现 LLM 自由推断。"
+  - "不实现 Profile 的可视化展示。"
+
+dependencies:
+  - "S1-006 TradeRecord 标准化。"
+
+related_files:
+  - "apps/api/src/domain/profile_engine/service.py"
+  - "apps/api/src/schemas/profile.py"
+  - "apps/api/src/api/v1/statements.py"
+
+primary_files:
+  - "apps/api/src/domain/profile_engine/service.py"
+
+secondary_files:
+  - "apps/api/src/schemas/profile.py"
+
+test_cases:
+  normal:
+    - "正常路径：输入 50 条 TradeRecord，生成完整 Profile。"
+    - "正常路径：样本过少，生成降级 Profile 并给出提示。"
+  exception:
+    - "异常路径：TradeRecord 为空，返回错误。"

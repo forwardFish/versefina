@@ -1,0 +1,54 @@
+task_id: "S8-003"
+task_name: "复盘页与 evidence ledger"
+sprint: "Sprint 8 事件产品化与 MVP 验收"
+epic: "Epic 8.2 Review & Acceptance"
+story_id: "S8-003"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "提供复盘页，展示当时剧本、T+1/T+3 实际结果、dominant_scenario、Agent 表现和失败原因。"
+business_value: "把后验验证结果公开成可回看的证据账本，支撑 MVP 的‘可复盘、可评分、可迭代’目标。"
+
+entry_criteria:
+  - "S7-004 和 S7-005 已完成。"
+  - "S8-001 已完成。"
+
+acceptance_criteria:
+  - "复盘页至少展示原始剧本、关键观察点、T+1/T+3 实际结果、dominant_scenario、Agent 表现摘要和 failure_reason。"
+  - "支持保留人工 analyst_note 和补充证据，不覆盖系统原始输出。"
+  - "缺少后验数据时可显示 pending review 状态。"
+  - "复盘页可通过 event_id 稳定访问。"
+
+constraints:
+  - "优先使用现有 review / projection 模式，不新建平行页面系统。"
+  - "人工备注必须与系统自动结果并列展示，避免互相覆盖。"
+
+out_of_scope:
+  - "不做跨事件广场排序。"
+  - "不做复杂权限协同。"
+
+dependencies:
+  - "S7-004"
+  - "S7-005"
+  - "S8-001"
+
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/web/src/features/event-reflexivity/EventReviewPage.tsx"
+  - "apps/web/src/services/api/client.ts"
+  - "apps/web/src/shared/types/api.ts"
+
+primary_files:
+  - "apps/web/src/features/event-reflexivity/EventReviewPage.tsx"
+
+secondary_files:
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "正常路径：存在后验数据的事件可查看完整复盘页。"
+  exception:
+    - "异常路径：后验未完成时复盘页显示 pending review 和缺失项。"

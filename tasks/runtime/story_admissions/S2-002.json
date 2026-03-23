@@ -1,0 +1,204 @@
+{
+  "generated_at": "2026-03-22T11:59:43",
+  "story_id": "S2-002",
+  "story_file": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger\\S2-002_market_price_service.yaml",
+  "story_kind": "api",
+  "required_modes": [
+    "plan-eng-review",
+    "review",
+    "qa"
+  ],
+  "advisory_modes": [],
+  "related_files": [
+    "apps/api/src/domain/market/price_service.py",
+    "apps/api/src/schemas/market.py",
+    "apps/api/src/api/v1/market.py"
+  ],
+  "acceptance_criteria_count": 5,
+  "has_browser_urls": true,
+  "formal_execution_requested": false,
+  "admitted": true,
+  "errors": [],
+  "warnings": [],
+  "task_payload": {
+    "project": "versefina",
+    "task_id": "S2-002",
+    "task_name": "行情数据接入与日线价格服务",
+    "sprint": "Sprint 2 世界、撮合、账本、日循环",
+    "epic": "Epic 2.1 World Foundation",
+    "story_id": "S2-002",
+    "auto_run": false,
+    "execution_policy": "continuous_full_sprint",
+    "interaction_policy": "direct_run_task",
+    "pause_policy": "story_boundary_or_shared_blocker_only",
+    "blocker_class": null,
+    "blast_radius": "L2",
+    "business_value": "为世界运行提供真实的市场价格数据，确保 Agent 交易在真实价格环境中执行。",
+    "execution_mode": "Safe",
+    "mode": "Safe",
+    "agent_policy": "auto",
+    "requires_auth": false,
+    "goal": "接入 A 股日线行情数据，为撮合引擎提供每日收盘价、涨跌停价格等基础数据。",
+    "entry_criteria": [
+      "S2-001 世界初始化已完成。"
+    ],
+    "acceptance_criteria": [
+      "支持按 symbol + date 查询收盘价。",
+      "支持查询涨跌停价格（±10%）。",
+      "行情数据缓存到本地，避免重复请求。",
+      "提供行情查询接口 GET /api/v1/market/prices。",
+      "数据缺失时有明确的降级处理。"
+    ],
+    "constraints": [
+      "优先使用免费数据源（如 akshare）。",
+      "不依赖付费实时行情服务。",
+      "只支持日线数据，不支持分钟线。"
+    ],
+    "explicitly_not_doing": [
+      "不实现行情数据的实时推送。",
+      "不支持港股、美股行情。"
+    ],
+    "not_do": [
+      "不实现行情数据的实时推送。",
+      "不支持港股、美股行情。"
+    ],
+    "out_of_scope": [
+      "不实现行情数据的实时推送。",
+      "不支持港股、美股行情。"
+    ],
+    "dependencies": [
+      "S2-001 世界初始化。"
+    ],
+    "related_files": [
+      "apps/api/src/domain/market/price_service.py",
+      "apps/api/src/schemas/market.py",
+      "apps/api/src/api/v1/market.py"
+    ],
+    "primary_files": [
+      "apps/api/src/domain/market/price_service.py"
+    ],
+    "secondary_files": [
+      "apps/api/src/schemas/market.py"
+    ],
+    "test_cases": {
+      "normal": [
+        "正常路径：查询 600000.SH 某交易日收盘价，返回正确价格。",
+        "正常路径：查询涨跌停价格，返回 ±10% 限制价格。"
+      ],
+      "exception": [
+        "异常路径：查询非交易日价格，返回最近交易日数据或错误。",
+        "异常路径：数据源不可用，返回缓存数据或明确错误。"
+      ]
+    },
+    "test_failure_info": null,
+    "story_inputs": [
+      "S2-001 世界初始化已完成。",
+      "In-scope files: apps/api/src/domain/market/price_service.py",
+      "Dependency outputs available from: S2-001 世界初始化。"
+    ],
+    "story_process": [
+      "Inspect the declared scope and understand the current implementation before editing.",
+      "Implement only the change required for this story goal and keep the blast radius within the card.",
+      "Run story-specific validation and record reusable evidence for acceptance."
+    ],
+    "story_outputs": [
+      "Updated story artifacts in: apps/api/src/domain/market/price_service.py",
+      "Validation evidence and delivery artifacts archived for this story."
+    ],
+    "verification_basis": [
+      "支持按 symbol + date 查询收盘价。",
+      "支持查询涨跌停价格（±10%）。",
+      "行情数据缓存到本地，避免重复请求。",
+      "提供行情查询接口 GET /api/v1/market/prices。",
+      "数据缺失时有明确的降级处理。"
+    ],
+    "formal_entry": false,
+    "project_repo_root": "D:\\lyh\\agent\\agent-frame\\versefina",
+    "tasks_root": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks",
+    "backlog_id": "sprint_2_world_matching_ledger",
+    "sprint_id": "S2-002_market_price_service.yaml",
+    "story_file": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger\\S2-002_market_price_service.yaml",
+    "backlog_root": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\sprint_2_world_matching_ledger",
+    "run_policy": "single_pass_to_completion",
+    "acceptance_policy": "must_pass_all_required_runs",
+    "retry_policy": "auto_repair_until_green",
+    "acceptance_attempt": 0,
+    "repair_iteration": 0,
+    "final_green_required": true,
+    "authoritative_attempt": "",
+    "agent_activation_plan": {
+      "story_kind": "api",
+      "risk_level": "high",
+      "workflow_enforcement_policy": "gstack_strict",
+      "is_bugfix": false,
+      "is_planning_request": false,
+      "is_release_closeout": false,
+      "has_browser_surface": false,
+      "requires_auth": false,
+      "needs_design_review": false,
+      "needs_qa_design_review": false,
+      "needs_design_consultation": false,
+      "needs_ceo_review_advice": false,
+      "qa_strategy": "runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "next_recommended_actions": [],
+      "effective_qa_mode": "qa",
+      "auto_upgrade_to_qa": false
+    },
+    "story_kind": "api",
+    "risk_level": "high",
+    "workflow_enforcement_policy": "gstack_strict",
+    "has_browser_surface": false,
+    "needs_design_review": false,
+    "needs_qa_design_review": false,
+    "needs_design_consultation": false,
+    "needs_ceo_review_advice": false,
+    "qa_strategy": "runtime",
+    "required_modes": [
+      "plan-eng-review",
+      "review",
+      "qa"
+    ],
+    "advisory_modes": [],
+    "next_recommended_actions": [],
+    "effective_qa_mode": "qa",
+    "auto_upgrade_to_qa": false,
+    "upstream_agent_parity": {
+      "repo": "https://github.com/garrytan/gstack",
+      "commit": "8ddfab233d3999edb172bed54aaf06fc5ff92646",
+      "license": "MIT",
+      "tracked_modes": {
+        "plan-eng-review": {
+          "entry_mode": "requirement_analysis",
+          "stop_after": "architecture_review",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/plan-eng-review/SKILL.md"
+        },
+        "review": {
+          "entry_mode": "reviewer",
+          "stop_after": "reviewer",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/review/SKILL.md"
+        },
+        "qa": {
+          "entry_mode": "tester",
+          "stop_after": "browser_qa",
+          "parity_status": "workflow_wired",
+          "upstream_skill": "vendors/gstack/qa/SKILL.md"
+        }
+      },
+      "intentional_deviations": [
+        "Telemetry and upgrade endpoints remain disabled by default in local agentsystem runs.",
+        "Claude-host-specific preambles are mirrored into local standards and adapters rather than executed verbatim."
+      ]
+    },
+    "fixer_allowed": true,
+    "browser_qa_report_only": false,
+    "runtime_qa_report_only": false
+  }
+}

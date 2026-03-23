@@ -1,0 +1,35 @@
+task_id: "E6-001"
+task_name: "交割单链路降级为次入口"
+sprint: "Sprint 6 交割单到风格资产"
+epic: "Epic 6.1 Statement-to-Style"
+story_id: "E6-001"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "明确交割单链路在 1.6 中的定位从主入口调整为风格资产次入口。"
+business_value: "避免旧主线继续影响事件沙盘第一阶段排期。"
+
+entry_criteria:
+  - "Sprint 1-5 已确认。"
+
+acceptance_criteria:
+  - "文档和 story 口径统一说明交割单为次入口。"
+  - "交割单不再占据 P0 首页和主价值表述。"
+
+constraints:
+  - "不删除既有交割单路线。"
+
+out_of_scope:
+  - "不改代码实现。"
+
+dependencies: []
+
+related_files:
+  - "docs/需求文档/需求分析_1.6_最终版_事件参与者优先.md"
+
+test_cases:
+  normal:
+    - "所有新文档都把交割单描述为第二阶段能力。"
+  exception:
+    - "出现“第一阶段主入口”描述时视为不合格。"

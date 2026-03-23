@@ -1,0 +1,38 @@
+task_id: "E2-004"
+task_name: "证据、触发与失效条件标准化"
+sprint: "Sprint 2 金融参与者准备层"
+epic: "Epic 2.2 Evidence & Registry"
+story_id: "E2-004"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "固定 evidence、trigger_conditions、invalidation_conditions 的标准结构。"
+business_value: "让三剧本、轻量模拟和 why 查询使用统一语言。"
+
+entry_criteria:
+  - "E2-001 已完成。"
+
+acceptance_criteria:
+  - "证据字段至少支持事实证据、价格证据、链条证据。"
+  - "触发条件和失效条件具有稳定枚举或结构格式。"
+  - "所有参与者输出都能复用同一套结构。"
+
+constraints:
+  - "不得只保留自然语言段落。"
+
+out_of_scope:
+  - "不做后验验证。"
+
+dependencies:
+  - "E2-001"
+
+related_files:
+  - "docs/需求文档/8类参与者统一输出协议.md"
+  - "apps/api/src/schemas/participant.py"
+
+test_cases:
+  normal:
+    - "任一 belief 可提取标准化 trigger 和 invalidation。"
+  exception:
+    - "没有证据时必须允许 insufficient_evidence。"

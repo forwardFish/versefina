@@ -1,0 +1,40 @@
+task_id: "E7-003"
+task_name: "Distribution Calibration 表与统计"
+sprint: "Sprint 7 镜像 Agent 与分布校准闭环"
+epic: "Epic 7.1 Mirror & Validation"
+story_id: "E7-003"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立分布级校准表和长期统计口径。"
+business_value: "让系统从单次案例走向长期数据壁垒。"
+
+entry_criteria:
+  - "E5-004 已完成。"
+  - "E7-002 已完成。"
+
+acceptance_criteria:
+  - "支持按事件类型和参与者段统计命中率。"
+  - "支持按 belief pattern 统计 hit / failure。"
+  - "可被后续权重反哺使用。"
+
+constraints:
+  - "第一版先做结构和口径，不要求复杂可视化。"
+
+out_of_scope:
+  - "不做自动在线学习。"
+
+dependencies:
+  - "E5-004"
+  - "E7-002"
+
+related_files:
+  - "apps/api/src/domain/calibration/service.py"
+  - "apps/api/src/schemas/calibration.py"
+
+test_cases:
+  normal:
+    - "同类事件可累计 segment 统计。"
+  exception:
+    - "低样本维度标记 insufficient_sample。"

@@ -1,0 +1,36 @@
+task_id: "E1-001"
+task_name: "首发事件白名单冻结"
+sprint: "Sprint 1 事件通道与题材映射基座"
+epic: "Epic 1.1 Event Lane & Contracts"
+story_id: "E1-001"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "冻结 1.6 第一阶段唯一支持的事件类型，只允许涨价链 / 供给冲击 / 产业链传导进入主流程。"
+business_value: "先收窄事件边界，避免结构化、验证和题材映射口径失控。"
+
+entry_criteria:
+  - "需求分析_1.6 已确认。"
+
+acceptance_criteria:
+  - "白名单文档明确写出唯一 P0 事件类型。"
+  - "非白名单事件有统一 deferred / rejected 语义。"
+  - "白名单与后续扩展顺序一致。"
+
+constraints:
+  - "不得同时开放政策催化和利空扩散。"
+
+out_of_scope:
+  - "不实现事件输入接口。"
+
+dependencies: []
+
+related_files:
+  - "docs/需求文档/事件分类白名单_v0.1.md"
+
+test_cases:
+  normal:
+    - "涨价链事件被识别为白名单事件。"
+  exception:
+    - "政策催化事件被标记为 deferred。"

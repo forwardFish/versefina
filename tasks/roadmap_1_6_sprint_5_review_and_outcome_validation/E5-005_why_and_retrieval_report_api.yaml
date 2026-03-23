@@ -1,0 +1,40 @@
+task_id: "E5-005"
+task_name: "Why 与 Retrieval Report 接口"
+sprint: "Sprint 5 复盘报告与后验验证"
+epic: "Epic 5.2 Reliability & Why"
+story_id: "E5-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "定义 why 查询接口，允许用户追问“为什么这样判断、为什么失效”。"
+business_value: "提升事件沙盘的可解释性，而不是只给结论卡。"
+
+entry_criteria:
+  - "E5-001 已完成。"
+  - "E5-002 已完成。"
+
+acceptance_criteria:
+  - "定义 GET /api/v1/events/{event_id}/why 查询语义。"
+  - "why 回答必须引用 beliefs、graph、simulation logs 或 outcome 数据。"
+  - "不允许只返回空泛解释。"
+
+constraints:
+  - "第一版以 retrieval style 回答为主，不做复杂多轮对话。"
+
+out_of_scope:
+  - "不做角色访谈式交互。"
+
+dependencies:
+  - "E5-001"
+  - "E5-002"
+
+related_files:
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "针对事件为什么偏 bull，可返回结构化解释。"
+  exception:
+    - "当过程证据不足时，why 返回 insufficient_evidence。"

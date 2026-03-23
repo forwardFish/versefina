@@ -1,0 +1,50 @@
+task_id: "S1-005"
+task_name: "字段映射规则"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.2 Parse & Standardize"
+story_id: "S1-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现不同券商交割单字段到标准 TradeRecord 的映射规则。"
+business_value: "统一不同券商的交割单格式，为后续分析和建模提供标准化数据基础。"
+
+entry_criteria:
+  - "S1-003 文件类型识别已完成。"
+
+acceptance_criteria:
+  - "支持至少 3 家主流券商的字段映射规则。"
+  - "映射规则包含：股票代码、交易方向、数量、价格、手续费、印花税、交易时间。"
+  - "映射规则可配置，支持通过配置文件扩展。"
+  - "字段映射失败时有明确的错误提示。"
+
+constraints:
+  - "映射规则不硬编码在代码中，使用配置文件管理。"
+  - "优先支持：华泰证券、中信证券、国泰君安。"
+
+out_of_scope:
+  - "不支持港股、美股交割单。"
+  - "不实现自动学习映射规则的功能。"
+
+dependencies:
+  - "S1-003 文件类型识别。"
+
+related_files:
+  - "apps/api/src/parsers/field_mapper.py"
+  - "apps/api/src/parsers/broker_configs/"
+  - "apps/api/src/schemas/trade.py"
+
+primary_files:
+  - "apps/api/src/parsers/field_mapper.py"
+
+secondary_files:
+  - "apps/api/src/schemas/trade.py"
+
+test_cases:
+  normal:
+    - "正常路径：华泰证券交割单字段正确映射到 TradeRecord。"
+    - "正常路径：中信证券交割单字段正确映射到 TradeRecord。"
+  exception:
+    - "异常路径：未知券商格式，返回映射失败错误。"
+    - "异常路径：必填字段缺失，返回明确的错误信息。"

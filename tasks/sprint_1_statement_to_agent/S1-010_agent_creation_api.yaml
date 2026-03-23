@@ -1,0 +1,52 @@
+task_id: "S1-010"
+task_name: "Agent 创建 API"
+sprint: "Sprint 1 交割单到 Agent 建模"
+epic: "Epic 1.3 Profile & Agent Creation"
+story_id: "S1-010"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "实现 Agent 创建接口，基于 Profile 创建可运行的 Agent 实例。"
+business_value: "完成从交割单到 Agent 的完整闭环，让用户能够创建自己的交易 Agent。"
+
+entry_criteria:
+  - "S1-009 风格标签与风控约束生成已完成。"
+
+acceptance_criteria:
+  - "提供 Agent 创建接口 POST /api/v1/agents。"
+  - "Agent 包含：agent_id、owner_id、statement_id、profile、init_cash、world_id、status。"
+  - "Agent 状态初始为 active。"
+  - "Agent 元数据保存到数据库。"
+  - "返回完整的 Agent 信息。"
+
+constraints:
+  - "一个 statement_id 可以创建多个 Agent（不同初始资金）。"
+  - "Agent 创建后不自动开始交易，需要等待世界运行。"
+
+out_of_scope:
+  - "不实现 Agent 的交易逻辑。"
+  - "不实现 Agent 的运行调度。"
+
+dependencies:
+  - "S1-009 风格标签与风控约束生成。"
+
+related_files:
+  - "apps/api/src/api/v1/agents.py"
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/services/agent_service.py"
+
+primary_files:
+  - "apps/api/src/api/v1/agents.py"
+
+secondary_files:
+  - "apps/api/src/schemas/agent.py"
+  - "apps/api/src/services/agent_service.py"
+
+test_cases:
+  normal:
+    - "正常路径：基于 Profile 创建 Agent，返回 agent_id 和 status=active。"
+    - "正常路径：同一个 statement_id 创建多个 Agent，都成功。"
+  exception:
+    - "异常路径：statement_id 不存在，返回 404 错误。"
+    - "异常路径：Profile 未生成，返回 400 错误。"

@@ -1,0 +1,39 @@
+task_id: "E7-004"
+task_name: "结果反哺参与者权重与 Scenario 权重"
+sprint: "Sprint 7 镜像 Agent 与分布校准闭环"
+epic: "Epic 7.2 Feedback & Handoff"
+story_id: "E7-004"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "把分布级校准结果反哺到参与者权重和 scenario 权重。"
+business_value: "让系统形成可迭代、可修正的长期学习闭环。"
+
+entry_criteria:
+  - "E7-003 已完成。"
+
+acceptance_criteria:
+  - "定义参与者权重修正入口。"
+  - "定义 scenario 权重修正入口。"
+  - "反哺规则与人工审查边界明确。"
+
+constraints:
+  - "第一版先定义规则和接口，不强制自动更新。"
+
+out_of_scope:
+  - "不做无人值守自适应系统。"
+
+dependencies:
+  - "E7-003"
+
+related_files:
+  - "apps/api/src/domain/calibration/service.py"
+  - "apps/api/src/domain/participant_preparation/registry.py"
+  - "apps/api/src/domain/scenario_engine/service.py"
+
+test_cases:
+  normal:
+    - "校准结果可生成新的权重建议。"
+  exception:
+    - "样本不足时不允许直接更新正式权重。"

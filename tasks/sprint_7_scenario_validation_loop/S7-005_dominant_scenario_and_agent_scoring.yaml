@@ -1,0 +1,50 @@
+task_id: "S7-005"
+task_name: "Dominant Scenario 判定与 Agent 打分"
+sprint: "Sprint 7 三剧本推演与后验验证闭环"
+epic: "Epic 7.2 Outcome & Scoring Loop"
+story_id: "S7-005"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "根据 outcome 结果判定 dominant_scenario，并累计 agent_scores。"
+business_value: "让系统能够回答‘哪个剧本更接近现实’和‘哪个 Agent 更靠谱’，形成长期反馈闭环。"
+
+entry_criteria:
+  - "S7-004 已完成。"
+
+acceptance_criteria:
+  - "dominant_scenario 的判定规则固定且可解释，不依赖人工自由发挥。"
+  - "支持累计 total_cases、hit_rate、false_alarm_rate、early_warning_score、calibration_score。"
+  - "样本不足场景不做过度分级，保留 insufficient_sample 状态。"
+  - "评分结果可被后续只读查询与复盘展示消费。"
+
+constraints:
+  - "优先使用显式规则和可解释指标，不做黑盒综合分。"
+  - "评分必须能追溯到具体事件和具体剧本判定。"
+
+out_of_scope:
+  - "不在本 Story 中做完整榜单和广场治理。"
+  - "不做前端页面。"
+
+dependencies:
+  - "S7-004"
+
+related_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+  - "apps/api/src/projection/rankings/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/schemas/event.py"
+
+primary_files:
+  - "apps/api/src/domain/event_reflexivity/service.py"
+
+secondary_files:
+  - "apps/api/src/projection/rankings/service.py"
+  - "apps/api/src/api/query/routes.py"
+
+test_cases:
+  normal:
+    - "正常路径：一次完整后验后生成 dominant_scenario 和 agent_scores 增量。"
+  exception:
+    - "异常路径：样本不足或 outcome 不完整时不给出误导性评分。"

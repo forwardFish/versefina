@@ -1,0 +1,49 @@
+task_id: "S4-001"
+task_name: "留出集验证流水线"
+sprint: "Sprint 4 验证分级与只读运营控制"
+epic: "Epic 4.1 Validation & Grading"
+story_id: "S4-001"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+
+goal: "建立按时间切分的留出集验证流水线，为行为镜像 Agent 的质量评估提供稳定输入。"
+business_value: "把 Agent 公开前的验证从人工判断升级为标准化流程。"
+
+entry_criteria:
+  - "S3-006 已完成，Mirror Agent 可运行。"
+
+acceptance_criteria:
+  - "支持按时间切分训练段和验证段。"
+  - "验证流程可复用现有日循环和账本能力。"
+  - "验证输入、输出和执行摘要可落库或留痕。"
+  - "样本不足场景有降级或拒绝策略。"
+
+constraints:
+  - "优先复用现有 daily simulation 流程，不并行创建第二套运行引擎。"
+  - "验证流水线必须可重复执行。"
+
+out_of_scope:
+  - "不在本 Story 中计算最终分级。"
+  - "不实现页面展示。"
+
+dependencies:
+  - "S3-006"
+
+related_files:
+  - "apps/api/src/workflows/daily_simulation/graph.py"
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/schemas/agent.py"
+
+primary_files:
+  - "apps/api/src/workflows/daily_simulation/graph.py"
+
+secondary_files:
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/schemas/agent.py"
+
+test_cases:
+  normal:
+    - "正常路径：按时间切分后完成验证段运行。"
+  exception:
+    - "异常路径：样本不足时拒绝验证并返回原因。"
