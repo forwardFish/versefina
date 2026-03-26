@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V17-003"
+task_name: "Participant Roster Activation"
+sprint: "Sprint 1 Event Input and Activation"
+epic: "Epic 1.2 Participant Activation"
+story_id: "V17-003"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Activate a participant roster from a structured event using 1.7 roster rules and initial authority weights."
+business_value: "Creates the first real set of participating agents that can later act and influence each other."
+entry_criteria:
+  - "V17-002 is complete and structured events can be loaded."
+acceptance_criteria:
+  - "POST /api/v1/events/{event_id}/participants/prepare creates a participant roster for the event."
+  - "Roster output includes participant_family, participant_id, role, stance, authority_weight, and state."
+  - "Activation rules are deterministic for the same structured event input."
+constraints:
+  - "P0 only needs the first roster activation rules from the 1.7 document."
+out_of_scope:
+  - "No multi-round interaction yet."
+dependencies:
+  - "V17-002"
+related_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/schemas/participant_preparation.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v17_003_delivery.md"
+primary_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/schemas/participant_preparation.py"
+secondary_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v17_003_delivery.md"
+test_cases:
+  normal:
+    - "Prepare a participant roster from one structured event and persist the output."
+  exception:
+    - "Reject prepare requests when the event has not been structured yet."

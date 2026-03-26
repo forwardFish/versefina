@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-009"
+task_name: "First Move Follow Exit Timeline"
+sprint: "Sprint 2 Round Interaction and Timeline"
+epic: "Epic 2.2 Timeline Projection"
+story_id: "V17-009"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Project round history into first-move, follow-on, and exit timeline summaries that the sandbox page can narrate."
+business_value: "Turns raw round logs into a process story that humans can understand quickly."
+entry_criteria:
+  - "V17-008 is complete and action logs plus state snapshots are queryable."
+acceptance_criteria:
+  - "Timeline output includes first_move, follow_on, exit, and turning_points summaries."
+  - "Timeline projection preserves round order and participant references."
+  - "Timeline summaries are available through the simulation query surface."
+constraints:
+  - "Keep timeline logic derived from persisted round history."
+out_of_scope:
+  - "No influence graph or belief dynamics yet."
+dependencies:
+  - "V17-008"
+related_files:
+  - "apps/api/src/domain/event_simulation/timeline.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_009_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_simulation/timeline.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_009_delivery.md"
+test_cases:
+  normal:
+    - "Project one simulation run into first_move, follow_on, and exit timeline summaries."
+  exception:
+    - "Return a structured response when timeline is requested for a run with no rounds."

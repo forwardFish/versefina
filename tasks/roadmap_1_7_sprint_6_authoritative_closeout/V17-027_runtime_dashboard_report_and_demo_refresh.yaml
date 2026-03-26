@@ -1,0 +1,61 @@
+project: "versefina"
+task_id: "V17-027"
+task_name: "Runtime, Dashboard, Report, and Demo Refresh"
+sprint: "Sprint 6 Authoritative Closeout"
+epic: "Epic 6.2 Final Surface Alignment"
+story_id: "V17-027"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Refresh the demo aggregation, product-facing event sandbox entry points, and final report surfaces so the visible output matches the completed roadmap state."
+business_value: "Ensures the user can see the finished effect in the product page, the API surface, and the execution report without cross-checking hidden runtime artifacts."
+entry_criteria:
+  - "V17-026 is complete and the acceptance pack is available."
+acceptance_criteria:
+  - "The product demo and event sandbox entry points show the current roadmap 1.7 result set."
+  - "The demo aggregation API and the report package agree on roadmap status, evidence, and showcase links."
+  - "The final visible surfaces avoid stale 1.6-only wording when 1.7 is active."
+constraints:
+  - "Refresh existing surfaces instead of introducing a second disconnected demo host."
+out_of_scope:
+  - "No new story backlog generation in this story."
+dependencies:
+  - "V17-026"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox"
+  - "http://127.0.0.1:3000/roadmap-1-6-demo"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox"
+  - "http://127.0.0.1:3000/roadmap-1-6-demo"
+related_files:
+  - "apps/api/src/domain/demo_showcase/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_demo_runtime_showcase.py"
+  - "apps/web/src/app/event-sandbox/page.tsx"
+  - "apps/web/src/features/demo-showcase/DemoShowcaseView.tsx"
+  - "apps/web/src/features/demo-showcase/types.ts"
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/requirements/v17_027_delivery.md"
+primary_files:
+  - "apps/api/src/domain/demo_showcase/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/web/src/app/event-sandbox/page.tsx"
+  - "apps/web/src/features/demo-showcase/DemoShowcaseView.tsx"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_demo_runtime_showcase.py"
+  - "apps/web/src/features/demo-showcase/types.ts"
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/requirements/v17_027_delivery.md"
+test_cases:
+  normal:
+    - "Open the product demo and event sandbox entry points and see surfaces that reflect the current roadmap 1.7 state."
+  exception:
+    - "If report and demo data drift, the story fails instead of publishing inconsistent visible results."

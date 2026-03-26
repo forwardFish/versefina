@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V17-014"
+task_name: "Scenario Reviser"
+sprint: "Sprint 3 Influence, Belief, and Market Dynamics"
+epic: "Epic 3.2 Market and Scenario"
+story_id: "V17-014"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Revise bull, base, and bear scenarios dynamically using market state and belief updates."
+business_value: "Shows how the dominant interpretation of the event changes as the market reacts."
+entry_criteria:
+  - "V17-013 is complete and market state changes are persisted per round."
+acceptance_criteria:
+  - "Scenario weights or priorities are revised per round."
+  - "Scenario revision uses market_state and belief metrics as inputs."
+  - "The dominant scenario can change during the run instead of being fixed upfront."
+constraints:
+  - "Keep the first reviser rule-based and aligned to the 1.7 doc."
+out_of_scope:
+  - "No report or replay pages yet."
+dependencies:
+  - "V17-013"
+related_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/src/schemas/scenario.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v17_014_delivery.md"
+primary_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/src/schemas/scenario.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v17_014_delivery.md"
+test_cases:
+  normal:
+    - "Read scenario changes across rounds and observe the dominant scenario update."
+  exception:
+    - "Return a structured error when scenarios are requested before revision inputs exist."

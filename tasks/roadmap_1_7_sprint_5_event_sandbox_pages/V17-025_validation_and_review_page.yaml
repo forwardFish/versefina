@@ -1,0 +1,53 @@
+project: "versefina"
+task_id: "V17-025"
+task_name: "Validation and Review Page"
+sprint: "Sprint 5 Event Sandbox Pages"
+epic: "Epic 5.3 Validation Experience"
+story_id: "V17-025"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Create /event-sandbox/[eventId]/validation so the user can see report, why, validation, outcome, and reliability together on one product-facing page."
+business_value: "Completes the visible business loop by showing not just what happened, but how the system evaluates and explains the result."
+entry_criteria:
+  - "V17-024 is complete and replay, report, why, validation, outcome, and reliability payloads are all queryable."
+acceptance_criteria:
+  - "GET /event-sandbox/[eventId]/validation renders report, why, validation, outcome, and reliability sections."
+  - "The page clearly explains dominant scenario, score label, outcome state, and why evidence."
+  - "The page exposes stable links back to the overview and replay surfaces."
+constraints:
+  - "The page should prioritize human-readable explanation over raw payload dumps."
+out_of_scope:
+  - "No new backend scoring logic in this story."
+dependencies:
+  - "V17-024"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/validation"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/validation"
+related_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/validation/page.tsx"
+  - "apps/web/src/features/event-sandbox/EventValidationPage.tsx"
+  - "apps/web/src/features/event-sandbox/components/ValidationSummaryPanel.tsx"
+  - "apps/web/src/features/event-sandbox/components/WhyEvidencePanel.tsx"
+  - "apps/web/src/features/event-sandbox/EventValidationPage.test.tsx"
+  - "docs/requirements/v17_025_delivery.md"
+primary_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/validation/page.tsx"
+  - "apps/web/src/features/event-sandbox/EventValidationPage.tsx"
+secondary_files:
+  - "apps/web/src/features/event-sandbox/components/ValidationSummaryPanel.tsx"
+  - "apps/web/src/features/event-sandbox/components/WhyEvidencePanel.tsx"
+  - "apps/web/src/features/event-sandbox/EventValidationPage.test.tsx"
+  - "docs/requirements/v17_025_delivery.md"
+test_cases:
+  normal:
+    - "Open one validation page and see report, why, validation, outcome, and reliability summarized together."
+  exception:
+    - "Open validation for an event without outcome evidence and confirm the page shows a stable partial-data state."

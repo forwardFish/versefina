@@ -1,0 +1,53 @@
+project: "versefina"
+task_id: "V17-024"
+task_name: "Participant Detail Page"
+sprint: "Sprint 5 Event Sandbox Pages"
+epic: "Epic 5.2 Replay and Drilldown"
+story_id: "V17-024"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Create /event-sandbox/[eventId]/participants/[participantId] so the user can inspect one participant's actions, inputs, outputs, and influence path across rounds."
+business_value: "Lets the user see how one participant behaved, who influenced it, and who it influenced in return."
+entry_criteria:
+  - "V17-023 is complete and the overview and replay pages already expose round-level participant data."
+acceptance_criteria:
+  - "GET /event-sandbox/[eventId]/participants/[participantId] renders one participant drill-down view."
+  - "The page shows per-round actions, confidence shifts, inbound influence, outbound influence, and key evidence."
+  - "The page supports a stable empty or not-found state for missing participants."
+constraints:
+  - "Do not re-simulate the event from this page; read persisted detail payloads or derived read models."
+out_of_scope:
+  - "No validation or review summary in this story."
+dependencies:
+  - "V17-023"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/participants/sample-participant"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/participants/sample-participant"
+related_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/participants/[participantId]/page.tsx"
+  - "apps/web/src/features/event-sandbox/ParticipantDetailPage.tsx"
+  - "apps/web/src/features/event-sandbox/components/ParticipantActionHistory.tsx"
+  - "apps/web/src/features/event-sandbox/components/ParticipantInfluencePanel.tsx"
+  - "apps/web/src/features/event-sandbox/ParticipantDetailPage.test.tsx"
+  - "docs/requirements/v17_024_delivery.md"
+primary_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/participants/[participantId]/page.tsx"
+  - "apps/web/src/features/event-sandbox/ParticipantDetailPage.tsx"
+secondary_files:
+  - "apps/web/src/features/event-sandbox/components/ParticipantActionHistory.tsx"
+  - "apps/web/src/features/event-sandbox/components/ParticipantInfluencePanel.tsx"
+  - "apps/web/src/features/event-sandbox/ParticipantDetailPage.test.tsx"
+  - "docs/requirements/v17_024_delivery.md"
+test_cases:
+  normal:
+    - "Open one participant detail page and see its round-by-round actions and influence path."
+  exception:
+    - "Open a missing participant id and confirm the page falls back to a stable empty state."

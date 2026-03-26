@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-019"
+task_name: "Reliability and Scoring Labels"
+sprint: "Sprint 4 Replay, Report, and Validation"
+epic: "Epic 4.2 Validation Loop"
+story_id: "V17-019"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Calculate participant reliability, dominant scenario labels, and scoring summaries from simulation plus outcome data."
+business_value: "Lets the product explain not only what happened, but which participants and scenarios proved reliable."
+entry_criteria:
+  - "V17-018 is complete and outcome data can be written and read."
+acceptance_criteria:
+  - "Participant reliability summaries are queryable."
+  - "Dominant scenario and scoring labels are computed for an event."
+  - "Reliability and scoring results can be used by report and validation surfaces."
+constraints:
+  - "Keep the first scoring layer aligned with the existing outcome-review foundation."
+out_of_scope:
+  - "No dedicated UI page yet."
+dependencies:
+  - "V17-018"
+related_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/schemas/reliability.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v17_019_delivery.md"
+primary_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/src/schemas/reliability.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v17_019_delivery.md"
+test_cases:
+  normal:
+    - "Read reliability and scoring labels after recording outcome data."
+  exception:
+    - "Return incomplete status when reliability is requested before outcome validation exists."

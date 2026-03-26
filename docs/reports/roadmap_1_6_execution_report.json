@@ -1,0 +1,504 @@
+{
+  "roadmap_id": "roadmap_1_6",
+  "status": "completed",
+  "completed_at": "2026-03-25T17:01:53",
+  "sprint_results": [
+    {
+      "index": 1,
+      "sprint_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
+      "title": "Sprint 1",
+      "focus": "事件白名单、事件记录结构、事件输入结构化、题材映射、casebook 基座",
+      "status": "completed",
+      "story_count": 5,
+      "completed_story_count": 5,
+      "failed_story_count": 0,
+      "last_success_story": "E1-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_1_event_lane_and_mapping_base\\special_acceptance_report.json"
+    },
+    {
+      "index": 2,
+      "sprint_id": "roadmap_1_6_sprint_2_participant_preparation",
+      "title": "Sprint 2",
+      "focus": "participant preparation 与 prepare orchestrator",
+      "status": "completed",
+      "story_count": 5,
+      "completed_story_count": 5,
+      "failed_story_count": 0,
+      "last_success_story": "E2-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_2_participant_preparation\\special_acceptance_report.json"
+    },
+    {
+      "index": 3,
+      "sprint_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
+      "title": "Sprint 3",
+      "focus": "belief graph、三情景引擎、watchpoints、event card read model",
+      "status": "completed",
+      "story_count": 5,
+      "completed_story_count": 5,
+      "failed_story_count": 0,
+      "last_success_story": "E3-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_3_belief_graph_and_scenarios\\special_acceptance_report.json"
+    },
+    {
+      "index": 4,
+      "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
+      "title": "Sprint 4",
+      "focus": "lightweight simulation runtime、timeline、action log",
+      "status": "completed",
+      "story_count": 2,
+      "completed_story_count": 2,
+      "failed_story_count": 0,
+      "last_success_story": "E4-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325150234",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_4_lightweight_simulation_runtime\\special_acceptance_report.json"
+    },
+    {
+      "index": 5,
+      "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
+      "title": "Sprint 5",
+      "focus": "review report、T+1/T+3 outcome、reliability、why/retrieval API",
+      "status": "completed",
+      "story_count": 4,
+      "completed_story_count": 4,
+      "failed_story_count": 0,
+      "last_success_story": "E5-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_5_review_and_outcome_validation\\special_acceptance_report.json"
+    },
+    {
+      "index": 6,
+      "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
+      "title": "Sprint 6",
+      "focus": "statement -> style assets",
+      "status": "completed",
+      "story_count": 1,
+      "completed_story_count": 1,
+      "failed_story_count": 0,
+      "last_success_story": "E6-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161324",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_6_statement_to_style_assets\\special_acceptance_report.json"
+    },
+    {
+      "index": 7,
+      "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
+      "title": "Sprint 7",
+      "focus": "mirror agent、distribution calibration、acceptance pack / handoff",
+      "status": "completed",
+      "story_count": 1,
+      "completed_story_count": 1,
+      "failed_story_count": 0,
+      "last_success_story": "E7-005",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325170017",
+      "pre_hook_ready": true,
+      "post_hook_ready": true,
+      "pre_hook_paths": {
+        "advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\sprint_agent_advice.json",
+        "sprint_framing_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\sprint_framing_artifact.json",
+        "office_hours_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\office_hours\\office_hours_report.md",
+        "plan_ceo_review_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\plan_ceo_review\\product_review_report.md",
+        "parity_manifest_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\parity_manifest.json",
+        "acceptance_checklist_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\acceptance_checklist.md"
+      },
+      "post_hook_paths": {
+        "document_release_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\document_release_report.md",
+        "retro_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\retro_report.md",
+        "ship_advice_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\ship_advice.json",
+        "ship_report_path": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+        "sprint_close_bundle_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\sprint_close_bundle.json",
+        "runtime_validation_path": null
+      },
+      "special_acceptance_report_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\special_acceptance_report.json"
+    }
+  ],
+  "summary_metrics": {
+    "versefina_business_files_changed": 41,
+    "syntax_checked_files": 18,
+    "placeholder_rejections": 0,
+    "integration_contract_passed": true,
+    "api_test_count": 23,
+    "agent_coverage_passed": true,
+    "gstack_parity_passed": true
+  },
+  "showcase_links": {
+    "dashboard": "http://127.0.0.1:8010/",
+    "runtime_showcase": "http://127.0.0.1:8010/versefina/runtime",
+    "product_demo": "http://127.0.0.1:3000/roadmap-1-6-demo",
+    "swagger": "http://127.0.0.1:8001/docs",
+    "report_markdown": "/versefina/runtime/report",
+    "report_json": "/api/versefina/runtime/report"
+  },
+  "api_demo_endpoints": [
+    {
+      "capability": "事件入口与结构化",
+      "method": "POST",
+      "path": "/api/v1/events",
+      "note": "创建事件主记录。"
+    },
+    {
+      "capability": "participant preparation",
+      "method": "POST",
+      "path": "/api/v1/events/{event_id}/prepare",
+      "note": "生成参与者准备结果。"
+    },
+    {
+      "capability": "belief graph / scenarios",
+      "method": "POST",
+      "path": "/api/v1/events/{event_id}/belief-graph",
+      "note": "构建 belief graph。"
+    },
+    {
+      "capability": "belief graph / scenarios",
+      "method": "POST",
+      "path": "/api/v1/events/{event_id}/scenarios",
+      "note": "生成 bull/base/bear 三情景。"
+    },
+    {
+      "capability": "simulation runtime",
+      "method": "POST",
+      "path": "/api/v1/events/{event_id}/simulation/run",
+      "note": "执行轻量模拟链路。"
+    },
+    {
+      "capability": "review / outcome / why",
+      "method": "GET",
+      "path": "/api/v1/events/{event_id}/review-report",
+      "note": "查看 review report。"
+    },
+    {
+      "capability": "review / outcome / why",
+      "method": "GET",
+      "path": "/api/v1/events/{event_id}/why",
+      "note": "查看 why / retrieval 结果。"
+    },
+    {
+      "capability": "style assets",
+      "method": "POST",
+      "path": "/api/v1/statements/{statement_id}/style-features",
+      "note": "从 statement 生成 style features。"
+    },
+    {
+      "capability": "mirror agent",
+      "method": "POST",
+      "path": "/api/v1/statements/{statement_id}/mirror-agent",
+      "note": "构建 mirror agent。"
+    },
+    {
+      "capability": "distribution calibration",
+      "method": "GET",
+      "path": "/api/v1/statements/{statement_id}/distribution-calibration",
+      "note": "读取 distribution calibration 结果。"
+    },
+    {
+      "capability": "acceptance pack",
+      "method": "GET",
+      "path": "/api/v1/roadmaps/1.6/acceptance-pack",
+      "note": "查看 roadmap_1_6 acceptance pack。"
+    }
+  ],
+  "validation": {
+    "api_tests": {
+      "command": "python -m pytest apps/api/tests -q",
+      "status": "passed",
+      "details": "64 passed in 5.98s",
+      "recorded_at": "2026-03-25T00:00:00+08:00"
+    },
+    "dashboard_tests": {
+      "command": "python -m unittest tests.test_dashboard_api -v",
+      "status": "passed",
+      "details": "17 dashboard tests passed."
+    },
+    "local_pages": {
+      "status": "passed",
+      "details": "Dashboard /, /versefina/runtime, /api/versefina/runtime/showcase, /api/versefina/runtime/report, and Swagger /docs all returned 200."
+    },
+    "ship_readiness": {
+      "status": "not_clean",
+      "details": "Dirty tree keeps ship readiness below release-clean."
+    }
+  },
+  "residual_issues": [
+    {
+      "id": "ship_readiness_dirty_tree",
+      "severity": "medium",
+      "title": "Ship ready: no",
+      "detail": "Ship readiness is still not release-clean because the working tree is dirty. This is a release hygiene issue, not a feature failure.",
+      "evidence": [
+        "The working tree is still dirty, so the release evidence is not stable yet."
+      ]
+    },
+    {
+      "id": "special_acceptance_drift",
+      "severity": "medium",
+      "title": "Sprint 7 special acceptance 与 roadmap summary 不一致",
+      "detail": "Roadmap authoritative summary is completed, but Sprint 7 special acceptance still reports formal_flow_complete=false and lists missing items. This should be treated as evidence governance drift, not as a rollback of roadmap completion.",
+      "evidence": [
+        "formal_flow_complete=False",
+        "missing_items=E7-001, E7-002, E7-003, E7-004, E7-005",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\special_acceptance_report.json"
+      ]
+    },
+    {
+      "id": "document_release_followup",
+      "severity": "low",
+      "title": "Document release 仍有对齐治理项",
+      "detail": "Sprint 7 document release did not apply in-place doc updates and explicitly carried drift into retro. The roadmap can stay completed, but release-facing docs still need follow-up alignment.",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\document_release_report.md"
+      ]
+    }
+  ],
+  "evidence_paths": {
+    "roadmap_summary": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\roadmaps\\roadmap_1_6_20260325_140840.json",
+    "ship_readiness_report": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\ship\\ship_readiness_report.md",
+    "special_acceptance_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\special_acceptance_report.json",
+    "document_release_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\document_release_report.md",
+    "retro_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\sprints\\versefina\\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\\retro_report.md",
+    "current_handoff": "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+    "now_md": "D:\\lyh\\agent\\agent-frame\\versefina\\NOW.md",
+    "state_md": "D:\\lyh\\agent\\agent-frame\\versefina\\STATE.md",
+    "decisions_md": "D:\\lyh\\agent\\agent-frame\\versefina\\DECISIONS.md",
+    "continuity_manifest": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\continuity\\continuity_manifest.json",
+    "execution_playbook": "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\bootstrap\\roadmap_1_7_execution_playbook.md"
+  },
+  "continuity": {
+    "now_status": "ready",
+    "now_task": "roadmap_1_6 gap closure via agentsystem standard flow",
+    "state_phase": "sprint_4_gap_closure",
+    "state_goal": "close the remaining 1.6 document-priority gaps through agentsystem full flow",
+    "handoff_status": "interrupted",
+    "handoff_last_success_story": "E3-005",
+    "completed_boundary": false,
+    "manifest_exists": true,
+    "manifest_sync_status": "present",
+    "paths": {
+      "now_md": "D:\\lyh\\agent\\agent-frame\\versefina\\NOW.md",
+      "state_md": "D:\\lyh\\agent\\agent-frame\\versefina\\STATE.md",
+      "decisions_md": "D:\\lyh\\agent\\agent-frame\\versefina\\DECISIONS.md",
+      "current_handoff": "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+      "continuity_manifest": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\continuity\\continuity_manifest.json"
+    }
+  },
+  "delivery_status_label": "delivery complete",
+  "release_status_label": "release not clean yet",
+  "report_paths": {
+    "markdown_path": "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\reports\\roadmap_1_6_execution_report.md",
+    "json_path": "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\reports\\roadmap_1_6_execution_report.json",
+    "markdown_url": "/versefina/runtime/report",
+    "json_url": "/api/versefina/runtime/report"
+  },
+  "next_execution_priority": [
+    {
+      "order": 1,
+      "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
+      "title": "Sprint 4",
+      "focus": "lightweight simulation runtime, timeline, action log",
+      "story_ids": [
+        "E4-001",
+        "E4-002",
+        "E4-003",
+        "E4-004",
+        "E4-005"
+      ],
+      "why_now": "The main 1.6 document requires Sprint 1-5 before Sprint 6-7, so Sprint 4 is the next required gap-closure lane."
+    },
+    {
+      "order": 2,
+      "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
+      "title": "Sprint 5",
+      "focus": "report, T+1/T+3 outcome, reliability, why/retrieval API",
+      "story_ids": [
+        "E5-001",
+        "E5-002",
+        "E5-003",
+        "E5-004",
+        "E5-005"
+      ],
+      "why_now": "Sprint 5 closes the P0 event-sandbox loop after Sprint 4."
+    },
+    {
+      "order": 3,
+      "sprint_id": "p0_closeout",
+      "title": "P0 Closeout",
+      "focus": "authoritative closeout across Sprint 1-5",
+      "story_ids": [],
+      "why_now": "Sprint 1-5 should be auditable end-to-end before the plan advances into Sprint 6-7 gap closure."
+    },
+    {
+      "order": 4,
+      "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
+      "title": "Sprint 6",
+      "focus": "statement to style assets",
+      "story_ids": [
+        "E6-001",
+        "E6-002",
+        "E6-003",
+        "E6-004",
+        "E6-005"
+      ],
+      "why_now": "Sprint 6 is the next P1 lane once the P0 event lane is fully closed."
+    },
+    {
+      "order": 5,
+      "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
+      "title": "Sprint 7",
+      "focus": "mirror agent and distribution calibration",
+      "story_ids": [
+        "E7-001",
+        "E7-002",
+        "E7-003",
+        "E7-004",
+        "E7-005"
+      ],
+      "why_now": "Sprint 7 closes mirror, grading, calibration, and final acceptance once Sprint 6 is done."
+    }
+  ],
+  "mid_process_validation": [
+    {
+      "stage": "story_boundary",
+      "check": "Inspect NOW.md and current_handoff.md to confirm the active story boundary and recovery command.",
+      "entrypoint": "D:\\lyh\\agent\\agent-frame\\versefina\\NOW.md"
+    },
+    {
+      "stage": "continuity",
+      "check": "Inspect the continuity manifest and mirror files before resuming after an interruption.",
+      "entrypoint": "D:\\lyh\\agent\\agent-frame\\.meta\\versefina\\continuity\\continuity_manifest.json"
+    },
+    {
+      "stage": "api_tests",
+      "check": "Run the Versefina API test suite after Story or Sprint changes that affect the product surface.",
+      "entrypoint": "python -m pytest apps/api/tests -q"
+    },
+    {
+      "stage": "swagger",
+      "check": "Open Swagger and verify event, simulation, review/outcome/why, and style/mirror routes manually.",
+      "entrypoint": "http://127.0.0.1:8001/docs"
+    },
+    {
+      "stage": "product_demo",
+      "check": "Open the product demo and confirm the newly delivered capability is visible there.",
+      "entrypoint": "http://127.0.0.1:3000/roadmap-1-6-demo"
+    },
+    {
+      "stage": "audit_dashboard",
+      "check": "Open the runtime audit dashboard and inspect sprint/story status plus evidence links.",
+      "entrypoint": "http://127.0.0.1:8010/versefina/runtime"
+    }
+  ],
+  "final_effect_checklist": [
+    "Product demo shows event -> participant preparation -> belief graph -> scenarios -> simulation -> outcome -> why.",
+    "Product demo shows statement -> style features -> mirror agent -> validation grading -> distribution calibration.",
+    "Swagger exposes the main event, simulation, review/outcome/why, style, mirror, and demo routes.",
+    "Runtime audit dashboard shows roadmap, sprint, story, evidence, continuity, and report visibility."
+  ]
+}

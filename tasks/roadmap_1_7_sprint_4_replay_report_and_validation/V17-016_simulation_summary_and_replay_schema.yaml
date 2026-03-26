@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-016"
+task_name: "Simulation Summary and Replay Schema"
+sprint: "Sprint 4 Replay, Report, and Validation"
+epic: "Epic 4.1 Replay and Reporting"
+story_id: "V17-016"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Define replay-oriented summary schemas that package round history, market state, belief changes, and scenario changes into stable payloads."
+business_value: "Creates the shared wire shape for replay, report, and page rendering."
+entry_criteria:
+  - "V17-015 is complete and dynamic state is queryable."
+acceptance_criteria:
+  - "Replay schema captures round snapshots, action logs, influence slices, belief state, market state, and scenario state."
+  - "Simulation summary exposes final_state, dominant_scenario, and turning_points."
+  - "The schema is queryable through a stable API-facing structure."
+constraints:
+  - "Keep the first version optimized for read models rather than authoring tools."
+out_of_scope:
+  - "No UI page rendering in this story."
+dependencies:
+  - "V17-015"
+related_files:
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/src/schemas/report.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/tests/test_event_cards.py"
+  - "docs/requirements/v17_016_delivery.md"
+primary_files:
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/src/schemas/report.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+secondary_files:
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/tests/test_event_cards.py"
+  - "docs/requirements/v17_016_delivery.md"
+test_cases:
+  normal:
+    - "Build one replay-ready simulation summary from one completed run."
+  exception:
+    - "Return a structured missing-summary response when replay schema is requested before a run exists."

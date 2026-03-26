@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V17-017"
+task_name: "Report, Review, and Why APIs"
+sprint: "Sprint 4 Replay, Report, and Validation"
+epic: "Epic 4.1 Replay and Reporting"
+story_id: "V17-017"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose report, review, and why APIs that summarize how the simulation evolved and why the final conclusion was chosen."
+business_value: "Makes the system explainable for human review and validation."
+entry_criteria:
+  - "V17-016 is complete and replay-ready summaries exist."
+acceptance_criteria:
+  - "GET /api/v1/events/{event_id}/report returns a report-ready payload."
+  - "Review and why outputs cite event, participant, and round-level evidence."
+  - "Missing report dependencies return structured not_found or incomplete responses."
+constraints:
+  - "Keep the first version grounded in existing reporting and review services."
+out_of_scope:
+  - "No T+1 / T+3 outcome writes yet."
+dependencies:
+  - "V17-016"
+related_files:
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_reporting.py"
+  - "docs/requirements/v17_017_delivery.md"
+primary_files:
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+secondary_files:
+  - "apps/api/tests/test_reporting.py"
+  - "docs/requirements/v17_017_delivery.md"
+test_cases:
+  normal:
+    - "Read one report and one why response for one completed event simulation."
+  exception:
+    - "Return not_found when report is requested before required simulation artifacts exist."

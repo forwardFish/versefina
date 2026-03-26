@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V17-030"
+task_name: "Final Handoff, Document Release, and Retro"
+sprint: "Sprint 6 Authoritative Closeout"
+epic: "Epic 6.3 Final Acceptance"
+story_id: "V17-030"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Produce the final roadmap 1.7 handoff, document release notes, and retro so the roadmap can stop cleanly and the next roadmap can start from a stable written boundary."
+business_value: "Prevents the classic lost-context problem at the end of a roadmap by making the completion state, release notes, and retro explicit."
+entry_criteria:
+  - "V17-029 is complete and final acceptance evidence has been recorded."
+acceptance_criteria:
+  - "The final handoff explains what was delivered, how to validate it, and what the next recommended step is."
+  - "Document release notes summarize the visible user-facing outcome of roadmap 1.7."
+  - "The retro captures workflow lessons for the next roadmap."
+constraints:
+  - "The story must close the roadmap without erasing the ability to resume from the written boundary later."
+out_of_scope:
+  - "No new backlog planning beyond pointing to the next suggested starting point."
+dependencies:
+  - "V17-029"
+related_files:
+  - "docs/handoff/current_handoff.md"
+  - "docs/release/roadmap_1_7_document_release.md"
+  - "docs/retros/roadmap_1_7_retro.md"
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/requirements/v17_030_delivery.md"
+primary_files:
+  - "docs/handoff/current_handoff.md"
+  - "docs/release/roadmap_1_7_document_release.md"
+  - "docs/retros/roadmap_1_7_retro.md"
+secondary_files:
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/requirements/v17_030_delivery.md"
+test_cases:
+  normal:
+    - "Read the final handoff and see delivery summary, validation entry points, and the next recommended step together."
+  exception:
+    - "If release notes, retro, and handoff disagree on the closeout state, the story fails instead of closing ambiguously."

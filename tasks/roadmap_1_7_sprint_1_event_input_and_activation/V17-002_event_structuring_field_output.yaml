@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V17-002"
+task_name: "Event Structuring Field Output"
+sprint: "Sprint 1 Event Input and Activation"
+epic: "Epic 1.1 Event Seed"
+story_id: "V17-002"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Structure an event seed into stable 1.7 fields including event type, targets, signals, invalidation, and confidence."
+business_value: "Turns raw event input into a reusable event model for participant activation and later rounds."
+entry_criteria:
+  - "V17-001 is complete and event seeds can be loaded by event_id."
+acceptance_criteria:
+  - "POST /api/v1/events/{event_id}/structure writes a structured event payload."
+  - "Structured output includes event_type, target_symbols, trigger_signals, invalidation_conditions, and confidence."
+  - "Structured payload is readable through the event query surface."
+constraints:
+  - "Keep the first version aligned with the current event whitelist and field dictionary."
+out_of_scope:
+  - "No participant activation yet."
+dependencies:
+  - "V17-001"
+related_files:
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/domain/event_structuring/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_structuring.py"
+  - "docs/requirements/v17_002_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_structuring/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/schemas/event.py"
+secondary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_event_structuring.py"
+  - "docs/requirements/v17_002_delivery.md"
+test_cases:
+  normal:
+    - "Structure a persisted event and expose the normalized fields."
+  exception:
+    - "Return a structured error when structuring is requested for a missing event_id."

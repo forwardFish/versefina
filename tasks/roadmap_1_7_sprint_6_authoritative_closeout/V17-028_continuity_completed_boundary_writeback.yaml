@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V17-028"
+task_name: "Continuity Completed Boundary Write-back"
+sprint: "Sprint 6 Authoritative Closeout"
+epic: "Epic 6.2 Final Surface Alignment"
+story_id: "V17-028"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Write the completed roadmap 1.7 boundary back into the continuity and handoff documents so a fresh session can resume from the correct post-completion state."
+business_value: "Makes interruption-safe recovery real by ensuring the completed boundary is written in one authoritative place instead of being inferred from chat."
+entry_criteria:
+  - "V17-027 is complete and the visible surfaces already reflect the final result."
+acceptance_criteria:
+  - "The closeout docs explain the completed boundary and the next recommended starting point."
+  - "The handoff narrative and continuity guidance point to the same roadmap 1.7 completion state."
+  - "The continuity write-back rules stay explicit and reusable for the next roadmap."
+constraints:
+  - "Do not lose the recovery path while rewriting the completed boundary."
+out_of_scope:
+  - "No additional product behavior changes."
+dependencies:
+  - "V17-027"
+related_files:
+  - "docs/handoff/current_handoff.md"
+  - "docs/bootstrap/roadmap_1_7_execution_playbook.md"
+  - "docs/manual_validation/roadmap_1_7_continuity_boundary.md"
+  - "docs/manual_validation/roadmap_1_7_recovery_instructions.md"
+  - "docs/requirements/v17_028_delivery.md"
+primary_files:
+  - "docs/handoff/current_handoff.md"
+  - "docs/manual_validation/roadmap_1_7_continuity_boundary.md"
+secondary_files:
+  - "docs/bootstrap/roadmap_1_7_execution_playbook.md"
+  - "docs/manual_validation/roadmap_1_7_recovery_instructions.md"
+  - "docs/requirements/v17_028_delivery.md"
+test_cases:
+  normal:
+    - "Read the closeout handoff and continuity docs and find one unambiguous completed boundary plus the next starting point."
+  exception:
+    - "If handoff and continuity disagree, the story is rejected instead of silently closing the roadmap."

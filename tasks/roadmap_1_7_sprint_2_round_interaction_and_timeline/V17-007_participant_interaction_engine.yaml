@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-007"
+task_name: "Participant Interaction Engine"
+sprint: "Sprint 2 Round Interaction and Timeline"
+epic: "Epic 2.1 Simulation Runtime"
+story_id: "V17-007"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Run multi-round participant decisions so not every participant acts every round and actions can change other actions."
+business_value: "Transforms the system from a static classifier into a dynamic interaction simulator."
+entry_criteria:
+  - "V17-006 is complete and simulation runs can be prepared."
+acceptance_criteria:
+  - "A simulation run executes 3 to 5 rounds of participant actions."
+  - "Each round chooses active participants and records their structured actions."
+  - "Participant state changes between rounds based on the previous round output."
+constraints:
+  - "P0 only needs lightweight multi-round execution, not a full market society simulation."
+out_of_scope:
+  - "No belief or market-state updates yet."
+dependencies:
+  - "V17-006"
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/domain/event_simulation/timeline.py"
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_007_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/schemas/simulation.py"
+secondary_files:
+  - "apps/api/src/domain/event_simulation/timeline.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_007_delivery.md"
+test_cases:
+  normal:
+    - "Run one prepared simulation and record actions for multiple rounds."
+  exception:
+    - "Stop and mark the run failed when action generation returns malformed output."

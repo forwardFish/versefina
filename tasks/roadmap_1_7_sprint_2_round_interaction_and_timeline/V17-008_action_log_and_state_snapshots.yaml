@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-008"
+task_name: "Action Log and State Snapshots"
+sprint: "Sprint 2 Round Interaction and Timeline"
+epic: "Epic 2.1 Simulation Runtime"
+story_id: "V17-008"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Persist per-round action logs and participant state snapshots so replay and belief updates can consume stable history."
+business_value: "Makes every round inspectable instead of leaving the runtime as a black box."
+entry_criteria:
+  - "V17-007 is complete and simulation rounds can run."
+acceptance_criteria:
+  - "Per-round action logs are persisted with actor, action, target, reason_code, and confidence."
+  - "Per-round participant state snapshots are persisted and queryable."
+  - "Logs and snapshots can be read after an interrupted or completed run."
+constraints:
+  - "Use file-backed runtime persistence for the first version."
+out_of_scope:
+  - "No UI replay rendering yet."
+dependencies:
+  - "V17-007"
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_008_delivery.md"
+primary_files:
+  - "apps/api/src/domain/simulation_ledger/service.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_008_delivery.md"
+test_cases:
+  normal:
+    - "Read back action logs and state snapshots after one completed run."
+  exception:
+    - "Return a structured missing-state response when logs are requested before a run exists."

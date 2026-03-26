@@ -2,6 +2,16 @@ from __future__ import annotations
 
 from dataclasses import asdict
 
+from domain.acceptance_pack.service import AcceptancePackError
+from domain.event_ingestion.service import EventIngestionError
+from domain.event_sandbox.service import EventSandboxError
+from domain.mirror_agent.service import MirrorAgentError
+from domain.outcome_review.service import OutcomeReviewError
+from domain.event_simulation.service import EventSimulationError
+from domain.belief_graph.service import BeliefGraphError
+from domain.participant_preparation.service import ParticipantPreparationError
+from domain.scenario_engine.service import ScenarioEngineError
+from domain.style_embedding.service import StyleEmbeddingError
 from infra.http import APIRouter, File, Form, JSONResponse, Request, UploadFile
 from modules.statements.parser_service import StatementParseError
 from modules.statements.service import StatementUploadValidationError
@@ -9,7 +19,9 @@ from modules.statements.status_machine import InvalidStatementTransitionError
 from schemas.command import (
     AgentCreateRequest,
     AgentRegisterRequest,
+    EventCreateRequest,
     HeartbeatRequest,
+    OutcomeReviewWriteRequest,
     StatementStatusUpdateRequest,
     StatementUploadRequest,
     SubmitActionRequest,
@@ -52,6 +64,30 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
             return JSONResponse(status_code=exc.status_code, content=asdict(rejected))
         return asdict(result)
 
+    @router.post("/api/v1/events")
+    def create_event(payload: EventCreateRequest):
+        try:
+            return asdict(container.event_ingestion.ingest_event(payload))
+        except EventIngestionError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={"error_code": exc.code, "error_message": exc.message},
+            )
+
+    @router.post("/api/v1/events/{event_id}/prepare")
+    def prepare_event(event_id: str):
+        try:
+            return asdict(container.participant_preparation.prepare_event(event_id))
+        except ParticipantPreparationError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
     @router.post("/api/v1/agents/register")
     def register_agent(payload: AgentRegisterRequest):
         return container.agent_registry.register(payload)
@@ -89,6 +125,140 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
                 },
             )
         return asdict(result)
+
+    @router.post("/api/v1/statements/{statement_id}/style-features")
+    def build_statement_style_features(statement_id: str):
+        try:
+            return container.style_embedding.extract_behavior_features(statement_id).to_dict()
+        except StyleEmbeddingError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/events/{event_id}/structure")
+    def structure_event(event_id: str):
+        try:
+            return container.event_sandbox.structure_event(event_id)
+        except EventSandboxError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/events/{event_id}/participants/prepare")
+    def prepare_event_participants(event_id: str):
+        try:
+            return container.event_sandbox.prepare_participants(event_id)
+        except EventSandboxError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/statements/{statement_id}/style-embedding")
+    def build_statement_style_embedding(statement_id: str):
+        try:
+            return container.style_embedding.build_market_style_embedding(statement_id).to_dict()
+        except StyleEmbeddingError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/statements/{statement_id}/archetype-seed")
+    def build_statement_archetype_seed(statement_id: str):
+        try:
+            return container.style_embedding.build_archetype_seed(statement_id).to_dict()
+        except StyleEmbeddingError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/statements/{statement_id}/activation-calibration")
+    def build_statement_activation_calibration(statement_id: str):
+        try:
+            return container.style_embedding.build_activation_calibration(statement_id).to_dict()
+        except StyleEmbeddingError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/statements/{statement_id}/mirror-agent")
+    def build_mirror_agent(statement_id: str):
+        try:
+            return container.mirror_agent.build_mirror_agent(statement_id).to_dict()
+        except MirrorAgentError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/statements/{statement_id}/mirror-agent/validation")
+    def validate_mirror_agent(statement_id: str):
+        try:
+            return container.mirror_agent.validate_mirror_agent(statement_id).to_dict()
+        except MirrorAgentError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "statement_id": statement_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/statements/{statement_id}/distribution-calibration")
+    def build_distribution_calibration(statement_id: str):
+        return container.calibration.build_distribution_calibration(statement_id).to_dict()
+
+    @router.post("/api/v1/statements/{statement_id}/weight-feedback")
+    def build_weight_feedback(statement_id: str):
+        return container.calibration.build_weight_feedback(statement_id).to_dict()
+
+    @router.post("/api/v1/roadmaps/1.6/acceptance-pack")
+    def build_roadmap_acceptance_pack():
+        try:
+            return container.acceptance_pack.build_acceptance_pack().to_dict()
+        except AcceptancePackError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "roadmap_id": "roadmap_1_6",
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
 
     @router.post("/api/v1/agents")
     def create_agent(payload: AgentCreateRequest, request: Request):
@@ -207,5 +377,136 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
     @router.post("/api/v1/actions/submit")
     def submit_actions(payload: SubmitActionRequest):
         return container.simulation_ledger.submit_actions(payload)
+
+
+    @router.post("/api/v1/participants/variants")
+    def participant_variants():
+        return {"variants": [item.to_dict() for item in container.participant_registry.list_primary_variants()]}
+
+    @router.post("/api/v1/participants/variants/{participant_family}")
+    def participant_variant_detail(participant_family: str):
+        variant = container.participant_registry.get_primary_variant(participant_family)
+        if variant is None:
+            return JSONResponse(
+                status_code=404,
+                content={"participant_family": participant_family, "status": "not_found"},
+            )
+        return variant.to_dict()
+
+
+
+    @router.post("/api/v1/participants/registry")
+    def participant_registry_defaults():
+        return container.participant_registry.snapshot().to_dict()
+
+    @router.post("/api/v1/participants/registry/{participant_family}")
+    def participant_registry_detail(participant_family: str):
+        entry = container.participant_registry.get_registry_entry(participant_family)
+        if entry is None:
+            return JSONResponse(
+                status_code=404,
+                content={"participant_family": participant_family, "status": "not_found"},
+            )
+        return entry.to_dict()
+
+
+
+    @router.post("/api/v1/events/{event_id}/belief-graph")
+    def build_belief_graph(event_id: str):
+        try:
+            return asdict(container.belief_graph.build_snapshot(event_id))
+        except BeliefGraphError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+
+
+    @router.post("/api/v1/events/{event_id}/scenarios")
+    def build_scenarios(event_id: str):
+        try:
+            return asdict(container.scenario_engine.build_scenarios(event_id))
+        except ScenarioEngineError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+
+
+    @router.post("/api/v1/events/{event_id}/simulation/prepare")
+    def prepare_simulation(event_id: str):
+        try:
+            return container.event_simulation.prepare_run(event_id).to_dict()
+        except EventSimulationError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/events/{event_id}/simulation/run")
+    def run_simulation(event_id: str):
+        try:
+            return container.event_simulation.run_simulation(event_id).to_dict()
+        except EventSimulationError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/events/{event_id}/simulate")
+    def simulate_event(event_id: str):
+        try:
+            return container.event_sandbox.simulate_event(event_id)
+        except EventSandboxError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+        except EventSimulationError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
+    @router.post("/api/v1/events/{event_id}/outcomes")
+    def record_outcome(event_id: str, payload: OutcomeReviewWriteRequest):
+        try:
+            return container.outcome_review.record_outcome(event_id, payload).to_dict()
+        except OutcomeReviewError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
 
     return router

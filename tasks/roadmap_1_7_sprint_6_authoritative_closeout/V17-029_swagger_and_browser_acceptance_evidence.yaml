@@ -1,0 +1,53 @@
+project: "versefina"
+task_id: "V17-029"
+task_name: "Swagger and Browser Acceptance Evidence"
+sprint: "Sprint 6 Authoritative Closeout"
+epic: "Epic 6.3 Final Acceptance"
+story_id: "V17-029"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Capture the manual Swagger and browser acceptance evidence so roadmap 1.7 is not only implemented but also visibly verified."
+business_value: "Gives the team a final proof set for product, API, and browser validation instead of relying on internal assumptions."
+entry_criteria:
+  - "V17-028 is complete and the final visible surfaces are stable."
+acceptance_criteria:
+  - "A Swagger checklist records the event sandbox API chain and manual validation result."
+  - "A browser acceptance note records the key product page checks for event sandbox, replay, participant detail, and validation."
+  - "The closeout report links to both Swagger and browser evidence."
+constraints:
+  - "Evidence must describe real local endpoints and real checks; do not use hypothetical URLs."
+out_of_scope:
+  - "No new product implementation work."
+dependencies:
+  - "V17-028"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/validation"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/replay"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/participants/sample-participant"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/validation"
+related_files:
+  - "docs/manual_validation/roadmap_1_7_swagger_checklist.md"
+  - "docs/manual_validation/roadmap_1_7_browser_acceptance.md"
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/requirements/v17_029_delivery.md"
+primary_files:
+  - "docs/manual_validation/roadmap_1_7_swagger_checklist.md"
+  - "docs/manual_validation/roadmap_1_7_browser_acceptance.md"
+secondary_files:
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/requirements/v17_029_delivery.md"
+test_cases:
+  normal:
+    - "Read the final Swagger and browser acceptance docs and find the product, replay, participant, validation, and API checks together."
+  exception:
+    - "If a required endpoint or page check is missing, the acceptance evidence must fail clearly instead of implying success."

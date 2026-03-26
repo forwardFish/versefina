@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-013"
+task_name: "Market State Machine"
+sprint: "Sprint 3 Influence, Belief, and Market Dynamics"
+epic: "Epic 3.2 Market and Scenario"
+story_id: "V17-013"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Introduce the market state machine so each round can move through DORMANT, IGNITION, PROPAGATING, CROWDED, FRAGILE, and INVALIDATED."
+business_value: "Explains how the market changes as an interaction result rather than a one-time label."
+entry_criteria:
+  - "V17-012 is complete and belief graph updates can be read per round."
+acceptance_criteria:
+  - "Market state is computed and persisted for each round."
+  - "State transitions follow the P0 rules from the 1.7 document."
+  - "Market state is included in the simulation summary and report payloads."
+constraints:
+  - "Keep the first state machine deterministic and rule-based."
+out_of_scope:
+  - "No scenario revision yet."
+dependencies:
+  - "V17-012"
+related_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/src/schemas/world.py"
+  - "apps/api/src/schemas/scenario.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v17_013_delivery.md"
+primary_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/src/schemas/world.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/src/schemas/scenario.py"
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v17_013_delivery.md"
+test_cases:
+  normal:
+    - "Read market state changes across rounds for one simulated event."
+  exception:
+    - "Return a structured response when market state is requested without a completed simulation."

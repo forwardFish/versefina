@@ -1,0 +1,50 @@
+project: "versefina"
+task_id: "V17-015"
+task_name: "Belief and Scenario Query Surface"
+sprint: "Sprint 3 Influence, Belief, and Market Dynamics"
+epic: "Epic 3.2 Market and Scenario"
+story_id: "V17-015"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose belief, scenario, and market-state query routes that future replay and sandbox pages can consume directly."
+business_value: "Makes the dynamic internal state visible to both QA and the product UI."
+entry_criteria:
+  - "V17-014 is complete and belief plus scenario updates are available."
+acceptance_criteria:
+  - "GET /api/v1/events/{event_id}/belief and /belief/{round} return current and per-round belief payloads."
+  - "GET /api/v1/events/{event_id}/scenarios and /scenarios/{round} return current and per-round scenario payloads."
+  - "Market state is included or linked from the query surface."
+constraints:
+  - "Do not collapse per-round state into only a final summary."
+out_of_scope:
+  - "No replay or validation pages yet."
+dependencies:
+  - "V17-014"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_belief_graph.py"
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v17_015_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/domain/scenario_engine/service.py"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_belief_graph.py"
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v17_015_delivery.md"
+test_cases:
+  normal:
+    - "Query current and per-round belief plus scenario payloads for one simulated event."
+  exception:
+    - "Return not_found for missing event queries."

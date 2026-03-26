@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V17-018"
+task_name: "T+1 T+3 Outcome Hooks and Validation Model"
+sprint: "Sprint 4 Replay, Report, and Validation"
+epic: "Epic 4.2 Validation Loop"
+story_id: "V17-018"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Introduce T+1 and T+3 outcome write hooks and a validation read model that can compare simulated and actual outcomes."
+business_value: "Creates the first post-event truth loop for the event sandbox."
+entry_criteria:
+  - "V17-017 is complete and reports plus why outputs are queryable."
+acceptance_criteria:
+  - "Outcome writes persist T+1 and T+3 validation data for an event."
+  - "Validation read model exposes recorded outcomes and comparison-ready fields."
+  - "Outcome hooks are callable through stable command and query APIs."
+constraints:
+  - "The first version only needs manual outcome entry."
+out_of_scope:
+  - "No product page rendering yet."
+dependencies:
+  - "V17-017"
+related_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/schemas/outcome_review.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v17_018_delivery.md"
+primary_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/src/schemas/outcome_review.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v17_018_delivery.md"
+test_cases:
+  normal:
+    - "Write T+1 or T+3 outcomes and read them back through the validation model."
+  exception:
+    - "Reject outcome writes for missing events."

@@ -1,0 +1,53 @@
+project: "versefina"
+task_id: "V17-023"
+task_name: "Replay Page"
+sprint: "Sprint 5 Event Sandbox Pages"
+epic: "Epic 5.2 Replay and Drilldown"
+story_id: "V17-023"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Create /event-sandbox/[eventId]/replay so the user can replay each simulation round and watch how actions, influence, belief, and market state evolve."
+business_value: "Makes the one-round-to-the-next fermentation path visible instead of compressing everything into one summary."
+entry_criteria:
+  - "V17-022 is complete and replay-ready payloads are available through the query API."
+acceptance_criteria:
+  - "GET /event-sandbox/[eventId]/replay renders per-round replay navigation."
+  - "Switching rounds updates actions, influence edges, belief state, market state, and scenario summary."
+  - "The page explains turning points and first move/follow/exit transitions."
+constraints:
+  - "Replay must be driven by persisted round payloads rather than recomputing the simulation in the browser."
+out_of_scope:
+  - "No participant-specific deep drill-down in this story."
+dependencies:
+  - "V17-022"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/replay"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/replay"
+related_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/replay/page.tsx"
+  - "apps/web/src/features/event-sandbox/EventReplayPage.tsx"
+  - "apps/web/src/features/event-sandbox/components/RoundReplayRail.tsx"
+  - "apps/web/src/features/event-sandbox/components/RoundSnapshotCards.tsx"
+  - "apps/web/src/features/event-sandbox/EventReplayPage.test.tsx"
+  - "docs/requirements/v17_023_delivery.md"
+primary_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/replay/page.tsx"
+  - "apps/web/src/features/event-sandbox/EventReplayPage.tsx"
+secondary_files:
+  - "apps/web/src/features/event-sandbox/components/RoundReplayRail.tsx"
+  - "apps/web/src/features/event-sandbox/components/RoundSnapshotCards.tsx"
+  - "apps/web/src/features/event-sandbox/EventReplayPage.test.tsx"
+  - "docs/requirements/v17_023_delivery.md"
+test_cases:
+  normal:
+    - "Replay one event round by round and see actions, influence, belief, and market-state updates refresh together."
+  exception:
+    - "Open replay for an event with incomplete round data and show a stable degraded state instead of crashing."

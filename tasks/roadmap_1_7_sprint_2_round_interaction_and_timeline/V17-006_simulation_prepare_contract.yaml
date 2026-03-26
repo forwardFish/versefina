@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-006"
+task_name: "Simulation Prepare Contract"
+sprint: "Sprint 2 Round Interaction and Timeline"
+epic: "Epic 2.1 Simulation Runtime"
+story_id: "V17-006"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Create a simulation prepare step that turns an event seed and participant roster into a round-ready run boundary."
+business_value: "Gives the simulator a deterministic starting line and restart-safe run envelope."
+entry_criteria:
+  - "V17-005 is complete and event plus participant read models are available."
+acceptance_criteria:
+  - "POST /api/v1/events/{event_id}/simulate can create a simulation run envelope."
+  - "Simulation prepare persists run metadata, round count, and initial participant states."
+  - "Repeated prepare calls for the same event produce deterministic setup or explicit idempotent behavior."
+constraints:
+  - "P0 only needs 3 to 5 rounds."
+out_of_scope:
+  - "No influence graph or market state updates yet."
+dependencies:
+  - "V17-005"
+related_files:
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_006_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/schemas/simulation.py"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_006_delivery.md"
+test_cases:
+  normal:
+    - "Prepare one simulation run from one event seed and roster."
+  exception:
+    - "Reject simulation prepare when participant preparation has not completed."

@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-011"
+task_name: "Influence Graph Service"
+sprint: "Sprint 3 Influence, Belief, and Market Dynamics"
+epic: "Epic 3.1 Influence and Belief"
+story_id: "V17-011"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Build a per-round influence graph that records who influenced whom, why, and with what strength."
+business_value: "Explains how message fermentation spreads between participants instead of only showing final actions."
+entry_criteria:
+  - "V17-010 is complete and round-level simulation data is queryable."
+acceptance_criteria:
+  - "Influence graph edges are persisted per round with source, target, reason, and weight."
+  - "GET /api/v1/events/{event_id}/influence-graph returns the full influence view."
+  - "GET /api/v1/events/{event_id}/influence-graph/{round} returns one round slice."
+constraints:
+  - "P0 only needs the first influence rules described in the 1.7 document."
+out_of_scope:
+  - "No belief or market-state transitions yet."
+dependencies:
+  - "V17-010"
+related_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/schemas/belief_graph.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_belief_graph.py"
+  - "docs/requirements/v17_011_delivery.md"
+primary_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/schemas/belief_graph.py"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_belief_graph.py"
+  - "docs/requirements/v17_011_delivery.md"
+test_cases:
+  normal:
+    - "Read one event influence graph across all rounds and for one specific round."
+  exception:
+    - "Return a structured missing-graph response when no simulation output exists."

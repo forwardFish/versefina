@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V17-026"
+task_name: "Acceptance Pack and Story Evidence Governance"
+sprint: "Sprint 6 Authoritative Closeout"
+epic: "Epic 6.1 Acceptance Governance"
+story_id: "V17-026"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L1"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Consolidate roadmap acceptance pack outputs and the story evidence matrix so Sprint 1-5 can be audited as one authoritative business delivery chain."
+business_value: "Prevents a false completed state where code exists but evidence and story-level closeout are fragmented."
+entry_criteria:
+  - "V17-025 is complete and the product pages, replay, report, and validation surfaces all exist."
+acceptance_criteria:
+  - "A roadmap 1.7 acceptance pack describes Sprint 1-5 boundaries, evidence, and closeout status."
+  - "A story evidence matrix maps every story to delivery artifacts and validation evidence."
+  - "Open governance gaps are called out explicitly instead of being hidden."
+constraints:
+  - "This story governs evidence and acceptance packaging; it must not reopen settled business logic."
+out_of_scope:
+  - "No new simulation or UI behavior."
+dependencies:
+  - "V17-025"
+related_files:
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/reports/roadmap_1_7_execution_report.json"
+  - "docs/manual_validation/roadmap_1_7_acceptance_pack.md"
+  - "docs/manual_validation/roadmap_1_7_story_evidence_matrix.md"
+  - "docs/requirements/v17_026_delivery.md"
+primary_files:
+  - "docs/manual_validation/roadmap_1_7_acceptance_pack.md"
+  - "docs/manual_validation/roadmap_1_7_story_evidence_matrix.md"
+secondary_files:
+  - "docs/reports/roadmap_1_7_execution_report.md"
+  - "docs/reports/roadmap_1_7_execution_report.json"
+  - "docs/requirements/v17_026_delivery.md"
+test_cases:
+  normal:
+    - "Review the acceptance pack and see one authoritative mapping from stories to evidence and validation."
+  exception:
+    - "If story evidence is missing, the acceptance pack records a blocker instead of claiming completion."

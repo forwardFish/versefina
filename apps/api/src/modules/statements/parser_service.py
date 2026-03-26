@@ -116,6 +116,12 @@ class StatementParseService:
             except StatementParseError as exc:
                 issues.append(ParseIssue(row_number=row_number, error_code=exc.code, message=exc.message))
 
+        records = sorted(records, key=lambda item: (item.traded_at, item.row_number, item.symbol))
+        buy_count = sum(1 for item in records if item.side == "buy")
+        sell_count = sum(1 for item in records if item.side == "sell")
+        trade_days = sorted({item.traded_at[:10] for item in records})
+        symbol_count = len({item.symbol for item in records})
+
         report_path = self.parse_report_root / f"{metadata.statement_id}.json"
         records_path = self.trade_record_root / f"{metadata.statement_id}.json"
         records_path.write_text(
@@ -131,6 +137,10 @@ class StatementParseService:
             "parsed_records": len(records),
             "failed_records": len(issues),
             "issues": [asdict(issue) for issue in issues],
+            "trade_days": trade_days,
+            "symbol_count": symbol_count,
+            "buy_count": buy_count,
+            "sell_count": sell_count,
             "trade_record_path": str(records_path),
         }
         report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V17-012"
+task_name: "Belief Graph Dynamic Update"
+sprint: "Sprint 3 Influence, Belief, and Market Dynamics"
+epic: "Epic 3.1 Influence and Belief"
+story_id: "V17-012"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Update belief graph metrics and node states on every round rather than keeping belief as a static snapshot."
+business_value: "Lets the product show how conviction changes as participants react to each other."
+entry_criteria:
+  - "V17-011 is complete and influence graph edges are available."
+acceptance_criteria:
+  - "Belief graph updates once per round using action and influence inputs."
+  - "Per-round belief metrics include consensus, dissent, crowding, and fragility."
+  - "Belief snapshots are queryable by current state and by round."
+constraints:
+  - "Keep dynamic belief updates compatible with the existing belief graph schema base."
+out_of_scope:
+  - "No market-state transitions yet."
+dependencies:
+  - "V17-011"
+related_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/schemas/belief_graph.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_belief_graph.py"
+  - "docs/requirements/v17_012_delivery.md"
+primary_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/schemas/belief_graph.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/tests/test_belief_graph.py"
+  - "docs/requirements/v17_012_delivery.md"
+test_cases:
+  normal:
+    - "Read belief graph snapshots for current state and one specific round."
+  exception:
+    - "Return a structured error when belief is requested for an event with no round data."

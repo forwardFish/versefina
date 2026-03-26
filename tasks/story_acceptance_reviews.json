@@ -408,8 +408,8 @@
       "story_id": "E1-001",
       "reviewer": "agentsystem",
       "review_type": "machine",
-      "verdict": "rejected",
-      "acceptance_status": "rejected",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
       "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
       "review_findings_summary": {
         "blocking": [
@@ -425,7 +425,7 @@
         ]
       },
       "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-001.json",
-      "checked_at": "2026-03-24T17:59:09",
+      "checked_at": "2026-03-24T23:45:54",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -446,17 +446,20 @@
         "all_required_executed": true
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-001.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-001.md"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324175155",
-      "attempt_status": "authoritative",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324234433",
+      "attempt_status": "invalid_delivery_batch",
       "implemented": false,
       "verified": false,
       "agentized": false,
-      "accepted": false
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -465,11 +468,11 @@
       "story_id": "E1-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-001.md",
-      "checked_at": "2026-03-24T18:02:22",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:35:05",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -495,19 +498,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-2.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-3.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -516,11 +523,11 @@
       "story_id": "E1-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-002.md",
-      "checked_at": "2026-03-24T18:02:50",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:36:23",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -546,19 +553,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818-5.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -567,11 +578,11 @@
       "story_id": "E1-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-003.md",
-      "checked_at": "2026-03-24T18:03:18",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:37:42",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -597,19 +608,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106-6.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -618,11 +633,11 @@
       "story_id": "E1-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-004.md",
-      "checked_at": "2026-03-24T18:03:45",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:37:51",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -653,14 +668,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -669,11 +688,11 @@
       "story_id": "E1-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-005.md",
-      "checked_at": "2026-03-24T18:04:10",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:39:00",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -699,19 +718,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e-3.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -720,11 +743,11 @@
       "story_id": "E2-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-001.md",
-      "checked_at": "2026-03-24T18:04:37",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:39:11",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -750,19 +773,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -771,11 +798,11 @@
       "story_id": "E2-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-002.md",
-      "checked_at": "2026-03-24T18:05:07",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:40:25",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -801,19 +828,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -822,11 +853,11 @@
       "story_id": "E2-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-003.md",
-      "checked_at": "2026-03-24T18:05:35",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:41:14",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -852,19 +883,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -873,11 +908,11 @@
       "story_id": "E2-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-004.md",
-      "checked_at": "2026-03-24T18:06:02",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:41:20",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -908,14 +943,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -924,11 +963,11 @@
       "story_id": "E2-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-005.md",
-      "checked_at": "2026-03-24T18:06:23",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:41:50",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -954,19 +993,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -975,11 +1018,11 @@
       "story_id": "E3-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-001.md",
-      "checked_at": "2026-03-24T18:06:46",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:42:21",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1005,19 +1048,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1026,11 +1073,11 @@
       "story_id": "E3-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-002.md",
-      "checked_at": "2026-03-24T18:07:07",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:42:26",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1061,14 +1108,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1077,11 +1128,11 @@
       "story_id": "E3-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-003.md",
-      "checked_at": "2026-03-24T18:07:31",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:42:57",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1107,19 +1158,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1128,11 +1183,11 @@
       "story_id": "E3-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-004.md",
-      "checked_at": "2026-03-24T18:07:53",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:43:03",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1163,14 +1218,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1179,11 +1238,11 @@
       "story_id": "E3-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-005.md",
-      "checked_at": "2026-03-24T18:08:21",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:43:38",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1209,19 +1268,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1230,11 +1293,11 @@
       "story_id": "E4-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-001.md",
-      "checked_at": "2026-03-24T18:08:48",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:44:09",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1260,19 +1323,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325144339",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1281,11 +1348,11 @@
       "story_id": "E4-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-002.md",
-      "checked_at": "2026-03-24T18:09:11",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:56:08",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1311,19 +1378,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325145522",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1332,11 +1403,11 @@
       "story_id": "E4-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-003.md",
-      "checked_at": "2026-03-24T18:09:34",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T14:56:41",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1367,14 +1438,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325145522",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1383,11 +1458,11 @@
       "story_id": "E4-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-004.md",
-      "checked_at": "2026-03-24T18:09:54",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:02:40",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1413,19 +1488,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-004.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325150234",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1434,11 +1513,11 @@
       "story_id": "E4-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-005.md",
-      "checked_at": "2026-03-24T18:10:18",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:03:21",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1469,14 +1548,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325150234",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1485,11 +1568,11 @@
       "story_id": "E5-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-001.md",
-      "checked_at": "2026-03-24T18:10:45",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:15:22",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1515,19 +1598,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325151431",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1536,11 +1623,11 @@
       "story_id": "E5-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-002.md",
-      "checked_at": "2026-03-24T18:11:07",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:50:06",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1566,19 +1653,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1587,11 +1678,11 @@
       "story_id": "E5-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-003.md",
-      "checked_at": "2026-03-24T18:11:29",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:50:15",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1622,14 +1713,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1638,11 +1733,11 @@
       "story_id": "E5-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-004.md",
-      "checked_at": "2026-03-24T18:11:49",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:50:22",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1673,14 +1768,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1689,11 +1788,11 @@
       "story_id": "E5-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-005.md",
-      "checked_at": "2026-03-24T18:12:11",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:51:04",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1724,14 +1823,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1740,11 +1843,11 @@
       "story_id": "E6-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-001.md",
-      "checked_at": "2026-03-24T18:12:40",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T15:51:13",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1775,14 +1878,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325155106",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1791,11 +1898,11 @@
       "story_id": "E6-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-002.md",
-      "checked_at": "2026-03-24T18:13:07",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:07:32",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1821,19 +1928,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325160631",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1842,11 +1953,11 @@
       "story_id": "E6-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-003.md",
-      "checked_at": "2026-03-24T18:13:35",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:10:27",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1872,19 +1983,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161021",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1893,11 +2008,11 @@
       "story_id": "E6-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-004.md",
-      "checked_at": "2026-03-24T18:14:02",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:10:34",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1928,14 +2043,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161021",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1944,11 +2063,11 @@
       "story_id": "E6-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-005.md",
-      "checked_at": "2026-03-24T18:14:31",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:13:29",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -1974,19 +2093,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161324",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1995,11 +2118,11 @@
       "story_id": "E7-001",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-001.md",
-      "checked_at": "2026-03-24T18:15:01",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:24:38",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -2025,19 +2148,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-001.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162340",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2046,11 +2173,11 @@
       "story_id": "E7-002",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-002.md",
-      "checked_at": "2026-03-24T18:15:26",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:28:22",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -2076,19 +2203,23 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-002.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162816",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2097,11 +2228,11 @@
       "story_id": "E7-003",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-003.md",
-      "checked_at": "2026-03-24T18:15:50",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:29:13",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -2132,14 +2263,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-003.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162816",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2148,11 +2283,11 @@
       "story_id": "E7-004",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-004.md",
-      "checked_at": "2026-03-24T18:16:16",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T16:29:57",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -2183,14 +2318,18 @@
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-004.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162816",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2199,11 +2338,11 @@
       "story_id": "E7-005",
       "reviewer": "acceptance_gate",
       "review_type": "machine",
-      "verdict": "approved",
-      "acceptance_status": "approved",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
       "summary": "Automatic acceptance passed.",
-      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-005.md",
-      "checked_at": "2026-03-24T18:16:40",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-25T17:01:50",
       "agent_mode_coverage": {
         "required": [
           "plan-eng-review",
@@ -2229,19 +2368,2515 @@
         "nice_to_haves": []
       },
       "evidence_paths": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04-3.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-005.json"
       ],
       "formal_entry": true,
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325170017",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
+      "sprint_id": "E1-002_event_record_and_structure_contract.yaml",
+      "story_id": "E1-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "run_prod_task_exception",
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-002.json",
+      "checked_at": "2026-03-25T10:02:25",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818-4.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-002.md"
+      ],
+      "formal_entry": false,
+      "authoritative_attempt": "E1-002",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
+      "sprint_id": "E1-003_event_ingestion_and_structuring_service.yaml",
+      "story_id": "E1-003",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [
+          "The diff expands beyond the declared story scope.",
+          "The change touches production-sensitive runtime or contract surfaces."
+        ],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-003.json",
+      "checked_at": "2026-03-25T10:53:17",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-003.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-003.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325105034",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
+      "sprint_id": "E1-005_event_casebook_and_replay_base.yaml",
+      "story_id": "E1-005",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Changes exceed task scope: apps/api/src/api/command/routes.py"
+        ],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-005.json",
+      "checked_at": "2026-03-25T12:20:47",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E1-005.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-005.md"
+      ],
+      "formal_entry": false,
+      "authoritative_attempt": "E1-005",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
+      "sprint_id": "E2-001_participant_output_protocol.yaml",
+      "story_id": "E2-001",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-001.json",
+      "checked_at": "2026-03-25T12:34:47",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-001.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325123409",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
+      "sprint_id": "E2-002_participant_family_and_style_variants.yaml",
+      "story_id": "E2-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-002.json",
+      "checked_at": "2026-03-25T12:43:33",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-002.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325124248",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
+      "sprint_id": "E2-003_prepare_orchestrator_and_roster.yaml",
+      "story_id": "E2-003",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-003.json",
+      "checked_at": "2026-03-25T12:51:15",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-003.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-003.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325124959",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
+      "sprint_id": "E2-005_authority_weight_and_risk_budget_registry.yaml",
+      "story_id": "E2-005",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-005.json",
+      "checked_at": "2026-03-25T13:02:38",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E2-005.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-005.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325130050",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
+      "sprint_id": "E3-001_belief_graph_snapshot_builder.yaml",
+      "story_id": "E3-001",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E3-001.json",
+      "checked_at": "2026-03-25T13:09:24",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E3-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-001.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325130843",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
+      "sprint_id": "E3-003_three_case_scenario_engine.yaml",
+      "story_id": "E3-003",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E3-003.json",
+      "checked_at": "2026-03-25T13:19:30",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E3-003.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-003.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325131750",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
+      "sprint_id": "E3-005_event_card_read_model_v1.yaml",
+      "story_id": "E3-005",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E3-005.json",
+      "checked_at": "2026-03-25T13:29:00",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E3-005.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-005.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325132647",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
+      "sprint_id": "E4-001_simulation_prepare_from_graph.yaml",
+      "story_id": "E4-001",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "invalid_delivery_batch",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E4-001.json",
+      "checked_at": "2026-03-25T13:42:20",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E4-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-001.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325134105",
+      "attempt_status": "invalid_delivery_batch",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false,
+      "invalidated_at": "2026-03-25T14:08:38",
+      "invalidated_reason": "invalid_delivery_batch",
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
+      "sprint_id": "E4-002_simulation_runner_three_to_five_rounds.yaml",
+      "story_id": "E4-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E4-002.json",
+      "checked_at": "2026-03-25T14:45:04",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E4-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-002.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325144339",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
+      "sprint_id": "E4-004_first_move_follow_exit_timeline.yaml",
+      "story_id": "E4-004",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E4-004.json",
+      "checked_at": "2026-03-25T14:57:36",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E4-004.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-004.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325145522",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
+      "sprint_id": "E5-001_report_card_and_review_report.yaml",
+      "story_id": "E5-001",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E5-001.json",
+      "checked_at": "2026-03-25T15:04:16",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E5-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-001.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325150323",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
+      "sprint_id": "E5-002_t1_t3_outcome_tracker.yaml",
+      "story_id": "E5-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E5-002.json",
+      "checked_at": "2026-03-25T15:16:26",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E5-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-002.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325151431",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
+      "sprint_id": "E6-002_behavior_feature_extraction_for_style.yaml",
+      "story_id": "E6-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E6-002.json",
+      "checked_at": "2026-03-25T15:52:32",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E6-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-002.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325155106",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
+      "sprint_id": "E6-003_market_style_embedding.yaml",
+      "story_id": "E6-003",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E6-003.json",
+      "checked_at": "2026-03-25T16:08:32",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E6-003.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-003.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325160631",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
+      "sprint_id": "E6-005_participant_activation_calibration_rules.yaml",
+      "story_id": "E6-005",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E6-005.json",
+      "checked_at": "2026-03-25T16:11:25",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E6-005.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-005.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161021",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
+      "sprint_id": "E7-001_behavior_mirror_agent_assembly.yaml",
+      "story_id": "E7-001",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E7-001.json",
+      "checked_at": "2026-03-25T16:14:19",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E7-001.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-001.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325161331",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
+      "sprint_id": "E7-002_validation_grading_risk_noise_hold.yaml",
+      "story_id": "E7-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E7-002.json",
+      "checked_at": "2026-03-25T16:26:01",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E7-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-002.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162340",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
+      "sprint_id": "E7-005_mvp_acceptance_pack_and_migration_handoff.yaml",
+      "story_id": "E7-005",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E7-005.json",
+      "checked_at": "2026-03-25T16:47:34",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\E7-005.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-005.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325164533",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-001_message_input_contract_and_event_record.yaml",
+      "story_id": "V17-001",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-001.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T09:01:25",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-9f2073ac.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-001.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-001.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090117",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-002_event_structuring_field_output.yaml",
+      "story_id": "V17-002",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\V17-002.json",
+      "checked_at": "2026-03-26T09:02:59",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a91809b5.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\V17-002.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-002.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090117",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-002_event_structuring_field_output.yaml",
+      "story_id": "V17-002",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-002.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T09:08:10",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd710c20.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-002.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-002.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090712",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-003_participant_roster_activation.yaml",
+      "story_id": "V17-003",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-003.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T09:08:20",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6d7c5c6c.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-003.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-003.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090712",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-004_action_protocol_and_initial_state.yaml",
+      "story_id": "V17-004",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Acceptance unmet: Schemas define IGNORE, WATCH, VALIDATE, BROADCAST_BULL, BROADCAST_BEAR, LEAD, FOLLOW, and EXIT."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\V17-004.json",
+      "checked_at": "2026-03-26T09:09:33",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-211b650e.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\V17-004.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-004.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090712",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-004_action_protocol_and_initial_state.yaml",
+      "story_id": "V17-004",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-004.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:01:13",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-211b650e-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-004.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-004.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326095953",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-005_event_seed_read_model.yaml",
+      "story_id": "V17-005",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-005.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:01:24",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d64435c8.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-005.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-005.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326095953",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-006_simulation_prepare_contract.yaml",
+      "story_id": "V17-006",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-006.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:01:37",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-bfcec3a8.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-006.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-006.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326100127",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-007_participant_interaction_engine.yaml",
+      "story_id": "V17-007",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-007.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:02:32",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-da277369.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-007.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-007.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326100127",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-008_action_log_and_state_snapshots.yaml",
+      "story_id": "V17-008",
+      "reviewer": "agentsystem",
+      "review_type": "machine",
+      "verdict": "rejected",
+      "acceptance_status": "rejected",
+      "summary": "Loop detected after repeated reviewer/fixer attempts with no material progress.",
+      "review_findings_summary": {
+        "blocking": [
+          "Validation still reports failing checks."
+        ],
+        "important": [],
+        "nice_to_haves": [
+          "Documentation may be stale after the current code changes.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow.",
+          "A previously reported issue has already been resolved in this workflow."
+        ]
+      },
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\V17-008.json",
+      "checked_at": "2026-03-26T10:10:47",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4788f1e6-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_failures\\V17-008.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-008.md"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326100952",
+      "attempt_status": "authoritative",
+      "implemented": false,
+      "verified": false,
+      "agentized": false,
+      "accepted": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-008_action_log_and_state_snapshots.yaml",
+      "story_id": "V17-008",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-008.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:16",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4788f1e6-3.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-008.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-008.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326101233",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-009_first_move_follow_exit_timeline.yaml",
+      "story_id": "V17-009",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-009.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:23",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7b83004c.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-009.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-009.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326101233",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-010_simulate_and_round_query_apis.yaml",
+      "story_id": "V17-010",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-010.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:29",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d0d841a6.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-010.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-010.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326101233",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-011_influence_graph_service.yaml",
+      "story_id": "V17-011",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-011.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:38",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-01dff035.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-011.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-011.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-012_belief_graph_dynamic_update.yaml",
+      "story_id": "V17-012",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-012.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:44",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d0f6038d.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-012.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-012.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-013_market_state_machine.yaml",
+      "story_id": "V17-013",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-013.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:51",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2e7a41e5.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-013.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-013.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-014_scenario_reviser.yaml",
+      "story_id": "V17-014",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-014.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:13:58",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-805a66c2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-014.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-014.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-015_belief_and_scenario_query_surface.yaml",
+      "story_id": "V17-015",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-015.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:14:04",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f455fbfa.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-015.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-015.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-016_simulation_summary_and_replay_schema.yaml",
+      "story_id": "V17-016",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-016.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:14:13",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-efe57594.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-016.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-016.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-017_report_review_and_why_apis.yaml",
+      "story_id": "V17-017",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-017.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:14:20",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b4e8718d.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-017.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-017.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-018_t1_t3_outcome_hooks_and_validation_model.yaml",
+      "story_id": "V17-018",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-018.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:14:26",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d590d49a.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-018.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-018.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-019_reliability_and_scoring_labels.yaml",
+      "story_id": "V17-019",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-019.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:14:33",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6962e179.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-019.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-019.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-020_replay_report_validation_query_apis.yaml",
+      "story_id": "V17-020",
+      "reviewer": "acceptance_gate",
+      "review_type": "machine",
+      "verdict": "needs_followup",
+      "acceptance_status": "needs_followup",
+      "summary": "Automatic acceptance passed.",
+      "notes": "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-020.md\nFormal flow gaps: implementation_contract_missing; agent_execution_contract_missing; required_artifact_types_missing",
+      "checked_at": "2026-03-26T10:14:40",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "review_findings_summary": {
+        "blocking": [],
+        "important": [],
+        "nice_to_haves": []
+      },
+      "evidence_paths": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8a2a81dc.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-020.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-020.json"
+      ],
+      "formal_entry": true,
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     }
   ]
 }

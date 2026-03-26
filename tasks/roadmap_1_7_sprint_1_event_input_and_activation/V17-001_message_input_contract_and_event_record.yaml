@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-001"
+task_name: "Message Input Contract and Event Record"
+sprint: "Sprint 1 Event Input and Activation"
+epic: "Epic 1.1 Event Seed"
+story_id: "V17-001"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Define the message-to-event ingestion contract and persist an event seed with a structured rejection path."
+business_value: "Creates the canonical entry point for the dynamic event sandbox."
+entry_criteria:
+  - "Use docs/需求文档/需求分析_1.7.md as the source of truth."
+acceptance_criteria:
+  - "POST /api/v1/events accepts a message payload and returns an event_id."
+  - "Invalid or unsupported payloads return a structured rejection response."
+  - "Persisted event seed metadata is queryable by event_id."
+constraints:
+  - "P0 only supports manual or API message input."
+out_of_scope:
+  - "No event structuring beyond raw event seed creation."
+dependencies: []
+related_files:
+  - "apps/api/src/schemas/command.py"
+  - "apps/api/src/schemas/event.py"
+  - "apps/api/src/domain/event_ingestion/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_ingestion.py"
+  - "docs/requirements/v17_001_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_ingestion/service.py"
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/schemas/command.py"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_ingestion.py"
+  - "docs/requirements/v17_001_delivery.md"
+test_cases:
+  normal:
+    - "Create an event from one incoming message and return an event_id."
+  exception:
+    - "Reject an empty or unsupported message payload with a structured error."

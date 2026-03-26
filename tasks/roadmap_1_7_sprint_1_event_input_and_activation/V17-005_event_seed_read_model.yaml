@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V17-005"
+task_name: "Event Seed Read Model"
+sprint: "Sprint 1 Event Input and Activation"
+epic: "Epic 1.3 Seed Query Surface"
+story_id: "V17-005"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose the event seed and participant roster through query routes that the sandbox UI can consume directly."
+business_value: "Makes the first event-sandbox page possible without forcing the UI to reconstruct raw runtime artifacts."
+entry_criteria:
+  - "V17-004 is complete and event plus roster payloads are persisted."
+acceptance_criteria:
+  - "GET /api/v1/events/{event_id} returns the event seed and structured payload."
+  - "GET /api/v1/events/{event_id}/participants returns the activated participant roster."
+  - "Read model returns stable query shapes for future product pages."
+constraints:
+  - "Keep the read model focused on seed state only."
+out_of_scope:
+  - "No simulation rounds or replay output yet."
+dependencies:
+  - "V17-004"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/event_casebook/service.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_casebook.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v17_005_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/event_casebook/service.py"
+  - "apps/api/src/services/container.py"
+secondary_files:
+  - "apps/api/tests/test_event_casebook.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v17_005_delivery.md"
+test_cases:
+  normal:
+    - "Query one event and one roster after preparation completes."
+  exception:
+    - "Return not_found for missing event_id queries."

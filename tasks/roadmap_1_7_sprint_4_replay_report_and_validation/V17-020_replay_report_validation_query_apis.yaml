@@ -1,0 +1,51 @@
+project: "versefina"
+task_id: "V17-020"
+task_name: "Replay, Report, and Validation Query APIs"
+sprint: "Sprint 4 Replay, Report, and Validation"
+epic: "Epic 4.2 Validation Loop"
+story_id: "V17-020"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose GET /replay, GET /report, and GET /validation surfaces so product pages can consume replay and validation directly."
+business_value: "Completes the read API chain needed by the 1.7 product pages."
+entry_criteria:
+  - "V17-019 is complete and replay, report, and validation payloads are all available."
+acceptance_criteria:
+  - "GET /api/v1/events/{event_id}/replay returns replay-ready payloads."
+  - "GET /api/v1/events/{event_id}/report returns report-ready payloads."
+  - "GET /api/v1/events/{event_id}/validation returns validation-ready payloads."
+constraints:
+  - "Keep query payloads stable and page-friendly."
+out_of_scope:
+  - "No product page rendering in this story."
+dependencies:
+  - "V17-019"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_reporting.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v17_020_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/src/domain/outcome_review/service.py"
+secondary_files:
+  - "apps/api/src/projection/event_cards/service.py"
+  - "apps/api/tests/test_reporting.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v17_020_delivery.md"
+test_cases:
+  normal:
+    - "Read replay, report, and validation payloads for one event through stable query APIs."
+  exception:
+    - "Return not_found for replay and validation queries against missing events."

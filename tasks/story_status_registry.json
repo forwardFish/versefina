@@ -490,7 +490,7 @@
       "sprint_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "story_id": "E1-001",
       "status": "running",
-      "started_at": "2026-03-24T18:01:56",
+      "started_at": "2026-03-25T14:34:58",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -517,29 +517,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "sprint_id": "E1-001_first_event_whitelist_freeze.yaml",
       "story_id": "E1-001",
-      "task_id": "task-7cdd19dd-2",
-      "status": "done",
-      "branch": "agent/l1-task-7cdd19dd-2",
-      "commit": "262e9dcd053517e3265af468c77e5cd7f7df7df7",
-      "started_at": "2026-03-24T18:01:59",
-      "finished_at": "2026-03-24T18:02:22",
-      "verified_at": "2026-03-24T18:02:22",
+      "task_id": "task-7cdd19dd-3",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-7cdd19dd-3",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T14:35:02",
+      "finished_at": "2026-03-25T14:35:05",
+      "verified_at": "2026-03-25T14:35:05",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-2.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-3.json",
       "resume_token": "E1-001",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "blocker_class": "story_local_blocker",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-2.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7cdd19dd-3.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-001.json"
@@ -576,16 +578,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-7cdd19dd-2\\delivery",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-7cdd19dd-3\\delivery",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -593,7 +599,7 @@
       "sprint_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "story_id": "E1-002",
       "status": "running",
-      "started_at": "2026-03-24T18:02:23",
+      "started_at": "2026-03-25T14:35:06",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -620,29 +626,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "sprint_id": "E1-002_event_record_and_structure_contract.yaml",
       "story_id": "E1-002",
-      "task_id": "task-0c41a818",
-      "status": "done",
-      "branch": "agent/l1-task-0c41a818",
-      "commit": "142a5a2a6debbc404c12ae04a40416dc2114d7cc",
-      "started_at": "2026-03-24T18:02:27",
-      "finished_at": "2026-03-24T18:02:50",
-      "verified_at": "2026-03-24T18:02:50",
+      "task_id": "task-0c41a818-5",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-0c41a818-5",
+      "commit": "edfc92060ceb0216e06be948dbb285ac58970fbb",
+      "started_at": "2026-03-25T14:35:08",
+      "finished_at": "2026-03-25T14:36:23",
+      "verified_at": "2026-03-25T14:36:23",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818-5.json",
       "resume_token": "E1-002",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-0c41a818\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-0c41a818-5\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-0c41a818-5.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-002.json"
@@ -679,15 +687,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "shared_dependency_blocker"
     },
     {
       "project": "versefina",
@@ -695,7 +708,7 @@
       "sprint_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "story_id": "E1-003",
       "status": "running",
-      "started_at": "2026-03-24T18:02:52",
+      "started_at": "2026-03-25T14:36:25",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -722,29 +735,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "sprint_id": "E1-003_event_ingestion_and_structuring_service.yaml",
       "story_id": "E1-003",
-      "task_id": "task-dd35d106",
-      "status": "done",
-      "branch": "agent/l1-task-dd35d106",
-      "commit": "9cfbbb3c0b09681c5abd94254b90a9d073ee7167",
-      "started_at": "2026-03-24T18:02:57",
-      "finished_at": "2026-03-24T18:03:18",
-      "verified_at": "2026-03-24T18:03:18",
+      "task_id": "task-dd35d106-6",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-dd35d106-6",
+      "commit": "02602a129ba76f27f82d5eeb6a3ba4d8b70a73d4",
+      "started_at": "2026-03-25T14:36:28",
+      "finished_at": "2026-03-25T14:37:42",
+      "verified_at": "2026-03-25T14:37:42",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106-6.json",
       "resume_token": "E1-003",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-dd35d106\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-dd35d106-6\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd35d106-6.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-003.json"
@@ -781,15 +796,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -797,7 +817,7 @@
       "sprint_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "story_id": "E1-004",
       "status": "running",
-      "started_at": "2026-03-24T18:03:20",
+      "started_at": "2026-03-25T14:37:44",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -824,7 +844,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -832,12 +854,12 @@
       "sprint_id": "E1-004_theme_mapping_and_symbol_pool_dictionary.yaml",
       "story_id": "E1-004",
       "task_id": "task-42a6921e",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-42a6921e",
-      "commit": "b13e963e6c0da4592520351bd1bb2e528ae70642",
-      "started_at": "2026-03-24T18:03:23",
-      "finished_at": "2026-03-24T18:03:45",
-      "verified_at": "2026-03-24T18:03:45",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T14:37:47",
+      "finished_at": "2026-03-25T14:37:51",
+      "verified_at": "2026-03-25T14:37:51",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-42a6921e.json",
       "resume_token": "E1-004",
@@ -883,15 +905,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -899,7 +925,7 @@
       "sprint_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "story_id": "E1-005",
       "status": "running",
-      "started_at": "2026-03-24T18:03:47",
+      "started_at": "2026-03-25T14:37:52",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -926,29 +952,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_1_event_lane_and_mapping_base",
       "sprint_id": "E1-005_event_casebook_and_replay_base.yaml",
       "story_id": "E1-005",
-      "task_id": "task-65eb6b3e",
-      "status": "done",
-      "branch": "agent/l1-task-65eb6b3e",
-      "commit": "2c99b3c2c487ca0fedcf31cf63c614aafadd82c4",
-      "started_at": "2026-03-24T18:03:51",
-      "finished_at": "2026-03-24T18:04:10",
-      "verified_at": "2026-03-24T18:04:10",
+      "task_id": "task-65eb6b3e-3",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-65eb6b3e-3",
+      "commit": "39df6879cf47e4197936f19993f370c39703a98d",
+      "started_at": "2026-03-25T14:37:55",
+      "finished_at": "2026-03-25T14:38:59",
+      "verified_at": "2026-03-25T14:38:59",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e-3.json",
       "resume_token": "E1-005",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-65eb6b3e\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-65eb6b3e-3\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-65eb6b3e-3.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E1-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E1-005.json"
@@ -985,15 +1013,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260324180156",
+      "authoritative_attempt": "roadmap_1_6_sprint_1_event_lane_and_mapping_base-attempt-20260325143458",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1001,7 +1034,7 @@
       "sprint_id": "roadmap_1_6_sprint_2_participant_preparation",
       "story_id": "E2-001",
       "status": "running",
-      "started_at": "2026-03-24T18:04:13",
+      "started_at": "2026-03-25T14:39:03",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1028,29 +1061,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
       "sprint_id": "E2-001_participant_output_protocol.yaml",
       "story_id": "E2-001",
-      "task_id": "task-1074995d",
-      "status": "done",
-      "branch": "agent/l1-task-1074995d",
-      "commit": "6a1c0eef777a66385232b76f51bcb99204e1fa6d",
-      "started_at": "2026-03-24T18:04:15",
-      "finished_at": "2026-03-24T18:04:37",
-      "verified_at": "2026-03-24T18:04:37",
+      "task_id": "task-1074995d-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-1074995d-2",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T14:39:06",
+      "finished_at": "2026-03-25T14:39:11",
+      "verified_at": "2026-03-25T14:39:11",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d-2.json",
       "resume_token": "E2-001",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-1074995d\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-1074995d-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-1074995d-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-001.json"
@@ -1087,15 +1122,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1103,7 +1143,7 @@
       "sprint_id": "roadmap_1_6_sprint_2_participant_preparation",
       "story_id": "E2-002",
       "status": "running",
-      "started_at": "2026-03-24T18:04:38",
+      "started_at": "2026-03-25T14:39:12",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1130,29 +1170,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
       "sprint_id": "E2-002_participant_family_and_style_variants.yaml",
       "story_id": "E2-002",
-      "task_id": "task-26ec8434",
-      "status": "done",
-      "branch": "agent/l1-task-26ec8434",
-      "commit": "7a40ab583a46316404a86c7165e7e0a77d4bc8cf",
-      "started_at": "2026-03-24T18:04:41",
-      "finished_at": "2026-03-24T18:05:07",
-      "verified_at": "2026-03-24T18:05:07",
+      "task_id": "task-26ec8434-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-26ec8434-2",
+      "commit": "584764272bf159073334951f976d0b611379c21e",
+      "started_at": "2026-03-25T14:39:16",
+      "finished_at": "2026-03-25T14:40:24",
+      "verified_at": "2026-03-25T14:40:24",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434-2.json",
       "resume_token": "E2-002",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-26ec8434\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-26ec8434-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-26ec8434-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-002.json"
@@ -1189,15 +1231,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1205,7 +1252,7 @@
       "sprint_id": "roadmap_1_6_sprint_2_participant_preparation",
       "story_id": "E2-003",
       "status": "running",
-      "started_at": "2026-03-24T18:05:09",
+      "started_at": "2026-03-25T14:40:26",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1232,29 +1279,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
       "sprint_id": "E2-003_prepare_orchestrator_and_roster.yaml",
       "story_id": "E2-003",
-      "task_id": "task-745de323",
-      "status": "done",
-      "branch": "agent/l1-task-745de323",
-      "commit": "9eeb9d1be9bba90a1e9a14faba9878c476f406d7",
-      "started_at": "2026-03-24T18:05:13",
-      "finished_at": "2026-03-24T18:05:35",
-      "verified_at": "2026-03-24T18:05:35",
+      "task_id": "task-745de323-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-745de323-2",
+      "commit": "960b65118d96bc5f3a12453abc86a64207b85848",
+      "started_at": "2026-03-25T14:40:28",
+      "finished_at": "2026-03-25T14:41:14",
+      "verified_at": "2026-03-25T14:41:14",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323-2.json",
       "resume_token": "E2-003",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-745de323\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-745de323-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-745de323-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-003.json"
@@ -1291,15 +1340,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1307,7 +1361,7 @@
       "sprint_id": "roadmap_1_6_sprint_2_participant_preparation",
       "story_id": "E2-004",
       "status": "running",
-      "started_at": "2026-03-24T18:05:37",
+      "started_at": "2026-03-25T14:41:15",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1334,7 +1388,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1342,12 +1398,12 @@
       "sprint_id": "E2-004_evidence_trigger_invalidation_standardization.yaml",
       "story_id": "E2-004",
       "task_id": "task-3f77c5c5",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-3f77c5c5",
-      "commit": "cc51fb264a18bf8c63e40018993c0045586886b8",
-      "started_at": "2026-03-24T18:05:41",
-      "finished_at": "2026-03-24T18:06:02",
-      "verified_at": "2026-03-24T18:06:02",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T14:41:17",
+      "finished_at": "2026-03-25T14:41:20",
+      "verified_at": "2026-03-25T14:41:20",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3f77c5c5.json",
       "resume_token": "E2-004",
@@ -1393,15 +1449,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1409,7 +1469,7 @@
       "sprint_id": "roadmap_1_6_sprint_2_participant_preparation",
       "story_id": "E2-005",
       "status": "running",
-      "started_at": "2026-03-24T18:06:03",
+      "started_at": "2026-03-25T14:41:21",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1436,29 +1496,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_2_participant_preparation",
       "sprint_id": "E2-005_authority_weight_and_risk_budget_registry.yaml",
       "story_id": "E2-005",
-      "task_id": "task-cd25166a",
-      "status": "done",
-      "branch": "agent/l1-task-cd25166a",
-      "commit": "3fe5a9e29da3b1c372104afd47d08c2fa8d04c38",
-      "started_at": "2026-03-24T18:06:05",
-      "finished_at": "2026-03-24T18:06:23",
-      "verified_at": "2026-03-24T18:06:23",
+      "task_id": "task-cd25166a-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-cd25166a-2",
+      "commit": "e8ae8485ea5e2ad7deabd08501e5fd03d29fd520",
+      "started_at": "2026-03-25T14:41:23",
+      "finished_at": "2026-03-25T14:41:50",
+      "verified_at": "2026-03-25T14:41:50",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a-2.json",
       "resume_token": "E2-005",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-cd25166a\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-cd25166a-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cd25166a-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E2-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E2-005.json"
@@ -1495,15 +1557,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260324180412",
+      "authoritative_attempt": "roadmap_1_6_sprint_2_participant_preparation-attempt-20260325143903",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1511,7 +1578,7 @@
       "sprint_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "story_id": "E3-001",
       "status": "running",
-      "started_at": "2026-03-24T18:06:26",
+      "started_at": "2026-03-25T14:41:52",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1538,29 +1605,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "sprint_id": "E3-001_belief_graph_snapshot_builder.yaml",
       "story_id": "E3-001",
-      "task_id": "task-8bd4a1a1",
-      "status": "done",
-      "branch": "agent/l1-task-8bd4a1a1",
-      "commit": "2543fd5aca1436ffe90bb7cfd51244f107736819",
-      "started_at": "2026-03-24T18:06:29",
-      "finished_at": "2026-03-24T18:06:46",
-      "verified_at": "2026-03-24T18:06:46",
+      "task_id": "task-8bd4a1a1-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-8bd4a1a1-2",
+      "commit": "b707819f6ea1a21cc1808fe47ac15a9819f9e517",
+      "started_at": "2026-03-25T14:41:54",
+      "finished_at": "2026-03-25T14:42:21",
+      "verified_at": "2026-03-25T14:42:21",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1-2.json",
       "resume_token": "E3-001",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-8bd4a1a1\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-8bd4a1a1-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8bd4a1a1-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-001.json"
@@ -1597,15 +1666,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1613,7 +1687,7 @@
       "sprint_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "story_id": "E3-002",
       "status": "running",
-      "started_at": "2026-03-24T18:06:47",
+      "started_at": "2026-03-25T14:42:21",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1640,7 +1714,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1648,12 +1724,12 @@
       "sprint_id": "E3-002_graph_metrics_consensus_dissent_crowding_fragility.yaml",
       "story_id": "E3-002",
       "task_id": "task-28517942",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-28517942",
-      "commit": "ae5d8ad3692688ac98ee1224df26d857b0c838be",
-      "started_at": "2026-03-24T18:06:50",
-      "finished_at": "2026-03-24T18:07:07",
-      "verified_at": "2026-03-24T18:07:07",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T14:42:23",
+      "finished_at": "2026-03-25T14:42:26",
+      "verified_at": "2026-03-25T14:42:26",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-28517942.json",
       "resume_token": "E3-002",
@@ -1699,15 +1775,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1715,7 +1795,7 @@
       "sprint_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "story_id": "E3-003",
       "status": "running",
-      "started_at": "2026-03-24T18:07:09",
+      "started_at": "2026-03-25T14:42:27",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1742,29 +1822,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "sprint_id": "E3-003_three_case_scenario_engine.yaml",
       "story_id": "E3-003",
-      "task_id": "task-59719af0",
-      "status": "done",
-      "branch": "agent/l1-task-59719af0",
-      "commit": "9fbe37bd137d77ee891bf28b3ea371e96bb0f76e",
-      "started_at": "2026-03-24T18:07:12",
-      "finished_at": "2026-03-24T18:07:31",
-      "verified_at": "2026-03-24T18:07:31",
+      "task_id": "task-59719af0-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-59719af0-2",
+      "commit": "70c32d3bf67e61a099c4697a23b5792c6f930449",
+      "started_at": "2026-03-25T14:42:30",
+      "finished_at": "2026-03-25T14:42:57",
+      "verified_at": "2026-03-25T14:42:57",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0-2.json",
       "resume_token": "E3-003",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-59719af0\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-59719af0-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-59719af0-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-003.json"
@@ -1801,15 +1883,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -1817,7 +1904,7 @@
       "sprint_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "story_id": "E3-004",
       "status": "running",
-      "started_at": "2026-03-24T18:07:32",
+      "started_at": "2026-03-25T14:42:58",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1844,7 +1931,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1852,12 +1941,12 @@
       "sprint_id": "E3-004_watchpoints_and_invalidation_service.yaml",
       "story_id": "E3-004",
       "task_id": "task-07bb6219",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-07bb6219",
-      "commit": "34fd486269fb2ed2f1d61e8965bddfe4060941a3",
-      "started_at": "2026-03-24T18:07:35",
-      "finished_at": "2026-03-24T18:07:53",
-      "verified_at": "2026-03-24T18:07:53",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T14:43:00",
+      "finished_at": "2026-03-25T14:43:03",
+      "verified_at": "2026-03-25T14:43:03",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-07bb6219.json",
       "resume_token": "E3-004",
@@ -1903,15 +1992,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -1919,7 +2012,7 @@
       "sprint_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "story_id": "E3-005",
       "status": "running",
-      "started_at": "2026-03-24T18:07:54",
+      "started_at": "2026-03-25T14:43:03",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -1946,29 +2039,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_3_belief_graph_and_scenarios",
       "sprint_id": "E3-005_event_card_read_model_v1.yaml",
       "story_id": "E3-005",
-      "task_id": "task-2dd5b720",
-      "status": "done",
-      "branch": "agent/l1-task-2dd5b720",
-      "commit": "9e48b97b8c6b6a4f3ebccfcb1636640487b906fb",
-      "started_at": "2026-03-24T18:07:57",
-      "finished_at": "2026-03-24T18:08:21",
-      "verified_at": "2026-03-24T18:08:21",
+      "task_id": "task-2dd5b720-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-2dd5b720-2",
+      "commit": "1e24f817da4dd438e7c4aecd3048ec5cee4d1b09",
+      "started_at": "2026-03-25T14:43:06",
+      "finished_at": "2026-03-25T14:43:38",
+      "verified_at": "2026-03-25T14:43:38",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720-2.json",
       "resume_token": "E3-005",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-2dd5b720\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-2dd5b720-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2dd5b720-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E3-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E3-005.json"
@@ -2005,15 +2100,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260324180626",
+      "authoritative_attempt": "roadmap_1_6_sprint_3_belief_graph_and_scenarios-attempt-20260325144152",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -2021,7 +2121,7 @@
       "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "story_id": "E4-001",
       "status": "running",
-      "started_at": "2026-03-24T18:08:23",
+      "started_at": "2026-03-25T14:43:39",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2048,29 +2148,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "sprint_id": "E4-001_simulation_prepare_from_graph.yaml",
       "story_id": "E4-001",
-      "task_id": "task-3596f266",
-      "status": "done",
-      "branch": "agent/l1-task-3596f266",
-      "commit": "a76b3aa74a3ffaf65e0a0c84999baefdc0792bc8",
-      "started_at": "2026-03-24T18:08:26",
-      "finished_at": "2026-03-24T18:08:48",
-      "verified_at": "2026-03-24T18:08:48",
+      "task_id": "task-3596f266-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-3596f266-2",
+      "commit": "68a5a99fbc54252c3cbe3e18d1a245e17ac3a249",
+      "started_at": "2026-03-25T14:43:42",
+      "finished_at": "2026-03-25T14:44:09",
+      "verified_at": "2026-03-25T14:44:09",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266-2.json",
       "resume_token": "E4-001",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-3596f266\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-3596f266-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-3596f266-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-001.json"
@@ -2107,15 +2209,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325144339",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -2123,7 +2230,7 @@
       "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "story_id": "E4-002",
       "status": "running",
-      "started_at": "2026-03-24T18:08:49",
+      "started_at": "2026-03-25T14:55:22",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2150,29 +2257,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "sprint_id": "E4-002_simulation_runner_three_to_five_rounds.yaml",
       "story_id": "E4-002",
-      "task_id": "task-f4fa3f08",
-      "status": "done",
-      "branch": "agent/l1-task-f4fa3f08",
-      "commit": "0fdcc989a29e5f502a97d05e316460bf2cbf1c66",
-      "started_at": "2026-03-24T18:08:52",
-      "finished_at": "2026-03-24T18:09:11",
-      "verified_at": "2026-03-24T18:09:11",
+      "task_id": "task-f4fa3f08-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-f4fa3f08-2",
+      "commit": "aa57e0c6f7738063f97bf2ad4f855f9a17d6f922",
+      "started_at": "2026-03-25T14:55:24",
+      "finished_at": "2026-03-25T14:56:08",
+      "verified_at": "2026-03-25T14:56:08",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08-2.json",
       "resume_token": "E4-002",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-f4fa3f08\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-f4fa3f08-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f4fa3f08-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-002.json"
@@ -2209,15 +2318,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325145522",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "shared_dependency_blocker"
     },
     {
       "project": "versefina",
@@ -2225,7 +2339,7 @@
       "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "story_id": "E4-003",
       "status": "running",
-      "started_at": "2026-03-24T18:09:12",
+      "started_at": "2026-03-25T14:56:08",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2252,7 +2366,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2260,12 +2376,12 @@
       "sprint_id": "E4-003_actions_and_state_snapshot_logging.yaml",
       "story_id": "E4-003",
       "task_id": "task-668d4f4a",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-668d4f4a",
-      "commit": "9d52d45775b9ef628e223f6df67a66e2f30cae0d",
-      "started_at": "2026-03-24T18:09:15",
-      "finished_at": "2026-03-24T18:09:34",
-      "verified_at": "2026-03-24T18:09:34",
+      "commit": "bd89d04b2592dfebc99348967f21baf63a201efc",
+      "started_at": "2026-03-25T14:56:11",
+      "finished_at": "2026-03-25T14:56:41",
+      "verified_at": "2026-03-25T14:56:41",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-668d4f4a.json",
       "resume_token": "E4-003",
@@ -2311,15 +2427,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325145522",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2327,7 +2447,7 @@
       "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "story_id": "E4-004",
       "status": "running",
-      "started_at": "2026-03-24T18:09:35",
+      "started_at": "2026-03-25T15:02:34",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2354,29 +2474,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "sprint_id": "E4-004_first_move_follow_exit_timeline.yaml",
       "story_id": "E4-004",
-      "task_id": "task-a941fd4e",
-      "status": "done",
-      "branch": "agent/l1-task-a941fd4e",
-      "commit": "ed092f5525ce12255e12ced8e95b739167d14b92",
-      "started_at": "2026-03-24T18:09:38",
-      "finished_at": "2026-03-24T18:09:54",
-      "verified_at": "2026-03-24T18:09:54",
+      "task_id": "task-a941fd4e-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-a941fd4e-2",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T15:02:37",
+      "finished_at": "2026-03-25T15:02:40",
+      "verified_at": "2026-03-25T15:02:40",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e-2.json",
       "resume_token": "E4-004",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-a941fd4e\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-a941fd4e-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a941fd4e-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E4-004.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E4-004.json"
@@ -2413,15 +2535,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325150234",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -2429,7 +2556,7 @@
       "sprint_id": "roadmap_1_6_sprint_4_lightweight_simulation_runtime",
       "story_id": "E4-005",
       "status": "running",
-      "started_at": "2026-03-24T18:09:56",
+      "started_at": "2026-03-25T15:02:40",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2456,7 +2583,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2464,12 +2593,12 @@
       "sprint_id": "E4-005_simulation_feedback_to_graph_and_card.yaml",
       "story_id": "E4-005",
       "task_id": "task-5200fd25",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-5200fd25",
-      "commit": "ae433c0f6f3c71145ab89406d58341e3d04d0708",
-      "started_at": "2026-03-24T18:09:59",
-      "finished_at": "2026-03-24T18:10:18",
-      "verified_at": "2026-03-24T18:10:18",
+      "commit": "e29489ae120ec25ed9ff5b7d9788d154f0bd0cde",
+      "started_at": "2026-03-25T15:02:43",
+      "finished_at": "2026-03-25T15:03:21",
+      "verified_at": "2026-03-25T15:03:21",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5200fd25.json",
       "resume_token": "E4-005",
@@ -2515,15 +2644,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260324180823",
+      "authoritative_attempt": "roadmap_1_6_sprint_4_lightweight_simulation_runtime-attempt-20260325150234",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2531,7 +2664,7 @@
       "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "story_id": "E5-001",
       "status": "running",
-      "started_at": "2026-03-24T18:10:21",
+      "started_at": "2026-03-25T15:14:32",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2558,29 +2691,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "sprint_id": "E5-001_report_card_and_review_report.yaml",
       "story_id": "E5-001",
-      "task_id": "task-86bff5cc",
-      "status": "done",
-      "branch": "agent/l1-task-86bff5cc",
-      "commit": "762491da6342cffc174600d33d3d1b1ea2867191",
-      "started_at": "2026-03-24T18:10:24",
-      "finished_at": "2026-03-24T18:10:45",
-      "verified_at": "2026-03-24T18:10:45",
+      "task_id": "task-86bff5cc-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-86bff5cc-2",
+      "commit": "58e7684add968db27662427fc752bbe13a896db9",
+      "started_at": "2026-03-25T15:14:34",
+      "finished_at": "2026-03-25T15:15:22",
+      "verified_at": "2026-03-25T15:15:22",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc-2.json",
       "resume_token": "E5-001",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-86bff5cc\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-86bff5cc-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-86bff5cc-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-001.json"
@@ -2617,15 +2752,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325151431",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -2633,7 +2773,7 @@
       "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "story_id": "E5-002",
       "status": "running",
-      "started_at": "2026-03-24T18:10:45",
+      "started_at": "2026-03-25T15:49:11",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2660,29 +2800,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "sprint_id": "E5-002_t1_t3_outcome_tracker.yaml",
       "story_id": "E5-002",
-      "task_id": "task-e80bdc43",
-      "status": "done",
-      "branch": "agent/l1-task-e80bdc43",
-      "commit": "3a4ed5d1429a6882caecbcb491b73ef6a0bebc9d",
-      "started_at": "2026-03-24T18:10:48",
-      "finished_at": "2026-03-24T18:11:07",
-      "verified_at": "2026-03-24T18:11:07",
+      "task_id": "task-e80bdc43-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-e80bdc43-2",
+      "commit": "28f73c4b598d9709ad0c78344bc284bfc3cc4f2e",
+      "started_at": "2026-03-25T15:49:14",
+      "finished_at": "2026-03-25T15:50:06",
+      "verified_at": "2026-03-25T15:50:06",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43-2.json",
       "resume_token": "E5-002",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-e80bdc43\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-e80bdc43-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-e80bdc43-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E5-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E5-002.json"
@@ -2719,15 +2861,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -2735,7 +2882,7 @@
       "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "story_id": "E5-003",
       "status": "running",
-      "started_at": "2026-03-24T18:11:08",
+      "started_at": "2026-03-25T15:50:07",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2762,7 +2909,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2770,12 +2919,12 @@
       "sprint_id": "E5-003_dominant_scenario_and_scoring_labels.yaml",
       "story_id": "E5-003",
       "task_id": "task-34c5b28b",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-34c5b28b",
-      "commit": "aba4914096d7ed23e03a58e6f874eb09623697f4",
-      "started_at": "2026-03-24T18:11:11",
-      "finished_at": "2026-03-24T18:11:29",
-      "verified_at": "2026-03-24T18:11:29",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T15:50:10",
+      "finished_at": "2026-03-25T15:50:15",
+      "verified_at": "2026-03-25T15:50:15",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-34c5b28b.json",
       "resume_token": "E5-003",
@@ -2821,15 +2970,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2837,7 +2990,7 @@
       "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "story_id": "E5-004",
       "status": "running",
-      "started_at": "2026-03-24T18:11:30",
+      "started_at": "2026-03-25T15:50:15",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2864,7 +3017,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2872,12 +3027,12 @@
       "sprint_id": "E5-004_participant_segment_reliability.yaml",
       "story_id": "E5-004",
       "task_id": "task-6706f9fb",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-6706f9fb",
-      "commit": "80e360d8368ce4341ec90b068ae3326a4d027aeb",
-      "started_at": "2026-03-24T18:11:33",
-      "finished_at": "2026-03-24T18:11:49",
-      "verified_at": "2026-03-24T18:11:49",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T15:50:19",
+      "finished_at": "2026-03-25T15:50:22",
+      "verified_at": "2026-03-25T15:50:22",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6706f9fb.json",
       "resume_token": "E5-004",
@@ -2923,15 +3078,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2939,7 +3098,7 @@
       "sprint_id": "roadmap_1_6_sprint_5_review_and_outcome_validation",
       "story_id": "E5-005",
       "status": "running",
-      "started_at": "2026-03-24T18:11:50",
+      "started_at": "2026-03-25T15:50:23",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -2966,7 +3125,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -2974,12 +3135,12 @@
       "sprint_id": "E5-005_why_and_retrieval_report_api.yaml",
       "story_id": "E5-005",
       "task_id": "task-cf690aec",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-cf690aec",
-      "commit": "1e99ec1f21504fbcf1bbcecf70e2df6454594123",
-      "started_at": "2026-03-24T18:11:53",
-      "finished_at": "2026-03-24T18:12:11",
-      "verified_at": "2026-03-24T18:12:11",
+      "commit": "458ee2b6657bdfb26cea37a5c04326962db16865",
+      "started_at": "2026-03-25T15:50:26",
+      "finished_at": "2026-03-25T15:51:04",
+      "verified_at": "2026-03-25T15:51:04",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-cf690aec.json",
       "resume_token": "E5-005",
@@ -3025,15 +3186,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260324181021",
+      "authoritative_attempt": "roadmap_1_6_sprint_5_review_and_outcome_validation-attempt-20260325154911",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3041,7 +3206,7 @@
       "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "story_id": "E6-001",
       "status": "running",
-      "started_at": "2026-03-24T18:12:14",
+      "started_at": "2026-03-25T15:51:06",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3068,7 +3233,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3076,12 +3243,12 @@
       "sprint_id": "E6-001_statement_reposition_to_secondary_entry.yaml",
       "story_id": "E6-001",
       "task_id": "task-50a3b883",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-50a3b883",
-      "commit": "fca302d0f99dc78af49a95b2e4cfd8f2ad46c6e5",
-      "started_at": "2026-03-24T18:12:17",
-      "finished_at": "2026-03-24T18:12:40",
-      "verified_at": "2026-03-24T18:12:40",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T15:51:09",
+      "finished_at": "2026-03-25T15:51:13",
+      "verified_at": "2026-03-25T15:51:13",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-50a3b883.json",
       "resume_token": "E6-001",
@@ -3127,15 +3294,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325155106",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3143,7 +3314,7 @@
       "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "story_id": "E6-002",
       "status": "running",
-      "started_at": "2026-03-24T18:12:41",
+      "started_at": "2026-03-25T16:06:31",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3170,29 +3341,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "sprint_id": "E6-002_behavior_feature_extraction_for_style.yaml",
       "story_id": "E6-002",
-      "task_id": "task-b539ea0a",
-      "status": "done",
-      "branch": "agent/l1-task-b539ea0a",
-      "commit": "49459d77bd821dc9c417235a25932e19c47a56f1",
-      "started_at": "2026-03-24T18:12:44",
-      "finished_at": "2026-03-24T18:13:07",
-      "verified_at": "2026-03-24T18:13:07",
+      "task_id": "task-b539ea0a-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-b539ea0a-2",
+      "commit": "cd148467b30c7954630b394c66279ca4ba078fb9",
+      "started_at": "2026-03-25T16:06:34",
+      "finished_at": "2026-03-25T16:07:32",
+      "verified_at": "2026-03-25T16:07:32",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a-2.json",
       "resume_token": "E6-002",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-b539ea0a\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-b539ea0a-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b539ea0a-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-002.json"
@@ -3229,15 +3402,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325160631",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -3245,7 +3423,7 @@
       "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "story_id": "E6-003",
       "status": "running",
-      "started_at": "2026-03-24T18:13:09",
+      "started_at": "2026-03-25T16:10:21",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3272,29 +3450,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "sprint_id": "E6-003_market_style_embedding.yaml",
       "story_id": "E6-003",
-      "task_id": "task-a03c3656",
-      "status": "done",
-      "branch": "agent/l1-task-a03c3656",
-      "commit": "b21028bf3a872ce00d9fa049a97807518a57395d",
-      "started_at": "2026-03-24T18:13:13",
-      "finished_at": "2026-03-24T18:13:35",
-      "verified_at": "2026-03-24T18:13:35",
+      "task_id": "task-a03c3656-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-a03c3656-2",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T16:10:24",
+      "finished_at": "2026-03-25T16:10:27",
+      "verified_at": "2026-03-25T16:10:27",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656-2.json",
       "resume_token": "E6-003",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-a03c3656\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-a03c3656-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a03c3656-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-003.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-003.json"
@@ -3331,15 +3511,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161021",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -3347,7 +3532,7 @@
       "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "story_id": "E6-004",
       "status": "running",
-      "started_at": "2026-03-24T18:13:37",
+      "started_at": "2026-03-25T16:10:27",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3374,7 +3559,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3382,12 +3569,12 @@
       "sprint_id": "E6-004_archetype_seed_from_style_embedding.yaml",
       "story_id": "E6-004",
       "task_id": "task-b690d5dc",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-b690d5dc",
-      "commit": "e327c8607b8136df4109b513f88ee457707a780a",
-      "started_at": "2026-03-24T18:13:40",
-      "finished_at": "2026-03-24T18:14:02",
-      "verified_at": "2026-03-24T18:14:02",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T16:10:30",
+      "finished_at": "2026-03-25T16:10:34",
+      "verified_at": "2026-03-25T16:10:34",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b690d5dc.json",
       "resume_token": "E6-004",
@@ -3433,15 +3620,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161021",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3449,7 +3640,7 @@
       "sprint_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "story_id": "E6-005",
       "status": "running",
-      "started_at": "2026-03-24T18:14:04",
+      "started_at": "2026-03-25T16:13:24",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3476,29 +3667,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_6_statement_to_style_assets",
       "sprint_id": "E6-005_participant_activation_calibration_rules.yaml",
       "story_id": "E6-005",
-      "task_id": "task-a2f613b2",
-      "status": "done",
-      "branch": "agent/l1-task-a2f613b2",
-      "commit": "2035b8d0ef74c28638b889fb26ffcfe34b331269",
-      "started_at": "2026-03-24T18:14:07",
-      "finished_at": "2026-03-24T18:14:31",
-      "verified_at": "2026-03-24T18:14:31",
+      "task_id": "task-a2f613b2-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-a2f613b2-2",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T16:13:26",
+      "finished_at": "2026-03-25T16:13:29",
+      "verified_at": "2026-03-25T16:13:29",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2-2.json",
       "resume_token": "E6-005",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-a2f613b2\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-a2f613b2-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a2f613b2-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E6-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E6-005.json"
@@ -3535,15 +3728,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260324181214",
+      "authoritative_attempt": "roadmap_1_6_sprint_6_statement_to_style_assets-attempt-20260325161324",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -3551,7 +3749,7 @@
       "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "story_id": "E7-001",
       "status": "running",
-      "started_at": "2026-03-24T18:14:34",
+      "started_at": "2026-03-25T16:23:40",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3578,29 +3776,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "sprint_id": "E7-001_behavior_mirror_agent_assembly.yaml",
       "story_id": "E7-001",
-      "task_id": "task-4e6c681a",
-      "status": "done",
-      "branch": "agent/l1-task-4e6c681a",
-      "commit": "cc3d919eeb3fdeba6754638c8348eca4d16360fa",
-      "started_at": "2026-03-24T18:14:38",
-      "finished_at": "2026-03-24T18:15:01",
-      "verified_at": "2026-03-24T18:15:01",
+      "task_id": "task-4e6c681a-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-4e6c681a-2",
+      "commit": "3fe7dfc9cd882872c441014e2ce3b3d930615d3f",
+      "started_at": "2026-03-25T16:23:43",
+      "finished_at": "2026-03-25T16:24:38",
+      "verified_at": "2026-03-25T16:24:38",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a-2.json",
       "resume_token": "E7-001",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-4e6c681a\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-4e6c681a-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4e6c681a-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-001.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-001.json"
@@ -3637,15 +3837,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162340",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -3653,7 +3858,7 @@
       "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "story_id": "E7-002",
       "status": "running",
-      "started_at": "2026-03-24T18:15:02",
+      "started_at": "2026-03-25T16:28:16",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3680,29 +3885,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "sprint_id": "E7-002_validation_grading_risk_noise_hold.yaml",
       "story_id": "E7-002",
-      "task_id": "task-5ea79365",
-      "status": "done",
-      "branch": "agent/l1-task-5ea79365",
-      "commit": "9583632bcc546ff4a0ca0ffbc6e3d18efaad65aa",
-      "started_at": "2026-03-24T18:15:05",
-      "finished_at": "2026-03-24T18:15:26",
-      "verified_at": "2026-03-24T18:15:26",
+      "task_id": "task-5ea79365-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-5ea79365-2",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-25T16:28:19",
+      "finished_at": "2026-03-25T16:28:22",
+      "verified_at": "2026-03-25T16:28:22",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365-2.json",
       "resume_token": "E7-002",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-5ea79365\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-5ea79365-2\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-5ea79365-2.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-002.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-002.json"
@@ -3739,15 +3946,20 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162816",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
     },
     {
       "project": "versefina",
@@ -3755,7 +3967,7 @@
       "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "story_id": "E7-003",
       "status": "running",
-      "started_at": "2026-03-24T18:15:27",
+      "started_at": "2026-03-25T16:28:23",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3782,7 +3994,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3790,12 +4004,12 @@
       "sprint_id": "E7-003_distribution_calibration_tables_and_stats.yaml",
       "story_id": "E7-003",
       "task_id": "task-840b66e1",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-840b66e1",
-      "commit": "4eb66944b07d901705902ef3e5dd228b11f551c5",
-      "started_at": "2026-03-24T18:15:31",
-      "finished_at": "2026-03-24T18:15:50",
-      "verified_at": "2026-03-24T18:15:50",
+      "commit": "a1d4de241b424e03897aca521b6264b32a463ffe",
+      "started_at": "2026-03-25T16:28:26",
+      "finished_at": "2026-03-25T16:29:13",
+      "verified_at": "2026-03-25T16:29:13",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-840b66e1.json",
       "resume_token": "E7-003",
@@ -3841,15 +4055,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162816",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3857,7 +4075,7 @@
       "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "story_id": "E7-004",
       "status": "running",
-      "started_at": "2026-03-24T18:15:52",
+      "started_at": "2026-03-25T16:29:13",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3884,7 +4102,9 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3892,12 +4112,12 @@
       "sprint_id": "E7-004_feedback_to_participant_and_scenario_weights.yaml",
       "story_id": "E7-004",
       "task_id": "task-a3eab1e7",
-      "status": "done",
+      "status": "evidence_incomplete",
       "branch": "agent/l1-task-a3eab1e7",
-      "commit": "95d8ad9b10af4a06595b79662e69009225f7a8aa",
-      "started_at": "2026-03-24T18:15:56",
-      "finished_at": "2026-03-24T18:16:16",
-      "verified_at": "2026-03-24T18:16:16",
+      "commit": "5c815c2d387aaedf17b293a681e77b712b08c27a",
+      "started_at": "2026-03-25T16:29:16",
+      "finished_at": "2026-03-25T16:29:57",
+      "verified_at": "2026-03-25T16:29:57",
       "last_node": "Doc Writer",
       "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-a3eab1e7.json",
       "resume_token": "E7-004",
@@ -3943,15 +4163,19 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325162816",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
@@ -3959,7 +4183,7 @@
       "sprint_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "story_id": "E7-005",
       "status": "running",
-      "started_at": "2026-03-24T18:16:17",
+      "started_at": "2026-03-25T17:00:17",
       "source": "agentsystem_runtime",
       "required_modes": [
         "plan-eng-review",
@@ -3986,29 +4210,31 @@
         "advisory_executed": [],
         "advisory_executed_count": 0,
         "all_required_executed": false
-      }
+      },
+      "attempt_status": "invalid_delivery_batch",
+      "formal_flow_complete": false
     },
     {
       "project": "versefina",
       "backlog_id": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration",
       "sprint_id": "E7-005_mvp_acceptance_pack_and_migration_handoff.yaml",
       "story_id": "E7-005",
-      "task_id": "task-7a7fce04",
-      "status": "done",
-      "branch": "agent/l1-task-7a7fce04",
-      "commit": "200ea99086eed0f250a6159295873aa98937051a",
-      "started_at": "2026-03-24T18:16:20",
-      "finished_at": "2026-03-24T18:16:40",
-      "verified_at": "2026-03-24T18:16:40",
+      "task_id": "task-7a7fce04-3",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-7a7fce04-3",
+      "commit": "45549c3d9e6aeb5c60a4e8e96fe2866966d5b8ce",
+      "started_at": "2026-03-25T17:00:21",
+      "finished_at": "2026-03-25T17:01:50",
+      "verified_at": "2026-03-25T17:01:50",
       "last_node": "Doc Writer",
-      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04.json",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04-3.json",
       "resume_token": "E7-005",
       "source": "agentsystem_runtime",
       "summary": "Story completed successfully.",
       "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
-      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-7a7fce04\\delivery",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-7a7fce04-3\\delivery",
       "evidence": [
-        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04.json",
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7a7fce04-3.json",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\E7-005.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
         "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\E7-005.json"
@@ -4045,15 +4271,2190 @@
         "all_required_executed": true
       },
       "formal_acceptance_reviewer": "acceptance_gate",
-      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260324181434",
+      "authoritative_attempt": "roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration-attempt-20260325170017",
       "attempt_status": "authoritative",
       "implemented": true,
       "verified": true,
       "agentized": true,
       "accepted": true,
       "repository": "versefina",
-      "formal_flow_gap_reasons": [],
-      "formal_flow_complete": true
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false,
+      "blocker_class": "story_local_blocker"
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "story_id": "V17-001",
+      "status": "running",
+      "started_at": "2026-03-26T09:01:17",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-001_message_input_contract_and_event_record.yaml",
+      "story_id": "V17-001",
+      "task_id": "task-9f2073ac",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-9f2073ac",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T09:01:20",
+      "finished_at": "2026-03-26T09:01:25",
+      "verified_at": "2026-03-26T09:01:25",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-9f2073ac.json",
+      "resume_token": "V17-001",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-9f2073ac\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-9f2073ac.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-001.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-001.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090117",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "story_id": "V17-002",
+      "status": "running",
+      "started_at": "2026-03-26T09:07:12",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-002_event_structuring_field_output.yaml",
+      "story_id": "V17-002",
+      "task_id": "task-dd710c20",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-dd710c20",
+      "commit": "6276f64fde4cd76a0fff96b7afbf7b489040aa71",
+      "started_at": "2026-03-26T09:07:16",
+      "finished_at": "2026-03-26T09:08:10",
+      "verified_at": "2026-03-26T09:08:10",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd710c20.json",
+      "resume_token": "V17-002",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "blocker_class": "story_local_blocker",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-dd710c20.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-002.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-002.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090712",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-dd710c20\\delivery",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "story_id": "V17-003",
+      "status": "running",
+      "started_at": "2026-03-26T09:08:11",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-003_participant_roster_activation.yaml",
+      "story_id": "V17-003",
+      "task_id": "task-6d7c5c6c",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-6d7c5c6c",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T09:08:14",
+      "finished_at": "2026-03-26T09:08:20",
+      "verified_at": "2026-03-26T09:08:20",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6d7c5c6c.json",
+      "resume_token": "V17-003",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-6d7c5c6c\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6d7c5c6c.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-003.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-003.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326090712",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "story_id": "V17-004",
+      "status": "running",
+      "started_at": "2026-03-26T09:59:53",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-004_action_protocol_and_initial_state.yaml",
+      "story_id": "V17-004",
+      "task_id": "task-211b650e-2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-211b650e-2",
+      "commit": "7a63e0baa3aed32848c7a40f7a70beb15756517c",
+      "started_at": "2026-03-26T09:59:56",
+      "finished_at": "2026-03-26T10:01:13",
+      "verified_at": "2026-03-26T10:01:13",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-211b650e-2.json",
+      "resume_token": "V17-004",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "blocker_class": "story_local_blocker",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-211b650e-2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-004.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-004.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326095953",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-211b650e-2\\delivery",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "story_id": "V17-005",
+      "status": "running",
+      "started_at": "2026-03-26T10:01:14",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_1_event_input_and_activation",
+      "sprint_id": "V17-005_event_seed_read_model.yaml",
+      "story_id": "V17-005",
+      "task_id": "task-d64435c8",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-d64435c8",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:01:18",
+      "finished_at": "2026-03-26T10:01:24",
+      "verified_at": "2026-03-26T10:01:24",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d64435c8.json",
+      "resume_token": "V17-005",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-d64435c8\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d64435c8.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-005.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-005.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_1_event_input_and_activation-attempt-20260326095953",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "story_id": "V17-006",
+      "status": "running",
+      "started_at": "2026-03-26T10:01:27",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-006_simulation_prepare_contract.yaml",
+      "story_id": "V17-006",
+      "task_id": "task-bfcec3a8",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-bfcec3a8",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:01:31",
+      "finished_at": "2026-03-26T10:01:37",
+      "verified_at": "2026-03-26T10:01:37",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-bfcec3a8.json",
+      "resume_token": "V17-006",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-bfcec3a8\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-bfcec3a8.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-006.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-006.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326100127",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "story_id": "V17-007",
+      "status": "running",
+      "started_at": "2026-03-26T10:01:38",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-007_participant_interaction_engine.yaml",
+      "story_id": "V17-007",
+      "task_id": "task-da277369",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-da277369",
+      "commit": "08c5a9e8635e93b9273214093bebd43219ed81f5",
+      "started_at": "2026-03-26T10:01:42",
+      "finished_at": "2026-03-26T10:02:32",
+      "verified_at": "2026-03-26T10:02:32",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-da277369.json",
+      "resume_token": "V17-007",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-da277369\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-da277369.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-007.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-007.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326100127",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "story_id": "V17-008",
+      "status": "running",
+      "started_at": "2026-03-26T10:12:33",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-008_action_log_and_state_snapshots.yaml",
+      "story_id": "V17-008",
+      "task_id": "task-4788f1e6-3",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-4788f1e6-3",
+      "commit": "22c02b06abaa62b652df55d5e1a47fdf4efa3551",
+      "started_at": "2026-03-26T10:12:36",
+      "finished_at": "2026-03-26T10:13:16",
+      "verified_at": "2026-03-26T10:13:16",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4788f1e6-3.json",
+      "resume_token": "V17-008",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "blocker_class": "story_local_blocker",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-4788f1e6-3.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-008.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-008.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326101233",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-4788f1e6-3\\delivery",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "story_id": "V17-009",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:17",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-009_first_move_follow_exit_timeline.yaml",
+      "story_id": "V17-009",
+      "task_id": "task-7b83004c",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-7b83004c",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:13:20",
+      "finished_at": "2026-03-26T10:13:23",
+      "verified_at": "2026-03-26T10:13:23",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7b83004c.json",
+      "resume_token": "V17-009",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-7b83004c\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-7b83004c.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-009.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-009.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326101233",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "story_id": "V17-010",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:23",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_2_round_interaction_and_timeline",
+      "sprint_id": "V17-010_simulate_and_round_query_apis.yaml",
+      "story_id": "V17-010",
+      "task_id": "task-d0d841a6",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-d0d841a6",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:13:26",
+      "finished_at": "2026-03-26T10:13:29",
+      "verified_at": "2026-03-26T10:13:29",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d0d841a6.json",
+      "resume_token": "V17-010",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-d0d841a6\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d0d841a6.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-010.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-010.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_2_round_interaction_and_timeline-attempt-20260326101233",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "story_id": "V17-011",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:32",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-011_influence_graph_service.yaml",
+      "story_id": "V17-011",
+      "task_id": "task-01dff035",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-01dff035",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:13:34",
+      "finished_at": "2026-03-26T10:13:38",
+      "verified_at": "2026-03-26T10:13:38",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-01dff035.json",
+      "resume_token": "V17-011",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-01dff035\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-01dff035.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-011.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-011.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "story_id": "V17-012",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:38",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-012_belief_graph_dynamic_update.yaml",
+      "story_id": "V17-012",
+      "task_id": "task-d0f6038d",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-d0f6038d",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:13:41",
+      "finished_at": "2026-03-26T10:13:44",
+      "verified_at": "2026-03-26T10:13:44",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d0f6038d.json",
+      "resume_token": "V17-012",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-d0f6038d\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d0f6038d.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-012.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-012.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "story_id": "V17-013",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:45",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-013_market_state_machine.yaml",
+      "story_id": "V17-013",
+      "task_id": "task-2e7a41e5",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-2e7a41e5",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:13:48",
+      "finished_at": "2026-03-26T10:13:51",
+      "verified_at": "2026-03-26T10:13:51",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2e7a41e5.json",
+      "resume_token": "V17-013",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-2e7a41e5\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-2e7a41e5.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-013.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-013.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "story_id": "V17-014",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:52",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-014_scenario_reviser.yaml",
+      "story_id": "V17-014",
+      "task_id": "task-805a66c2",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-805a66c2",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:13:54",
+      "finished_at": "2026-03-26T10:13:58",
+      "verified_at": "2026-03-26T10:13:58",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-805a66c2.json",
+      "resume_token": "V17-014",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-805a66c2\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-805a66c2.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-014.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-014.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "story_id": "V17-015",
+      "status": "running",
+      "started_at": "2026-03-26T10:13:58",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_3_influence_belief_market_dynamics",
+      "sprint_id": "V17-015_belief_and_scenario_query_surface.yaml",
+      "story_id": "V17-015",
+      "task_id": "task-f455fbfa",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-f455fbfa",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:14:01",
+      "finished_at": "2026-03-26T10:14:04",
+      "verified_at": "2026-03-26T10:14:04",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f455fbfa.json",
+      "resume_token": "V17-015",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-f455fbfa\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-f455fbfa.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-015.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-015.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_3_influence_belief_market_dynamics-attempt-20260326101332",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "story_id": "V17-016",
+      "status": "running",
+      "started_at": "2026-03-26T10:14:07",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-016_simulation_summary_and_replay_schema.yaml",
+      "story_id": "V17-016",
+      "task_id": "task-efe57594",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-efe57594",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:14:10",
+      "finished_at": "2026-03-26T10:14:13",
+      "verified_at": "2026-03-26T10:14:13",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-efe57594.json",
+      "resume_token": "V17-016",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-efe57594\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-efe57594.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-016.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-016.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "story_id": "V17-017",
+      "status": "running",
+      "started_at": "2026-03-26T10:14:14",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-017_report_review_and_why_apis.yaml",
+      "story_id": "V17-017",
+      "task_id": "task-b4e8718d",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-b4e8718d",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:14:16",
+      "finished_at": "2026-03-26T10:14:20",
+      "verified_at": "2026-03-26T10:14:20",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b4e8718d.json",
+      "resume_token": "V17-017",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-b4e8718d\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-b4e8718d.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-017.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-017.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "story_id": "V17-018",
+      "status": "running",
+      "started_at": "2026-03-26T10:14:20",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-018_t1_t3_outcome_hooks_and_validation_model.yaml",
+      "story_id": "V17-018",
+      "task_id": "task-d590d49a",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-d590d49a",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:14:23",
+      "finished_at": "2026-03-26T10:14:26",
+      "verified_at": "2026-03-26T10:14:26",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d590d49a.json",
+      "resume_token": "V17-018",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-d590d49a\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-d590d49a.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-018.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-018.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "story_id": "V17-019",
+      "status": "running",
+      "started_at": "2026-03-26T10:14:27",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-019_reliability_and_scoring_labels.yaml",
+      "story_id": "V17-019",
+      "task_id": "task-6962e179",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-6962e179",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:14:30",
+      "finished_at": "2026-03-26T10:14:33",
+      "verified_at": "2026-03-26T10:14:33",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6962e179.json",
+      "resume_token": "V17-019",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-6962e179\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-6962e179.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-019.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-019.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "story_id": "V17-020",
+      "status": "running",
+      "started_at": "2026-03-26T10:14:34",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed_required_count": 0,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7_sprint_4_replay_report_and_validation",
+      "sprint_id": "V17-020_replay_report_validation_query_apis.yaml",
+      "story_id": "V17-020",
+      "task_id": "task-8a2a81dc",
+      "status": "evidence_incomplete",
+      "branch": "agent/l1-task-8a2a81dc",
+      "commit": "db9345f52525347bb9516c3550f7f6376aeb2228",
+      "started_at": "2026-03-26T10:14:37",
+      "finished_at": "2026-03-26T10:14:40",
+      "verified_at": "2026-03-26T10:14:40",
+      "last_node": "Doc Writer",
+      "audit_path": "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8a2a81dc.json",
+      "resume_token": "V17-020",
+      "source": "agentsystem_runtime",
+      "summary": "Story completed successfully.",
+      "validation_summary": "Install: SKIP (not configured)\nLint: SKIP (out of scope)\nTypecheck: SKIP (not configured)\nTest: SKIP (out of scope)\nStoryValidation: PASS",
+      "delivery_report": "D:\\lyh\\agent\\agent-frame\\agentsystem\\repo-worktree\\.meta\\task-8a2a81dc\\delivery",
+      "evidence": [
+        "D:\\lyh\\agent\\agent-frame\\agentsystem\\runs\\prod_audit_task-8a2a81dc.json",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_handoffs\\V17-020.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\docs\\handoff\\current_handoff.md",
+        "D:\\lyh\\agent\\agent-frame\\versefina\\tasks\\runtime\\story_admissions\\V17-020.json"
+      ],
+      "formal_entry": true,
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa"
+      ],
+      "executed_modes": [
+        "plan-eng-review",
+        "qa",
+        "review"
+      ],
+      "advisory_modes": [],
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa"
+        ],
+        "executed": [
+          "plan-eng-review",
+          "qa",
+          "review"
+        ],
+        "advisory": [],
+        "missing_required": [],
+        "executed_required_count": 3,
+        "required_count": 3,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": true
+      },
+      "formal_acceptance_reviewer": "acceptance_gate",
+      "authoritative_attempt": "roadmap_1_7_sprint_4_replay_report_and_validation-attempt-20260326101407",
+      "attempt_status": "authoritative",
+      "implemented": true,
+      "verified": true,
+      "agentized": true,
+      "accepted": true,
+      "repository": "versefina",
+      "formal_flow_gap_reasons": [
+        "implementation_contract_missing",
+        "agent_execution_contract_missing",
+        "required_artifact_types_missing"
+      ],
+      "formal_flow_complete": false
+    },
+    {
+      "project": "versefina",
+      "backlog_id": "roadmap_1_7",
+      "sprint_id": "roadmap_1_7_sprint_5_event_sandbox_pages",
+      "story_id": "V17-021",
+      "status": "running",
+      "started_at": "2026-03-26T10:44:30",
+      "source": "agentsystem_runtime",
+      "required_modes": [
+        "plan-eng-review",
+        "review",
+        "qa",
+        "browse",
+        "plan-design-review",
+        "design-consultation",
+        "design-review"
+      ],
+      "advisory_modes": [],
+      "repository": "versefina",
+      "agent_mode_coverage": {
+        "required": [
+          "plan-eng-review",
+          "review",
+          "qa",
+          "browse",
+          "plan-design-review",
+          "design-consultation",
+          "design-review"
+        ],
+        "executed": [],
+        "advisory": [],
+        "missing_required": [
+          "plan-eng-review",
+          "review",
+          "qa",
+          "browse",
+          "plan-design-review",
+          "design-consultation",
+          "design-review"
+        ],
+        "executed_required_count": 0,
+        "required_count": 7,
+        "advisory_executed": [],
+        "advisory_executed_count": 0,
+        "all_required_executed": false
+      }
     }
   ]
 }

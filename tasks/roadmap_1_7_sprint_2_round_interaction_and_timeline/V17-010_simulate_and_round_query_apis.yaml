@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V17-010"
+task_name: "Simulate and Round Query APIs"
+sprint: "Sprint 2 Round Interaction and Timeline"
+epic: "Epic 2.2 Timeline Projection"
+story_id: "V17-010"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose simulate command and round-level query APIs that make the interaction runtime observable from Swagger and the future UI."
+business_value: "Gives the product and QA layers a stable way to run and inspect the dynamic simulation."
+entry_criteria:
+  - "V17-009 is complete and timeline summaries can be derived from the run."
+acceptance_criteria:
+  - "POST /api/v1/events/{event_id}/simulate runs the prepared simulation."
+  - "GET /api/v1/events/{event_id}/simulation returns the run summary."
+  - "GET /api/v1/events/{event_id}/simulation/rounds and /rounds/{round} return per-round payloads."
+constraints:
+  - "Do not collapse round details into only a final summary."
+out_of_scope:
+  - "No replay or validation pages yet."
+dependencies:
+  - "V17-009"
+related_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_010_delivery.md"
+primary_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v17_010_delivery.md"
+test_cases:
+  normal:
+    - "Run one event simulation and fetch its summary plus one round payload."
+  exception:
+    - "Return not_found for round queries against a missing or unprepared event."

@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V17-004"
+task_name: "Action Protocol and Initial Participant State"
+sprint: "Sprint 1 Event Input and Activation"
+epic: "Epic 1.2 Participant Activation"
+story_id: "V17-004"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Define the P0 action protocol and initialize participant state so later rounds can emit structured actions."
+business_value: "Gives the simulator a stable contract for action generation and state transitions."
+entry_criteria:
+  - "V17-003 is complete and participant rosters are persisted."
+acceptance_criteria:
+  - "Schemas define IGNORE, WATCH, VALIDATE, BROADCAST_BULL, BROADCAST_BEAR, LEAD, FOLLOW, and EXIT."
+  - "Each action carries actor, target, round, confidence, reason_code, and state transition metadata."
+  - "Prepared participants expose an initial state that is compatible with the action protocol."
+constraints:
+  - "P0 only needs the first action vocabulary described in the 1.7 doc."
+out_of_scope:
+  - "No round runner yet."
+dependencies:
+  - "V17-003"
+related_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v17_004_delivery.md"
+primary_files:
+  - "apps/api/src/schemas/simulation.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+secondary_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v17_004_delivery.md"
+test_cases:
+  normal:
+    - "Prepared participants expose initial state and action protocol metadata that later simulation code can consume."
+  exception:
+    - "Reject unsupported action names or malformed action payloads."

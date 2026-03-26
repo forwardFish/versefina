@@ -137,3 +137,39 @@ class TradeCalendarSyncResponse:
     next_trading_day: str | None
     source: str
     cache_path: str
+
+
+@dataclass(frozen=True, slots=True)
+class EventCreateRequest:
+    title: str
+    body: str
+    source: str = "manual_text"
+    event_time: str | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class EventCreateResponse:
+    event_id: str
+    event_type: str
+    status: str
+    structure: dict[str, Any]
+    mapping: dict[str, Any]
+
+
+@dataclass(frozen=True, slots=True)
+class EventPrepareResponse:
+    event_id: str
+    status: str
+    casebook: dict[str, Any]
+    participant_roster: dict[str, Any] | None = None
+
+
+@dataclass(frozen=True, slots=True)
+class OutcomeReviewWriteRequest:
+    horizon: str
+    sector_performance: str
+    leader_performance: str
+    expansion_status: str
+    sentiment_status: str
+    analyst_note: str = ""
+    supporting_evidence: list[str] = field(default_factory=list)
