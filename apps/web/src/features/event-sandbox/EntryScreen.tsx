@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-import { createEventChain, getApiBaseUrl } from "./api";
+import { createEventChain, getApiBaseUrl, importEventFromFinahunt } from "./api";
 import {
   ActionLink,
   LabelBlock,
@@ -37,6 +37,7 @@ export function EventSandboxEntryScreen() {
     "锂盐供应收紧推动上游价格快速走高，产业链渠道开始确认涨价，短线资金追逐资源端标的。",
   );
   const [submitting, setSubmitting] = useState(false);
+  const [importing, setImporting] = useState(false);
   const [error, setError] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -57,11 +58,24 @@ export function EventSandboxEntryScreen() {
     }
   }
 
+  async function handleFinahuntImport() {
+    setImporting(true);
+    setError("");
+    try {
+      const imported = await importEventFromFinahunt({ auto_structure_prepare_simulate: true });
+      router.push(`/event-sandbox/${imported.event_id}`);
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "导入真实 Finahunt 事件失败。");
+    } finally {
+      setImporting(false);
+    }
+  }
+
   return (
     <PageShell
       eyebrow="Versefina 1.7 沙盘"
       title="真实事件演化墙"
-      description="从一条真实市场消息出发，依次完成事件结构化、参与者激活、多轮互动、影响传播和结果验证。这里不是静态模板，而是整个产品链路的第一站。"
+      description="这里不是静态 Demo，而是一条真实规则链路的入口。你可以手工输入一条事件，也可以直接从 Finahunt 的真实运行结果导入，然后一路看到参与者激活、多轮互动、影响传播和最终验证。"
       actions={
         <>
           <ActionLink href={`${getApiBaseUrl()}/docs`} label="打开 Swagger" external />
@@ -73,9 +87,9 @@ export function EventSandboxEntryScreen() {
     >
       <section style={panelStyle}>
         <SectionHeader
-          eyebrow="输入"
-          title="提交真实消息并启动演化"
-          description="提交后会调用真实 API 链路：创建事件、结构化、准备参与者并运行多轮推演，然后直接进入事件演化墙。"
+          eyebrow="入口"
+          title="提交事件或导入真实来源"
+          description="手工输入会直接调用真实 API 完成结构化、参与者准备和推演。导入按钮会从最新的 Finahunt 真实运行结果中选出事件候选，并自动生成 Versefina 事件沙盘。"
         />
         <form onSubmit={handleSubmit} style={{ display: "grid", gap: 18 }}>
           <LabelBlock label="事件标题">
@@ -110,7 +124,23 @@ export function EventSandboxEntryScreen() {
             >
               {submitting ? "正在运行真实链路..." : "启动事件沙盘"}
             </button>
-            <span style={mutedStyle}>这里只读取真实 API，不会用 mock 数据冒充结果。</span>
+            <button
+              type="button"
+              disabled={importing}
+              onClick={() => void handleFinahuntImport()}
+              style={{
+                border: "1px solid rgba(251, 146, 60, 0.34)",
+                borderRadius: 999,
+                padding: "14px 20px",
+                background: "rgba(249, 115, 22, 0.16)",
+                color: "#ffedd5",
+                fontWeight: 700,
+                cursor: importing ? "wait" : "pointer",
+              }}
+            >
+              {importing ? "正在导入真实 Finahunt 事件..." : "导入真实 Finahunt 事件"}
+            </button>
+            <span style={mutedStyle}>页面只读取真实 API 结果，不用 mock 数据冒充效果。</span>
           </div>
           {error ? <Notice tone="error">{error}</Notice> : null}
         </form>
@@ -120,15 +150,15 @@ export function EventSandboxEntryScreen() {
         <SectionHeader
           eyebrow="你会看到什么"
           title="不是一张表单，而是一整面演化墙"
-          description="提交完成后，下一页会把这条消息如何推动金融 Agent 逐轮演化展示出来。"
+          description="提交后，下一页会把这条事件如何推动金融 Agent 逐轮演化完整展示出来。"
         />
         <div style={gridThreeStyle}>
-          <MiniCard title="参与者编排" value="展示有多少金融 Agent 被激活、各自角色、激活理由和当前状态。" />
-          <MiniCard title="轮次时间轴" value="展示 3 到 5 轮推演、谁先动、谁跟随、谁施压以及关键转折点。" />
+          <MiniCard title="参与者编排" value="展示激活了多少金融 Agent、各自角色、激活原因和当前状态。" />
+          <MiniCard title="轮次时间轴" value="展示 3 到 5 轮推演，谁先动、谁跟随、谁施压以及关键转折点。" />
           <MiniCard title="影响传播图" value="把谁影响了谁、影响原因和方向放到同一张网络图里。" />
           <MiniCard title="信念与剧本" value="按轮次展示 belief、bull/base/bear 剧本和当前主导路径。" />
-          <MiniCard title="市场状态" value="把 DORMANT 到 INVALIDATED 的状态变化直接投影到页面。" />
-          <MiniCard title="验证结果" value="最终页会展示 predicted、actual、score、why 和 reliability。" />
+          <MiniCard title="市场状态" value="直接看到从 DORMANT 到 INVALIDATED 的状态变化。" />
+          <MiniCard title="验证结果" value="最终页会显示 predicted、actual、score、why 和 reliability。" />
         </div>
       </section>
 
@@ -159,6 +189,7 @@ export function EventSandboxEntryScreen() {
               <li>3 轮推演把市场状态从点火推进到传播和脆弱阶段。</li>
               <li>参与者详情页可以看到入边、出边和逐轮动作。</li>
               <li>验证页可以同时看到 predicted、actual、score 和 why。</li>
+              <li>现在也可以直接从真实 Finahunt 排行结果导入事件，并在总览页看到来源 run 和消息链路。</li>
             </ul>
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>

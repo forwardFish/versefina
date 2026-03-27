@@ -48,26 +48,36 @@ class EventIngestionService:
                 code="EVENT_NOT_IN_WHITELIST",
                 message="Only supply-chain price shock events can enter the P0 workflow.",
             )
-        event_id = self._build_event_id(payload)
         record = EventRecord(
-            event_id=event_id,
+            event_id=self._build_event_id(payload),
             title=(payload.title or body[:48]).strip(),
             body=body,
             source=payload.source,
             event_time=payload.event_time or datetime.now(UTC).isoformat(),
             status="raw",
         )
-        self._write_record(record)
-        structure = self.structuring_service.structure_event(record)
-        mapping = self.theme_mapping_service.map_structure(structure)
-        self.casebook_service.write_casebook(record=record, structure=structure, mapping=mapping, status="structured")
-        return EventCreateResponse(
-            event_id=record.event_id,
-            event_type=structure.event_type,
-            status="structured",
-            structure=asdict(structure),
-            mapping=asdict(mapping),
+        return self._persist_structured_event(record)
+
+    def ingest_external_event(
+        self,
+        *,
+        title: str,
+        body: str,
+        source: str,
+        event_time: str | None = None,
+    ) -> EventCreateResponse:
+        cleaned_body = body.strip()
+        if not cleaned_body:
+            raise EventIngestionError(code="EVENT_TEXT_REQUIRED", message="Event text must not be empty.")
+        record = EventRecord(
+            event_id=self._build_event_id(EventCreateRequest(title=title, body=cleaned_body, source=source, event_time=event_time)),
+            title=(title or cleaned_body[:48]).strip(),
+            body=cleaned_body,
+            source=source,
+            event_time=event_time or datetime.now(UTC).isoformat(),
+            status="raw",
         )
+        return self._persist_structured_event(record)
 
     def prepare_event(self, event_id: str) -> EventPrepareResponse:
         casebook = self.casebook_service.mark_prepared(event_id)
@@ -98,6 +108,19 @@ class EventIngestionService:
     def _is_whitelisted(self, text: str) -> bool:
         lowered = text.lower()
         return any(token in lowered for token in _WHITELIST_HINTS)
+
+    def _persist_structured_event(self, record: EventRecord) -> EventCreateResponse:
+        self._write_record(record)
+        structure = self.structuring_service.structure_event(record)
+        mapping = self.theme_mapping_service.map_structure(structure)
+        self.casebook_service.write_casebook(record=record, structure=structure, mapping=mapping, status="structured")
+        return EventCreateResponse(
+            event_id=record.event_id,
+            event_type=structure.event_type,
+            status="structured",
+            structure=asdict(structure),
+            mapping=asdict(mapping),
+        )
 
     def _write_record(self, record: EventRecord) -> None:
         target_path = self.record_root / f"{record.event_id}.json"

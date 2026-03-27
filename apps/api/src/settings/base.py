@@ -28,6 +28,7 @@ class Settings:
     simulation_runtime_root: str = str(REPO_ROOT / ".runtime" / "event_simulations")
     roadmap_source_root: str = str(REPO_ROOT)
     roadmap_acceptance_root: str = str(REPO_ROOT / ".runtime" / "roadmap_acceptance")
+    finahunt_runtime_root: str = str(REPO_ROOT.parent / "finahunt" / "workspace" / "artifacts" / "runtime")
     statement_max_upload_bytes: int = 10 * 1024 * 1024
 
 
@@ -54,5 +55,9 @@ def get_settings() -> Settings:
         simulation_runtime_root=os.getenv("SIMULATION_RUNTIME_ROOT", str(REPO_ROOT / ".runtime" / "event_simulations")),
         roadmap_source_root=os.getenv("ROADMAP_SOURCE_ROOT", str(REPO_ROOT)),
         roadmap_acceptance_root=os.getenv("ROADMAP_ACCEPTANCE_ROOT", str(REPO_ROOT / ".runtime" / "roadmap_acceptance")),
+        finahunt_runtime_root=os.getenv(
+            "FINAHUNT_RUNTIME_ROOT",
+            str(REPO_ROOT.parent / "finahunt" / "workspace" / "artifacts" / "runtime"),
+        ),
         statement_max_upload_bytes=int(os.getenv("STATEMENT_MAX_UPLOAD_BYTES", str(10 * 1024 * 1024))),
     )

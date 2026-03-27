@@ -70,6 +70,23 @@ export type EventRecordPayload = {
   mapping?: GenericRecord;
 };
 
+export type EventLineagePayload = {
+  event_id: string;
+  status: string;
+  finahunt_run_id?: string;
+  finahunt_trace_id?: string;
+  source_artifact?: string;
+  source_event_id?: string;
+  source_title?: string;
+  source_name?: string;
+  source_url?: string;
+  source_priority?: string;
+  primary_theme?: string;
+  ranking_context?: GenericRecord;
+  message_snapshot?: GenericRecord;
+  imported_at?: string;
+};
+
 export type ParticipantListPayload = {
   event_id: string;
   status: string;
@@ -134,4 +151,22 @@ export type CreateEventPayload = {
   body: string;
   source: string;
   event_time?: string;
+};
+
+export type ImportFinahuntEventPayload = {
+  run_id?: string;
+  rank_position?: number;
+  message_id?: string;
+  auto_structure_prepare_simulate?: boolean;
+};
+
+export type ImportFinahuntEventResponse = {
+  event_id: string;
+  status: string;
+  run_id: string;
+  source_event_id: string;
+  lineage: EventLineagePayload;
+  structure_status: string;
+  participant_status: string;
+  simulation_status: string;
 };

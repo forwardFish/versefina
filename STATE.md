@@ -1,27 +1,33 @@
 # STATE.md
 
-- Updated: 2026-03-27T14:44:30
-- Trigger: node_boundary
-- Goal: Create /event-sandbox so one incoming message can be submitted, structured, prepared, and sent into simulation from a product-facing page.
-- Phase: active_delivery
-- Current sprint: V17-021_event_sandbox_input_page.yaml
-- Current story: V17-021
-- Status: interrupted
+- Updated: 2026-03-27T21:18:20+08:00
+- Trigger: post_acceptance_followup
+- Goal: Real Finahunt Event Ingestion and Lineage Surfacing
+- Phase: post_acceptance::real_event_ingestion
+- Current sprint: roadmap_1_7_post_acceptance_bootstrap
+- Current story: bootstrap-real-ingestion
+- Status: running
 
 ## Done
-- None
+- roadmap_1_7 completed through V17-030 with completed handoff and roadmap summary.
+- event-sandbox product pages, replay, participant detail, and validation pages are live.
+- real finahunt event ingestion API and lineage query API are implemented.
+- event-sandbox entry and overview surfaces now support real finahunt import and lineage display.
 
 ## Working
-- Sprint `V17-021_event_sandbox_input_page.yaml` / Story `V17-021` / Status `interrupted`
+- Post-acceptance enhancement is validating real finahunt ingestion against the live API and product page.
 
 ## Problems
-- V17-021: failed - run_prod_task_exception
-- S2-001: failed - Loop detected after repeated reviewer/fixer attempts with no material progress.
-- S2-007: failed - 'gbk' codec can't encode character '\ufffd' in position 89: illegal multibyte sequence
+- 3000 product server must run via `npx next start` because this app does not define an `npm start` script.
+- UI copy still contains legacy mojibake in several untouched screens and should be normalized in the next cleanup pass.
 
 ## Next
-- Resume story V17-021 from node Code Acceptance after code commit and runner restart.
-- Follow up review findings for V17-021.
+- Validate the new `/api/v1/events/from-finahunt` path end-to-end through the live product page.
+- Normalize remaining event-sandbox Chinese copy and source labels.
+- Promote the post-acceptance finahunt ingestion lane into authoritative task assets if the next step continues through agentsystem.
 
 ## Artifact Refs
-- None
+- D:\lyh\agent\agent-frame\agentsystem\runs\roadmaps\roadmap_1_7_20260326_090117.json
+- D:\lyh\agent\agent-frame\finahunt\workspace\artifacts\runtime\run-eeaa8331e92d\manifest.json
+- D:\lyh\agent\agent-frame\finahunt\workspace\artifacts\runtime\run-eeaa8331e92d\ranked_result_feed.json
+- D:\lyh\agent\agent-frame\finahunt\workspace\artifacts\runtime\run-eeaa8331e92d\daily_message_workbench.json

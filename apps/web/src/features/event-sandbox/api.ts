@@ -1,7 +1,10 @@
 import type {
   CreateEventPayload,
   EventRecordPayload,
+  EventLineagePayload,
   InfluenceGraphPayload,
+  ImportFinahuntEventPayload,
+  ImportFinahuntEventResponse,
   ParticipantListPayload,
   ReplayPayload,
   RoundCollectionPayload,
@@ -76,6 +79,15 @@ export async function createEventChain(payload: CreateEventPayload): Promise<{ e
   return created;
 }
 
+export async function importEventFromFinahunt(
+  payload: ImportFinahuntEventPayload = {},
+): Promise<ImportFinahuntEventResponse> {
+  return requestJson<ImportFinahuntEventResponse>("/events/from-finahunt", {
+    method: "POST",
+    body: JSON.stringify(payload),
+  });
+}
+
 export function getApiBaseUrl() {
   return DIRECT_API_BASE_URL;
 }
@@ -86,6 +98,10 @@ export function getEvent(eventId: string) {
 
 export function getParticipants(eventId: string) {
   return requestJson<ParticipantListPayload>(`/events/${eventId}/participants`);
+}
+
+export function getLineage(eventId: string) {
+  return requestJson<EventLineagePayload>(`/events/${eventId}/lineage`);
 }
 
 export function getSimulation(eventId: string) {

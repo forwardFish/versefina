@@ -81,3 +81,24 @@ class EventCardReadModel:
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
 
+
+@dataclass(frozen=True, slots=True)
+class EventLineagePayload:
+    event_id: str
+    status: str
+    finahunt_run_id: str
+    finahunt_trace_id: str = ""
+    source_artifact: str = ""
+    source_event_id: str = ""
+    source_title: str = ""
+    source_name: str = ""
+    source_url: str = ""
+    source_priority: str = ""
+    primary_theme: str = ""
+    ranking_context: dict[str, Any] = field(default_factory=dict)
+    message_snapshot: dict[str, Any] = field(default_factory=dict)
+    imported_at: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
+

@@ -165,6 +165,26 @@ class EventPrepareResponse:
 
 
 @dataclass(frozen=True, slots=True)
+class FinahuntEventImportRequest:
+    run_id: str | None = None
+    rank_position: int | None = None
+    message_id: str | None = None
+    auto_structure_prepare_simulate: bool = True
+
+
+@dataclass(frozen=True, slots=True)
+class FinahuntEventImportResponse:
+    event_id: str
+    status: str
+    run_id: str
+    source_event_id: str
+    lineage: dict[str, Any]
+    structure_status: str
+    participant_status: str
+    simulation_status: str
+
+
+@dataclass(frozen=True, slots=True)
 class OutcomeReviewWriteRequest:
     horizon: str
     sector_performance: str

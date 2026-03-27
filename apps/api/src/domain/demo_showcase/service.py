@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from schemas.demo import RuntimeShowcaseResponse
+from schemas.demo_showcase import RuntimeShowcaseResponse
 
 
 class DemoRuntimeShowcaseService:

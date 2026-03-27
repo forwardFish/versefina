@@ -7,6 +7,7 @@ import {
   getBelief,
   getEvent,
   getInfluenceGraph,
+  getLineage,
   getParticipants,
   getReport,
   getRounds,
@@ -14,6 +15,7 @@ import {
   getSimulation,
 } from "./api";
 import type {
+  EventLineagePayload,
   GenericRecord,
   InfluenceEdgeRecord,
   InfluenceGraphPayload,
@@ -46,6 +48,7 @@ import {
 
 type OverviewPayload = {
   event: GenericRecord;
+  lineage: EventLineagePayload;
   participants: { participants: ParticipantRecord[]; casebook_status?: string };
   simulation: SimulationSummaryPayload;
   rounds: { rounds: RoundSnapshotRecord[]; status: string };
@@ -58,8 +61,9 @@ type OverviewPayload = {
 export function EventSandboxOverviewScreen({ eventId }: { eventId: string }) {
   const state = useAsyncPayload<OverviewPayload>(
     async () => {
-      const [event, participants, simulation, rounds, influence, belief, scenarios, report] = await Promise.all([
+      const [event, lineage, participants, simulation, rounds, influence, belief, scenarios, report] = await Promise.all([
         getEvent(eventId),
+        getLineage(eventId),
         getParticipants(eventId),
         getSimulation(eventId),
         getRounds(eventId),
@@ -68,7 +72,7 @@ export function EventSandboxOverviewScreen({ eventId }: { eventId: string }) {
         getScenarios(eventId),
         getReport(eventId),
       ]);
-      return { event, participants, simulation, rounds, influence, belief, scenarios, report };
+      return { event, lineage, participants, simulation, rounds, influence, belief, scenarios, report };
     },
     [eventId],
   );
@@ -80,6 +84,7 @@ export function EventSandboxOverviewScreen({ eventId }: { eventId: string }) {
   const eventRecord = asRecord(state.data?.event.record ?? state.data?.event);
   const structure = asRecord(state.data?.event.structure);
   const mapping = asRecord(state.data?.event.mapping);
+  const lineage = state.data?.lineage;
   const orchestrationRows = buildOrchestrationRows(
     state.data?.participants.participants ?? [],
     state.data?.rounds.rounds ?? [],
@@ -119,6 +124,38 @@ export function EventSandboxOverviewScreen({ eventId }: { eventId: string }) {
               <MiniCard title="轮次数量" value={String(state.data.simulation.round_count ?? 0)} />
               <MiniCard title="案例基座状态" value={stringValue(state.data.participants.casebook_status)} />
             </div>
+            {lineage?.status === "ready" ? (
+              <>
+                <div style={{ ...gridThreeStyle, marginTop: 18 }}>
+                  <MiniCard title="真实来源 Run" value={stringValue(lineage.finahunt_run_id)} />
+                  <MiniCard title="来源主题" value={stringValue(lineage.primary_theme)} />
+                  <MiniCard title="来源消息 ID" value={stringValue(lineage.source_event_id)} />
+                  <MiniCard title="来源介质" value={stringValue(lineage.source_name)} />
+                  <MiniCard title="来源优先级" value={stringValue(lineage.source_priority)} />
+                  <MiniCard title="来源工件" value={stringValue(lineage.source_artifact)} />
+                </div>
+                <div style={{ ...gridTwoStyle, marginTop: 18 }}>
+                  <MetricPanel
+                    title="来源链路"
+                    items={[
+                      ["Finahunt Run", stringValue(lineage.finahunt_run_id)],
+                      ["Trace", stringValue(lineage.finahunt_trace_id)],
+                      ["标题", stringValue(lineage.source_title)],
+                      ["消息 ID", stringValue(lineage.source_event_id)],
+                    ]}
+                  />
+                  <MetricPanel
+                    title="排序上下文"
+                    items={[
+                      ["排序位次", stringValue(asRecord(lineage.ranking_context).rank_position)],
+                      ["相关性得分", numberString(asRecord(lineage.ranking_context).relevance_score)],
+                      ["主题", stringValue(asRecord(lineage.ranking_context).theme_name)],
+                      ["发酵阶段", stringValue(asRecord(lineage.ranking_context).fermentation_phase)],
+                    ]}
+                  />
+                </div>
+              </>
+            ) : null}
           </section>
 
           <section style={{ ...panelStyle, marginTop: 20 }}>
@@ -138,7 +175,7 @@ export function EventSandboxOverviewScreen({ eventId }: { eventId: string }) {
             <SectionHeader
               eyebrow="Agent 编排"
               title={`这次事件一共激活了 ${orchestrationRows.length} 个金融 Agent`}
-              description="这里直接展示每个金融 Agent 在这次事件里扮演的角色、逐轮动作、最终状态，以及它如何参与推动事件发酵。"
+              description="这里直接展示每个金融 Agent 在这次事件里扮演的角色、逐轮动作、最终状态，以及它如何推动事件发酵。"
             />
             <div style={gridThreeStyle}>
               <MiniCard title="首发带动者" value={String(roleCounts.first_move)} />
@@ -146,10 +183,7 @@ export function EventSandboxOverviewScreen({ eventId }: { eventId: string }) {
               <MiniCard title="风险观察者" value={String(roleCounts.risk_watch)} />
               <MiniCard title="最终市场状态" value={stringValue(state.data.simulation.latest_market_state)} />
               <MiniCard title="关键转折轮次" value={joinList(state.data.simulation.timeline?.turning_points)} />
-              <MiniCard
-                title="当前主导剧本"
-                value={stringValue(latestScenario.dominant_scenario ?? state.data.simulation.dominant_scenario)}
-              />
+              <MiniCard title="当前主导剧本" value={stringValue(latestScenario.dominant_scenario ?? state.data.simulation.dominant_scenario)} />
             </div>
             <div style={{ display: "grid", gap: 14, marginTop: 18 }}>
               {orchestrationRows.map((row) => (

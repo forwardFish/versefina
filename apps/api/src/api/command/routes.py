@@ -4,6 +4,7 @@ from dataclasses import asdict
 
 from domain.acceptance_pack.service import AcceptancePackError
 from domain.event_ingestion.service import EventIngestionError
+from domain.finahunt_ingestion.service import FinahuntIngestionError
 from domain.event_sandbox.service import EventSandboxError
 from domain.mirror_agent.service import MirrorAgentError
 from domain.outcome_review.service import OutcomeReviewError
@@ -20,6 +21,7 @@ from schemas.command import (
     AgentCreateRequest,
     AgentRegisterRequest,
     EventCreateRequest,
+    FinahuntEventImportRequest,
     HeartbeatRequest,
     OutcomeReviewWriteRequest,
     StatementStatusUpdateRequest,
@@ -69,6 +71,16 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
         try:
             return asdict(container.event_ingestion.ingest_event(payload))
         except EventIngestionError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={"error_code": exc.code, "error_message": exc.message},
+            )
+
+    @router.post("/api/v1/events/from-finahunt")
+    def create_event_from_finahunt(payload: FinahuntEventImportRequest):
+        try:
+            return asdict(container.finahunt_ingestion.import_event(payload))
+        except (FinahuntIngestionError, EventIngestionError, EventSandboxError) as exc:
             return JSONResponse(
                 status_code=exc.status_code,
                 content={"error_code": exc.code, "error_message": exc.message},

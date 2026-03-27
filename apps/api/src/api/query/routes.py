@@ -49,6 +49,13 @@ def build_query_router(container: ServiceContainer) -> APIRouter:
             return {"event_id": event_id, "status": "not_found"}
         return record.to_dict()
 
+    @router.get("/api/v1/events/{event_id}/lineage")
+    def event_lineage(event_id: str):
+        lineage = container.finahunt_ingestion.load_lineage(event_id)
+        if lineage is None:
+            return {"event_id": event_id, "status": "not_found"}
+        return lineage.to_dict()
+
     @router.get("/api/v1/events/{event_id}/casebook")
     def event_casebook(event_id: str):
         casebook = container.event_casebook.load_casebook(event_id)

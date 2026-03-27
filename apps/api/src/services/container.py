@@ -10,6 +10,7 @@ from domain.calibration.service import CalibrationService
 from domain.demo_showcase.service import DemoRuntimeShowcaseService
 from domain.dna_engine.service import DNAEngineService
 from domain.event_casebook.service import EventCasebookService
+from domain.finahunt_ingestion.service import FinahuntEventIngestionService
 from domain.event_ingestion.service import EventIngestionService
 from domain.event_sandbox.service import EventSandboxService
 from domain.outcome_review.service import OutcomeReviewService
@@ -53,6 +54,7 @@ class ServiceContainer:
     event_structuring: EventStructuringService
     theme_mapping: ThemeMappingService
     event_casebook: EventCasebookService
+    finahunt_ingestion: FinahuntEventIngestionService
     participant_registry: ParticipantRegistry
     participant_preparation: ParticipantPreparationService
     belief_graph: BeliefGraphService
@@ -157,6 +159,12 @@ def build_container() -> ServiceContainer:
         reporting=reporting,
         outcome_review=outcome_review,
     )
+    finahunt_ingestion = FinahuntEventIngestionService(
+        finahunt_runtime_root=Path(settings.finahunt_runtime_root),
+        event_runtime_root=Path(settings.event_runtime_root),
+        event_ingestion=event_ingestion,
+        event_sandbox=event_sandbox,
+    )
     return ServiceContainer(
         acceptance_pack=AcceptancePackService(
             repo_root=Path(settings.roadmap_source_root),
@@ -195,6 +203,7 @@ def build_container() -> ServiceContainer:
         event_structuring=event_structuring,
         theme_mapping=theme_mapping,
         event_casebook=event_casebook,
+        finahunt_ingestion=finahunt_ingestion,
         participant_registry=participant_registry,
         participant_preparation=participant_preparation,
         belief_graph=belief_graph,
