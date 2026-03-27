@@ -3,4 +3,4 @@ format:
 lint:
   - "pnpm --dir apps/web lint"
 test:
-  - "pnpm --dir apps/web test --run"
+  - "pnpm --dir apps/web test:unit --run"

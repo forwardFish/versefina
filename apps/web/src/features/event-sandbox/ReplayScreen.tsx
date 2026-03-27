@@ -31,26 +31,26 @@ export function EventSandboxReplayScreen({ eventId }: { eventId: string }) {
 
   return (
     <PageShell
-      eyebrow="Roadmap 1.7 Replay"
-      title={`Replay: ${eventId}`}
-      description="Use this page to replay the event path round by round and inspect the action ledger behind the final result."
+      eyebrow="事件回放"
+      title={`事件回放：${eventId}`}
+      description="这一页按轮次回放事件演化过程，让你看到最终结论背后的动作流水。"
       actions={
         <>
-          <ActionLink href={`/event-sandbox/${eventId}`} label="Overview" />
-          <ActionLink href={`/event-sandbox/${eventId}/validation`} label="Validation" />
-          <ActionLink href={`${getApiBaseUrl()}/docs`} label="Swagger" external />
+          <ActionLink href={`/event-sandbox/${eventId}`} label="返回总览" />
+          <ActionLink href={`/event-sandbox/${eventId}/validation`} label="查看验证" />
+          <ActionLink href={`${getApiBaseUrl()}/docs`} label="打开 Swagger" external />
         </>
       }
     >
-      {state.status === "loading" ? <Notice>Loading replay...</Notice> : null}
+      {state.status === "loading" ? <Notice>正在加载回放...</Notice> : null}
       {state.status === "error" ? <Notice tone="error">{state.error}</Notice> : null}
       {state.data ? (
         <>
           <section style={panelStyle}>
             <SectionHeader
-              eyebrow="Replay"
-              title={`Dominant scenario: ${state.data.dominant_scenario ?? "-"}`}
-              description="Switch rounds to see how participant actions, states, and influence changed over time."
+              eyebrow="回放"
+              title={`当前主导剧本：${state.data.dominant_scenario ?? "-"}`}
+              description="切换不同轮次，查看参与者动作、状态和影响网络如何随着时间变化。"
             />
             <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
               {(state.data.rounds || []).map((round) => (
@@ -69,21 +69,21 @@ export function EventSandboxReplayScreen({ eventId }: { eventId: string }) {
               ))}
             </div>
             <div style={{ ...mutedStyle, marginTop: 16 }}>
-              turning points: {Array.isArray(state.data.timeline?.turning_points) ? state.data.timeline?.turning_points?.join(", ") : "-"}
+              关键转折：{Array.isArray(state.data.timeline?.turning_points) ? state.data.timeline?.turning_points?.join("、") : "-"}
             </div>
           </section>
           {activeRound ? (
             <section style={{ ...panelStyle, marginTop: 20 }}>
               <SectionHeader
-                eyebrow="Active round"
-                title={`${activeRound.round_id} - ${activeRound.focus}`}
+                eyebrow="当前轮次"
+                title={`${activeRound.round_id} · ${activeRound.focus}`}
                 description={activeRound.objective}
               />
               <div style={{ display: "grid", gap: 18, gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
-                <JsonCard title="Participant actions" data={activeRound.participant_actions} />
-                <JsonCard title="Participant states" data={activeRound.participant_states} />
-                <JsonCard title="Belief snapshot" data={activeRound.belief_snapshot} />
-                <JsonCard title="Scenario snapshot" data={activeRound.scenario_snapshot} />
+                <JsonCard title="参与者动作" data={activeRound.participant_actions} />
+                <JsonCard title="参与者状态" data={activeRound.participant_states} />
+                <JsonCard title="信念快照" data={activeRound.belief_snapshot} />
+                <JsonCard title="剧本快照" data={activeRound.scenario_snapshot} />
               </div>
             </section>
           ) : null}

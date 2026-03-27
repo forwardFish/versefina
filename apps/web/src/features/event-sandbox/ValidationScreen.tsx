@@ -9,31 +9,31 @@ export function EventSandboxValidationScreen({ eventId }: { eventId: string }) {
 
   return (
     <PageShell
-      eyebrow="Validation"
-      title={`Validation: ${eventId}`}
-      description="This page combines report, why, outcomes, and reliability so you can inspect whether the live run is coherent."
+      eyebrow="验证"
+      title={`验证结果：${eventId}`}
+      description="这里把报告、Why、Outcome 和 Reliability 放到一起，方便你判断这次真实推演是否站得住。"
       actions={
         <>
-          <ActionLink href={`/event-sandbox/${eventId}`} label="Overview" />
-          <ActionLink href={`/event-sandbox/${eventId}/replay`} label="Replay" />
-          <ActionLink href={`${getApiBaseUrl()}/docs`} label="Swagger" external />
+          <ActionLink href={`/event-sandbox/${eventId}`} label="返回总览" />
+          <ActionLink href={`/event-sandbox/${eventId}/replay`} label="查看回放" />
+          <ActionLink href={`${getApiBaseUrl()}/docs`} label="打开 Swagger" external />
         </>
       }
     >
-      {state.status === "loading" ? <Notice>Loading validation...</Notice> : null}
+      {state.status === "loading" ? <Notice>正在加载验证结果...</Notice> : null}
       {state.status === "error" ? <Notice tone="error">{state.error}</Notice> : null}
       {state.data ? (
         <section style={panelStyle}>
           <SectionHeader
-            eyebrow="Validation pack"
-            title={`Status: ${state.data.status}`}
-            description="Validation combines explanation, outcomes, and reliability into one place."
+            eyebrow="验证区"
+            title={`状态：${state.data.status}`}
+            description="验证页把解释、真实结果和可靠性放到同一个位置。"
           />
           <div style={gridTwoStyle}>
-            <JsonCard title="Report" data={state.data.report} />
+            <JsonCard title="报告" data={state.data.report} />
             <JsonCard title="Why" data={state.data.why} />
-            <JsonCard title="Outcomes" data={state.data.outcomes} />
-            <JsonCard title="Reliability" data={state.data.reliability} />
+            <JsonCard title="真实结果" data={state.data.outcomes} />
+            <JsonCard title="可靠性" data={state.data.reliability} />
           </div>
         </section>
       ) : null}

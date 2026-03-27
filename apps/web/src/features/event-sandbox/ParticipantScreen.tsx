@@ -1,24 +1,30 @@
 "use client";
 
 import { getInfluenceGraph, getParticipants, getReplay } from "./api";
-import type { InfluenceEdgeRecord, InfluenceGraphPayload, ParticipantActionRecord, ParticipantRecord, ReplayPayload } from "./types";
+import type {
+  InfluenceEdgeRecord,
+  InfluenceGraphPayload,
+  ParticipantActionRecord,
+  ParticipantRecord,
+  ReplayPayload,
+} from "./types";
 import {
   ActionLink,
   JsonCard,
   MiniCard,
   Notice,
   PageShell,
+  Pill,
   SectionHeader,
   cardStyle,
   gridThreeStyle,
   gridTwoStyle,
+  joinList,
   mutedStyle,
   numberString,
   panelStyle,
   stringValue,
   useAsyncPayload,
-  joinList,
-  Pill,
 } from "./shared";
 
 export function EventSandboxParticipantScreen({
@@ -48,60 +54,66 @@ export function EventSandboxParticipantScreen({
 
   return (
     <PageShell
-      eyebrow="Participant Drilldown"
+      eyebrow="参与者钻取"
       title={participantId}
-      description="Inspect how one participant moved across rounds, what signals it reacted to, and which other participants it influenced."
+      description="查看某个参与者在各轮中的动作变化、它响应了哪些信号，以及它影响了哪些其他参与者。"
       actions={
         <>
-          <ActionLink href={`/event-sandbox/${eventId}`} label="Overview" />
-          <ActionLink href={`/event-sandbox/${eventId}/replay`} label="Replay" />
-          <ActionLink href={`/event-sandbox/${eventId}/validation`} label="Validation" />
+          <ActionLink href={`/event-sandbox/${eventId}`} label="返回总览" />
+          <ActionLink href={`/event-sandbox/${eventId}/replay`} label="查看回放" />
+          <ActionLink href={`/event-sandbox/${eventId}/validation`} label="查看验证" />
         </>
       }
     >
-      {state.status === "loading" ? <Notice>Loading participant drilldown...</Notice> : null}
+      {state.status === "loading" ? <Notice>正在加载参与者详情...</Notice> : null}
       {state.status === "error" ? <Notice tone="error">{state.error}</Notice> : null}
       {participant ? (
         <>
           <section style={panelStyle}>
             <SectionHeader
-              eyebrow="Participant"
+              eyebrow="参与者"
               title={participant.participant_family}
-              description={participant.expected_impact ?? "No participant summary available."}
+              description={participant.expected_impact ?? "暂无参与者摘要。"}
             />
             <div style={gridThreeStyle}>
-              <MiniCard title="Stance" value={stringValue(participant.stance)} />
-              <MiniCard title="Authority" value={numberString(participant.authority_weight)} />
-              <MiniCard title="Confidence" value={numberString(participant.confidence)} />
-              <MiniCard title="Time horizon" value={stringValue(participant.time_horizon)} />
-              <MiniCard title="Risk budget" value={stringValue(participant.risk_budget_profile)} />
-              <MiniCard title="First movers" value={joinList(participant.first_movers)} />
+              <MiniCard title="立场" value={stringValue(participant.stance)} />
+              <MiniCard title="权重" value={numberString(participant.authority_weight)} />
+              <MiniCard title="信心" value={numberString(participant.confidence)} />
+              <MiniCard title="时间维度" value={stringValue(participant.time_horizon)} />
+              <MiniCard title="风险预算" value={stringValue(participant.risk_budget_profile)} />
+              <MiniCard title="首发标的" value={joinList(participant.first_movers)} />
             </div>
           </section>
+
           <section style={{ ...panelStyle, marginTop: 20 }}>
             <SectionHeader
-              eyebrow="Action trail"
-              title="Round-by-round actions"
-              description="This is the action history pulled from the replay payload."
+              eyebrow="动作轨迹"
+              title="逐轮动作"
+              description="这里展示的是从 replay 载荷中提取出的参与者动作历史。"
             />
             <div style={{ display: "grid", gap: 14 }}>
-              {actionTrail.length ? actionTrail.map((action, index) => <ActionCard key={`${action.round_id}-${index}`} action={action} />) : <Notice>No participant actions found in the replay payload.</Notice>}
+              {actionTrail.length ? (
+                actionTrail.map((action, index) => <ActionCard key={`${action.round_id}-${index}`} action={action} />)
+              ) : (
+                <Notice>回放数据里没有找到这个参与者的动作记录。</Notice>
+              )}
             </div>
           </section>
+
           <section style={{ ...panelStyle, marginTop: 20 }}>
             <SectionHeader
-              eyebrow="Influence"
-              title="Incoming and outgoing influence"
-              description="These edges show how the participant both reacted to the network and changed the network."
+              eyebrow="影响关系"
+              title="输入影响与输出影响"
+              description="这些边展示了该参与者如何响应网络，又如何反过来改变网络。"
             />
             <div style={gridTwoStyle}>
-              <JsonCard title="Incoming edges" data={incomingEdges} />
-              <JsonCard title="Outgoing edges" data={outgoingEdges} />
+              <JsonCard title="输入影响边" data={incomingEdges} />
+              <JsonCard title="输出影响边" data={outgoingEdges} />
             </div>
           </section>
         </>
       ) : state.status === "ready" ? (
-        <Notice tone="error">Participant not found in the prepared roster.</Notice>
+        <Notice tone="error">在当前已准备好的参与者阵列中没有找到这个参与者。</Notice>
       ) : null}
     </PageShell>
   );

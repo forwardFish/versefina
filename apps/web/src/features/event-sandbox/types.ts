@@ -5,6 +5,8 @@ export type ParticipantRecord = {
   participant_family: string;
   style_variant?: string;
   stance?: string;
+  initial_state?: string;
+  allowed_actions?: string[];
   confidence?: number;
   authority_weight?: number;
   time_horizon?: string;
