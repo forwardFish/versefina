@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-005"
+task_name: "Population Template Read Model"
+sprint: "Sprint 1 Population Templates and Generator"
+epic: "Epic 1.3 Population Visibility"
+story_id: "V18-005"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose population template and generated blueprint data through stable query endpoints and docs."
+business_value: "Makes the new population layer visible to product pages and validation surfaces."
+entry_criteria:
+  - "V18-004 is complete."
+acceptance_criteria:
+  - "GET /api/v1/events/{event_id}/population-template returns the chosen template and generated blueprint."
+  - "The response includes family shares, capital shares, influence shares, and clone counts."
+  - "Swagger documents the new response shape."
+constraints:
+  - "Expose read-only data; no mutation endpoints in this story."
+out_of_scope:
+  - "No clone detail endpoints yet."
+dependencies:
+  - "V18-004"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_005_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+secondary_files:
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_005_delivery.md"
+test_cases:
+  normal:
+    - "Read one event population template payload through the query API."
+  exception:
+    - "Return a structured missing payload when the event has no generated population blueprint."

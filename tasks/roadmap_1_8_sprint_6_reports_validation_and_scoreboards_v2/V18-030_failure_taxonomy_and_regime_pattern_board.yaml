@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-030"
+task_name: "Failure Taxonomy and Regime Pattern Board"
+sprint: "Sprint 6 Reports, Validation, and Scoreboards V2"
+epic: "Epic 6.3 Pattern Boards"
+story_id: "V18-030"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Create the failure taxonomy board and regime pattern board from validation and replay data."
+business_value: "Explains not only who was right, but how and why the system failed under different conditions."
+entry_criteria:
+  - "V18-029 is complete."
+acceptance_criteria:
+  - "The API exposes failure taxonomy and regime pattern board payloads."
+  - "Board output summarizes repeatable failure chains and regime-specific patterns."
+  - "The product can bind the boards without manual file parsing."
+constraints:
+  - "Board categories must be backed by replay, validation, and state evidence."
+out_of_scope:
+  - "No cross-event context or counterfactuals yet."
+dependencies:
+  - "V18-029"
+related_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v18_030_delivery.md"
+primary_files:
+  - "apps/api/src/domain/outcome_review/service.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/tests/test_outcome_review.py"
+  - "docs/requirements/v18_030_delivery.md"
+test_cases:
+  normal:
+    - "Query failure taxonomy and regime pattern boards for a validated event set."
+  exception:
+    - "Return stable empty-board payloads when taxonomy evidence is unavailable."

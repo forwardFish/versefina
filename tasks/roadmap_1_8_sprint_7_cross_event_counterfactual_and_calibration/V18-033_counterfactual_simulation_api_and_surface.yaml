@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V18-033"
+task_name: "Counterfactual Simulation API and Surface"
+sprint: "Sprint 7 Cross-Event, Counterfactual, and Calibration"
+epic: "Epic 7.2 Counterfactuals"
+story_id: "V18-033"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Add a counterfactual simulation surface so users can ask how the event would evolve if key conditions changed."
+business_value: "Makes the sandtable interactive and analytically useful beyond one fixed replay."
+entry_criteria:
+  - "V18-032 is complete."
+acceptance_criteria:
+  - "POST /api/v1/events/{event_id}/counterfactual accepts a condition change payload."
+  - "Counterfactual output does not overwrite the original run."
+  - "The product can surface counterfactual results in a stable view."
+constraints:
+  - "Counterfactual runs must be explicitly separated from the canonical replay."
+out_of_scope:
+  - "No self-calibration in this story."
+dependencies:
+  - "V18-032"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+related_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "docs/requirements/v18_033_delivery.md"
+primary_files:
+  - "apps/api/src/api/command/routes.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+secondary_files:
+  - "docs/requirements/v18_033_delivery.md"
+test_cases:
+  normal:
+    - "Submit one counterfactual change and inspect a separate result payload."
+  exception:
+    - "Reject a counterfactual request that lacks a recognized condition change."

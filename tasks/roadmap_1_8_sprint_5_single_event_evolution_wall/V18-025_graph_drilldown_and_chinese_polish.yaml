@@ -1,0 +1,51 @@
+project: "versefina"
+task_id: "V18-025"
+task_name: "Graph Drilldown and Chinese Polish"
+sprint: "Sprint 5 Single Event Evolution Wall"
+epic: "Epic 5.4 Deep Interaction"
+story_id: "V18-025"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Add clone, edge, scenario, and state-transition drilldown interactions and normalize visible Chinese copy across the event wall."
+business_value: "Brings the wall closer to the intended MiroFish-style product feel and improves readability."
+entry_criteria:
+  - "V18-024 is complete."
+acceptance_criteria:
+  - "Users can click clone, influence edge, scenario, and state transition to inspect details."
+  - "Visible event-sandbox copy is normalized to readable Chinese."
+  - "The page remains stable when drilldown data is partially missing."
+constraints:
+  - "Drilldown responses must reference real trace data, not hardcoded explanation text."
+out_of_scope:
+  - "No scoreboard or validation board redesign in this story."
+dependencies:
+  - "V18-024"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/participants/sample-clone"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/participants/sample-clone"
+related_files:
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "apps/web/src/features/event-sandbox/ParticipantScreen.tsx"
+  - "apps/web/src/features/event-sandbox/ValidationScreen.tsx"
+  - "docs/requirements/v18_025_delivery.md"
+primary_files:
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "apps/web/src/features/event-sandbox/ParticipantScreen.tsx"
+secondary_files:
+  - "apps/web/src/features/event-sandbox/ValidationScreen.tsx"
+  - "docs/requirements/v18_025_delivery.md"
+test_cases:
+  normal:
+    - "Open one event wall and click clone, edge, scenario, and state transition drilldowns."
+  exception:
+    - "If drilldown explanation data is missing, the page shows a stable fallback instead of a crash."

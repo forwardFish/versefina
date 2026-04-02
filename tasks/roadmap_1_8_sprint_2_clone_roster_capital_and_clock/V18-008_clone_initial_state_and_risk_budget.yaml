@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-008"
+task_name: "Clone Initial State and Risk Budget"
+sprint: "Sprint 2 Clone Roster, Capital, and Clock"
+epic: "Epic 2.2 Clone State"
+story_id: "V18-008"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Initialize clone state, current cash summary, current position summary, confidence, attention, and risk budget profile."
+business_value: "Prepares clones to act like bounded market participants instead of stateless actors."
+entry_criteria:
+  - "V18-007 is complete."
+acceptance_criteria:
+  - "Each clone has an initial state payload with position, cash, confidence, attention, and risk budget."
+  - "The state is persisted and queryable."
+  - "Initialization stays consistent across repeated regeneration for the same input."
+constraints:
+  - "Initial state should be deterministic from the event and selected template."
+out_of_scope:
+  - "No execution window scheduling yet."
+dependencies:
+  - "V18-007"
+related_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_008_delivery.md"
+primary_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/schemas/participant.py"
+secondary_files:
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_008_delivery.md"
+test_cases:
+  normal:
+    - "Inspect one clone and confirm initial state, cash summary, position summary, and risk budget are populated."
+  exception:
+    - "Return a structured missing-state response when the clone roster has not been initialized."

@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-016"
+task_name: "Influence Edge V2 and Evidence Trace"
+sprint: "Sprint 4 Influence-to-Trade and Market State V2"
+epic: "Epic 4.1 Influence Logic"
+story_id: "V18-016"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Upgrade influence edges so each edge stores effect type, effect strength, lag, activation, expiration, and evidence trace."
+business_value: "Turns the influence graph from a visual explanation into a real behavioral mechanism."
+entry_criteria:
+  - "V18-015 is complete."
+acceptance_criteria:
+  - "Influence edges include effect_type, effect_strength, lag_rounds, activation_condition, expiration_condition, and evidence_trace."
+  - "Per-round influence graph queries return the upgraded edge schema."
+  - "Existing influence graph consumers remain compatible."
+constraints:
+  - "Edge activation must be deterministic from simulation evidence."
+out_of_scope:
+  - "No probability modification in this story."
+dependencies:
+  - "V18-015"
+related_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/schemas/belief_graph.py"
+  - "apps/api/tests/test_belief_graph.py"
+  - "docs/requirements/v18_016_delivery.md"
+primary_files:
+  - "apps/api/src/domain/belief_graph/service.py"
+  - "apps/api/src/schemas/belief_graph.py"
+secondary_files:
+  - "apps/api/tests/test_belief_graph.py"
+  - "docs/requirements/v18_016_delivery.md"
+test_cases:
+  normal:
+    - "Read one event influence graph and confirm the V2 edge fields are present."
+  exception:
+    - "Return a structured response when an influence edge lacks required trace data."

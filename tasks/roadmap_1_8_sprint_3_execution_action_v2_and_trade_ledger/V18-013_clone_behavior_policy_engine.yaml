@@ -1,0 +1,42 @@
+project: "versefina"
+task_id: "V18-013"
+task_name: "Clone Behavior Policy Engine"
+sprint: "Sprint 3 Execution Action V2 and Trade Ledger"
+epic: "Epic 3.2 Clone Policy"
+story_id: "V18-013"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Drive clone action choices from latency, threshold, confirmation, invalidation, follow, suppression, and exit rules."
+business_value: "Makes clone actions structurally consistent with the participant model instead of hardcoded action scripts."
+entry_criteria:
+  - "V18-012 is complete."
+acceptance_criteria:
+  - "The simulation chooses actions through a clone policy engine rather than ad hoc action shortcuts."
+  - "Different family/style variants produce different action patterns under the same event."
+  - "Policy traces are persisted for later explanation."
+constraints:
+  - "Initial rule engine may remain deterministic and non-ML."
+out_of_scope:
+  - "No influence-to-trade probability modifiers yet."
+dependencies:
+  - "V18-012"
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/tests/test_simulation.py"
+  - "docs/requirements/v18_013_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+secondary_files:
+  - "apps/api/tests/test_simulation.py"
+  - "docs/requirements/v18_013_delivery.md"
+test_cases:
+  normal:
+    - "Compare two clone variants on the same event and confirm different action outcomes due to policy rules."
+  exception:
+    - "Return a structured error when required clone policy fields are missing."

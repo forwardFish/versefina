@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-010"
+task_name: "Clone Roster Query Surface"
+sprint: "Sprint 2 Clone Roster, Capital, and Clock"
+epic: "Epic 2.3 Clone Visibility"
+story_id: "V18-010"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose event clone roster and clone detail read models for product and validation surfaces."
+business_value: "Makes clone-level data directly available to the upcoming evolution wall."
+entry_criteria:
+  - "V18-009 is complete."
+acceptance_criteria:
+  - "GET /api/v1/events/{event_id}/clones returns the event clone roster."
+  - "GET /api/v1/events/{event_id}/clones/{clone_id} returns clone detail."
+  - "Clone detail includes family, style, capital profile, risk budget, thresholds, and execution windows."
+constraints:
+  - "Keep backward compatibility for existing participant APIs."
+out_of_scope:
+  - "No trade ledger in this story."
+dependencies:
+  - "V18-009"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_010_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+secondary_files:
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_010_delivery.md"
+test_cases:
+  normal:
+    - "Query clone roster and one clone detail for an event."
+  exception:
+    - "Return a structured not-found response for an unknown clone_id."

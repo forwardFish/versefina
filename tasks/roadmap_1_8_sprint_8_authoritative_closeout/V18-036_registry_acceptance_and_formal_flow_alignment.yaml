@@ -1,0 +1,46 @@
+project: "versefina"
+task_id: "V18-036"
+task_name: "Registry, Acceptance, and Formal Flow Alignment"
+sprint: "Sprint 8 Authoritative Closeout"
+epic: "Epic 8.1 Governance Alignment"
+story_id: "V18-036"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Align roadmap summary, story registry, acceptance reviews, and formal flow status so roadmap_1_8 has no evidence drift."
+business_value: "Eliminates the governance mismatch highlighted in the 20260327 summary report."
+entry_criteria:
+  - "V18-035 is complete."
+acceptance_criteria:
+  - "roadmap summary, story registry, and acceptance review counts reconcile."
+  - "formal_flow_complete aligns with actual delivery state."
+  - "Required contracts and artifact types are recorded for completed stories."
+constraints:
+  - "Preserve historical evidence; do not hard-delete prior records."
+out_of_scope:
+  - "No runtime/dashboard UI refresh yet."
+dependencies:
+  - "V18-035"
+related_files:
+  - "tasks/story_status_registry.json"
+  - "tasks/story_acceptance_reviews.json"
+  - "docs/requirements/v18_036_delivery.md"
+  - "apps/api/src/domain/agent_registry/service.py"
+primary_files:
+  - "tasks/story_status_registry.json"
+  - "tasks/story_acceptance_reviews.json"
+secondary_files:
+  - "docs/requirements/v18_036_delivery.md"
+  - "apps/api/src/domain/agent_registry/service.py"
+contract_scope_paths:
+  - "apps/api/src/domain/agent_registry/service.py"
+test_cases:
+  normal:
+    - "Inspect registry and acceptance review data and confirm completed roadmap_1_8 stories reconcile."
+  exception:
+    - "If evidence drift remains, the story fails instead of publishing a misleading complete state."

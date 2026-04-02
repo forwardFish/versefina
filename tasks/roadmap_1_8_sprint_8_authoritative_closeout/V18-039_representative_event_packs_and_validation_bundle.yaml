@@ -1,0 +1,45 @@
+project: "versefina"
+task_id: "V18-039"
+task_name: "Representative Event Packs and Validation Bundle"
+sprint: "Sprint 8 Authoritative Closeout"
+epic: "Epic 8.3 Validation Bundle"
+story_id: "V18-039"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Package representative real events, browser validation evidence, and Swagger checklist into one reproducible validation bundle."
+business_value: "Makes the new graph wall easy to verify without depending on chat history or transient runtime state."
+entry_criteria:
+  - "V18-038 is complete."
+acceptance_criteria:
+  - "At least three representative real event packs are available."
+  - "Browser validation evidence and Swagger checklist are bundled with the packs."
+  - "The bundle is referenced by the final report and handoff."
+constraints:
+  - "Use real event imports instead of mock packs."
+out_of_scope:
+  - "No final completed boundary writeback in this story."
+dependencies:
+  - "V18-038"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox"
+related_files:
+  - "docs/reports/roadmap_1_8_execution_report.md"
+  - "docs/requirements/v18_039_delivery.md"
+primary_files:
+  - "docs/reports/roadmap_1_8_execution_report.md"
+secondary_files:
+  - "docs/requirements/v18_039_delivery.md"
+test_cases:
+  normal:
+    - "Inspect the representative event bundle and confirm product, browser, and Swagger evidence are all present."
+  exception:
+    - "If the bundle relies on mock events or missing evidence, the story fails."

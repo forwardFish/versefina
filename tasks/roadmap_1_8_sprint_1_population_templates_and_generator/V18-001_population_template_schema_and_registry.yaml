@@ -1,0 +1,45 @@
+project: "versefina"
+task_id: "V18-001"
+task_name: "Population Template Schema and Registry"
+sprint: "Sprint 1 Population Templates and Generator"
+epic: "Epic 1.1 Population Foundation"
+story_id: "V18-001"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Define PopulationTemplate, ParticipantFamilyTemplate, and CloneTemplate schema plus a registry that can persist reusable market population presets."
+business_value: "Moves the sandbox from family-level placeholders to an explicit population model."
+entry_criteria:
+  - "Use docs/需求文档/需求分析_1.8_最终融合版.md and docs/reports/20260327_roadmap_1_7_与_1_6对照总结.md as the source of truth."
+acceptance_criteria:
+  - "Population template schema persists population_share, capital_share, influence_share, and default clone count."
+  - "A template registry can load at least one built-in template."
+  - "Swagger or query-layer access can return template metadata."
+constraints:
+  - "Build on the existing participant preparation stack instead of replacing it wholesale."
+out_of_scope:
+  - "No clone generation logic yet."
+dependencies: []
+related_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_001_delivery.md"
+primary_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+secondary_files:
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_001_delivery.md"
+test_cases:
+  normal:
+    - "Load one built-in population template and inspect family, capital, and influence shares."
+  exception:
+    - "Reject a malformed template whose share fields do not meet schema requirements."

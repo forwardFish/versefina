@@ -1,0 +1,42 @@
+project: "versefina"
+task_id: "V18-027"
+task_name: "Population Trading Behavior Report"
+sprint: "Sprint 6 Reports, Validation, and Scoreboards V2"
+epic: "Epic 6.1 Reports"
+story_id: "V18-027"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Produce a population-level trading behavior report that explains which families and clones bought, added, reduced, or exited and with what size ranges."
+business_value: "Turns the sandtable from a concept demo into an explainable trading-process product."
+entry_criteria:
+  - "V18-026 is complete."
+acceptance_criteria:
+  - "The report breaks down family and clone actions with time window and size ranges."
+  - "The report distinguishes lead, follow, reduce, and exit chains."
+  - "The report is accessible from validation or report surfaces."
+constraints:
+  - "Report must be based on persisted trade ledger data."
+out_of_scope:
+  - "No outcome validation in this story."
+dependencies:
+  - "V18-026"
+related_files:
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/tests/test_reporting.py"
+  - "docs/requirements/v18_027_delivery.md"
+primary_files:
+  - "apps/api/src/domain/reporting/service.py"
+secondary_files:
+  - "apps/api/tests/test_reporting.py"
+  - "docs/requirements/v18_027_delivery.md"
+test_cases:
+  normal:
+    - "Generate one population trading behavior report and inspect family and clone trade sections."
+  exception:
+    - "Return a stable missing-ledger response when trade ledger data does not exist."

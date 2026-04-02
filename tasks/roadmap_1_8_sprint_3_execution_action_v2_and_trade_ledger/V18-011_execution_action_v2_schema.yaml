@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-011"
+task_name: "ExecutionActionV2 Schema"
+sprint: "Sprint 3 Execution Action V2 and Trade Ledger"
+epic: "Epic 3.1 Trading Actions"
+story_id: "V18-011"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Define the new trade-like action schema for WATCH, VALIDATE, INIT_BUY, ADD_BUY, REDUCE, EXIT, BROADCAST_BULL, and BROADCAST_BEAR."
+business_value: "Turns the simulation into a trading process instead of a pure opinion engine."
+entry_criteria:
+  - "V18-010 is complete."
+acceptance_criteria:
+  - "ExecutionActionV2 records execution_window, order sizing, position/cash before-after, and influenced_by."
+  - "The schema is used by simulation outputs and query responses."
+  - "Old action payloads are upgraded or wrapped into the new shape."
+constraints:
+  - "Keep additive compatibility for older action readers where practical."
+out_of_scope:
+  - "No probability modifiers in this story."
+dependencies:
+  - "V18-010"
+related_files:
+  - "apps/api/src/schemas/event_simulation.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/tests/test_simulation_action_protocol.py"
+  - "docs/requirements/v18_011_delivery.md"
+primary_files:
+  - "apps/api/src/schemas/event_simulation.py"
+  - "apps/api/src/domain/event_simulation/service.py"
+secondary_files:
+  - "apps/api/tests/test_simulation_action_protocol.py"
+  - "docs/requirements/v18_011_delivery.md"
+test_cases:
+  normal:
+    - "Simulate one event and inspect one action that uses the new V2 schema."
+  exception:
+    - "Reject an action payload missing required execution-window or range fields."

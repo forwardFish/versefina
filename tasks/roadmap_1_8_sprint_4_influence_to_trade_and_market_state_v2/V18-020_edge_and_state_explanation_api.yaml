@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-020"
+task_name: "Edge and State Explanation API"
+sprint: "Sprint 4 Influence-to-Trade and Market State V2"
+epic: "Epic 4.3 Explanation Surface"
+story_id: "V18-020"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose explanation payloads for one influence edge and one market-state transition so the UI can support click-to-why behavior."
+business_value: "Sets up the core interaction loop for the graph wall."
+entry_criteria:
+  - "V18-019 is complete."
+acceptance_criteria:
+  - "API consumers can query why one edge activated and why one state transition occurred."
+  - "Responses include clone actions, evidence trace, and signal summaries."
+  - "Query results are stable enough for direct UI binding."
+constraints:
+  - "Explanation must be backed by persisted traces, not generated ad hoc."
+out_of_scope:
+  - "No front-end drilldown pages yet."
+dependencies:
+  - "V18-019"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_020_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+secondary_files:
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_020_delivery.md"
+test_cases:
+  normal:
+    - "Query one edge explanation and one state transition explanation for a simulated event."
+  exception:
+    - "Return a structured not-found response when the requested edge or transition does not exist."

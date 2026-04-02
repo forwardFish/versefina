@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-015"
+task_name: "Simulation V2 Trace API"
+sprint: "Sprint 3 Execution Action V2 and Trade Ledger"
+epic: "Epic 3.3 Query Surface"
+story_id: "V18-015"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Expose simulation v2 traces through stable APIs for action, position, cash, and execution-window playback."
+business_value: "Makes the next graph-wall sprint possible without local file digging."
+entry_criteria:
+  - "V18-014 is complete."
+acceptance_criteria:
+  - "Simulation query APIs return the new V2 action and state fields."
+  - "A product surface can ask for round and execution-window trace data without custom runtime parsing."
+  - "Swagger reflects the upgraded trace payloads."
+constraints:
+  - "Upgrade existing endpoints where possible instead of creating near-duplicate endpoints."
+out_of_scope:
+  - "No influence or market-state modifications yet."
+dependencies:
+  - "V18-014"
+related_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_015_delivery.md"
+primary_files:
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/src/services/container.py"
+secondary_files:
+  - "apps/api/tests/test_event_sandbox_api.py"
+  - "docs/requirements/v18_015_delivery.md"
+test_cases:
+  normal:
+    - "Fetch one event simulation summary and round trace with the new action, position, and cash fields."
+  exception:
+    - "Return a stable missing-simulation payload when no run exists."

@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-004"
+task_name: "Population Generator Service"
+sprint: "Sprint 1 Population Templates and Generator"
+epic: "Epic 1.2 Template Selection"
+story_id: "V18-004"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Generate a population blueprint with clone counts and family share distribution from the selected template."
+business_value: "Creates the bridge from static template to event-specific participant population."
+entry_criteria:
+  - "V18-003 is complete."
+acceptance_criteria:
+  - "Population generation returns per-family clone counts and share allocations."
+  - "Share totals remain internally consistent."
+  - "Generated blueprint is persisted per event."
+constraints:
+  - "The generator only creates blueprint metadata in this story, not clone trading state."
+out_of_scope:
+  - "No capital bucket or execution clock yet."
+dependencies:
+  - "V18-003"
+related_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/api/query/routes.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_004_delivery.md"
+primary_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/api/query/routes.py"
+secondary_files:
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_004_delivery.md"
+test_cases:
+  normal:
+    - "Generate a population blueprint for one event and confirm family share totals and clone counts."
+  exception:
+    - "Reject blueprint generation when no template can be resolved."

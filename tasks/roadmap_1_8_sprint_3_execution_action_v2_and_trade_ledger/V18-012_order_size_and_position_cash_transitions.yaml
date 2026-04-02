@@ -1,0 +1,42 @@
+project: "versefina"
+task_id: "V18-012"
+task_name: "Order Size and Position Cash Transitions"
+sprint: "Sprint 3 Execution Action V2 and Trade Ledger"
+epic: "Epic 3.1 Trading Actions"
+story_id: "V18-012"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Implement deterministic order-size ranges and position/cash transitions for init buy, add buy, reduce, and exit."
+business_value: "Lets the wall show approximate capital movement rather than only directional words."
+entry_criteria:
+  - "V18-011 is complete."
+acceptance_criteria:
+  - "Trade actions update position_before/after and cash_before/after using the clone capital profile."
+  - "INIT_BUY is smaller than full exposure by default."
+  - "REDUCE and EXIT reduce exposure deterministically."
+constraints:
+  - "Use capital buckets and exposure ranges from Sprint 2."
+out_of_scope:
+  - "No influence-based probability changes yet."
+dependencies:
+  - "V18-011"
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/tests/test_simulation_ledger.py"
+  - "docs/requirements/v18_012_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+secondary_files:
+  - "apps/api/tests/test_simulation_ledger.py"
+  - "docs/requirements/v18_012_delivery.md"
+test_cases:
+  normal:
+    - "Run one simulation and confirm position and cash ranges change across INIT_BUY, ADD_BUY, REDUCE, and EXIT."
+  exception:
+    - "Reject a transition that exceeds the clone max event exposure."

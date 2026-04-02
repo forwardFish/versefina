@@ -1,0 +1,47 @@
+project: "versefina"
+task_id: "V18-024"
+task_name: "Belief, Scenario, and Market State Panel"
+sprint: "Sprint 5 Single Event Evolution Wall"
+epic: "Epic 5.3 State Stack"
+story_id: "V18-024"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Redesign the right-side state stack so belief, scenario, and market state read as one evolving process."
+business_value: "Makes the user understand why the market is changing, not only who moved."
+entry_criteria:
+  - "V18-023 is complete."
+acceptance_criteria:
+  - "The right-side stack shows consensus_strength, dissent_width, crowding_score, falsification_fragility, dominant scenario, and watchpoints."
+  - "The panel updates with the selected replay window or latest round."
+  - "Support and opposition chains are visible in human-readable form."
+constraints:
+  - "No raw JSON may dominate the first visible state layer."
+out_of_scope:
+  - "No click-to-why drilldown in this story."
+dependencies:
+  - "V18-023"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+related_files:
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "apps/web/src/features/event-sandbox/ValidationScreen.tsx"
+  - "docs/requirements/v18_024_delivery.md"
+primary_files:
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+secondary_files:
+  - "apps/web/src/features/event-sandbox/ValidationScreen.tsx"
+  - "docs/requirements/v18_024_delivery.md"
+test_cases:
+  normal:
+    - "Open one event wall and verify the belief, scenario, and market-state stack reads as one unified state panel."
+  exception:
+    - "When a state field is missing, the panel remains stable and clearly marks partial data."

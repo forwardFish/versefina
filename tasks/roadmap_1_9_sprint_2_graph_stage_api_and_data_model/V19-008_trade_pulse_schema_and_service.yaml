@@ -1,0 +1,100 @@
+project: versefina
+task_id: V19-008
+task_name: Trade Pulse Schema and Service
+sprint: Sprint 2 Graph Stage API and Data Model
+epic: Sprint 2 Graph Stage API and Data Model Trade Pulse Schema and Service
+story_id: V19-008
+auto_run: true
+execution_policy: continuous_full_sprint
+interaction_policy: non_interactive_auto_run
+pause_policy: story_boundary_or_shared_blocker_only
+blast_radius: L2
+execution_mode: Safe
+mode: Safe
+agent_policy: auto
+goal: Implement Trade Pulse Schema and Service for roadmap_1_9 so the new graph-first
+  workbench becomes the primary Versefina product center.
+business_value: Moves Versefina closer to a MiroFish-style graph-first workbench by
+  delivering Trade Pulse Schema and Service.
+entry_criteria:
+- V19-007 is complete.
+acceptance_criteria:
+- Trade Pulse Schema and Service is visible and usable in the roadmap_1_9 workbench
+  flow.
+- The implementation uses real Versefina payloads and stays fully Chinese for user-visible
+  copy.
+- The story remains compatible with existing event-sandbox, replay, validation, and
+  finahunt ingestion flows where relevant.
+constraints:
+- Reuse the existing Versefina and finahunt integration instead of starting a parallel
+  system.
+- 'Keep the product visually aligned to the MiroFish screenshot language: light shell,
+  large canvas, restrained accents.'
+out_of_scope:
+- Do not introduce real brokerage execution or real-time trading integration in this
+  story.
+dependencies:
+- V19-007
+implementation_contract:
+- schema
+- route
+- service
+- container
+- tests
+- docs
+required_artifact_types:
+- schema
+- route
+- service
+- tests
+- docs
+agent_execution_contract: &id001
+- requirement_analysis
+- architecture_review
+- workspace_prep
+- backend_dev
+- database_dev
+- sync_merge
+- code_style_reviewer
+- tester
+- runtime_qa
+- security_scanner
+- reviewer
+- code_acceptance
+- acceptance_gate
+- doc_writer
+expanded_required_agents: *id001
+mode_to_agent_map:
+- backend:backend_dev
+- runtime:runtime_qa
+parity_evidence_contract:
+- continuity_writeback
+- handoff_alignment
+- runtime_dashboard_visibility
+blocking_issue_types:
+- scope_drift
+- acceptance_failed
+- browser_regression
+- runtime_error
+- shared_blocker
+related_files:
+- apps/api/src/schemas/workbench.py
+- apps/api/src/api/query/routes.py
+- apps/api/src/domain/workbench/service.py
+- apps/api/src/services/container.py
+- apps/api/tests/test_workbench_api.py
+- docs/requirements/v19-008_delivery.md
+primary_files:
+- apps/api/src/schemas/workbench.py
+- apps/api/src/api/query/routes.py
+- apps/api/src/domain/workbench/service.py
+secondary_files:
+- apps/api/src/services/container.py
+- apps/api/tests/test_workbench_api.py
+- docs/requirements/v19-008_delivery.md
+test_cases:
+  normal:
+  - Complete the main happy-path workflow for Trade Pulse Schema and Service.
+  exception:
+  - Verify Trade Pulse Schema and Service degrades safely for missing or partial event
+    data.

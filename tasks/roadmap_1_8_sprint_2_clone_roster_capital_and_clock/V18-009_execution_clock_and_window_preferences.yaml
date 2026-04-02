@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-009"
+task_name: "Execution Clock and Window Preferences"
+sprint: "Sprint 2 Clone Roster, Capital, and Clock"
+epic: "Epic 2.2 Clone State"
+story_id: "V18-009"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Attach preferred and avoided execution windows to each clone and expose the event execution clock."
+business_value: "Creates the timing layer needed for trade-like actions across the trading day."
+entry_criteria:
+  - "V18-008 is complete."
+acceptance_criteria:
+  - "Clones expose preferred_execution_windows and avoid_execution_windows."
+  - "The event execution clock uses the six windows from the 1.8 document."
+  - "The roster query surface includes timing preferences."
+constraints:
+  - "Initial implementation may be rule-based by family and style variant."
+out_of_scope:
+  - "No action execution within the windows yet."
+dependencies:
+  - "V18-008"
+related_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/schemas/event_simulation.py"
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v18_009_delivery.md"
+primary_files:
+  - "apps/api/src/domain/event_simulation/service.py"
+  - "apps/api/src/schemas/event_simulation.py"
+secondary_files:
+  - "apps/api/tests/test_event_simulation.py"
+  - "docs/requirements/v18_009_delivery.md"
+test_cases:
+  normal:
+    - "Read one event execution clock and confirm the expected execution windows and clone preferences."
+  exception:
+    - "Reject unknown execution windows in the clone timing profile."

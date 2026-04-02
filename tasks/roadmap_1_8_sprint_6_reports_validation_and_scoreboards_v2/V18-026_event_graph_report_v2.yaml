@@ -1,0 +1,42 @@
+project: "versefina"
+task_id: "V18-026"
+task_name: "Event Graph Report V2"
+sprint: "Sprint 6 Reports, Validation, and Scoreboards V2"
+epic: "Epic 6.1 Reports"
+story_id: "V18-026"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Produce a report that summarizes event graph structure, transmission chains, confirmation points, and invalidation points."
+business_value: "Gives the user a structured explanation of why the event mattered and how it spread."
+entry_criteria:
+  - "V18-025 is complete."
+acceptance_criteria:
+  - "Report output includes graph structure, causal chain, confirmation, and invalidation sections."
+  - "The report is queryable and visible from the product surface."
+  - "The report cites real event and graph evidence."
+constraints:
+  - "Use the new wall evidence rather than duplicating the old 1.7 report shape."
+out_of_scope:
+  - "No scoreboards yet."
+dependencies:
+  - "V18-025"
+related_files:
+  - "apps/api/src/domain/reporting/service.py"
+  - "apps/api/tests/test_reporting.py"
+  - "docs/requirements/v18_026_delivery.md"
+primary_files:
+  - "apps/api/src/domain/reporting/service.py"
+secondary_files:
+  - "apps/api/tests/test_reporting.py"
+  - "docs/requirements/v18_026_delivery.md"
+test_cases:
+  normal:
+    - "Generate one event graph report and inspect transmission chain, confirmation, and invalidation sections."
+  exception:
+    - "Return a stable partial-data report when one upstream graph layer is missing."

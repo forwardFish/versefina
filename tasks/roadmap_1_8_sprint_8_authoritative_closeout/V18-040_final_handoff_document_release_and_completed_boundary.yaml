@@ -1,0 +1,48 @@
+project: "versefina"
+task_id: "V18-040"
+task_name: "Final Handoff, Document Release, and Completed Boundary"
+sprint: "Sprint 8 Authoritative Closeout"
+epic: "Epic 8.4 Final Close"
+story_id: "V18-040"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Write the final handoff, document release, retro, and completed continuity boundary for roadmap_1_8."
+business_value: "Makes roadmap_1_8 fully recoverable, auditable, and ready for the next backlog."
+entry_criteria:
+  - "V18-039 is complete."
+acceptance_criteria:
+  - "current_handoff, NOW, STATE, DECISIONS, and continuity manifest are aligned to the completed roadmap_1_8 boundary."
+  - "Document release and retro artifacts exist and are linked from the handoff."
+  - "The final report references the same completed boundary."
+constraints:
+  - "Do not leave ambiguous next-step or mixed-boundary state."
+out_of_scope:
+  - "No new product functionality."
+dependencies:
+  - "V18-039"
+related_files:
+  - "NOW.md"
+  - "STATE.md"
+  - "DECISIONS.md"
+  - "docs/handoff/current_handoff.md"
+  - ".meta/versefina/continuity/continuity_manifest.json"
+  - "docs/requirements/v18_040_delivery.md"
+primary_files:
+  - "NOW.md"
+  - "STATE.md"
+  - "DECISIONS.md"
+  - "docs/handoff/current_handoff.md"
+secondary_files:
+  - ".meta/versefina/continuity/continuity_manifest.json"
+  - "docs/requirements/v18_040_delivery.md"
+test_cases:
+  normal:
+    - "Read the final handoff and continuity files and confirm they all point to the completed roadmap_1_8 boundary."
+  exception:
+    - "If continuity or handoff still points to an earlier story boundary, the story fails."

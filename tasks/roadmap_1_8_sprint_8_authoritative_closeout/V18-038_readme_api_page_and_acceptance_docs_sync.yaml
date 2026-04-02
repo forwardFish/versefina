@@ -1,0 +1,42 @@
+project: "versefina"
+task_id: "V18-038"
+task_name: "README, API, Page, and Acceptance Docs Sync"
+sprint: "Sprint 8 Authoritative Closeout"
+epic: "Epic 8.2 Surface Alignment"
+story_id: "V18-038"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Synchronize README, API docs, page docs, and acceptance notes with the delivered roadmap_1_8 system."
+business_value: "Prevents the code and user-facing guidance from drifting after the new wall launches."
+entry_criteria:
+  - "V18-037 is complete."
+acceptance_criteria:
+  - "README, API docs, page docs, and acceptance notes reference roadmap_1_8 behavior accurately."
+  - "Visible docs describe the graph wall, clone model, and validation layers."
+  - "Docs call out remaining non-goals explicitly."
+constraints:
+  - "Update existing docs rather than creating parallel conflicting guides."
+out_of_scope:
+  - "No final continuity boundary in this story."
+dependencies:
+  - "V18-037"
+related_files:
+  - "README.md"
+  - "docs/reports/roadmap_1_8_execution_report.md"
+  - "docs/requirements/v18_038_delivery.md"
+primary_files:
+  - "README.md"
+  - "docs/reports/roadmap_1_8_execution_report.md"
+secondary_files:
+  - "docs/requirements/v18_038_delivery.md"
+test_cases:
+  normal:
+    - "Cross-check visible docs against the delivered roadmap_1_8 surfaces."
+  exception:
+    - "If docs still describe legacy-only behavior as current, the story fails."

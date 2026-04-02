@@ -1,0 +1,42 @@
+project: "versefina"
+task_id: "V18-018"
+task_name: "Market State Engine V2"
+sprint: "Sprint 4 Influence-to-Trade and Market State V2"
+epic: "Epic 4.2 Market State"
+story_id: "V18-018"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Drive Dormant, Ignition, Propagating, Crowded, Fragile, and Invalidated through simulation signals rather than descriptive labels only."
+business_value: "Lets the wall show a market process, not just a participant list."
+entry_criteria:
+  - "V18-017 is complete."
+acceptance_criteria:
+  - "Market state transitions consume net buy force, breadth, confirm/invalidate strength, crowding score, and fragility."
+  - "Per-round market state output includes transition reasons."
+  - "State transitions are queryable for replay and explanation."
+constraints:
+  - "Market state logic must be traceable to simulation signals."
+out_of_scope:
+  - "No scenario or belief updates yet."
+dependencies:
+  - "V18-017"
+related_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v18_018_delivery.md"
+primary_files:
+  - "apps/api/src/domain/scenario_engine/service.py"
+secondary_files:
+  - "apps/api/tests/test_scenario_engine.py"
+  - "docs/requirements/v18_018_delivery.md"
+test_cases:
+  normal:
+    - "Observe one event move through multiple market states with explicit reasons."
+  exception:
+    - "Return a stable missing-state response when the simulation has not been run."

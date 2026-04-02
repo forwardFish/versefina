@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-003"
+task_name: "Population Template Selector"
+sprint: "Sprint 1 Population Templates and Generator"
+epic: "Epic 1.2 Template Selection"
+story_id: "V18-003"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Select the right population template for an event using event type, market regime, and finahunt lineage."
+business_value: "Lets real events start from different market populations instead of one fixed roster."
+entry_criteria:
+  - "V18-002 is complete and event lineage data is queryable."
+acceptance_criteria:
+  - "Selector consumes event structure and lineage context to choose a template."
+  - "Selection output includes reasons or rule traces."
+  - "Structured fallback exists when regime inputs are missing."
+constraints:
+  - "Initial selection may be rule-based; no opaque model-only routing."
+out_of_scope:
+  - "No clone generation or state initialization yet."
+dependencies:
+  - "V18-002"
+related_files:
+  - "apps/api/src/domain/finahunt_ingestion/service.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/tests/test_finahunt_event_import_api.py"
+  - "docs/requirements/v18_003_delivery.md"
+primary_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/domain/finahunt_ingestion/service.py"
+secondary_files:
+  - "apps/api/tests/test_finahunt_event_import_api.py"
+  - "docs/requirements/v18_003_delivery.md"
+test_cases:
+  normal:
+    - "Select a population template for one imported finahunt event and return the reasoning trace."
+  exception:
+    - "Fall back to the default A-share event-driven template when regime or lineage hints are unavailable."

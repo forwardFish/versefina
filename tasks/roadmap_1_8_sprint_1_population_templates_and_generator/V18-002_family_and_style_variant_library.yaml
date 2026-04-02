@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-002"
+task_name: "Family and Style Variant Library"
+sprint: "Sprint 1 Population Templates and Generator"
+epic: "Epic 1.1 Population Foundation"
+story_id: "V18-002"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Encode the eight participant families and their style variants as reusable template library entries."
+business_value: "Makes clone generation consistent and grounded in the 1.8 participant taxonomy."
+entry_criteria:
+  - "V18-001 is complete."
+acceptance_criteria:
+  - "All eight participant families exist with style variants and descriptive defaults."
+  - "The library exposes reaction latency, threshold, and default role hints."
+  - "The registry can enumerate variant metadata."
+constraints:
+  - "Stay consistent with the 1.8 final fusion document naming and semantics."
+out_of_scope:
+  - "No per-event clone instantiation yet."
+dependencies:
+  - "V18-001"
+related_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/tests/test_participant.py"
+  - "docs/requirements/v18_002_delivery.md"
+primary_files:
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/src/schemas/participant.py"
+secondary_files:
+  - "apps/api/tests/test_participant.py"
+  - "docs/requirements/v18_002_delivery.md"
+test_cases:
+  normal:
+    - "List family presets and confirm style variants are available for each required family."
+  exception:
+    - "Return a structured not-found response when a requested family preset does not exist."

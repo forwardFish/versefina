@@ -1,31 +1,19 @@
 # roadmap_1_6 Execution Report
 
 ## Execution Summary
-- roadmap status: `completed`
-- completed at: `2026-03-25T17:01:53`
-- delivery status: `delivery complete`
+- roadmap status: `unknown`
+- completed at: `None`
+- delivery status: `delivery incomplete`
 - release status: `release not clean yet`
 - authoritative source: roadmap summary; ship readiness and special acceptance remain residual evidence.
 
 ## Sprint Results
 | Sprint | Focus | Status | Stories | Note |
 | --- | --- | --- | --- | --- |
-| Sprint 1 | 事件白名单、事件记录结构、事件输入结构化、题材映射、casebook 基座 | completed | 5/5 | last=E1-005 |
-| Sprint 2 | participant preparation 与 prepare orchestrator | completed | 5/5 | last=E2-005 |
-| Sprint 3 | belief graph、三情景引擎、watchpoints、event card read model | completed | 5/5 | last=E3-005 |
-| Sprint 4 | lightweight simulation runtime、timeline、action log | completed | 2/2 | last=E4-005 |
-| Sprint 5 | review report、T+1/T+3 outcome、reliability、why/retrieval API | completed | 4/4 | last=E5-005 |
-| Sprint 6 | statement -> style assets | completed | 1/1 | last=E6-005 |
-| Sprint 7 | mirror agent、distribution calibration、acceptance pack / handoff | completed | 1/1 | last=E7-005 |
+| Sprint 1 | roadmap_1_6_sprint_1_alpha | unknown | 0/1 | last=- |
 
 ## New Capabilities
-- 事件白名单、事件记录结构、事件输入结构化、题材映射、casebook 基座
-- participant preparation 与 prepare orchestrator
-- belief graph、三情景引擎、watchpoints、event card read model
-- lightweight simulation runtime、timeline、action log
-- review report、T+1/T+3 outcome、reliability、why/retrieval API
-- statement -> style assets
-- mirror agent、distribution calibration、acceptance pack / handoff
+- roadmap_1_6_sprint_1_alpha
 
 ## Showcase Links
 - Dashboard: http://127.0.0.1:8010/
@@ -70,20 +58,20 @@
 - `GET /api/v1/roadmaps/1.6/acceptance-pack`: acceptance pack / 查看 roadmap_1_6 acceptance pack。
 
 ## Validation Results
-- `versefina_business_files_changed`: 41
-- `syntax_checked_files`: 18
+- `versefina_business_files_changed`: 0
+- `syntax_checked_files`: 0
 - `placeholder_rejections`: 0
-- `integration_contract_passed`: True
-- `api_test_count`: 23
-- `agent_coverage_passed`: True
-- `gstack_parity_passed`: True
+- `integration_contract_passed`: False
+- `api_test_count`: 0
+- `agent_coverage_passed`: False
+- `gstack_parity_passed`: False
 - `api_tests`: status=passed | command=python -m pytest apps/api/tests -q | details=64 passed in 5.98s | recorded_at=2026-03-25T00:00:00+08:00
 - `dashboard_tests`: status=passed | command=python -m unittest tests.test_dashboard_api -v | details=17 dashboard tests passed.
 - `local_pages`: status=passed | details=Dashboard /, /versefina/runtime, /api/versefina/runtime/showcase, /api/versefina/runtime/report, and Swagger /docs all returned 200.
 - `ship_readiness`: status=not_clean | details=Dirty tree keeps ship readiness below release-clean.
 
 ## Evidence Index
-- `roadmap_summary`: D:\lyh\agent\agent-frame\agentsystem\runs\roadmaps\roadmap_1_6_20260325_140840.json
+- `roadmap_summary`: D:\lyh\agent\agent-frame\agentsystem\runs\roadmaps\roadmap_1_6_preflight.json
 - `ship_readiness_report`: D:\lyh\agent\agent-frame\.meta\versefina\ship\ship_readiness_report.md
 - `special_acceptance_report`: D:\lyh\agent\agent-frame\agentsystem\runs\sprints\versefina\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\special_acceptance_report.json
 - `document_release_report`: D:\lyh\agent\agent-frame\agentsystem\runs\sprints\versefina\roadmap_1_6_sprint_7_mirror_agent_and_distribution_calibration\document_release_report.md
@@ -97,6 +85,5 @@
 
 ## Residual Issues And Next Step
 - Ship ready: no: Ship readiness is still not release-clean because the working tree is dirty. This is a release hygiene issue, not a feature failure.
-- Sprint 7 special acceptance 与 roadmap summary 不一致: Roadmap authoritative summary is completed, but Sprint 7 special acceptance still reports formal_flow_complete=false and lists missing items. This should be treated as evidence governance drift, not as a rollback of roadmap completion.
 - Document release 仍有对齐治理项: Sprint 7 document release did not apply in-place doc updates and explicitly carried drift into retro. The roadmap can stay completed, but release-facing docs still need follow-up alignment.
 - Next step: continue Sprint 4 gap closure through agentsystem and keep continuity plus handoff aligned after each Story boundary.

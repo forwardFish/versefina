@@ -1,0 +1,49 @@
+project: "versefina"
+task_id: "V18-023"
+task_name: "Replay Timeline and Window Switcher"
+sprint: "Sprint 5 Single Event Evolution Wall"
+epic: "Epic 5.2 Interaction Canvas"
+story_id: "V18-023"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Make the bottom replay timeline a first-class execution-window switcher for pre_open through close_positioning."
+business_value: "Lets the user read the market as a process unfolding over time instead of a static snapshot."
+entry_criteria:
+  - "V18-022 is complete."
+acceptance_criteria:
+  - "The wall exposes replay timeline windows and lets the user switch windows."
+  - "The current window changes the center and right-side state presentation."
+  - "Timeline highlights turning points clearly."
+constraints:
+  - "Execution-window labels must match the 1.8 document."
+out_of_scope:
+  - "No right-side state stack redesign in this story."
+dependencies:
+  - "V18-022"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/replay"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+  - "http://127.0.0.1:3000/event-sandbox/sample-event/replay"
+related_files:
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "apps/web/src/features/event-sandbox/ReplayScreen.tsx"
+  - "docs/requirements/v18_023_delivery.md"
+primary_files:
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "apps/web/src/features/event-sandbox/ReplayScreen.tsx"
+secondary_files:
+  - "docs/requirements/v18_023_delivery.md"
+test_cases:
+  normal:
+    - "Switch between execution windows and see the wall update the replay view."
+  exception:
+    - "If one window has no actions, the timeline still renders a stable empty state."

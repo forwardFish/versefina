@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-007"
+task_name: "Capital Bucket and Exposure Ranges"
+sprint: "Sprint 2 Clone Roster, Capital, and Clock"
+epic: "Epic 2.1 Clone Foundation"
+story_id: "V18-007"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Assign capital bucket ranges, cash ranges, and exposure ranges to each clone."
+business_value: "Lets later trade actions move realistic capital ranges instead of abstract confidence only."
+entry_criteria:
+  - "V18-006 is complete."
+acceptance_criteria:
+  - "Each clone has capital_bucket_min/max and exposure range fields."
+  - "Bucket definitions follow the 1.8 family guidance."
+  - "Read models can expose the capital profile for one clone."
+constraints:
+  - "Range output may be approximate but must be deterministic from template inputs."
+out_of_scope:
+  - "No live trade position changes yet."
+dependencies:
+  - "V18-006"
+related_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/tests/test_participant.py"
+  - "docs/requirements/v18_007_delivery.md"
+primary_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+secondary_files:
+  - "apps/api/tests/test_participant.py"
+  - "docs/requirements/v18_007_delivery.md"
+test_cases:
+  normal:
+    - "Read one clone capital profile and confirm bucket and exposure ranges are present."
+  exception:
+    - "Reject a clone capital profile whose max range is below its min range."

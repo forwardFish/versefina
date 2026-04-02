@@ -1,0 +1,44 @@
+project: "versefina"
+task_id: "V18-006"
+task_name: "Clone Roster Schema and Persistence"
+sprint: "Sprint 2 Clone Roster, Capital, and Clock"
+epic: "Epic 2.1 Clone Foundation"
+story_id: "V18-006"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L3"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Persist clone-level roster objects under one event instead of family-only participants."
+business_value: "Makes the sandbox population-level rather than family-level."
+entry_criteria:
+  - "V18-005 is complete."
+acceptance_criteria:
+  - "Clone roster schema supports clone_id, family_id, style_variant, and description."
+  - "Generated clone rosters persist per event."
+  - "Existing family-level participant data remains backward-compatible."
+constraints:
+  - "Additive upgrade only; do not break existing participant APIs."
+out_of_scope:
+  - "No capital bucket allocation in this story."
+dependencies:
+  - "V18-005"
+related_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_006_delivery.md"
+primary_files:
+  - "apps/api/src/schemas/participant.py"
+  - "apps/api/src/domain/participant_preparation/service.py"
+secondary_files:
+  - "apps/api/tests/test_participant_preparation.py"
+  - "docs/requirements/v18_006_delivery.md"
+test_cases:
+  normal:
+    - "Generate and persist clone-level roster records for one event."
+  exception:
+    - "Return a structured error when clone roster generation is requested before population generation exists."

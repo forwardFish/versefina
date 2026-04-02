@@ -1,0 +1,51 @@
+project: "versefina"
+task_id: "V18-021"
+task_name: "Event Graph and Lineage Panel"
+sprint: "Sprint 5 Single Event Evolution Wall"
+epic: "Epic 5.1 Event Graph Wall"
+story_id: "V18-021"
+auto_run: true
+execution_policy: "continuous_full_sprint"
+interaction_policy: "non_interactive_auto_run"
+pause_policy: "story_boundary_or_shared_blocker_only"
+blast_radius: "L2"
+execution_mode: "Safe"
+mode: "Safe"
+agent_policy: "auto"
+goal: "Redesign the left side of the event sandbox so the user sees Event Graph context, causal chain, confirmation and invalidation signals, and finahunt lineage first."
+business_value: "Makes the source event and its transmission path understandable before the user reads the rest of the wall."
+entry_criteria:
+  - "V18-020 is complete and event, structure, mapping, and lineage payloads are queryable."
+acceptance_criteria:
+  - "GET /event-sandbox/[eventId] shows a left Event Graph + lineage panel."
+  - "The panel shows source message, structured event, commodity/sector/symbol, confirmation, invalidation, and finahunt context."
+  - "The first screen remains human-readable and does not dump raw JSON."
+constraints:
+  - "This story must use the existing event-sandbox route instead of creating a second host."
+out_of_scope:
+  - "No population interaction canvas in this story."
+dependencies:
+  - "V18-020"
+preview_base_url: "http://127.0.0.1:3000"
+preview_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+qa_urls:
+  - "http://127.0.0.1:3000/event-sandbox/sample-event"
+related_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/page.tsx"
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+  - "apps/web/src/features/event-sandbox/shared.tsx"
+  - "apps/web/src/features/event-sandbox/types.ts"
+  - "docs/requirements/v18_021_delivery.md"
+primary_files:
+  - "apps/web/src/app/event-sandbox/[eventId]/page.tsx"
+  - "apps/web/src/features/event-sandbox/OverviewScreen.tsx"
+secondary_files:
+  - "apps/web/src/features/event-sandbox/shared.tsx"
+  - "apps/web/src/features/event-sandbox/types.ts"
+  - "docs/requirements/v18_021_delivery.md"
+test_cases:
+  normal:
+    - "Open one event wall and verify the left Event Graph + lineage panel explains source, mapping, and signal context."
+  exception:
+    - "Open a missing event id and confirm the page shows a stable empty or not-found state."
