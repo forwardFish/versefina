@@ -29,8 +29,8 @@ from schemas.event_sandbox import (
 
 
 _SUPPORTIVE_STANCES = {"bullish", "constructive"}
-_OPPOSING_STANCES = {"watch", "skeptical", "bearish"}
-_ACTIVE_STATES = {"monitoring", "engaged", "confirmed", "accelerating", "confirming", "scaling", "challenging", "hedging", "de_risking"}
+_OPPOSING_STANCES = {"watch", "skeptical", "bearish", "neutral"}
+_ACTIVE_STATES = {"engaged", "accelerating", "broadcasting", "de_risking", "validated"}
 
 
 class EventSandboxError(Exception):
@@ -122,6 +122,22 @@ class EventSandboxService:
     def simulate_event(self, event_id: str) -> dict[str, Any]:
         return self.event_simulation.run_simulation(event_id).to_dict()
 
+    def continue_simulation_day(self, event_id: str) -> dict[str, Any]:
+        previous_run = self.event_simulation.load_latest_run(event_id)
+        previous_count = int(
+            (previous_run or {}).get("generated_day_count")
+            or (previous_run or {}).get("round_count")
+            or len((previous_run or {}).get("round_results") or [])
+            or 0
+        )
+        result = self.event_simulation.continue_simulation(event_id).to_dict()
+        round_results = list(result.get("round_results") or [])
+        new_round_results = round_results[previous_count:]
+        result["new_round_results"] = new_round_results
+        result["latest_round_result"] = new_round_results[-1] if new_round_results else (round_results[-1] if round_results else {})
+        result["replay"] = self.load_replay(event_id)
+        return result
+
     def load_simulation(self, event_id: str) -> dict[str, Any]:
         run = self.event_simulation.load_latest_run(event_id)
         if run is None:
@@ -139,12 +155,17 @@ class EventSandboxService:
             dominant_scenario=str(run.get("dominant_scenario") or ""),
             round_count=int(run.get("round_count") or len(round_snapshots)),
             latest_market_state=str(((latest_round.market_state.to_dict() if latest_round and latest_round.market_state else {}) or {}).get("state") or ""),
+            default_day_count=int(run.get("default_day_count") or 5),
+            generated_day_count=int(run.get("generated_day_count") or len(round_snapshots)),
+            latest_trade_date=str(run.get("latest_trade_date") or (latest_round.trade_date if latest_round else "")),
             timeline=dict(run.get("timeline") or {}),
             top_participants=top_participants,
             rounds=[
                 {
                     "round_id": item.round_id,
                     "order": item.order,
+                    "day_index": item.day_index,
+                    "trade_date": item.trade_date,
                     "focus": item.focus,
                     "market_state": (item.market_state.to_dict() if item.market_state else {}),
                     "scenario_snapshot": (item.scenario_snapshot.to_dict() if item.scenario_snapshot else {}),
@@ -187,8 +208,10 @@ class EventSandboxService:
                 {
                     "round_id": item.round_id,
                     "order": item.order,
+                    "execution_window": item.execution_window,
                     "participant_actions": [action.to_dict() for action in item.participant_actions],
                     "participant_states": list(item.participant_states),
+                    "influence_edges": list(item.influence_edges),
                     "market_state": item.market_state.to_dict() if item.market_state else {},
                 }
                 for item in round_snapshots
@@ -261,6 +284,9 @@ class EventSandboxService:
             status="ready",
             run_id=str(run.get("run_id") or ""),
             dominant_scenario=str(run.get("dominant_scenario") or ""),
+            default_day_count=int(run.get("default_day_count") or 5),
+            generated_day_count=int(run.get("generated_day_count") or len(round_snapshots)),
+            can_continue=bool(int(run.get("generated_day_count") or len(round_snapshots)) < 15),
             timeline=dict(run.get("timeline") or {}),
             rounds=[item.to_dict() for item in round_snapshots],
         ).to_dict()
@@ -322,10 +348,8 @@ class EventSandboxService:
         except Exception:
             scenario_pack = None
 
-        prepared = self.load_participants(event_id)
         previous_market_state = "DORMANT"
-        interim_rounds: list[dict[str, Any]] = []
-
+        snapshots: list[RoundSnapshot] = []
         for index, round_result in enumerate(round_results, start=1):
             participant_states = list(round_result.get("participant_states") or [])
             actions = [self._build_action_payload(update, participant_states) for update in round_result.get("participant_updates") or []]
@@ -344,113 +368,52 @@ class EventSandboxService:
                 market_state=market_state,
                 scenario_pack=scenario_pack.to_dict() if scenario_pack is not None else {},
             )
-            interim_rounds.append(
-                {
-                    "event_id": event_id,
-                    "run_id": str(run.get("run_id") or ""),
-                    "round_id": str(round_result.get("round_id") or f"round-{index}"),
-                    "order": int(round_result.get("order") or index),
-                    "focus": str(round_result.get("focus") or ""),
-                    "objective": str(round_result.get("objective") or ""),
-                    "participant_actions": [item.to_dict() for item in actions],
-                    "participant_states": participant_states,
-                    "belief_snapshot": belief.to_dict(),
-                    "market_state": market_state.to_dict(),
-                    "scenario_snapshot": scenario_snapshot.to_dict(),
-                    "turning_point": str(round_result.get("round_id") or "") in list((run.get("timeline") or {}).get("turning_points") or []),
-                    "prepared_participants": list(prepared.get("participants") or []),
-                }
-            )
-            previous_market_state = market_state.state
-
-        influence_payload = self.influence_graph.build_payload(event_id, interim_rounds).to_dict()
-        edges_by_round = {
-            str(item.get("round_id") or ""): list(item.get("edges") or [])
-            for item in influence_payload.get("rounds") or []
-        }
-
-        snapshots: list[RoundSnapshot] = []
-        for round_item in interim_rounds:
             snapshot = RoundSnapshot(
                 event_id=event_id,
-                run_id=str(round_item["run_id"]),
-                round_id=str(round_item["round_id"]),
-                order=int(round_item["order"]),
-                focus=str(round_item["focus"]),
-                objective=str(round_item["objective"]),
-                participant_actions=[ParticipantAction(**item) for item in round_item["participant_actions"]],
-                participant_states=list(round_item["participant_states"]),
-                influence_edges=[
-                    edge if hasattr(edge, "to_dict") else edge
-                    for edge in []
-                ],
-                belief_snapshot=BeliefRoundSnapshot(**round_item["belief_snapshot"]),
-                market_state=MarketStateSnapshot(**round_item["market_state"]),
-                scenario_snapshot=ScenarioRoundSnapshot(**round_item["scenario_snapshot"]),
-                turning_point=bool(round_item["turning_point"]),
+                run_id=str(run.get("run_id") or ""),
+                round_id=str(round_result.get("round_id") or f"round-{index}"),
+                order=int(round_result.get("order") or index),
+                focus=str(round_result.get("focus") or ""),
+                objective=str(round_result.get("objective") or ""),
+                execution_window=str(round_result.get("execution_window") or ""),
+                day_index=int(round_result.get("day_index") or index),
+                trade_date=str(round_result.get("trade_date") or ""),
+                is_trading_day=bool(round_result.get("is_trading_day", True)),
+                is_incremental_generated=bool(round_result.get("is_incremental_generated", False)),
+                actions_count=int(round_result.get("actions_count") or len(actions)),
+                buy_clone_count=int(round_result.get("buy_clone_count") or 0),
+                sell_clone_count=int(round_result.get("sell_clone_count") or 0),
+                new_entry_clone_count=int(round_result.get("new_entry_clone_count") or 0),
+                exit_clone_count=int(round_result.get("exit_clone_count") or 0),
+                participant_actions=actions,
+                participant_states=participant_states,
+                influence_edges=list(round_result.get("influence_edges") or []),
+                belief_snapshot=belief,
+                market_state=market_state,
+                scenario_snapshot=scenario_snapshot,
+                turning_point=str(round_result.get("round_id") or "") in list((run.get("timeline") or {}).get("turning_points") or []),
             )
-            edge_payloads = []
-            for edge in edges_by_round.get(snapshot.round_id, []):
-                edge_payloads.append(edge)
-            snapshot_dict = snapshot.to_dict()
-            snapshot_dict["influence_edges"] = edge_payloads
-            self._persist_round_snapshot(run_id=snapshot.run_id, round_id=snapshot.round_id, payload=snapshot_dict)
-            snapshots.append(
-                RoundSnapshot(
-                    event_id=snapshot.event_id,
-                    run_id=snapshot.run_id,
-                    round_id=snapshot.round_id,
-                    order=snapshot.order,
-                    focus=snapshot.focus,
-                    objective=snapshot.objective,
-                    participant_actions=snapshot.participant_actions,
-                    participant_states=snapshot.participant_states,
-                    influence_edges=[],
-                    belief_snapshot=snapshot.belief_snapshot,
-                    market_state=snapshot.market_state,
-                    scenario_snapshot=snapshot.scenario_snapshot,
-                    turning_point=snapshot.turning_point,
-                )
-            )
-
-        enriched: list[RoundSnapshot] = []
-        for snapshot in snapshots:
-            payload = self._load_persisted_round_snapshot(snapshot.run_id, snapshot.round_id)
-            edges = list(payload.get("influence_edges") or []) if isinstance(payload, dict) else []
-            enriched.append(
-                RoundSnapshot(
-                    event_id=snapshot.event_id,
-                    run_id=snapshot.run_id,
-                    round_id=snapshot.round_id,
-                    order=snapshot.order,
-                    focus=snapshot.focus,
-                    objective=snapshot.objective,
-                    participant_actions=snapshot.participant_actions,
-                    participant_states=snapshot.participant_states,
-                    influence_edges=edges,
-                    belief_snapshot=snapshot.belief_snapshot,
-                    market_state=snapshot.market_state,
-                    scenario_snapshot=snapshot.scenario_snapshot,
-                    turning_point=snapshot.turning_point,
-                )
-            )
-        return enriched
+            self._persist_round_snapshot(run_id=snapshot.run_id, round_id=snapshot.round_id, payload=snapshot.to_dict())
+            snapshots.append(snapshot)
+            previous_market_state = market_state.state
+        return snapshots
 
     def _build_action_payload(self, update: dict[str, Any], participant_states: list[dict[str, Any]]) -> ParticipantAction:
         participant_id = str(update.get("participant_id") or "")
         state = next((item for item in participant_states if str(item.get("participant_id") or "") == participant_id), {})
         stance = str(state.get("stance") or "").strip().lower()
         action_type = str(update.get("action_type") or "")
+        action_name = str(update.get("action_name") or "")
         polarity = "neutral"
-        if action_type in {"risk_watch", "exit"} or stance in _OPPOSING_STANCES:
+        if action_name in {"REDUCE", "EXIT", "BROADCAST_BEAR"} or stance in _OPPOSING_STANCES:
             polarity = "bearish"
-        elif stance in _SUPPORTIVE_STANCES:
+        elif action_name in {"INIT_BUY", "ADD_BUY", "BROADCAST_BULL"} or stance in _SUPPORTIVE_STANCES:
             polarity = "bullish"
         return ParticipantAction(
             participant_id=participant_id,
             participant_family=str(state.get("participant_family") or "unknown"),
             action_type=action_type,
-            action_name=str(update.get("action_name") or ""),
+            action_name=action_name,
             actor_id=str(update.get("actor_id") or participant_id),
             target_id=str(update.get("target_id") or ""),
             confidence=float(update.get("confidence") or 0.0),
@@ -459,6 +422,29 @@ class EventSandboxService:
             next_state=str(update.get("next_state") or ""),
             polarity=polarity,
             reason_codes=list(update.get("reason_codes") or []),
+            execution_window=str(update.get("execution_window") or ""),
+            day_index=int(update.get("day_index") or 0),
+            trade_date=str(update.get("trade_date") or ""),
+            target_symbol=str(update.get("target_symbol") or ""),
+            order_side=str(update.get("order_side") or ""),
+            order_value=float(update.get("order_value") or 0.0),
+            order_value_range_min=float(update.get("order_value_range_min") or 0.0),
+            order_value_range_max=float(update.get("order_value_range_max") or 0.0),
+            reference_price=float(update.get("reference_price") or 0.0),
+            reference_price_source=str(update.get("reference_price_source") or ""),
+            lot_size=int(update.get("lot_size") or 0),
+            trade_quantity=float(update.get("trade_quantity") or 0.0),
+            trade_unit_label=str(update.get("trade_unit_label") or "股"),
+            position_before=float(update.get("position_before") or 0.0),
+            position_after=float(update.get("position_after") or 0.0),
+            position_qty_before=float(update.get("position_qty_before") or 0.0),
+            position_qty_after=float(update.get("position_qty_after") or 0.0),
+            holding_qty_after=float(update.get("holding_qty_after") or 0.0),
+            cash_before=float(update.get("cash_before") or 0.0),
+            cash_after=float(update.get("cash_after") or 0.0),
+            influenced_by=list(update.get("influenced_by") or []),
+            evidence_trace=list(update.get("evidence_trace") or []),
+            effect_summary=str(update.get("effect_summary") or ""),
         )
 
     def _build_belief_snapshot(
@@ -467,6 +453,22 @@ class EventSandboxService:
         round_result: dict[str, Any],
         participant_states: list[dict[str, Any]],
     ) -> BeliefRoundSnapshot:
+        belief_metrics = dict(round_result.get("belief_metrics") or {})
+        if belief_metrics:
+            return BeliefRoundSnapshot(
+                event_id=event_id,
+                round_id=str(round_result.get("round_id") or ""),
+                order=int(round_result.get("order") or 0),
+                consensus_strength=float(belief_metrics.get("consensus_strength") or 0.0),
+                opposition_strength=float(belief_metrics.get("opposition_strength") or 0.0),
+                divergence_index=float(belief_metrics.get("divergence_index") or 0.0),
+                day_index=int(round_result.get("day_index") or 0),
+                trade_date=str(round_result.get("trade_date") or ""),
+                net_flow=float((round_result.get("market_metrics") or {}).get("net_flow") or 0.0),
+                key_supporters=list(belief_metrics.get("key_supporters") or []),
+                key_opponents=list(belief_metrics.get("key_opponents") or []),
+                summary=str(belief_metrics.get("summary") or ""),
+            )
         supportive = [item for item in participant_states if str(item.get("stance") or "").strip().lower() in _SUPPORTIVE_STANCES]
         opposing = [item for item in participant_states if str(item.get("stance") or "").strip().lower() in _OPPOSING_STANCES]
         total_weight = sum(float(item.get("authority_weight") or 0.0) * max(float(item.get("confidence") or 0.0), 0.01) for item in participant_states) or 1.0
@@ -491,6 +493,9 @@ class EventSandboxService:
             consensus_strength=consensus_strength,
             opposition_strength=opposition_strength,
             divergence_index=divergence_index,
+            day_index=int(round_result.get("day_index") or 0),
+            trade_date=str(round_result.get("trade_date") or ""),
+            net_flow=float((round_result.get("market_metrics") or {}).get("net_flow") or 0.0),
             key_supporters=key_supporters,
             key_opponents=key_opponents,
             summary=summary,
@@ -505,12 +510,42 @@ class EventSandboxService:
         previous_state: str,
         is_last: bool,
     ) -> MarketStateSnapshot:
+        market_metrics = dict(round_result.get("market_metrics") or {})
+        if market_metrics:
+            state = str(market_metrics.get("state") or previous_state or "DORMANT")
+            active_count = int(market_metrics.get("active_participant_count") or 0)
+            exit_count = sum(
+                1 for item in list(round_result.get("participant_updates") or [])
+                if str(item.get("action_name") or "") == "EXIT"
+            )
+            follow_on_count = int(market_metrics.get("buy_clone_count") or 0)
+            return MarketStateSnapshot(
+                event_id=event_id,
+                round_id=str(round_result.get("round_id") or ""),
+                order=int(round_result.get("order") or 0),
+                state=state,
+                active_participant_count=active_count,
+                exit_count=exit_count,
+                follow_on_count=follow_on_count,
+                execution_window=str(market_metrics.get("execution_window") or round_result.get("execution_window") or ""),
+                day_index=int(market_metrics.get("day_index") or round_result.get("day_index") or 0),
+                trade_date=str(market_metrics.get("trade_date") or round_result.get("trade_date") or ""),
+                net_flow=float(market_metrics.get("net_flow") or 0.0),
+                buy_clone_count=int(market_metrics.get("buy_clone_count") or 0),
+                sell_clone_count=int(market_metrics.get("sell_clone_count") or 0),
+                crowding_score=float(market_metrics.get("crowding_score") or 0.0),
+                fragility_score=float(market_metrics.get("fragility_score") or 0.0),
+                dominant_support_chain=list(market_metrics.get("dominant_support_chain") or []),
+                opposition_strength=float(market_metrics.get("opposition_strength") or 0.0),
+                invalidation_hits=int(market_metrics.get("invalidation_hits") or 0),
+                summary=str(market_metrics.get("summary") or ""),
+            )
         participant_states = list(round_result.get("participant_states") or [])
         updates = list(round_result.get("participant_updates") or [])
         active_count = sum(1 for item in participant_states if str(item.get("state") or "") in _ACTIVE_STATES)
-        follow_on_count = sum(1 for item in updates if str(item.get("action_type") or "") == "follow_on")
-        exit_count = sum(1 for item in updates if str(item.get("action_type") or "") == "exit")
-        first_move_count = sum(1 for item in updates if str(item.get("action_type") or "") == "first_move")
+        follow_on_count = sum(1 for item in updates if str(item.get("action_name") or "") in {"INIT_BUY", "ADD_BUY"})
+        exit_count = sum(1 for item in updates if str(item.get("action_name") or "") == "EXIT")
+        first_move_count = sum(1 for item in updates if str(item.get("action_name") or "") == "INIT_BUY")
 
         state = previous_state
         if int(round_result.get("order") or 0) == 1 and first_move_count:
@@ -542,6 +577,9 @@ class EventSandboxService:
             active_participant_count=active_count,
             exit_count=exit_count,
             follow_on_count=follow_on_count,
+            execution_window=str(round_result.get("execution_window") or ""),
+            day_index=int(round_result.get("day_index") or 0),
+            trade_date=str(round_result.get("trade_date") or ""),
             summary=summary,
         )
 
@@ -601,6 +639,8 @@ class EventSandboxService:
             base_confidence=base_confidence,
             bear_confidence=bear_confidence,
             summary=summary,
+            day_index=int(round_result.get("day_index") or 0),
+            trade_date=str(round_result.get("trade_date") or ""),
             watchpoints=list(selected.get("watchpoints") or []),
             invalidation_conditions=list(selected.get("invalidation_conditions") or []),
         )

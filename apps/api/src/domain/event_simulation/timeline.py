@@ -18,6 +18,7 @@ def build_simulation_timeline(round_results: list[SimulationRoundResult]) -> Sim
     for round_result in round_results:
         round_turning = False
         for update in round_result.participant_updates:
+            action_name = str(update.action_name or "").upper()
             entry = SimulationTimelineEntry(
                 participant_id=update.participant_id,
                 round_id=round_result.round_id,
@@ -25,19 +26,22 @@ def build_simulation_timeline(round_results: list[SimulationRoundResult]) -> Sim
                 action_type=update.action_type,
                 state_before=update.previous_state,
                 state_after=update.next_state,
+                execution_window=update.execution_window,
+                target_symbol=update.target_symbol,
+                order_value=update.order_value,
                 reason_codes=list(update.reason_codes),
             )
-            if update.action_type == "first_move" and update.participant_id not in seen_first_move:
+            if action_name == "INIT_BUY" and update.participant_id not in seen_first_move:
                 first_move.append(entry)
                 seen_first_move.add(update.participant_id)
-            elif update.action_type == "follow_on" and update.participant_id not in seen_follow_on:
+            elif action_name in {"ADD_BUY", "BROADCAST_BULL"} and update.participant_id not in seen_follow_on:
                 follow_on.append(entry)
                 seen_follow_on.add(update.participant_id)
-            elif update.action_type == "exit" and update.participant_id not in seen_exit:
+            elif action_name in {"REDUCE", "EXIT", "BROADCAST_BEAR"} and update.participant_id not in seen_exit:
                 exit_chain.append(entry)
                 seen_exit.add(update.participant_id)
                 round_turning = True
-        if round_turning or "Risk Check" in round_result.focus or "Breakdown" in round_result.focus:
+        if round_turning or "Risk" in round_result.focus or "Close" in round_result.focus:
             turning_points.append(round_result.round_id)
 
     status = "complete" if first_move or follow_on or exit_chain else "timeline_incomplete"

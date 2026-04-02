@@ -71,7 +71,7 @@ export function EventSandboxParticipantScreen({
         <>
           <section style={panelStyle}>
             <SectionHeader
-              eyebrow="参与者"
+              eyebrow="参与者画像"
               title={participant.participant_family}
               description={participant.expected_impact ?? "暂无参与者摘要。"}
             />
@@ -89,7 +89,7 @@ export function EventSandboxParticipantScreen({
             <SectionHeader
               eyebrow="动作轨迹"
               title="逐轮动作"
-              description="这里展示的是从 replay 载荷中提取出的参与者动作历史。"
+              description="这里展示的是从回放载荷中提取出的参与者动作历史。"
             />
             <div style={{ display: "grid", gap: 14 }}>
               {actionTrail.length ? (
@@ -113,7 +113,7 @@ export function EventSandboxParticipantScreen({
           </section>
         </>
       ) : state.status === "ready" ? (
-        <Notice tone="error">在当前已准备好的参与者阵列中没有找到这个参与者。</Notice>
+        <Notice tone="error">在当前已经准备好的参与者阵列中没有找到这个参与者。</Notice>
       ) : null}
     </PageShell>
   );

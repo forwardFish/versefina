@@ -3,6 +3,7 @@ from __future__ import annotations
 from domain.event_casebook.service import EventCasebookService
 from domain.participant_preparation.registry import ParticipantRegistry
 from schemas.command import EventPrepareResponse
+from schemas.event_simulation import build_clone_timing_profile
 from schemas.participant import ParticipantOutput
 from schemas.participant_preparation import ParticipantRoster
 from schemas.simulation import SIMULATION_ACTION_PROTOCOL
@@ -71,14 +72,25 @@ _FAMILY_INITIAL_STATES: dict[str, str] = {
     "supply_chain_channel": "validated",
 }
 _FAMILY_ALLOWED_ACTIONS: dict[str, tuple[str, ...]] = {
-    "retail_fast_money": ("WATCH", "VALIDATE", "LEAD", "BROADCAST_BULL", "FOLLOW", "EXIT"),
-    "institution_confirmation": ("WATCH", "VALIDATE", "FOLLOW", "BROADCAST_BULL", "EXIT"),
-    "industry_research": ("IGNORE", "WATCH", "VALIDATE", "BROADCAST_BULL", "BROADCAST_BEAR", "FOLLOW", "EXIT"),
-    "policy_research": ("IGNORE", "WATCH", "VALIDATE", "FOLLOW", "EXIT"),
-    "quant_risk_budget": ("IGNORE", "WATCH", "VALIDATE", "FOLLOW", "EXIT"),
-    "risk_control": ("IGNORE", "WATCH", "VALIDATE", "BROADCAST_BEAR", "EXIT"),
-    "media_sentiment": ("WATCH", "VALIDATE", "BROADCAST_BULL", "BROADCAST_BEAR", "FOLLOW", "EXIT"),
-    "supply_chain_channel": ("WATCH", "VALIDATE", "LEAD", "FOLLOW", "EXIT"),
+    "retail_fast_money": ("WATCH", "VALIDATE", "INIT_BUY", "ADD_BUY", "REDUCE", "EXIT", "BROADCAST_BULL"),
+    "institution_confirmation": ("WATCH", "VALIDATE", "INIT_BUY", "ADD_BUY", "REDUCE", "EXIT", "BROADCAST_BULL"),
+    "industry_research": ("IGNORE", "WATCH", "VALIDATE", "INIT_BUY", "ADD_BUY", "REDUCE", "EXIT", "BROADCAST_BULL", "BROADCAST_BEAR"),
+    "policy_research": ("IGNORE", "WATCH", "VALIDATE", "INIT_BUY", "REDUCE", "EXIT", "BROADCAST_BULL", "BROADCAST_BEAR"),
+    "quant_risk_budget": ("IGNORE", "WATCH", "VALIDATE", "INIT_BUY", "ADD_BUY", "REDUCE", "EXIT"),
+    "risk_control": ("IGNORE", "WATCH", "VALIDATE", "REDUCE", "EXIT", "BROADCAST_BEAR"),
+    "media_sentiment": ("WATCH", "VALIDATE", "INIT_BUY", "REDUCE", "EXIT", "BROADCAST_BULL", "BROADCAST_BEAR"),
+    "supply_chain_channel": ("WATCH", "VALIDATE", "INIT_BUY", "ADD_BUY", "REDUCE", "EXIT", "BROADCAST_BULL"),
+}
+
+_FAMILY_TIMING_ROLES: dict[str, str] = {
+    "retail_fast_money": "first_move",
+    "institution_confirmation": "follow_on",
+    "industry_research": "follow_on",
+    "policy_research": "risk_watch",
+    "quant_risk_budget": "follow_on",
+    "risk_control": "risk_watch",
+    "media_sentiment": "first_move",
+    "supply_chain_channel": "first_move",
 }
 
 
@@ -169,17 +181,26 @@ class ParticipantPreparationService:
         mapping: dict[str, object],
     ) -> list[ParticipantOutput]:
         participants: list[ParticipantOutput] = []
-        first_movers = list(mapping.get("symbols") or structure.get("affected_symbols") or [])
+        symbols = list(mapping.get("symbols") or structure.get("affected_symbols") or [])
+        primary_symbol = str(symbols[0]) if symbols else ""
         focus = str(mapping.get("commodity") or (list(structure.get("commodities") or ["event"])[0]))
         activation_basis = self._build_activation_basis(structure, mapping)
         trigger_conditions = list(structure.get("monitor_signals") or [])[:3]
         invalidation_conditions = list(structure.get("invalidation_conditions") or [])[:3]
-        for variant in self.participant_registry.list_primary_variants():
+        for variant in self.participant_registry.list_clone_variants():
             playbook = _FAMILY_PLAYBOOK.get(variant.participant_family, {})
             confidence = round(min(0.95, 0.35 + variant.authority_weight * 0.55), 2)
+            timing = build_clone_timing_profile(
+                participant_id=self._participant_id(variant.participant_family, variant.style_variant, variant.clone_index),
+                participant_family=variant.participant_family,
+                role=_FAMILY_TIMING_ROLES.get(variant.participant_family, "risk_watch"),
+            )
+            seed_position = round(variant.capital_base * variant.seed_position_ratio, 2)
+            cash_available = round(max(0.0, variant.capital_base - seed_position), 2)
+            current_positions = {primary_symbol: seed_position} if primary_symbol and seed_position > 0 else {}
             participants.append(
                 ParticipantOutput(
-                    participant_id=f"{variant.participant_family}:{variant.style_variant}",
+                    participant_id=self._participant_id(variant.participant_family, variant.style_variant, variant.clone_index),
                     participant_family=variant.participant_family,
                     style_variant=variant.style_variant,
                     stance=playbook.get("stance", "neutral"),
@@ -189,13 +210,28 @@ class ParticipantPreparationService:
                     evidence=activation_basis[:3],
                     trigger_conditions=trigger_conditions,
                     invalidation_conditions=invalidation_conditions,
-                    first_movers=first_movers[:2],
-                    secondary_movers=first_movers[2:4],
+                    first_movers=symbols[:2],
+                    secondary_movers=symbols[2:4],
                     dissent_points=list(variant.notes[:1]),
                     initial_state=self._initial_state_for(variant.participant_family),
                     allowed_actions=self._allowed_actions_for(variant.participant_family),
                     authority_weight=variant.authority_weight,
                     risk_budget_profile=variant.risk_budget_profile,
+                    clone_index=variant.clone_index,
+                    influence_weight=variant.influence_weight,
+                    capital_bucket=variant.capital_bucket,
+                    capital_base=round(variant.capital_base, 2),
+                    cash_available=cash_available,
+                    current_positions=current_positions,
+                    max_event_exposure=round(variant.capital_base * variant.max_event_exposure, 2),
+                    reaction_latency=variant.reaction_latency,
+                    entry_threshold=variant.entry_threshold,
+                    add_threshold=variant.add_threshold,
+                    reduce_threshold=variant.reduce_threshold,
+                    exit_threshold=variant.exit_threshold,
+                    preferred_execution_windows=list(timing.preferred_execution_windows),
+                    avoid_execution_windows=list(timing.avoid_execution_windows),
+                    notes=list(variant.notes),
                 )
             )
         return participants
@@ -206,3 +242,6 @@ class ParticipantPreparationService:
     def _allowed_actions_for(self, participant_family: str) -> list[str]:
         configured = _FAMILY_ALLOWED_ACTIONS.get(participant_family, _DEFAULT_ACTIONS)
         return [action for action in configured if action in SIMULATION_ACTION_PROTOCOL]
+
+    def _participant_id(self, participant_family: str, style_variant: str, clone_index: int) -> str:
+        return f"{participant_family}:{style_variant}:{clone_index:02d}"

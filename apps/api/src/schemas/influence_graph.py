@@ -16,6 +16,10 @@ class ParticipantInfluenceEdge:
     polarity: str
     strength: float
     reason: str
+    lag_windows: int = 1
+    activation_condition: str = ""
+    expiration_condition: str = ""
+    effect_on: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

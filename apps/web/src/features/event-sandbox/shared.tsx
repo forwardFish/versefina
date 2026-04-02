@@ -1,7 +1,8 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
-import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from "react";
 
 export type AsyncState<T> = {
   status: "loading" | "ready" | "error";
@@ -147,13 +148,19 @@ export function useAsyncPayload<T>(loader: () => Promise<T>, deps: Array<string 
     data: null,
     error: "",
   });
+  const dependencyKey = useMemo(() => deps.map((value) => String(value)).join("::"), [deps]);
+  const loaderRef = useRef(loader);
+
+  useEffect(() => {
+    loaderRef.current = loader;
+  }, [loader]);
 
   useEffect(() => {
     let cancelled = false;
     async function load() {
       setState({ status: "loading", data: null, error: "" });
       try {
-        const result = await loader();
+        const result = await loaderRef.current();
         if (!cancelled) {
           setState({ status: "ready", data: result, error: "" });
         }
@@ -171,7 +178,7 @@ export function useAsyncPayload<T>(loader: () => Promise<T>, deps: Array<string 
     return () => {
       cancelled = true;
     };
-  }, deps);
+  }, [dependencyKey]);
 
   return state;
 }

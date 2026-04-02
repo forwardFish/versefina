@@ -23,17 +23,18 @@ class SimulationActionProtocolTestCase(unittest.TestCase):
                 "IGNORE",
                 "WATCH",
                 "VALIDATE",
+                "INIT_BUY",
+                "ADD_BUY",
+                "REDUCE",
+                "EXIT",
                 "BROADCAST_BULL",
                 "BROADCAST_BEAR",
-                "LEAD",
-                "FOLLOW",
-                "EXIT",
             ),
         )
         self.assertEqual(len(SIMULATION_ACTION_PROTOCOL_DEFINITIONS), len(SIMULATION_ACTION_PROTOCOL))
 
     def test_normalize_action_name_rejects_unsupported_action(self) -> None:
-        self.assertEqual(normalize_simulation_action_name("lead"), "LEAD")
+        self.assertEqual(normalize_simulation_action_name("init_buy"), "INIT_BUY")
         with self.assertRaises(ValueError):
             normalize_simulation_action_name("panic_sell")
 

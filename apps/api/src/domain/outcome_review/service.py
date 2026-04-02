@@ -176,22 +176,29 @@ class OutcomeReviewService:
                 continue
             early_detection_ids, invalidation_ids = self._extract_detection_ids(run)
             participants = run.get("participant_states") if isinstance(run.get("participant_states"), list) else []
+            family_participants: dict[str, list[dict[str, object]]] = defaultdict(list)
             for participant in participants:
                 if not isinstance(participant, dict):
                     continue
                 participant_family = str(participant.get("participant_family") or "").strip()
                 if not participant_family:
                     continue
+                family_participants[participant_family].append(participant)
+
+            for participant_family, family_rows in family_participants.items():
                 sample = by_family[participant_family]
                 sample["sample_size"] = int(sample["sample_size"]) + 1
-                if self._is_direction_correct(
-                    participant=participant,
-                    actual_scenario=outcome.dominant_scenario_actual,
+                if any(
+                    self._is_direction_correct(
+                        participant=participant,
+                        actual_scenario=outcome.dominant_scenario_actual,
+                    )
+                    for participant in family_rows
                 ):
                     sample["direction_correct"] = float(sample["direction_correct"]) + 1.0
-                if str(participant.get("participant_id") or "") in early_detection_ids:
+                if any(str(participant.get("participant_id") or "") in early_detection_ids for participant in family_rows):
                     sample["early_detection"] = float(sample["early_detection"]) + 1.0
-                if str(participant.get("participant_id") or "") in invalidation_ids:
+                if any(str(participant.get("participant_id") or "") in invalidation_ids for participant in family_rows):
                     sample["invalidation_detection"] = float(sample["invalidation_detection"]) + 1.0
                 sample["last_score_label"] = outcome.score_label
 
@@ -382,10 +389,10 @@ class OutcomeReviewService:
                 if not isinstance(update, dict):
                     continue
                 participant_id = str(update.get("participant_id") or "")
-                action_type = str(update.get("action_type") or "")
-                if order <= 2 and action_type in {"first_move", "follow_on"}:
+                action_name = str(update.get("action_name") or "")
+                if order <= 2 and action_name in {"INIT_BUY", "ADD_BUY", "BROADCAST_BULL"}:
                     early_detection_ids.add(participant_id)
-                if action_type in {"risk_watch", "exit"}:
+                if action_name in {"REDUCE", "EXIT", "BROADCAST_BEAR"}:
                     invalidation_ids.add(participant_id)
         return early_detection_ids, invalidation_ids
 
@@ -393,12 +400,12 @@ class OutcomeReviewService:
         stance = str(participant.get("stance") or "").strip().lower()
         role = str(participant.get("role") or "").strip().lower()
         if actual_scenario == "bull":
-            return stance in _SUPPORTIVE_STANCES or role in {"first_move", "follow_on"}
+            return stance in _SUPPORTIVE_STANCES or role in {"leader", "follower", "amplifier"}
         if actual_scenario == "bear":
-            return stance in _DEFENSIVE_STANCES or role == "risk_watch"
+            return stance in _DEFENSIVE_STANCES or role == "risk_guard"
         if actual_scenario == "base":
-            return stance in {"neutral", "watch"} or role == "risk_watch"
-        return stance in {"watch", "neutral"} or role == "risk_watch"
+            return stance in {"neutral", "watch"} or role == "risk_guard"
+        return stance in {"watch", "neutral"} or role == "risk_guard"
 
     def _ability_tags(
         self,

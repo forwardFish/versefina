@@ -119,7 +119,10 @@ class AgentRegistryService:
             drawdown=0.05,
             public_url=f"{self.public_base_url.rstrip('/')}/api/v1/agents/{agent_id}",
             tags=["趋势", "短线"],
-            positions=[Position(symbol="600519.SH", qty=100, avg_cost=1680.0)],
+            positions=[
+                Position(symbol="600519.SH", qty=100, avg_cost=1680.0),
+                Position(symbol="000001.SZ", qty=300, avg_cost=12.45),
+            ],
         )
 
     def _write_agent(self, agent_id: str, payload: dict) -> None:

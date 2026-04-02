@@ -65,7 +65,7 @@ class EventSandboxApiTestCase(unittest.TestCase):
         self.assertEqual(participants_response.status_code, 200)
         participants_payload = participants_response.json()
         self.assertEqual(participants_payload["status"], "prepared")
-        self.assertGreaterEqual(len(participants_payload["participants"]), 1)
+        self.assertEqual(len(participants_payload["participants"]), 20)
 
         simulate_response = self.client.post(f"/api/v1/events/{event_id}/simulate")
         self.assertEqual(simulate_response.status_code, 200)
@@ -86,6 +86,7 @@ class EventSandboxApiTestCase(unittest.TestCase):
         self.assertEqual(rounds_payload["status"], "ready")
         first_round = rounds_payload["rounds"][0]
         self.assertTrue(first_round["participant_actions"])
+        self.assertIn("execution_window", first_round)
         self.assertIn("market_state", first_round)
         self.assertIn("belief_snapshot", first_round)
         self.assertIn("scenario_snapshot", first_round)
@@ -103,6 +104,8 @@ class EventSandboxApiTestCase(unittest.TestCase):
         self.assertEqual(influence_payload["status"], "ready")
         self.assertTrue(influence_payload["rounds"])
         self.assertIn("edges", influence_payload["rounds"][0])
+        if influence_payload["rounds"][0]["edges"]:
+            self.assertIn("effect_on", influence_payload["rounds"][0]["edges"][0])
 
         influence_round_response = self.client.get(
             f"/api/v1/events/{event_id}/influence-graph/{first_round['round_id']}"
@@ -126,7 +129,7 @@ class EventSandboxApiTestCase(unittest.TestCase):
         self.assertEqual(replay_response.status_code, 200)
         replay_payload = replay_response.json()
         self.assertEqual(replay_payload["status"], "ready")
-        self.assertGreaterEqual(len(replay_payload["rounds"]), 3)
+        self.assertEqual(len(replay_payload["rounds"]), 5)
 
         report_response = self.client.get(f"/api/v1/events/{event_id}/report")
         self.assertEqual(report_response.status_code, 200)

@@ -51,24 +51,29 @@ class ParticipantPreparationApiTestCase(unittest.TestCase):
         self.assertEqual(payload["status"], "prepared")
         self.assertEqual(payload["participant_roster"]["status"], "prepared")
         participants = payload["participant_roster"]["participants"]
-        self.assertEqual(len(participants), 8)
+        self.assertEqual(len(participants), 20)
         first = participants[0]
         self.assertIn("participant_family", first)
         self.assertIn("authority_weight", first)
         self.assertIn("risk_budget_profile", first)
         self.assertIn("initial_state", first)
         self.assertIn("allowed_actions", first)
+        self.assertIn("capital_bucket", first)
+        self.assertIn("cash_available", first)
+        self.assertIn("current_positions", first)
+        self.assertIn("clone_index", first)
         self.assertTrue(first["allowed_actions"])
         self.assertIn(first["initial_state"], {"ready", "watching", "validated"})
         self.assertTrue(set(first["allowed_actions"]).issubset({
             "IGNORE",
             "WATCH",
             "VALIDATE",
+            "INIT_BUY",
+            "ADD_BUY",
+            "REDUCE",
+            "EXIT",
             "BROADCAST_BULL",
             "BROADCAST_BEAR",
-            "LEAD",
-            "FOLLOW",
-            "EXIT",
         }))
 
     def test_prepare_event_degrades_when_evidence_is_incomplete(self) -> None:

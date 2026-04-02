@@ -10,6 +10,15 @@ class ParticipantRegistryEntry:
     style_variant: str
     authority_weight: float
     risk_budget_profile: str
+    influence_weight: float = 0.0
+    capital_bucket: str = ""
+    capital_base: float = 0.0
+    max_event_exposure: float = 0.0
+    reaction_latency: int = 0
+    entry_threshold: float = 0.0
+    add_threshold: float = 0.0
+    reduce_threshold: float = 0.0
+    exit_threshold: float = 0.0
     notes: list[str] = field(default_factory=list)
     calibration_status: str = "default"
 

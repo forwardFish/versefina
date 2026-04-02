@@ -49,7 +49,7 @@ class BeliefGraphApiTestCase(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         payload = response.json()
         self.assertEqual(payload["status"], "built")
-        self.assertEqual(payload["participant_count"], 8)
+        self.assertEqual(payload["participant_count"], 20)
         self.assertGreaterEqual(len(payload["key_supporters"]), 1)
         self.assertGreaterEqual(len(payload["key_opponents"]), 1)
 

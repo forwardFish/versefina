@@ -7,130 +7,20 @@ from schemas.influence_graph import InfluenceGraphPayload, InfluenceGraphRound, 
 
 class InfluenceGraphService:
     def build_payload(self, event_id: str, rounds: list[dict[str, Any]]) -> InfluenceGraphPayload:
-        leader_history: list[dict[str, str]] = []
-        risk_history: list[dict[str, str]] = []
         graph_rounds: list[InfluenceGraphRound] = []
 
         for round_item in rounds:
             round_id = str(round_item.get("round_id") or "")
             order = int(round_item.get("order") or 0)
-            actions = list(round_item.get("participant_actions") or [])
-            states = list(round_item.get("participant_states") or [])
             market_state = str((round_item.get("market_state") or {}).get("state") or "DORMANT")
-            state_map = {
-                str(item.get("participant_id") or ""): item
-                for item in states
-                if str(item.get("participant_id") or "").strip()
-            }
-            edges: list[ParticipantInfluenceEdge] = []
-            current_leaders: list[dict[str, str]] = []
-            current_risks: list[dict[str, str]] = []
-
-            for action in actions:
-                participant_id = str(action.get("participant_id") or "")
-                if not participant_id:
-                    continue
-                participant_family = str(action.get("participant_family") or state_map.get(participant_id, {}).get("participant_family") or "unknown")
-                action_type = str(action.get("action_type") or "")
-                polarity = str(action.get("polarity") or self._polarity_for_action(action, state_map.get(participant_id) or {}))
-
-                if action_type == "first_move":
-                    edges.append(
-                        ParticipantInfluenceEdge(
-                            source_participant_id="event_seed",
-                            source_participant_family="event_seed",
-                            target_participant_id=participant_id,
-                            target_participant_family=participant_family,
-                            round_id=round_id,
-                            order=order,
-                            influence_type="seed_activation",
-                            polarity=polarity,
-                            strength=0.92,
-                            reason="The event seed directly activates the first mover.",
-                        )
-                    )
-                    current_leaders.append(
-                        {
-                            "participant_id": participant_id,
-                            "participant_family": participant_family,
-                            "polarity": polarity,
-                        }
-                    )
-                    continue
-
-                if action_type == "follow_on":
-                    sources = [item for item in current_leaders if item["participant_id"] != participant_id] or [
-                        item for item in leader_history if item["participant_id"] != participant_id
-                    ]
-                    if not sources:
-                        sources = [
-                            {
-                                "participant_id": "event_seed",
-                                "participant_family": "event_seed",
-                                "polarity": polarity,
-                            }
-                        ]
-                    for source in sources[:2]:
-                        edges.append(
-                            ParticipantInfluenceEdge(
-                                source_participant_id=str(source["participant_id"]),
-                                source_participant_family=str(source["participant_family"]),
-                                target_participant_id=participant_id,
-                                target_participant_family=participant_family,
-                                round_id=round_id,
-                                order=order,
-                                influence_type=self._influence_type(source_family=str(source["participant_family"]), action_type=action_type),
-                                polarity=polarity,
-                                strength=self._strength_from_state(state_map.get(participant_id) or {}, base=0.72),
-                                reason="Follow-on action confirms the narrative transmission path.",
-                            )
-                        )
-                    current_leaders.append(
-                        {
-                            "participant_id": participant_id,
-                            "participant_family": participant_family,
-                            "polarity": polarity,
-                        }
-                    )
-                    continue
-
-                if action_type in {"risk_watch", "exit"}:
-                    sources = [item for item in current_risks if item["participant_id"] != participant_id] or [
-                        item for item in risk_history if item["participant_id"] != participant_id
-                    ] or [
-                        item for item in leader_history if item["participant_id"] != participant_id
-                    ]
-                    if not sources:
-                        sources = [
-                            {
-                                "participant_id": "event_seed",
-                                "participant_family": "event_seed",
-                                "polarity": "bearish",
-                            }
-                        ]
-                    for source in sources[:1]:
-                        edges.append(
-                            ParticipantInfluenceEdge(
-                                source_participant_id=str(source["participant_id"]),
-                                source_participant_family=str(source["participant_family"]),
-                                target_participant_id=participant_id,
-                                target_participant_family=participant_family,
-                                round_id=round_id,
-                                order=order,
-                                influence_type="risk_signal",
-                                polarity="bearish",
-                                strength=self._strength_from_state(state_map.get(participant_id) or {}, base=0.68),
-                                reason="Risk pressure pushes the participant into watch or exit behavior.",
-                            )
-                        )
-                    current_risks.append(
-                        {
-                            "participant_id": participant_id,
-                            "participant_family": participant_family,
-                            "polarity": "bearish",
-                        }
-                    )
-
+            explicit_edges = list(round_item.get("influence_edges") or [])
+            if explicit_edges:
+                edges = [
+                    edge if isinstance(edge, ParticipantInfluenceEdge) else ParticipantInfluenceEdge(**edge)
+                    for edge in explicit_edges
+                ]
+            else:
+                edges = self._derive_edges_from_actions(round_id=round_id, order=order, round_item=round_item)
             graph_rounds.append(
                 InfluenceGraphRound(
                     event_id=event_id,
@@ -140,8 +30,6 @@ class InfluenceGraphService:
                     edges=edges,
                 )
             )
-            leader_history.extend(current_leaders)
-            risk_history.extend(current_risks)
 
         latest_round_id = graph_rounds[-1].round_id if graph_rounds else ""
         return InfluenceGraphPayload(
@@ -151,27 +39,59 @@ class InfluenceGraphService:
             rounds=graph_rounds,
         )
 
-    def _polarity_for_action(self, action: dict[str, Any], state: dict[str, Any]) -> str:
-        stance = str(state.get("stance") or "").strip().lower()
-        action_type = str(action.get("action_type") or "").strip().lower()
-        if action_type in {"risk_watch", "exit"}:
-            return "bearish"
-        if stance in {"bullish", "constructive"}:
-            return "bullish"
-        if stance in {"skeptical", "bearish", "watch"}:
-            return "bearish"
-        return "neutral"
+    def _derive_edges_from_actions(
+        self,
+        *,
+        round_id: str,
+        order: int,
+        round_item: dict[str, Any],
+    ) -> list[ParticipantInfluenceEdge]:
+        actions = list(round_item.get("participant_actions") or [])
+        states = list(round_item.get("participant_states") or [])
+        state_map = {
+            str(item.get("participant_id") or ""): item
+            for item in states
+            if str(item.get("participant_id") or "").strip()
+        }
+        bullish_sources = [item for item in actions if str(item.get("action_name") or "") in {"INIT_BUY", "ADD_BUY", "BROADCAST_BULL"}]
+        bearish_sources = [item for item in actions if str(item.get("action_name") or "") in {"REDUCE", "EXIT", "BROADCAST_BEAR"}]
+        edges: list[ParticipantInfluenceEdge] = []
 
-    def _influence_type(self, *, source_family: str, action_type: str) -> str:
-        if action_type != "follow_on":
-            return "signal_confirmation"
-        if source_family == "media_sentiment":
-            return "narrative_amplification"
-        if source_family in {"industry_research", "supply_chain_channel"}:
-            return "fundamental_validation"
-        return "momentum_confirmation"
-
-    def _strength_from_state(self, state: dict[str, Any], *, base: float) -> float:
-        authority = float(state.get("authority_weight") or 0.0)
-        confidence = float(state.get("confidence") or 0.0)
-        return round(min(0.98, base + authority * 0.18 + confidence * 0.08), 2)
+        for target in actions:
+            participant_id = str(target.get("participant_id") or "")
+            participant_family = str(target.get("participant_family") or state_map.get(participant_id, {}).get("participant_family") or "unknown")
+            action_name = str(target.get("action_name") or "")
+            if action_name in {"INIT_BUY", "ADD_BUY", "BROADCAST_BULL"}:
+                sources = [item for item in bullish_sources if str(item.get("participant_id") or "") != participant_id]
+                polarity = "bullish"
+                influence_type = "trade_confirmation"
+                effect_on = "entry_bias"
+            elif action_name in {"REDUCE", "EXIT", "BROADCAST_BEAR"}:
+                sources = [item for item in bearish_sources if str(item.get("participant_id") or "") != participant_id]
+                polarity = "bearish"
+                influence_type = "risk_signal"
+                effect_on = "risk_bias"
+            else:
+                continue
+            for source in sources[:2]:
+                source_id = str(source.get("participant_id") or "")
+                source_family = str(source.get("participant_family") or state_map.get(source_id, {}).get("participant_family") or "unknown")
+                edges.append(
+                    ParticipantInfluenceEdge(
+                        source_participant_id=source_id,
+                        source_participant_family=source_family,
+                        target_participant_id=participant_id,
+                        target_participant_family=participant_family,
+                        round_id=round_id,
+                        order=order,
+                        influence_type=influence_type,
+                        polarity=polarity,
+                        strength=round(min(0.95, float(source.get("confidence") or 0.0) * 0.8 + 0.2), 2),
+                        reason=f"{source_id} influences {participant_id} through {action_name.lower()}.",
+                        lag_windows=1,
+                        activation_condition=f"after:{str(source.get('action_name') or '').lower()}",
+                        expiration_condition=f"until_round:{order + 1}",
+                        effect_on=effect_on,
+                    )
+                )
+        return edges

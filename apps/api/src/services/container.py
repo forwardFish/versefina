@@ -13,6 +13,7 @@ from domain.event_casebook.service import EventCasebookService
 from domain.finahunt_ingestion.service import FinahuntEventIngestionService
 from domain.event_ingestion.service import EventIngestionService
 from domain.event_sandbox.service import EventSandboxService
+from domain.workbench.service import WorkbenchService
 from domain.outcome_review.service import OutcomeReviewService
 from domain.reporting.service import ReportingService
 from domain.event_structuring.service import EventStructuringService
@@ -66,6 +67,7 @@ class ServiceContainer:
     outcome_review: OutcomeReviewService
     reporting: ReportingService
     event_sandbox: EventSandboxService
+    workbench: WorkbenchService
     agent_snapshots: AgentSnapshotProjection
     rankings: RankingProjection
     event_cards: EventCardProjectionService
@@ -89,6 +91,11 @@ def build_container() -> ServiceContainer:
     style_embedding = StyleEmbeddingService(
         trade_record_root=Path(settings.trade_record_root),
         style_root=Path(settings.statement_style_root),
+    )
+    market_world = MarketWorldService(
+        default_world_id=settings.default_world_id,
+        runtime_root=Path(settings.market_world_root),
+        agent_registry_root=Path(settings.agent_registry_root),
     )
     event_structuring = EventStructuringService(Path(settings.event_runtime_root))
     theme_mapping = ThemeMappingService(Path(settings.event_runtime_root))
@@ -121,8 +128,10 @@ def build_container() -> ServiceContainer:
     event_simulation = EventSimulationService(
         runtime_root=Path(settings.simulation_runtime_root),
         casebook_service=event_casebook,
+        participant_preparation=participant_preparation,
         belief_graph=belief_graph,
         scenario_engine=scenario_engine,
+        market_world=market_world,
         simulation_ledger=simulation_ledger,
     )
     event_cards = EventCardProjectionService(
@@ -165,6 +174,12 @@ def build_container() -> ServiceContainer:
         event_ingestion=event_ingestion,
         event_sandbox=event_sandbox,
     )
+    workbench = WorkbenchService(
+        event_casebook=event_casebook,
+        event_ingestion=event_ingestion,
+        finahunt_ingestion=finahunt_ingestion,
+        event_sandbox=event_sandbox,
+    )
     return ServiceContainer(
         acceptance_pack=AcceptancePackService(
             repo_root=Path(settings.roadmap_source_root),
@@ -192,11 +207,7 @@ def build_container() -> ServiceContainer:
         statement_ingestion=statement_ingestion,
         statement_parser=statement_parser,
         style_embedding=style_embedding,
-        market_world=MarketWorldService(
-            default_world_id=settings.default_world_id,
-            runtime_root=Path(settings.market_world_root),
-            agent_registry_root=Path(settings.agent_registry_root),
-        ),
+        market_world=market_world,
         simulation_ledger=simulation_ledger,
         platform_control=PlatformControlService(),
         event_ingestion=event_ingestion,
@@ -215,6 +226,7 @@ def build_container() -> ServiceContainer:
         outcome_review=outcome_review,
         reporting=reporting,
         event_sandbox=event_sandbox,
+        workbench=workbench,
         agent_snapshots=AgentSnapshotProjection(),
         rankings=RankingProjection(),
         event_cards=event_cards,

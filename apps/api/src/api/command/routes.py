@@ -27,6 +27,7 @@ from schemas.command import (
     StatementStatusUpdateRequest,
     StatementUploadRequest,
     SubmitActionRequest,
+    WorkbenchAskRequest,
 )
 from services.container import ServiceContainer
 
@@ -483,6 +484,29 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
                 },
             )
 
+    @router.post("/api/v1/events/{event_id}/simulation/continue-day")
+    def continue_simulation_day(event_id: str):
+        try:
+            return container.event_sandbox.continue_simulation_day(event_id)
+        except EventSandboxError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+        except EventSimulationError as exc:
+            return JSONResponse(
+                status_code=exc.status_code,
+                content={
+                    "event_id": event_id,
+                    "error_code": exc.code,
+                    "error_message": exc.message,
+                },
+            )
+
     @router.post("/api/v1/events/{event_id}/simulate")
     def simulate_event(event_id: str):
         try:
@@ -505,6 +529,21 @@ def build_command_router(container: ServiceContainer) -> APIRouter:
                     "error_message": exc.message,
                 },
             )
+
+    @router.post("/api/v1/events/{event_id}/workbench/ask")
+    def workbench_ask(event_id: str, payload: WorkbenchAskRequest):
+        return container.workbench.ask_workbench(event_id, payload)
+
+    @router.post("/api/v1/events/{event_id}/counterfactual")
+    def workbench_counterfactual(event_id: str, payload: WorkbenchAskRequest):
+        forced_payload = WorkbenchAskRequest(
+            question=payload.question,
+            ask_type="counterfactual",
+            clone_id=payload.clone_id,
+            round_id=payload.round_id,
+            transition_id=payload.transition_id,
+        )
+        return container.workbench.ask_workbench(event_id, forced_payload)
 
     @router.post("/api/v1/events/{event_id}/outcomes")
     def record_outcome(event_id: str, payload: OutcomeReviewWriteRequest):

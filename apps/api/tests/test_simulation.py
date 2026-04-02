@@ -18,19 +18,21 @@ class SimulationTimelineTestCase(unittest.TestCase):
                 participant_updates=[
                     SimulationParticipantUpdate(
                         participant_id="alpha",
-                        action_type="first_move",
+                        action_type="init_buy",
+                        action_name="INIT_BUY",
                         previous_state="ready",
                         next_state="engaged",
                         round_id="round-1",
-                        reason_codes=["action:first_move"],
+                        reason_codes=["action:init_buy"],
                     ),
                     SimulationParticipantUpdate(
                         participant_id="beta",
-                        action_type="follow_on",
+                        action_type="add_buy",
+                        action_name="ADD_BUY",
                         previous_state="ready",
                         next_state="monitoring",
                         round_id="round-1",
-                        reason_codes=["action:follow_on"],
+                        reason_codes=["action:add_buy"],
                     ),
                 ],
                 participant_states=[],
@@ -46,6 +48,7 @@ class SimulationTimelineTestCase(unittest.TestCase):
                     SimulationParticipantUpdate(
                         participant_id="alpha",
                         action_type="exit",
+                        action_name="EXIT",
                         previous_state="accelerating",
                         next_state="de_risking",
                         round_id="round-4",

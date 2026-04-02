@@ -123,6 +123,82 @@ def build_query_router(container: ServiceContainer) -> APIRouter:
     def event_validation(event_id: str):
         return container.event_sandbox.load_validation(event_id)
 
+    @router.get("/api/v1/events/{event_id}/clones")
+    def event_clones(event_id: str):
+        return container.workbench.list_clones(event_id)
+
+    @router.get("/api/v1/events/{event_id}/clones/{clone_id}")
+    def event_clone_detail(event_id: str, clone_id: str):
+        return container.workbench.load_clone_detail(event_id, clone_id)
+
+    @router.get("/api/v1/events/{event_id}/graph-stage")
+    def event_graph_stage(event_id: str):
+        return container.workbench.load_graph_stage(event_id)
+
+    @router.get("/api/v1/events/{event_id}/trade-pulse")
+    def event_trade_pulse(event_id: str, round: str | None = None, window: str | None = None):
+        return container.workbench.load_trade_pulse(event_id, round, window)
+
+    @router.get("/api/v1/events/{event_id}/clones/{clone_id}/decision-trace")
+    def event_clone_decision_trace(event_id: str, clone_id: str, round: str | None = None):
+        return container.workbench.load_decision_trace(event_id, clone_id, round)
+
+    @router.get("/api/v1/events/{event_id}/market-state/transitions/{transition_id}")
+    def event_market_state_transition(event_id: str, transition_id: str):
+        return container.workbench.load_market_state_transition(event_id, transition_id)
+
+    @router.get("/api/v1/events/{event_id}/workbench/report")
+    def event_workbench_report(event_id: str):
+        return container.workbench.load_workbench_report(event_id)
+
+    @router.get("/api/v1/events/{event_id}/scoreboards/families")
+    def event_family_scoreboards(event_id: str):
+        payload = container.workbench.load_workbench_report(event_id)
+        return {
+            "event_id": event_id,
+            "status": payload.get("status", "not_found"),
+            "families": ((payload.get("scoreboards") or {}).get("families") or []),
+        }
+
+    @router.get("/api/v1/events/{event_id}/scoreboards/clones")
+    def event_clone_scoreboards(event_id: str):
+        payload = container.workbench.load_workbench_report(event_id)
+        return {
+            "event_id": event_id,
+            "status": payload.get("status", "not_found"),
+            "clones": ((payload.get("scoreboards") or {}).get("clones") or []),
+        }
+
+    @router.get("/api/v1/events/{event_id}/failure-taxonomy")
+    def event_failure_taxonomy(event_id: str):
+        payload = container.workbench.load_workbench_report(event_id)
+        return {
+            "event_id": event_id,
+            "status": payload.get("status", "not_found"),
+            "items": payload.get("failure_taxonomy") or [],
+        }
+
+    @router.get("/api/v1/events/{event_id}/regime-patterns")
+    def event_regime_patterns(event_id: str):
+        payload = container.workbench.load_workbench_report(event_id)
+        return {
+            "event_id": event_id,
+            "status": payload.get("status", "not_found"),
+            "items": (((payload.get("scoreboards") or {}).get("regimes")) or []),
+        }
+
+    @router.get("/api/v1/events/{event_id}/context")
+    def event_context(event_id: str):
+        graph_stage = container.workbench.load_graph_stage(event_id)
+        report = container.workbench.load_workbench_report(event_id)
+        return {
+            "event_id": event_id,
+            "status": graph_stage.get("status", "not_found"),
+            "shell": graph_stage.get("shell") or {},
+            "lineage": (graph_stage.get("event_graph") or {}).get("lineage") or {},
+            "scoreboards": report.get("scoreboards") or {},
+        }
+
 
     @router.get("/api/v1/events/{event_id}/card")
     def event_card(event_id: str):

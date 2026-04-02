@@ -48,6 +48,21 @@ class ParticipantOutput:
     allowed_actions: list[str] = field(default_factory=list)
     authority_weight: float | None = None
     risk_budget_profile: str | None = None
+    clone_index: int = 0
+    influence_weight: float = 0.0
+    capital_bucket: str = ""
+    capital_base: float = 0.0
+    cash_available: float = 0.0
+    current_positions: dict[str, float] = field(default_factory=dict)
+    max_event_exposure: float = 0.0
+    reaction_latency: int = 0
+    entry_threshold: float = 0.0
+    add_threshold: float = 0.0
+    reduce_threshold: float = 0.0
+    exit_threshold: float = 0.0
+    preferred_execution_windows: list[str] = field(default_factory=list)
+    avoid_execution_windows: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

@@ -17,16 +17,54 @@ export type ParticipantRecord = {
   invalidation_conditions?: string[];
   evidence?: string[];
   risk_budget_profile?: string;
+  clone_index?: number;
+  influence_weight?: number;
+  capital_bucket?: string;
+  capital_base?: number;
+  cash_available?: number;
+  current_positions?: Record<string, number>;
+  max_event_exposure?: number;
+  reaction_latency?: number;
+  entry_threshold?: number;
+  add_threshold?: number;
+  reduce_threshold?: number;
+  exit_threshold?: number;
+  preferred_execution_windows?: string[];
+  avoid_execution_windows?: string[];
 };
 
 export type ParticipantActionRecord = {
   participant_id: string;
   participant_family: string;
   action_type: string;
+  action_name?: string;
   previous_state: string;
   next_state: string;
   polarity: string;
   reason_codes: string[];
+  execution_window?: string;
+  day_index?: number;
+  trade_date?: string;
+  target_symbol?: string;
+  order_side?: string;
+  order_value?: number;
+  order_value_range_min?: number;
+  order_value_range_max?: number;
+  reference_price?: number;
+  reference_price_source?: string;
+  lot_size?: number;
+  trade_quantity?: number;
+  trade_unit_label?: string;
+  position_before?: number;
+  position_after?: number;
+  position_qty_before?: number;
+  position_qty_after?: number;
+  holding_qty_after?: number;
+  cash_before?: number;
+  cash_after?: number;
+  influenced_by?: GenericRecord[];
+  evidence_trace?: GenericRecord[];
+  effect_summary?: string;
 };
 
 export type InfluenceEdgeRecord = {
@@ -40,6 +78,10 @@ export type InfluenceEdgeRecord = {
   polarity: string;
   strength: number;
   reason: string;
+  lag_windows?: number;
+  activation_condition?: string;
+  expiration_condition?: string;
+  effect_on?: string;
 };
 
 export type RoundSnapshotRecord = {
@@ -49,6 +91,16 @@ export type RoundSnapshotRecord = {
   order: number;
   focus: string;
   objective: string;
+  execution_window?: string;
+  day_index?: number;
+  trade_date?: string;
+  is_trading_day?: boolean;
+  is_incremental_generated?: boolean;
+  actions_count?: number;
+  buy_clone_count?: number;
+  sell_clone_count?: number;
+  new_entry_clone_count?: number;
+  exit_clone_count?: number;
   participant_actions: ParticipantActionRecord[];
   participant_states: GenericRecord[];
   influence_edges: InfluenceEdgeRecord[];
@@ -103,6 +155,9 @@ export type SimulationSummaryPayload = {
   dominant_scenario?: string;
   round_count?: number;
   latest_market_state?: string;
+  default_day_count?: number;
+  generated_day_count?: number;
+  latest_trade_date?: string;
   timeline?: GenericRecord;
   top_participants?: GenericRecord[];
   rounds?: GenericRecord[];
@@ -133,6 +188,9 @@ export type ReplayPayload = {
   status: string;
   run_id?: string;
   dominant_scenario?: string;
+  default_day_count?: number;
+  generated_day_count?: number;
+  can_continue?: boolean;
   timeline?: GenericRecord;
   rounds: RoundSnapshotRecord[];
 };

@@ -51,6 +51,23 @@ class SimulationLedgerService:
                         reason_codes=list(update.reason_codes),
                         state_before=update.previous_state,
                         state_after=update.next_state,
+                        execution_window=update.execution_window,
+                        day_index=update.day_index,
+                        trade_date=update.trade_date,
+                        target_symbol=update.target_symbol,
+                        order_side=update.order_side,
+                        order_value=update.order_value,
+                        order_value_range_min=update.order_value_range_min,
+                        order_value_range_max=update.order_value_range_max,
+                        reference_price=update.reference_price,
+                        lot_size=update.lot_size,
+                        trade_quantity=update.trade_quantity,
+                        position_before=update.position_before,
+                        position_after=update.position_after,
+                        position_qty_before=update.position_qty_before,
+                        position_qty_after=update.position_qty_after,
+                        cash_before=update.cash_before,
+                        cash_after=update.cash_after,
                     )
                     handle.write(json.dumps(entry.to_dict(), ensure_ascii=False) + "\n")
 
@@ -59,6 +76,8 @@ class SimulationLedgerService:
                     run_id=run_id,
                     round_id=round_result.round_id,
                     order=round_result.order,
+                    day_index=round_result.day_index,
+                    trade_date=round_result.trade_date,
                     participant_states=list(round_result.participant_states),
                 )
                 snapshot_path = self.snapshots_root / f"{run_id}-{round_result.round_id}.json"
@@ -94,7 +113,7 @@ class SimulationLedgerService:
         if not resolved_run_id:
             return SimulationStateSnapshotView(event_id=event_id, status="simulation_missing")
 
-        snapshot_paths = sorted(self.snapshots_root.glob(f"{resolved_run_id}-round-*.json"))
+        snapshot_paths = sorted(self.snapshots_root.glob(f"{resolved_run_id}-*.json"))
         if not snapshot_paths:
             return SimulationStateSnapshotView(event_id=event_id, run_id=resolved_run_id, status="snapshot_missing")
 

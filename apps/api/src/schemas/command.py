@@ -193,3 +193,12 @@ class OutcomeReviewWriteRequest:
     sentiment_status: str
     analyst_note: str = ""
     supporting_evidence: list[str] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
+class WorkbenchAskRequest:
+    question: str
+    ask_type: str = "graph"
+    clone_id: str | None = None
+    round_id: str | None = None
+    transition_id: str | None = None

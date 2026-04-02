@@ -33,16 +33,26 @@ class SimulationLedgerServiceTestCase(unittest.TestCase):
                 participant_updates=[
                     SimulationParticipantUpdate(
                         participant_id="retail_fast_money:fast_momentum",
-                        action_type="first_move",
+                        action_type="init_buy",
                         previous_state="ready",
                         next_state="engaged",
                         round_id="round-1",
                         actor_id="retail_fast_money:fast_momentum",
                         target_id="LITHIUM",
-                        action_name="LEAD",
+                        action_name="INIT_BUY",
                         confidence=0.76,
                         reason_code="scenario:bull",
-                        reason_codes=["scenario:bull", "action:first_move"],
+                        reason_codes=["scenario:bull", "action:init_buy"],
+                        execution_window="pre_open",
+                        target_symbol="LITHIUM",
+                        order_side="buy",
+                        order_value=150000.0,
+                        order_value_range_min=120000.0,
+                        order_value_range_max=170000.0,
+                        position_before=0.0,
+                        position_after=150000.0,
+                        cash_before=500000.0,
+                        cash_after=350000.0,
                     )
                 ],
                 participant_states=[
@@ -74,6 +84,8 @@ class SimulationLedgerServiceTestCase(unittest.TestCase):
         self.assertEqual(len(action_log.entries), 1)
         self.assertEqual(action_log.entries[0].actor_id, "retail_fast_money:fast_momentum")
         self.assertEqual(action_log.entries[0].target_id, "LITHIUM")
+        self.assertEqual(action_log.entries[0].target_symbol, "LITHIUM")
+        self.assertEqual(action_log.entries[0].order_side, "buy")
 
         snapshots = self.ledger.load_state_snapshots("evt-demo")
         self.assertEqual(snapshots.status, "ready")
