@@ -27,6 +27,6 @@
     "eslint": "^9.22.0",
     "eslint-config-next": "^15.2.0",
     "typescript": "^5.8.2",
-    "vitest": "^3.0.8"
+    "vitest": "^4.1.0"
   }
 }
